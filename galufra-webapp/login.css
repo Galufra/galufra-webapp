@@ -30,6 +30,14 @@ body {
 
 }
 
+/*manages input type on the top*/
+.loginInput {
+
+    color:darkgreen;
+    font-size: 16px;
+
+}
+
 /*right part of the top bar*/
 #boxr{
 
@@ -50,7 +58,7 @@ body {
 
 }
 
-/*button class for login (in the top bar)*/
+/*button class for the header (login,..)*/
 .button{
 
     width: 50px;
@@ -148,7 +156,8 @@ body {
 #registerForm input{
 
     float:left;
-    font-size:12px;
+    font-size:16px;
+    color: darkgreen;
     padding:4px 2px;
     width:250px;
     margin:2px 0 20px 10px;

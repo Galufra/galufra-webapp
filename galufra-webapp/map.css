@@ -28,6 +28,7 @@ body,html {
 }
 
 .ricerca{
+	font: 100.01% "Trebuchet MS",Verdana,Arial,sans-serif;
 	margin-left:100px;
 	color:gray;
 }

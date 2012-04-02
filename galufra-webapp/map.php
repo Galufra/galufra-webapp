@@ -43,8 +43,8 @@
         <div id="map_content">
 		<div id="map_canvas"></div>
 		<div id="map_side">
-			<p>Prossimi eventi</p>
-			<p>Eventi importanti</p>
+			Prossimi eventi<br>
+			Eventi importanti
 		</div>
 	</div>
         <div id="optionswindow">

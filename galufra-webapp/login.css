@@ -67,10 +67,10 @@ body {
     background-color: darkolivegreen;
     border-color: darkgreen;
     border-bottom-color: darkgreen;
-    border-right-style: hidden;
-    border-left-style: hidden;
-    border-top-style: hidden;
-    border-bottom-style: hidden;
+    border-right-style: solid;
+    /*border-left-style: solid;
+    border-top-style: solid;*/
+    border-bottom-style: solid;
     color: darkgreen;
 
 }
@@ -154,6 +154,7 @@ body {
 
 /*manages input types of the form*/
 #registerForm input{
+
 
     float:left;
     font-size:16px;

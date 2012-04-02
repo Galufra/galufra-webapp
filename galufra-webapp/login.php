@@ -36,6 +36,7 @@
                     password:
                 </label>
                 <input type="text" class="loginInput"/>
+                <button class="button">logIn</button>
             </div>
         </div>
         <div id="window"></div>

@@ -26,6 +26,12 @@ body,html {
 .button{
 	width:auto;
 }
+
+.ricerca{
+	margin-left:100px;
+	color:gray;
+}
+
 #optionswindow {
 	position:absolute;
 	top:0px;

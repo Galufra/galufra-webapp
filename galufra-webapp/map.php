@@ -10,6 +10,20 @@
 			    $("#optionswindow").toggle("slow");
 			});
 		    });
+		    $(function() {
+			$(".ricerca").click(function ( event ) {
+			    $(".ricerca").val("");
+			    $(".ricerca").css("color","black");
+		
+			});
+		    });
+		    $(function() {
+			$(".ricerca").focusout(function ( event ) {
+			    $(".ricerca").css("color","gray");
+			    $(".ricerca").val("Cerca...");
+		
+			});
+		    });
 		</script>
 	        <script type="text/javascript"
 	            src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAO2zXC0wh-S8SjMgPRZfoTUGZMGHBIzZ0&sensor=false"></script>
@@ -33,8 +47,7 @@
 	<body onload="initialize()">
         <div id="box">
             <div id="boxl">
-                <label><b>Cerca:</b></label>
-		<input type="text" class="loginInput"/>
+		<input type="text" class="ricerca" value="Cerca..." />
             </div>
             <div id="boxr">
                     <button class="button" id="options">Username</button>

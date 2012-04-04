@@ -26,6 +26,13 @@ body,html {
 .button{
 	width:auto;
 }
+
+.ricerca{
+	font: 100.01% "Trebuchet MS",Verdana,Arial,sans-serif;
+	margin-left:100px;
+	color:gray;
+}
+
 #optionswindow {
 	position:absolute;
 	top:0px;

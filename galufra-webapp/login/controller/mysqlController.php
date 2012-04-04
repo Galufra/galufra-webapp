@@ -3,6 +3,18 @@
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
+ *
+ *
+ * each one method returns an array with two fields:
+ *
+ *  result[0] - true/false whether or not the method accomplishes its work
+ *
+ *  result[1] - provides a description message of the result (error or not)
+ *              except for makeQuery() in which provides the results
+ *              of the query
+ *
+ *
+ *
  */
 require_once 'exception/dbException.php';
 require_once 'dbController.php';
@@ -53,7 +65,7 @@ class mysqlController implements dbController {
 
             try {
 
-                $result = @mysql_query($query);
+                $query = @mysql_query($query);
 
                 if ($result == NULL){
 
@@ -62,7 +74,7 @@ class mysqlController implements dbController {
                 else{
 
                     $result[0]=true;
-                    $result[1]="querying occurred!";
+                    $result[1]=$query;
                     return $result;
 
                 }

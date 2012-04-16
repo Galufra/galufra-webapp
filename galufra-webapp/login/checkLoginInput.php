@@ -1,46 +1,65 @@
 <?php
-/* 
+
+/*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-include ("controller/mysqlController.php");
+require_once ("controller/authController.php");
 
- $db = new mysqlController();
+$auth = new Authorization();
+list($status, $user) = $auth->getStatus();
 
- $result = $db->connect();
- if($result[0]==false){
+if ($status == AUTH_NOT_LOGGED) {
+    $uname = trim($_POST['username']);
+    $pwd = trim($_POST['password']);
+    if (get_magic_quotes_gpc ()) {
 
-     echo ("Error in ".$result[1]);
-     /*$mex = urlencode('wrong user or password!');
-       header("location: $_SERVER[PHP_SELF]?msg=$mex");*/
-     exit;
- }
+        $uname = stripslashes($uname);
+        $pwd = stripslashes($pwd);
+    }
 
- $uname = trim($_POST['username']);
- $pwd = trim($_POST['password']);
+    $uname = mysql_real_escape_string($uname);
+    $pwd = mysql_real_escape_string($pwd);
 
- if (get_magic_quotes_gpc ()){
+    if ($uname == "" or $pwd == "") {
 
-     $uname = stripslashes($uname);
-     $pwd = stripslashes($pwd);
+        $status = AUTH_INVALID_PARAMS;
 
- }
+    } else {
 
- $uname = mysql_real_escape_string($uname);
- $pwd = mysql_real_escape_string($pwd);
+        list($status, $user) = $auth->Login($uname, $pwd);
+        if (!is_null($user)) {
 
- $query = $db->makeQuery("SELECT id FROM utenti WHERE user='$uname' AND password=MD5('$pwd')");
+            list($status, $uid) = $auth->registerSession($user);
+        }
+    }
+}
 
- if( !$query[0] ){
-
-     echo ("Error in ".$query[1]);
-     /*$mex = urlencode('wrong user or password!');
-       header("location: $_SERVER[PHP_SELF]?msg=$mex");*/
-     exit;
- }
-
- $result = mysql_fetch_array($query[1]);
-
- /*session start ...*/
-
+switch ($status) {
+    case AUTH_LOGGED:
+        echo '<div align="center">Sei gia connesso ... </div>';
+        break;
+    case AUTH_INVALID_PARAMS:
+        echo '<div align="center">Hai inserito dati non corretti ... </div>';
+        break;
+    case AUTH_LOGEDD_IN:
+        switch ($auth->getOption("TRANSICTION METHOD")) {
+            case AUTH_USE_LINK:
+                //header("Refresh: 5;URL=home.php?uid=" . $uid);
+                break;
+            case AUTH_USE_COOKIE:
+                echo "cooking!";
+                setcookie('uid', $uid, time() + 3600 * 365);
+                break;
+            case AUTH_USE_SESSION:
+                //header("Refresh: 5;URL=home.php");
+                //$_SESSION['uid'] = $uid;
+                break;
+        }
+        echo '<div align="center">Ciao ' . $user['nome'] . ' ...</div>';
+        break;
+    case AUTH_FAILED:
+        echo '<div align="center">Fallimento durante il tentativo di connessione</div>';
+        break;
+}
 ?>

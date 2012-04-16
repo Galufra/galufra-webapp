@@ -5,7 +5,7 @@
  * and open the template in the editor.
  *
  *
- * each one method returns an array with two fields:
+ * each one methods returns an array with two fields:
  *
  *  result[0] - true/false whether or not the method accomplishes its work
  *
@@ -16,15 +16,19 @@
  *
  *
  */
+
 require_once 'exception/dbException.php';
 require_once 'dbController.php';
 
 class mysqlController implements dbController {
 
-    private static $host = "localhost";
-    private static $username = "root";
-    private static $password = "nonlascrivolapassword";
-    private static $dbname = "db";
+    public static $_CONFIG = array(
+        'host' => "localhost",
+        'username' => "root",
+        'password' => "r00tdir31",
+        'dbname' => "galufra"
+        );
+
     private $up; //boolean
 
     function __construct() {
@@ -32,32 +36,32 @@ class mysqlController implements dbController {
     }
 
     public function connect() {
+
         if (!$this->up) {
             try {
-
-                $result = @mysql_connect(mysqlController::$host, mysqlController::$username, mysqlController::$password);
+                                        
+                $result = @mysql_connect(mysqlController::$_CONFIG['host'], mysqlController::$_CONFIG['username'], mysqlController::$_CONFIG['password']);
                 if ($result == NULL) {
 
                     throw new dbException("Connect()", false);
                 }
 
 
-                $result = @mysql_select_db($this->dbname);
+                $result = @mysql_select_db(mysqlController::$_CONFIG['dbname']);
                 if ($result == NULL) {
 
                     throw new dbException("mysql_select_db()", false);
                 }
 
                 $this->up = TRUE;
-                $result[0]=true;
-                $result[1]="Connection successfull!";
+                
             } catch (dbException $ex) {
 
-                $result[0] = $ex->getCode();
-                $result[1] = $ex->getMessage();
-                return $result;
+                return array($ex->getCode(),$ex->getMessage());
             }
         }
+
+        return array(true,"connection successfull!");
     }
 
     public function makeQuery($query) {
@@ -67,28 +71,23 @@ class mysqlController implements dbController {
 
                 $query = @mysql_query($query);
 
-                if ($result == NULL){
+                if ($query == NULL){
 
                     throw new dbException("makeQuery()", false);
                 }
                 else{
 
-                    $result[0]=true;
-                    $result[1]=$query;
-                    return $result;
+                    return array(true,$query);
+
 
                 }
             } catch (dbException $ex) {
 
-                $result[0] = $ex->getCode();
-                $result[1] = $ex->getMessage();
-                return $result;
+                return array($ex->getCode(),$ex->getMessage());
             }
         } else {
 
-            $result[0] = false;
-            $result[1] = "in isUp()";
-            return $result;
+            return array(false,"isUp()");
 
         }
     }
@@ -102,15 +101,13 @@ class mysqlController implements dbController {
                 throw new dbException("close()", false);
             else{
 
-                $result[0]=true;
-                $result[1]="connection closed!";
+                $this->up=false;
+                return array(true,"connection closed!");
 
             }
         } catch (dbException $ex) {
 
-            $result[0] = $ex->getCode();
-            $result[1] = $ex->getMessage();
-            return $result;
+            return array($ex->getCode(),$ex->getMessage());
         }
     }
 

@@ -9,9 +9,16 @@ require_once ('controller/regController.php');
 $reg = new regController();
 
 if (isset($_GET['id']) AND strlen($_GET['id']) == 32) {
-    
+
+    $uid = trim($_GET['id']);
+    if (get_magic_quotes_gpc ())
+        $uid = stripslashes ($uid);
+
+    $uid = mysql_escape_string($uid);
+
     $reg->cleanExpired();
-    $result = $reg->Confirm($_GET['id']);
+
+    $result = $reg->Confirm($uid);
 
 
     switch ($status) {

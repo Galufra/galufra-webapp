@@ -25,6 +25,7 @@ if(isset($_POST['action']) AND $_POST['action']=='send'){
         $name = stripslashes($name);
         $surname = stripslashes($surname);
         $city = stripslashes($city);
+        $email = stripslashes($email);
     }
 
     $uname = mysql_real_escape_string($uname);
@@ -32,8 +33,21 @@ if(isset($_POST['action']) AND $_POST['action']=='send'){
     $name = mysql_real_escape_string($name);
     $surname = mysql_real_escape_string($surname);
     $city = mysql_real_escape_string($city);
+    $email = mysql_real_escape_string($email);
 
-    $status = $reg->register($_POST);
+    $data = array (
+
+        "uname"=>$uname,
+        "pwd"=>$pwd,
+        "name"=>$name,
+        "sname"=>$surname,
+        "city"=>$city,
+        "email"=>$email
+
+
+
+    );
+    $status = $reg->register($data);
 
     switch ($status) {
 

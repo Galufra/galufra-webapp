@@ -1,8 +1,8 @@
 <?php
 
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * 
+ * 
  */
 require_once ("controller/authController.php");
 
@@ -45,15 +45,13 @@ switch ($status) {
     case AUTH_LOGEDD_IN:
         switch ($auth->getOption("TRANSICTION METHOD")) {
             case AUTH_USE_LINK:
-                //header("Refresh: 5;URL=home.php?uid=" . $uid);
+
                 break;
             case AUTH_USE_COOKIE:
-                echo "cooking!";
                 setcookie('uid', $uid, time() + 3600 * 365);
                 break;
             case AUTH_USE_SESSION:
-                //header("Refresh: 5;URL=home.php");
-                //$_SESSION['uid'] = $uid;
+
                 break;
         }
         echo '<div align="center">Ciao ' . $user['nome'] . ' ...</div>';

@@ -25,7 +25,7 @@ class mysqlController implements dbController {
     public static $_CONFIG = array(
         'host' => "localhost",
         'username' => "root",
-        'password' => "r00tdir31",
+        'password' => "------",
         'dbname' => "galufra"
         );
 

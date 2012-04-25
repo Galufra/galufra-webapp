@@ -36,8 +36,8 @@ class regController {
         //null value is checked by javascript
 
         $result = $this->mysql->makeQuery(
-                        "SELECT id FROM " . Authorization::$_TABLE["user_table"] . "
-	WHERE username='" . $value . "'"
+            "SELECT id FROM " . Authorization::$_TABLE["user_table"] . "
+            WHERE username='" . $value . "'"
         );
 
         if ($result[0]) {

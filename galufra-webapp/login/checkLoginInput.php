@@ -5,6 +5,7 @@
  * 
  */
 require_once ("controller/authController.php");
+require_once ("controller/permissionController.php");
 
 $auth = new Authorization();
 list($status, $user) = $auth->getStatus();
@@ -28,33 +29,24 @@ if ($status == AUTH_NOT_LOGGED) {
     } else {
 
         list($status, $user) = $auth->Login($uname, $pwd);
-        if (!is_null($user)) {
-
-            list($status, $uid) = $auth->registerSession($user);
-        }
+        
     }
 }
 
+$perm = new permissionController();
+$permission = $perm->getUserPermission($_SESSION['user_id']);
+
 switch ($status) {
     case AUTH_LOGGED:
-        echo '<div align="center">Sei gia connesso ... </div>';
+        echo '<div align="center">'.$user['nome'].' sei gia connesso ... </div>';
+        echo '<div align="center">Sei un '.$permission['descrizione'].'</div>';
         break;
     case AUTH_INVALID_PARAMS:
         echo '<div align="center">Hai inserito dati non corretti ... </div>';
         break;
     case AUTH_LOGEDD_IN:
-        switch ($auth->getOption("TRANSICTION METHOD")) {
-            case AUTH_USE_LINK:
-
-                break;
-            case AUTH_USE_COOKIE:
-                setcookie('uid', $uid, time() + 3600 * 365);
-                break;
-            case AUTH_USE_SESSION:
-
-                break;
-        }
         echo '<div align="center">Ciao ' . $user['nome'] . ' ...</div>';
+        echo '<div align="center">Sei '.$permission['descrizione'].'</div>';
         break;
     case AUTH_FAILED:
         echo '<div align="center">Fallimento durante il tentativo di connessione</div>';

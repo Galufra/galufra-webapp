@@ -19,7 +19,7 @@ body,html {
 }
 .map_side {
 	width:20px;
-	background:white;
+	background-color:white;
 	float:right;
 }
 
@@ -38,8 +38,8 @@ body,html {
 	top:0px;
 	left:0px;
 	display:none;
-	background:black;
-    	width: 200px;
-    	height: 200px;
+	background-color:black;
+    width: 200px;
+    height: 200px;
 }
 

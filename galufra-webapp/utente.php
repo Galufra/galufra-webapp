@@ -16,11 +16,11 @@ class utente {
 	 * Una query fallita restituisce false.
 	 */
 	private function Query($attr){
-		$attr = mysql_real_escape_string($attr);
-		$query = "SELECT ". $attr ." FROM utente
-				  WHERE utente.id_utente =". $this->id.";"
 		$db = new mysqlController();
 		$db->connect();
+		$attr = mysql_real_escape_string($attr);
+		$query = "SELECT ". $attr ." FROM utente
+				  WHERE utente.id_utente =". $this->id.";";
 		$result = $db->makeQuery($query);
 		$db->close();
 		/* Query riuscita: restituzione

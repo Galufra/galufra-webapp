@@ -17,7 +17,7 @@
  *
  */
 
-require_once 'exception/dbException.php';
+require_once realpath( dirname( __FILE__ ) ).'/../exception/dbException.php';
 require_once 'dbController.php';
 
 class mysqlController implements dbController {
@@ -25,7 +25,7 @@ class mysqlController implements dbController {
     public static $_CONFIG = array(
         'host' => "localhost",
         'username' => "root",
-        'password' => "------",
+        'password' => "M3n1n431d3",
         'dbname' => "galufra"
         );
 

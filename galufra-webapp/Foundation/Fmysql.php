@@ -17,7 +17,7 @@
  *
  */
 
-require_once '../exception/dbException.php';
+require_once 'exception/dbException.php';
 require_once 'Fdb.php';
 
 class Fmysql implements Fdb {
@@ -33,7 +33,7 @@ class Fmysql implements Fdb {
     public static $_CONFIG = array(
         'host' => "localhost",
         'username' => "root",
-        'password' => "-----",
+        'password' => "----",
         'dbname' => "galufra"
     );
 
@@ -177,10 +177,9 @@ class Fmysql implements Fdb {
 
     /*loads an object (entity)*/
     public function load($k) {
-
         $query = 'SELECT * ' .
                 'FROM `' . $this->_table . '` ' .
-                'WHERE `' . $this->_key . '` = \'' . $k . '\'';
+                'WHERE `' . $this->_key . '` = "' . $k . '"';
         $r = $this->makeQuery($query);
         if($r[0])
             return array(true,$this->getObject());

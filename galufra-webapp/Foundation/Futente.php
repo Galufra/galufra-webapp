@@ -7,8 +7,7 @@ class FUtente extends Fmysql {
         parent::__construct();
         $this->_table = 'utente';
         $this->_key = 'username';
-        $this->_return_class = 'EUtente';
-
+        $this->_class = 'EUtente';
     }
 
 }

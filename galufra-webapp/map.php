@@ -1,16 +1,18 @@
 <?php
 require_once('Foundation/Futente.php');
-require_once('utente.php');
+require_once('Entity/EUtente.php');
 
 /*
- * per ora faccio qualche prova impostando lo username a mano
+ * Per ora faccio qualche prova impostando lo username a mano.
+ * Secondo me dovremmo evitare di restituire un array ad ogni funzione
+ * di Foundation... Direi che basterebbe restituire il valore in caso
+ * positivo o false altrimenti
  */
 $u = new Futente();
 $u->connect();
-$load = $u->load('luca');
-if($load[0])
-    $utente = $load[1];
-echo serialize($load);
+$l = $u->load('luca');
+$utente = $l[1][1];
+
 ?>
 <!DOCTYPE html>
 <html>

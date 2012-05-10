@@ -1,9 +1,16 @@
 <?php
+require_once('Foundation/Futente.php');
 require_once('utente.php');
+
 /*
- * per ora faccio qualche prova impostando l'id a mano
+ * per ora faccio qualche prova impostando lo username a mano
  */
-$u = new utente(12);
+$u = new Futente();
+$u->connect();
+$load = $u->load('luca');
+if($load[0])
+    $utente = $load[1];
+echo serialize($load);
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,17 +26,17 @@ $u = new utente(12);
 				$("#options").click(function ( event ) {
 					o = $("#options").offset();
 					o.top +=$("#options").height()
-					$("#optionswindow").offset(o);
-					$("#optionswindow").toggle("slow");
+					$("#optionswindow").offset(o)
+					.toggle("slow");
 				});
 				$(".ricerca").click(function ( event ) {
-					$(".ricerca").val("");
-					$(".ricerca").css("color","black");
+					$(".ricerca").val("")
+					.css("color","black");
 			
 				});
 				$(".ricerca").focusout(function ( event ) {
-					$(".ricerca").css("color","gray");
-					$(".ricerca").val("Cerca...");
+					$(".ricerca").css("color","gray")
+					.val("Cerca...");
 				});
 			});
 		</script>
@@ -45,7 +52,7 @@ $u = new utente(12);
          			mapTypeId: google.maps.MapTypeId.ROADMAP
         		};
         		map = new google.maps.Map(document.getElementById('map_canvas'), myOptions);
-        		citta = "<?php echo $u->getCitta(); ?>";
+        		citta = "<?php echo $utente->getCitta(); ?>";
         		geocoder.geocode(
 					{'address': citta},
 					function(results, status) {

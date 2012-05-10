@@ -1,5 +1,5 @@
 <?php
-
+require_once('Fmysql.php');
 
 class FUtente extends Fmysql {
 

@@ -1,6 +1,6 @@
 <?php
 
-class utente {
+class EUtente {
 
 	private $id = null;
 	private $username = null;

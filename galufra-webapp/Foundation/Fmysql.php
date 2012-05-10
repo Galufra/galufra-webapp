@@ -25,7 +25,7 @@ class Fmysql implements Fdb {
     private $up; //boolean
     private $_connection;
     private $_query;
-    private $_table;
+    protected $_table;
     protected $_key;
     protected $_class;
     protected $_is_an_autoincrement_key = false;
@@ -33,7 +33,7 @@ class Fmysql implements Fdb {
     public static $_CONFIG = array(
         'host' => "localhost",
         'username' => "root",
-        'password' => "----",
+        'password' => "M3n1n431d3",
         'dbname' => "galufra"
     );
 
@@ -46,14 +46,16 @@ class Fmysql implements Fdb {
         if (!$this->up) {
             try {
 
-                $result = @mysql_connect(mysqlController::$_CONFIG['host'], mysqlController::$_CONFIG['username'], mysqlController::$_CONFIG['password']);
+                $result = @mysql_connect(Fmysql::$_CONFIG['host'],
+                                         Fmysql::$_CONFIG['username'],
+                                         Fmysql::$_CONFIG['password']);
                 if ($result == NULL) {
 
                     throw new dbException("Connect()", false);
                 }
 
 
-                $result = @mysql_select_db(mysqlController::$_CONFIG['dbname']);
+                $result = @mysql_select_db(Fmysql::$_CONFIG['dbname']);
                 if ($result == NULL) {
 
                     throw new dbException("mysql_select_db()", false);
@@ -114,8 +116,8 @@ class Fmysql implements Fdb {
      */
 
     public function getObject() {
-        if (@mysql_num_rows($this->_query) > 0) {
-            $result = @mysql_fetch_object($this->_query, $this->_class);
+        if (mysql_num_rows($this->_query) > 0) {
+            $result = mysql_fetch_object($this->_query, $this->_class);            
             $this->_query = false;
             return array(true,$result);
         }

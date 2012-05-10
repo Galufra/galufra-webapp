@@ -158,8 +158,8 @@ class Fmysql implements Fdb {
                     $values = '`' . $val . '`';
                     $fields = '\'' . $k . '\'';
                 } else {
-                    $fields.=', `' . $key . '`';
-                    $values.=', \'' . $value . '\'';
+                    $fields.=', `' . $k . '`';
+                    $values.=', \'' . $val . '\'';
                 }
                 $i++;
             }
@@ -204,11 +204,11 @@ class Fmysql implements Fdb {
         $i = 0;
         $fields = '';
         foreach ($object as $k => $val) {
-            if (!($k == $this->_key) && substr($key, 0, 1) != '_') {
+            if (!($k == $this->_key) && substr($k, 0, 1) != '_') {
                 if ($i == 0) {
-                    $fields.='`' . $key . '` = \'' . $value . '\'';
+                    $fields.='`' . $k . '` = \'' . $val . '\'';
                 } else {
-                    $fields.=', `' . $key . '` = \'' . $value . '\'';
+                    $fields.=', `' . $k . '` = \'' . $val . '\'';
                 }
                 $i++;
             }

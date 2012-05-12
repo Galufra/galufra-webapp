@@ -73,6 +73,10 @@ class EEvento{
 	public function setLocale($locale){
 		$this->locale = $locale;
 	}
+    
+    public function getCoord(){
+        
+    }
 }
 
 ?>

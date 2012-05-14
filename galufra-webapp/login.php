@@ -60,7 +60,7 @@
                                 <span class="suggest">ins. Email valida</span>
                             </label>
                             <input type="text" name="textfield" id="textfield" tabindex="3" />
-                            <button class="button" tabindex="4"></button>
+                            <button class="button" tabindex="4">ok</button>
                         </form>
                     </div><!--/loginForm-->
 

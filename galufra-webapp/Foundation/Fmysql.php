@@ -137,7 +137,7 @@ class Fmysql implements Fdb {
             return array(true,$result);
         }
         else
-            return array(false,"getArrayObject");
+            return array(false,"getArrayObject()");
     }
 
 

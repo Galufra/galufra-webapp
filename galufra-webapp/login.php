@@ -28,15 +28,17 @@
                 <button class="button hide"><b>hide</b></button>
             </div>
             <div id="boxr">
+                <form name="loginForm" method="post" action="loginController.php">
                 <label>
                     username:                    
                 </label>
-                <input type="text" class="loginInput"/>
+                <input type="text" class="loginInput" name="username"/>
                 <label>
                     password:
                 </label>
-                <input type="text" class="loginInput"/>
-                <button class="button">logIn</button>
+                <input type="text" class="loginInput" name="password"/>
+                <input type="submit" class="button">logIn</button>
+                </form>
             </div>
         </div>
         <div id="window"></div>

@@ -17,7 +17,7 @@
  *
  */
 
-require_once 'exception/dbException.php';
+require_once '../exception/dbException.php';
 require_once 'Fdb.php';
 
 class Fmysql implements Fdb {
@@ -33,7 +33,7 @@ class Fmysql implements Fdb {
     public static $_CONFIG = array(
         'host' => "localhost",
         'username' => "root",
-        'password' => "------",
+        'password' => "----",
         'dbname' => "galufra"
     );
 

@@ -1,8 +1,8 @@
 <?php
-require_once('Foundation/Futente.php');
-require_once('Entity/EUtente.php');
+require_once('../Foundation/Futente.php');
+require_once('../Entity/EUtente.php');
 
-class CMap{
+class CHome{
 private $utente;
 
 public function __construct(){
@@ -11,7 +11,7 @@ public function __construct(){
     $u = new Futente();
     $u->connect();
     $l = $u->load('luca');
-    $this->utente = $l[1][1];
+    $this->utente = $l[1][1]; 
     /* Se "action" non è impostato, eseguiremo il comportamento
      * di default nello switch successivo.
      */
@@ -76,7 +76,7 @@ public function __construct(){
     }
 }
 
-$map= new CMap();
+$home= new CHome();
 ?>
 <!DOCTYPE html>
 <html>
@@ -124,7 +124,7 @@ $map= new CMap();
          			mapTypeId: google.maps.MapTypeId.ROADMAP
         		};
         		map = new google.maps.Map(document.getElementById('map_canvas'), myOptions);
-        		citta = "<?php echo $map->getUtente()->getCitta(); ?>";
+        		citta = "<?php echo $home->getUtente()->getCitta(); ?>";
         		geocoder.geocode(
 					{'address': citta},
 					function(results, status) {
@@ -150,7 +150,7 @@ $map= new CMap();
 			Eventi importanti
 		</div>
 		<div id="optionswindow">
-			<?php echo $map->getUtente()->getNome()."<br />";  ?>
+			<?php echo $home->getUtente()->getNome()."<br />";  ?>
 			Impostazioni<br/>
 			Logout
 		</div>

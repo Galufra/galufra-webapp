@@ -1,5 +1,5 @@
 <?php
-require_once('../Foundation/Futente.php');
+require_once('../Foundation/FUtente.php');
 require_once('../Entity/EUtente.php');
 
 class CHome{

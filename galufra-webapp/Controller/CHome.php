@@ -1,6 +1,8 @@
 <?php
 require_once('../Foundation/FUtente.php');
+require_once('../Foundation/FEvento.php');
 require_once('../Entity/EUtente.php');
+require_once('../Entity/EEvento.php');
 
 class CHome{
 private $utente;
@@ -41,7 +43,31 @@ public function __construct(){
      *
      */
     public function getEventi(){
-        echo 'getEventi()';
+		$domtree = new DOMDocument('1.0', 'UTF-8');
+		$xmlRoot = $domtree->createElement("xml");
+        $xmlRoot = $domtree->appendChild($xmlRoot);
+        $ev = new FEvento();
+        $ev->connect();
+        $ev_array = $ev->searchEventi();
+        //~ foreach ($ev_array[1][1] as $key => $val)
+			//~ echo $key . '=>' . gettype($val);
+        foreach ($ev_array[1][1] as $evento){
+			$xmlEvento = $domtree->createElement("evento");
+			$xmlEvento = $xmlRoot->appendChild($xmlEvento);
+			$xmlEvento->appendChild(
+				$domtree->createElement('id', $evento->getIdEvento())
+			);
+			$xmlEvento->appendChild(
+				$domtree->createElement('nome', $evento->getNome())
+			);
+			$xmlEvento->appendChild(
+				$domtree->createElement('lat', $evento->getLat())
+			);
+			$xmlEvento->appendChild(
+				$domtree->createElement('lon', $evento->getLon())
+			);
+		}
+        echo $domtree->saveXML();
         /* Dovremo caricare in un array $ev_array tutti gli eventi
          * WHERE 
          * lat BETWEEN lat1 and lat2 AND

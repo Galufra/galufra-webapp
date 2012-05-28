@@ -1,6 +1,7 @@
 <?php
+require_once('FMysql.php');
 
-class Flocale extends Fmysql {
+class Flocale extends FMysql {
 
     public function __construct() {
         parent::__construct();

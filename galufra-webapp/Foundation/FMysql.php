@@ -18,9 +18,9 @@
  */
 
 require_once '../exception/dbException.php';
-require_once 'Fdb.php';
+require_once 'FDb.php';
 
-class Fmysql implements Fdb {
+class FMysql implements FDb {
 
     private $up; //boolean
     private $_connection;
@@ -46,16 +46,16 @@ class Fmysql implements Fdb {
         if (!$this->up) {
             try {
 
-                $result = @mysql_connect(Fmysql::$_CONFIG['host'],
-                                         Fmysql::$_CONFIG['username'],
-                                         Fmysql::$_CONFIG['password']);
+                $result = @mysql_connect(FMysql::$_CONFIG['host'],
+                                         FMysql::$_CONFIG['username'],
+                                         FMysql::$_CONFIG['password']);
                 if ($result == NULL) {
 
                     throw new dbException("Connect()", false);
                 }
 
 
-                $result = @mysql_select_db(Fmysql::$_CONFIG['dbname']);
+                $result = @mysql_select_db(FMysql::$_CONFIG['dbname']);
                 if ($result == NULL) {
 
                     throw new dbException("mysql_select_db()", false);

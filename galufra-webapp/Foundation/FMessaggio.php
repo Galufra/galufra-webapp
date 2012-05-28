@@ -1,11 +1,7 @@
 <?php
+require_once('FMysql.php');
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-class FMessaggio extends Fmysql {
+class FMessaggio extends FMysql {
 
     public function __construct() {
         parent::__construct();

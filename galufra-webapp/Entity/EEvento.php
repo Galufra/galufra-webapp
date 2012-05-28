@@ -10,6 +10,8 @@ class EEvento {
     private $n_iscritti = null;
     private $gestore = null;
     private $locale = null;
+    private $lat = null;
+    private $lon = null;
 
     public function getIdEvento() {
         return $this->id_evento;
@@ -75,8 +77,12 @@ class EEvento {
         $this->locale = $locale;
     }
 
-    public function getCoord() {
-        
+    public function getLat() {
+		return $this->lat;
+    }
+    
+    public function getLon() {
+		return $this->lon;
     }
 
 }

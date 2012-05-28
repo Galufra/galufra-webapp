@@ -33,7 +33,7 @@ class FMysql implements FDb {
     public static $_CONFIG = array(
         'host' => "localhost",
         'username' => "root",
-        'password' => "----",
+        'password' => "M3n1n431d3",
         'dbname' => "galufra"
     );
 
@@ -130,8 +130,8 @@ class FMysql implements FDb {
      * 
      */
 
-    public function getArrayObject() {
-        if (@mysql_num_rows($this->_query > 0)) {
+    public function getObjectArray() {
+        if (mysql_num_rows($this->_query) > 0) {
             $result = array();
             while ($row = mysql_fetch_object($this->_query, $this->_class))
                 $result[] = $row;
@@ -139,7 +139,7 @@ class FMysql implements FDb {
             return array(true,$result);
         }
         else
-            return array(false,"getArrayObject");
+            return array(false,"getObjectArray");
     }
 
 

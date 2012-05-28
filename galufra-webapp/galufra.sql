@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generato il: Apr 25, 2012 alle 13:24
+-- Generato il: Mag 28, 2012 alle 19:57
 -- Versione del server: 5.5.16
 -- Versione PHP: 5.3.8
 
@@ -35,11 +35,21 @@ CREATE TABLE IF NOT EXISTS `evento` (
   `n_iscritti` int(11) NOT NULL DEFAULT '0',
   `gestore` int(11) NOT NULL,
   `locale` int(11) NOT NULL,
+  `lat` float NOT NULL,
+  `lon` float NOT NULL,
   PRIMARY KEY (`id_evento`),
   UNIQUE KEY `nome` (`nome`,`data`),
   KEY `gestore` (`gestore`),
   KEY `locale` (`locale`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+--
+-- Dump dei dati per la tabella `evento`
+--
+
+INSERT INTO `evento` (`id_evento`, `nome`, `descrizione`, `data`, `n_visite`, `n_iscritti`, `gestore`, `locale`, `lat`, `lon`) VALUES
+(3, 'prova1', 'Prova :)', '2012-05-29', 0, 0, 1, 1, 16, 18),
+(5, 'prova 2', 'ciao', '2012-05-31', 0, 0, 1, 1, 12, 22);
 
 -- --------------------------------------------------------
 
@@ -50,7 +60,14 @@ CREATE TABLE IF NOT EXISTS `evento` (
 CREATE TABLE IF NOT EXISTS `gestore` (
   `id_gestore` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id_gestore`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dump dei dati per la tabella `gestore`
+--
+
+INSERT INTO `gestore` (`id_gestore`) VALUES
+(1);
 
 -- --------------------------------------------------------
 
@@ -73,6 +90,7 @@ CREATE TABLE IF NOT EXISTS `iscrizioni` (
 
 CREATE TABLE IF NOT EXISTS `locale` (
   `id_locale` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(32) NOT NULL,
   `latitudine` varchar(30) DEFAULT NULL,
   `longitudine` varchar(30) DEFAULT NULL,
   `via` varchar(30) NOT NULL,
@@ -81,7 +99,14 @@ CREATE TABLE IF NOT EXISTS `locale` (
   `CAP` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_locale`),
   UNIQUE KEY `via` (`via`,`citta`,`CAP`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dump dei dati per la tabella `locale`
+--
+
+INSERT INTO `locale` (`id_locale`, `nome`, `latitudine`, `longitudine`, `via`, `n_civico`, `citta`, `CAP`) VALUES
+(1, 'The Example', NULL, NULL, 'Via Fasulla', NULL, 'L''Aquila', NULL);
 
 -- --------------------------------------------------------
 
@@ -188,27 +213,6 @@ INSERT INTO `utente` (`id_utente`, `username`, `password`, `nome`, `cognome`, `e
 ALTER TABLE `evento`
   ADD CONSTRAINT `evento_ibfk_1` FOREIGN KEY (`gestore`) REFERENCES `gestore` (`id_gestore`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `evento_ibfk_2` FOREIGN KEY (`locale`) REFERENCES `locale` (`id_locale`);
-
---
--- Limiti per la tabella `iscrizioni`
---
-ALTER TABLE `iscrizioni`
-  ADD CONSTRAINT `iscrizioni_ibfk_1` FOREIGN KEY (`evento`) REFERENCES `evento` (`id_evento`),
-  ADD CONSTRAINT `iscrizioni_ibfk_2` FOREIGN KEY (`utente`) REFERENCES `utente` (`id_utente`);
-
---
--- Limiti per la tabella `messaggio`
---
-ALTER TABLE `messaggio`
-  ADD CONSTRAINT `messaggio_ibfk_1` FOREIGN KEY (`evento`) REFERENCES `evento` (`id_evento`),
-  ADD CONSTRAINT `messaggio_ibfk_2` FOREIGN KEY (`utente`) REFERENCES `utente` (`id_utente`);
-
---
--- Limiti per la tabella `preferisce`
---
-ALTER TABLE `preferisce`
-  ADD CONSTRAINT `preferisce_ibfk_1` FOREIGN KEY (`utente`) REFERENCES `utente` (`id_utente`),
-  ADD CONSTRAINT `preferisce_ibfk_2` FOREIGN KEY (`locale`) REFERENCES `locale` (`id_locale`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

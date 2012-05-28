@@ -1,6 +1,7 @@
 <?php
+require_once('FMysql.php');
 
-class Fevento extends Fmysql {
+class Fevento extends FMysql {
 
     public function __construct() {
         parent::__construct();

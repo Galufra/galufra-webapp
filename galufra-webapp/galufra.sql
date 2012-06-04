@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generato il: Mag 28, 2012 alle 19:57
+-- Generato il: Giu 04, 2012 alle 15:43
 -- Versione del server: 5.5.16
 -- Versione PHP: 5.3.8
 
@@ -35,8 +35,8 @@ CREATE TABLE IF NOT EXISTS `evento` (
   `n_iscritti` int(11) NOT NULL DEFAULT '0',
   `gestore` int(11) NOT NULL,
   `locale` int(11) NOT NULL,
-  `lat` float NOT NULL,
-  `lon` float NOT NULL,
+  `lat` double NOT NULL,
+  `lon` double NOT NULL,
   PRIMARY KEY (`id_evento`),
   UNIQUE KEY `nome` (`nome`,`data`),
   KEY `gestore` (`gestore`),
@@ -48,8 +48,8 @@ CREATE TABLE IF NOT EXISTS `evento` (
 --
 
 INSERT INTO `evento` (`id_evento`, `nome`, `descrizione`, `data`, `n_visite`, `n_iscritti`, `gestore`, `locale`, `lat`, `lon`) VALUES
-(3, 'prova1', 'Prova :)', '2012-05-29', 0, 0, 1, 1, 16, 18),
-(5, 'prova 2', 'ciao', '2012-05-31', 0, 0, 1, 1, 12, 22);
+(3, 'prova1', 'Prova :)', '2012-05-29', 0, 0, 1, 1, 42.3508415222168, 13.398554801940918),
+(5, 'prova 2', 'ciao', '2012-05-31', 0, 0, 1, 1, 42.34904861450195, 13.398882865905762);
 
 -- --------------------------------------------------------
 

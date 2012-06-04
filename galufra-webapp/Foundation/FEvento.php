@@ -10,10 +10,10 @@ class FEvento extends FMysql {
         $this->_class = 'EEvento';
     }
     
-    public function searchEventi(){
+    public function searchEventi($neLat, $neLon, $swLat, $swLon){
 		return $this->search(array(
-			array('lat', '>', 0),
-			array('lon', '>', 0) 
+			array('lat', 'BETWEEN', "$swLat' AND '$neLat"),
+			array('lon', 'BETWEEN', "$swLon' AND '$neLon") 
 			));
 		
 	}

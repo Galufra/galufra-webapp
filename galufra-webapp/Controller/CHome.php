@@ -21,7 +21,10 @@ public function __construct(){
         $_GET['action'] = '';
     switch($_GET['action']){
         case('getEventi'):
-            $this->getEventi();
+            $this->getEventi(
+				$_GET['neLat'], $_GET['neLon'],
+				$_GET['swLat'], $_GET['swLon']
+				);
             break;
         /* default: in futuro stamperà la pagina con una classe view VMap
          * Per ora un semplice break; ci porta fuori dallo switch
@@ -35,6 +38,7 @@ public function __construct(){
     /* 
      * Restituisce gli eventi che $this->utente può visualizzare
      * nella zona da (lat1, lon1) a (lat2, lon2)
+     * (per ora carica tutti gli eventi)
      *   1+-------
      *    |      |
      *    | Map  |
@@ -42,15 +46,13 @@ public function __construct(){
      *    -------+2
      *
      */
-    public function getEventi(){
+    public function getEventi($neLat, $neLon, $swLat, $swLon){
 		$domtree = new DOMDocument('1.0', 'UTF-8');
 		$xmlRoot = $domtree->createElement("xml");
         $xmlRoot = $domtree->appendChild($xmlRoot);
         $ev = new FEvento();
         $ev->connect();
-        $ev_array = $ev->searchEventi();
-        //~ foreach ($ev_array[1][1] as $key => $val)
-			//~ echo $key . '=>' . gettype($val);
+        $ev_array = $ev->searchEventi($neLat, $neLon, $swLat, $swLon);
         foreach ($ev_array[1][1] as $evento){
 			$xmlEvento = $domtree->createElement("evento");
 			$xmlEvento = $xmlRoot->appendChild($xmlEvento);
@@ -68,36 +70,7 @@ public function __construct(){
 			);
 		}
         echo $domtree->saveXML();
-        /* Dovremo caricare in un array $ev_array tutti gli eventi
-         * WHERE 
-         * lat BETWEEN lat1 and lat2 AND
-         * lon BETWEEN lon1 and lon2 AND
-         * "evento visibile da parte dell'utente" (evento pubblico 
-         * o utente invitato)
-         * 
-         * In EEvento ho messo un metodo getCoord() per ottenere un
-         * array {lat, lon} dell'evento (o meglio, del locale in cui
-         * esso si svolge).
-         * 
-         * Se vogliamo usare XML, servirà un template Smarty per
-         * generarlo. 
-         * $smarty->assign('eventi', $ev_array)
-         * dentro il template ci sarà un ciclo di questo genere:
-         * {foreach from=$ev_array item=i}
-         *      {assign var=coord value=$i->getCoord()}
-         *      <evento>
-         *          <nome>{$i->getNome()}</nome>
-         *          <descrizione>{$i->getDescrizione()}</descrizione>
-         *          <lat>{$coord.lat}</lat>
-         *          <lon>{$coord.lon}</lon>
-         *      </evento>
-         * {/foreach}
-         * 
-         * Forse chiamare i metodi dal template non è "giusto", dovremmo
-         * chiedere lumi al professore. In caso bisognerà lavorare in PHP
-         * e passare a Smarty un array bidimensionale anziché un array di
-         * oggetti. Vedremo :)
-         */
+
         exit;
     }
 }
@@ -109,9 +82,64 @@ $home= new CHome();
 	<head>
 		<link rel="stylesheet" type="text/css" href="login.css">
 		<link rel="stylesheet" type="text/css" href="map.css">
-        <script type="text/javascript" src="js/jquery/jquery.js"></script>
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAO2zXC0wh-S8SjMgPRZfoTUGZMGHBIzZ0&sensor=false"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
 		<script type="text/javascript">
-		    $(document).ready(function(){
+		    $(document).ready(function(){	
+				var map;
+				var myOptions = {
+          			zoom: 16,
+         			mapTypeId: google.maps.MapTypeId.ROADMAP
+        		};
+        		map = new google.maps.Map(document.getElementById('map_canvas'), myOptions);
+        		// Centra la mappa sulla città dell'utente.
+        		// geocoder trasforma indirizzi in coppie lat/lon
+        		geocoder = new google.maps.Geocoder();
+        		var citta = "<?php echo $home->getUtente()->getCitta(); ?>";
+        		geocoder.geocode(
+					{'address': citta},
+					function(results, status) {
+						map.setCenter(results[0].geometry.location);
+					}
+        		);
+        		var markers = [];
+        		google.maps.event.addListener(map, 'idle', getEventi);
+     		/*
+      		 * Visualizza sulla mappa gli eventi contenuti in
+      		 * bounds (oggetto LatLngBounds di Google Maps)
+      		 */
+      		function getEventi(){
+				bounds = map.getBounds();
+				$.get("CHome.php?action=getEventi",
+				{'neLat': bounds.getNorthEast().lat(),
+				 'neLon': bounds.getNorthEast().lng(),
+				 'swLat': bounds.getSouthWest().lat(),
+				 'swLon': bounds.getSouthWest().lng()
+				})
+				.success(function(data) {
+					/* Per prima cosa eliminiamo i "vecchi" markers
+					 */
+					if (markers){
+						for(i=0; i<markers.length; ++i)
+							markers[i].setMap(null);
+					}
+					markers.length = 0;
+					/* Creazione dei nuovi markers dall'XML
+					 */
+					$(data).find('evento').each(function(){
+						console.log($(this).find('nome').text());
+						var nome = $(this).find('nome').text();
+						var pos = new google.maps.LatLng(
+							parseFloat($(this).find('lat').text()),
+							parseFloat($(this).find('lon').text()));
+						var marker = new google.maps.Marker({'position':pos,
+						'map':map});
+						markers.push(marker);
+					})
+				});
+			}
+				
+				
 				/* Listener per mostrare il menu
 				 * delle impostazioni utente
 				 */
@@ -138,29 +166,8 @@ $home= new CHome();
 				});
 			});
 		</script>
-	        <script type="text/javascript"
-	            src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAO2zXC0wh-S8SjMgPRZfoTUGZMGHBIzZ0&sensor=false"></script>
-	        <script type="text/javascript">
-			var map;
-			function initialize() {
-				
-				geocoder = new google.maps.Geocoder();
-				var myOptions = {
-          			zoom: 16,
-         			mapTypeId: google.maps.MapTypeId.ROADMAP
-        		};
-        		map = new google.maps.Map(document.getElementById('map_canvas'), myOptions);
-        		citta = "<?php echo $home->getUtente()->getCitta(); ?>";
-        		geocoder.geocode(
-					{'address': citta},
-					function(results, status) {
-						map.setCenter(results[0].geometry.location);
-					}
-        		);
-      			}
-		</script>
 	</head>
-	<body onload="initialize()">
+	<body>
         <div id="box">
             <div id="boxl">
 		<input type="text" class="ricerca" value="Cerca..." />

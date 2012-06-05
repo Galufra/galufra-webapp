@@ -10,7 +10,12 @@ class FEvento extends FMysql {
         $this->_class = 'EEvento';
     }
     
-    public function searchEventi($neLat, $neLon, $swLat, $swLon){
+    
+    /* 
+     * Restituisce un array di eventi futuri (data >= oggi)
+     * con coordinate comprese nel rettangolo ne-sw.
+     */
+    public function searchEventiMappa($neLat, $neLon, $swLat, $swLon){
 		return $this->search(array(
 			array('lat', 'BETWEEN', "$swLat' AND '$neLat"),
 			array('lon', 'BETWEEN', "$swLon' AND '$neLon"),
@@ -18,7 +23,29 @@ class FEvento extends FMysql {
 			));
 		
 	}
+    public function getEventiPreferiti($idUtente){
+            $this->makeQuery("
+                SELECT * FROM evento as e
+                WHERE e.id_evento IN (
+                    SELECT evento FROM preferisce as p, evento as e1
+                    WHERE p.utente =  $idUtente
+                    AND p.evento = e1.id_evento
+                )"
+            );
+            return $this->getObjectArray();
+        }
 
+    public function storePreferiti($idUtente, $idEvento){
+        $this->makeQuery("
+            INSERT INTO preferisce
+            VALUES ($idUtente, $idEvento)");
+    }
+    public function removePreferiti($idUtente, $idEvento){
+        $this->makeQuery("
+            DELETE FROM preferisce
+            WHERE utente = $idUtente
+            AND evento = $idEvento");
+    }
 }
 
 ?>

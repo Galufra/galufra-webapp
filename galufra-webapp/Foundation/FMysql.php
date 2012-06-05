@@ -74,21 +74,21 @@ class FMysql implements FDb {
     public function makeQuery($query) {
         if ($this->up) {
 
-            try {
+            //~ try {
 
-                $this->_query = @mysql_query($query);
+                $this->_query = mysql_query($query);
 
                 if ($this->_query == NULL) {
 
-                    throw new dbException("makeQuery()", false);
+                    throw new dbException(mysql_errno(), false);
                 } else {
 
                     return array(true, $this->_query);
                 }
-            } catch (dbException $ex) {
-
-                return array($ex->getCode(), $ex->getMessage());
-            }
+            //~ } catch (dbException $ex) {
+//~ 
+                //~ return array($ex->getCode(), $ex->getMessage());
+            //~ }
         } else {
 
             return array(false, "isUp()");

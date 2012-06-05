@@ -13,7 +13,8 @@ class FEvento extends FMysql {
     public function searchEventi($neLat, $neLon, $swLat, $swLon){
 		return $this->search(array(
 			array('lat', 'BETWEEN', "$swLat' AND '$neLat"),
-			array('lon', 'BETWEEN', "$swLon' AND '$neLon") 
+			array('lon', 'BETWEEN', "$swLon' AND '$neLon"),
+			array('data', '>=', date('Y-m-d'))
 			));
 		
 	}

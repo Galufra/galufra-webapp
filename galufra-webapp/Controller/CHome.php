@@ -63,6 +63,9 @@ public function __construct(){
 				$domtree->createElement('nome', $evento->getNome())
 			);
 			$xmlEvento->appendChild(
+				$domtree->createElement('data', $evento->getData())
+			);
+			$xmlEvento->appendChild(
 				$domtree->createElement('lat', $evento->getLat())
 			);
 			$xmlEvento->appendChild(
@@ -103,6 +106,7 @@ $home= new CHome();
 					}
         		);
         		var markers = [];
+        		var infowindow = new google.maps.InfoWindow();
         		google.maps.event.addListener(map, 'idle', getEventi);
      		/*
       		 * Visualizza sulla mappa gli eventi contenuti in
@@ -128,18 +132,21 @@ $home= new CHome();
 					 */
 					$(data).find('evento').each(function(){
 						console.log($(this).find('nome').text());
-						var nome = $(this).find('nome').text();
 						var pos = new google.maps.LatLng(
 							parseFloat($(this).find('lat').text()),
 							parseFloat($(this).find('lon').text()));
 						var marker = new google.maps.Marker({'position':pos,
 						'map':map});
+						markers.nome = $(this).find('nome').text();
 						markers.push(marker);
 					})
+					for( i=0; i<markers.length; ++i){
+						google.maps.event.addListener(markers[i], 'click', function(marker){
+							console.log('click');
+						});
+					}
 				});
 			}
-				
-				
 				/* Listener per mostrare il menu
 				 * delle impostazioni utente
 				 */

@@ -164,7 +164,6 @@ $('.removePreferiti').live("click", function(event){
     });
     for(i=0; i<markers.length; ++i){
         if(markers[i].id == event.target.id){
-            console.log('aa');
             markers[i].preferito = function(){return false; };
             infowindow.setContent(markers[i].infoHTML());
         }
@@ -247,7 +246,6 @@ function checkPreferito(){
         url: "CHome.php",
         data: {'action': "getEventiPreferiti"},
     }).done(function(data){
-            console.log('ho AJAXato');
             $(data).find('id').each(function(){
                 if (parseInt($(this).text()) == marker.id){
                     out = true;

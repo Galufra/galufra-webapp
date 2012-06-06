@@ -9,19 +9,21 @@ class CHome{
 private $utente;
 
 /*
- * Se c'è già un'istanza di CHome usiamo quella invece di crearne
- * un'altra.
+ * Scartabellando un po' in rete ho notato che il pattern Singleton 
+ * è spesso sconsigliato per una serie di ragioni... Nel dubbio lascio
+ * la classe nel suo stato precedente (non che faccia molta differenza,
+ * allo stato attuale :) )
  */
-private static $_instance = null;
-public static function getInstance(){
-    if(self::$_instance == null){   
-        $c = __CLASS__;
-        self::$_instance = new $c;
-    }
-    return self::$_instance;
-}
+//~ private static $_instance = null;
+//~ public static function getInstance(){
+    //~ if(self::$_instance == null){   
+        //~ $c = __CLASS__;
+        //~ self::$_instance = new $c;
+    //~ }
+    //~ return self::$_instance;
+//~ }
 
-private function __construct(){
+public function __construct(){
     /* Caricamento dell'utente.
      */
     $u = new Futente();
@@ -92,7 +94,10 @@ private function __construct(){
     }
 }
 
-$home= CHome::getInstance();
+//~ $home= CHome::getInstance();
+
+$home= new CHome();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -232,7 +237,6 @@ function getEventiMappa(){
 
     });
 }
-
 /* Controlliamo che un marker faccia parte degli eventi preferiti
  * dell'utente. Dobbiamo effettuare una chiamata sincrona perché
  * non possiamo scrivere 

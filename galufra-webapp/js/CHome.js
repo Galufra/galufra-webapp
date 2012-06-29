@@ -137,12 +137,11 @@ function getEventiMappa(){
 }
 /* Controlliamo che un marker faccia parte degli eventi preferiti
  * dell'utente. Dobbiamo effettuare una chiamata sincrona perché
- * non possiamo scrivere 
+ * non possiamo scrivere la infobox senza prima sapere questo valore!
  */
 function checkPreferito(){
     var out = false;
     var marker=this;
-    console.log(marker.id);
     $.ajax({
         async: false,
         url: "CHome.php",
@@ -172,8 +171,8 @@ function mapWait(){
     google.maps.event.addListener(map, 'idle', getEventiMappa);
 }
 
-/* Formattazione del contenuto delle infoWindow
- *
+/*
+ * Formattazione del contenuto delle infoWindow
  */
 function infoHTML(){
     var output= '<div class="infowindow">'+

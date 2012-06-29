@@ -73,7 +73,9 @@ public function __construct(){
         /* default: in futuro stamperà la pagina con una classe view VMap
          * Per ora un semplice break; ci porta fuori dallo switch
          */
-        default: break;
+        default: 
+        
+            break;
         }
     }
     public function getUtente(){

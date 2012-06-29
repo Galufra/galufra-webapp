@@ -19,6 +19,7 @@
 
 require_once '../exception/dbException.php';
 require_once 'FDb.php';
+require_once '../includes/config.inc.php';
 
 class FMysql implements FDb {
 
@@ -42,20 +43,20 @@ class FMysql implements FDb {
     }
 
     public function connect() {
-
+        global $config;
         if (!$this->up) {
             try {
 
-                $result = @mysql_connect(FMysql::$_CONFIG['host'],
-                                         FMysql::$_CONFIG['username'],
-                                         FMysql::$_CONFIG['password']);
+                $result = @mysql_connect($config['mysql']['host'],
+                                         $config['mysql']['username'],
+                                         $config['mysql']['password']);
                 if ($result == NULL) {
 
                     throw new dbException("Connect()", false);
                 }
 
 
-                $result = @mysql_select_db(FMysql::$_CONFIG['dbname']);
+                $result = @mysql_select_db($config['mysql']['dbname']);
                 if ($result == NULL) {
 
                     throw new dbException("mysql_select_db()", false);

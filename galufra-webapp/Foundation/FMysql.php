@@ -33,7 +33,11 @@ class FMysql implements FDb {
     public static $_CONFIG = array(
         'host' => "localhost",
         'username' => "root",
+<<<<<<< HEAD
         'password' => "----",
+=======
+        'password' => "-----",
+>>>>>>> 8cfd2a1085f5c10dc2dc84f4d23353cc58e52cd3
         'dbname' => "galufra"
     );
 

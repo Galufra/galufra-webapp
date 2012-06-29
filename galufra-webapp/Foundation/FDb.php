@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-interface Fdb {
+interface FDb {
 
     public function connect();
     public function makeQuery($query);

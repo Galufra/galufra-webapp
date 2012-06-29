@@ -17,10 +17,10 @@
  *
  */
 
-require_once 'exception/dbException.php';
-require_once 'Fdb.php';
+require_once '../exception/dbException.php';
+require_once 'FDb.php';
 
-class Fmysql implements Fdb {
+class FMysql implements FDb {
 
     private $up; //boolean
     private $_connection;
@@ -33,7 +33,7 @@ class Fmysql implements Fdb {
     public static $_CONFIG = array(
         'host' => "localhost",
         'username' => "root",
-        'password' => "M3n1n431d3",
+        'password' => "r00tdir31",
         'dbname' => "galufra"
     );
 
@@ -46,16 +46,16 @@ class Fmysql implements Fdb {
         if (!$this->up) {
             try {
 
-                $result = @mysql_connect(Fmysql::$_CONFIG['host'],
-                                         Fmysql::$_CONFIG['username'],
-                                         Fmysql::$_CONFIG['password']);
+                $result = @mysql_connect(FMysql::$_CONFIG['host'],
+                                         FMysql::$_CONFIG['username'],
+                                         FMysql::$_CONFIG['password']);
                 if ($result == NULL) {
 
                     throw new dbException("Connect()", false);
                 }
 
 
-                $result = @mysql_select_db(Fmysql::$_CONFIG['dbname']);
+                $result = @mysql_select_db(FMysql::$_CONFIG['dbname']);
                 if ($result == NULL) {
 
                     throw new dbException("mysql_select_db()", false);
@@ -74,21 +74,21 @@ class Fmysql implements Fdb {
     public function makeQuery($query) {
         if ($this->up) {
 
-            try {
+            //~ try {
 
-                $this->_query = @mysql_query($query);
+                $this->_query = mysql_query($query);
 
                 if ($this->_query == NULL) {
 
-                    throw new dbException("makeQuery()", false);
+                    throw new dbException(mysql_errno(), false);
                 } else {
 
                     return array(true, $this->_query);
                 }
-            } catch (dbException $ex) {
-
-                return array($ex->getCode(), $ex->getMessage());
-            }
+            //~ } catch (dbException $ex) {
+//~ 
+                //~ return array($ex->getCode(), $ex->getMessage());
+            //~ }
         } else {
 
             return array(false, "isUp()");
@@ -130,8 +130,8 @@ class Fmysql implements Fdb {
      * 
      */
 
-    public function getArrayObject() {
-        if (@mysql_num_rows($this->_query > 0)) {
+    public function getObjectArray() {
+        if (mysql_num_rows($this->_query) > 0) {
             $result = array();
             while ($row = mysql_fetch_object($this->_query, $this->_class))
                 $result[] = $row;
@@ -139,7 +139,7 @@ class Fmysql implements Fdb {
             return array(true,$result);
         }
         else
-            return array(false,"getArrayObject()");
+            return array(false,"getObjectArray");
     }
 
 

@@ -1,7 +1,7 @@
 <?php
-require_once('Fmysql.php');
+require_once('FMysql.php');
 
-class FUtente extends Fmysql {
+class FUtente extends FMysql {
 
     public function __construct() {
         parent::__construct();

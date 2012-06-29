@@ -2,7 +2,7 @@
 
 class EUtente {
 
-	private $id = null;
+	private $id_utente = null;
 	private $username = null;
 	private $password = null;
 	private $nome = null;
@@ -14,7 +14,7 @@ class EUtente {
 	private $permessi = null;
 
 	public function getId(){
-		return $this->id;
+		return $this->id_utente;
 	}
 
 	public function getUsername(){
@@ -98,5 +98,15 @@ class EUtente {
 	public function setPermessi($permessi){
 		$this->permessi = $permessi;
 	}
+    public function addPreferiti($evento){
+        $ev = new FEvento();
+        $ev->connect();
+        $ev->storePreferiti($this->id_utente, $evento);
+    }
+    public function removePreferiti($evento){
+        $ev = new FEvento();
+        $ev->connect();
+        $ev->removePreferiti($this->id_utente, $evento);
+    }
 }
 ?>

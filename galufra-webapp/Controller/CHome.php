@@ -4,6 +4,7 @@ require_once('../Foundation/FEvento.php');
 require_once('../Entity/EUtente.php');
 require_once('../Entity/EEvento.php');
 require_once('../View/VEventiXML.php');
+require_once '../View/VHome.php';
 
 class CHome{
 private $utente;
@@ -74,7 +75,8 @@ public function __construct(){
          * Per ora un semplice break; ci porta fuori dallo switch
          */
         default: 
-        
+            $view = new VHome();
+            $view->mostraPagina();
             break;
         }
     }
@@ -105,7 +107,7 @@ public function __construct(){
 
 $home= new CHome();
 
-?>
+/*
 <!DOCTYPE html>
 <html>
 	<head>
@@ -128,3 +130,5 @@ $home= new CHome();
 		<div id="map_canvas" style='height: 600px'></div>
 	</body>
 </html>
+*/
+?>

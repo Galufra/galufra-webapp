@@ -31,13 +31,6 @@ class FMysql implements FDb {
     protected $_class;
     protected $_is_an_autoincrement_key = false;
 
-    public static $_CONFIG = array(
-        'host' => "localhost",
-        'username' => "root",
-        'password' => "---",
-        'dbname' => "galufra"
-    );
-
     function __construct() {
         $this->up = false;
     }

@@ -9,21 +9,6 @@ require_once '../View/VHome.php';
 class CHome{
 private $utente;
 
-/*
- * Scartabellando un po' in rete ho notato che il pattern Singleton 
- * è spesso sconsigliato per una serie di ragioni... Nel dubbio lascio
- * la classe nel suo stato precedente (non che faccia molta differenza,
- * allo stato attuale :) )
- */
-//~ private static $_instance = null;
-//~ public static function getInstance(){
-    //~ if(self::$_instance == null){   
-        //~ $c = __CLASS__;
-        //~ self::$_instance = new $c;
-    //~ }
-    //~ return self::$_instance;
-//~ }
-
 public function __construct(){
     /* Caricamento dell'utente.
      */
@@ -45,8 +30,10 @@ public function __construct(){
             break;
         case('getEventiPreferiti'):
             $this->getEventiPreferiti();
-            exit;
             break;
+        /* 
+         * Aggiunta/rimozione di un evento nell'elenco dei preferiti
+         */
         case('addPreferiti'):
             try {
                 $this->utente->addPreferiti($_GET['id_evento']);
@@ -56,7 +43,6 @@ public function __construct(){
                     echo "L'evento fa già parte dei tuoi preferiti!";
                 else echo "C'è stato un errore. Riprova :)";
             }
-            exit;
             break;
         case('removePreferiti'):
             try {
@@ -65,14 +51,11 @@ public function __construct(){
                 } catch (dbException $e) {
                     echo "C'è stato un errore. Riprova :)";
                 }
-                exit;
             break;
         case('getCitta'):
             echo $this->utente->getCitta();
-            exit;
             break;
-        /* default: in futuro stamperà la pagina con una classe view VMap
-         * Per ora un semplice break; ci porta fuori dallo switch
+        /* default: stampa la pagina
          */
         default: 
             $view = new VHome();
@@ -103,32 +86,5 @@ public function __construct(){
     }
 }
 
-//~ $home= CHome::getInstance();
-
 $home= new CHome();
-
-/*
-<!DOCTYPE html>
-<html>
-	<head>
-		<link rel="stylesheet" type="text/css" href="login.css">
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
-        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAO2zXC0wh-S8SjMgPRZfoTUGZMGHBIzZ0&sensor=false"></script>
-        <script type="text/javascript" src='../js/CHome.js'></script>
-
-</script>
-	</head>
-	<body>
-        <div id="box">
-            <div id="boxl">
-                <input type="text" class="ricerca" value="Cerca..." />
-            </div>
-            <div id="boxr">
-                <button class="button" id="options">Username</button>
-            </div>
-        </div>
-		<div id="map_canvas" style='height: 600px'></div>
-	</body>
-</html>
-*/
 ?>

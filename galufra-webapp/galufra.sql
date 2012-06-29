@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generato il: Giu 05, 2012 alle 08:48
+-- Generato il: Giu 29, 2012 alle 17:41
 -- Versione del server: 5.5.16
 -- Versione PHP: 5.3.8
 
@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `evento` (
 --
 
 INSERT INTO `evento` (`id_evento`, `nome`, `descrizione`, `data`, `n_visite`, `n_iscritti`, `gestore`, `locale`, `lat`, `lon`) VALUES
-(3, 'prova1', 'Prova :)', '2012-06-29', 0, 0, 1, 1, 42.3508415222168, 13.398554801940918),
+(3, 'prova1', 'Prova :)\r\nQuesto evento si svolge a piazza Palazzo, 67100 L''Aquila.\r\nLorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '2012-06-29', 0, 0, 1, 1, 42.3508415222168, 13.398554801940918),
 (5, 'prova 2', 'ciao', '2012-06-30', 0, 0, 1, 1, 42.34904861450195, 13.398882865905762);
 
 -- --------------------------------------------------------
@@ -155,10 +155,17 @@ INSERT INTO `permessi` (`id`, `nome`, `descrizione`) VALUES
 
 CREATE TABLE IF NOT EXISTS `preferisce` (
   `utente` int(11) NOT NULL,
-  `locale` int(11) NOT NULL,
-  PRIMARY KEY (`utente`,`locale`),
-  KEY `locale` (`locale`)
+  `evento` int(11) NOT NULL,
+  PRIMARY KEY (`utente`,`evento`),
+  KEY `locale` (`evento`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `preferisce`
+--
+
+INSERT INTO `preferisce` (`utente`, `evento`) VALUES
+(12, 5);
 
 -- --------------------------------------------------------
 
@@ -213,6 +220,13 @@ INSERT INTO `utente` (`id_utente`, `username`, `password`, `nome`, `cognome`, `e
 ALTER TABLE `evento`
   ADD CONSTRAINT `evento_ibfk_1` FOREIGN KEY (`gestore`) REFERENCES `gestore` (`id_gestore`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `evento_ibfk_2` FOREIGN KEY (`locale`) REFERENCES `locale` (`id_locale`);
+
+--
+-- Limiti per la tabella `preferisce`
+--
+ALTER TABLE `preferisce`
+  ADD CONSTRAINT `preferisce_ibfk_1` FOREIGN KEY (`utente`) REFERENCES `utente` (`id_utente`),
+  ADD CONSTRAINT `preferisce_ibfk_2` FOREIGN KEY (`evento`) REFERENCES `evento` (`id_evento`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

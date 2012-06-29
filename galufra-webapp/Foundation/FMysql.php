@@ -30,6 +30,7 @@ class FMysql implements FDb {
     protected $_key;
     protected $_class;
     protected $_is_an_autoincrement_key = false;
+
     function __construct() {
         $this->up = false;
     }

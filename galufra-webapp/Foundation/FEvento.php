@@ -43,8 +43,8 @@ class FEvento extends FMysql {
     public function removePreferiti($idUtente, $idEvento){
         $this->makeQuery("
             DELETE FROM preferisce
-            WHERE utente = $idUtente
-            AND evento = $idEvento");
+            WHERE utente = '$idUtente'
+            AND evento = '$idEvento'");
     }
 }
 

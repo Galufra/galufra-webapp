@@ -9,8 +9,6 @@ class FEvento extends FMysql {
         $this->_key = 'id_evento';
         $this->_class = 'EEvento';
     }
-    
-    
     /* 
      * Restituisce un array di eventi futuri (data >= oggi)
      * con coordinate comprese nel rettangolo ne-sw.

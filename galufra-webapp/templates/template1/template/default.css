@@ -319,3 +319,11 @@ color:#2582A4;
 	margin: 0;
 	text-align: center;
 }
+
+form#creaEvento input, textarea{
+    width: 200px;
+}
+
+.errore {
+    color: #ff0000;
+}

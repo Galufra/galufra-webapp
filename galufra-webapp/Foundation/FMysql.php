@@ -29,7 +29,7 @@ class FMysql implements FDb {
     protected $_table;
     protected $_key;
     protected $_class;
-    protected $_is_an_autoincrement_key = false;
+    protected $_is_an_autoincrement_key = true;
 
     function __construct() {
         $this->up = false;
@@ -149,8 +149,8 @@ class FMysql implements FDb {
         foreach ($object as $k => $val) {
             if (!($this->_is_an_autoincrement_key && $k == $this->_key) && substr($k, 0, 1) != '_') {
                 if ($i == 0) {
-                    $values = '`' . $val . '`';
-                    $fields = '\'' . $k . '\'';
+                    $fields = '`' . $k . '`';
+                    $values = '\'' . $val . '\'';
                 } else {
                     $fields.=', `' . $k . '`';
                     $values.=', \'' . $val . '\'';
@@ -161,14 +161,14 @@ class FMysql implements FDb {
 
         $query = 'INSERT INTO ' . $this->_table . ' (' . $fields . ') VALUES (' . $values . ')';
         $return = $this->makeQuery($query);
-        if ($this->is_an_autoincrement_key) {
-            $query = 'SELECT LAST_INSERT_ID() AS `id`';
-            $this->makeQuery($query);
-            $result = $this->getResult();
-            return array(true,$result['id']);
-        } else {
+        //~ if ($this->_is_an_autoincrement_key) {
+            //~ $query = 'SELECT LAST_INSERT_ID() AS id';
+            //~ $this->makeQuery($query);
+            //~ $result = $this->getResult();
+            //~ return array(true,$result['id']);
+        //~ } else {
             return array(true,$return);
-        }
+        //~ }
     }
 
     /*loads an object (entity)*/

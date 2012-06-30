@@ -13,11 +13,12 @@ class VEventiXML{
 			$xmlEvento->appendChild(
 				$domtree->createElement('nome', $evento->getNome())
 			);
+            $substr = substr($evento->getDescrizione(), 0, 120);
+            if ($substr != $evento->getDescrizione())
+                $substr .= '...';
             $xmlEvento->appendChild(
-				$domtree->createElement(
-                    'descrizione', 
-                    substr($evento->getDescrizione(), 0, 120).'...')
-			);
+				$domtree->createElement('descrizione', $substr)
+            );
 			$xmlEvento->appendChild(
 				$domtree->createElement('data', $evento->getData())
 			);

@@ -55,6 +55,20 @@ public function __construct(){
         case('getCitta'):
             echo $this->utente->getCitta();
             break;
+            
+        case('getUtente'):
+            if($this->utente)
+                $response= array(
+                    'logged' => true,
+                    'username' => $this->utente->getUsername(),
+                    'nome' => $this->utente->getNome(),
+                    'cognome' => $this->utente->getCognome(),
+                    'citta' => $this->utente->getCitta()
+                );
+            else
+                $response = array('logged' => false);
+            echo json_encode($response);
+            break;            
         /* default: stampa la pagina
          */
         default: 
@@ -62,9 +76,6 @@ public function __construct(){
             $view->mostraPagina();
             break;
         }
-    }
-    public function getUtente(){
-        return $this->utente;
     }
     /* 
      * Crea un XML contenente gli eventi restituiti da 

@@ -1,5 +1,4 @@
 $(document).ready(function(){
-var citta;
 var map;
 var myOptions = {
     zoom: 16,
@@ -12,17 +11,19 @@ geocoder = new google.maps.Geocoder();
 $.ajax({
     async: false,
     url: "CHome.php",
-    data: {'action': "getCitta"}
+    data: {'action': "getUtente"}
 })
 .done(function(data){
-    citta = data;
+    response = jQuery.parseJSON(data);
 });
-geocoder.geocode(
-    {'address': citta},
-    function(results, status) {
-        map.setCenter(results[0].geometry.location);
-    }
-);
+if (response.logged){
+    geocoder.geocode(
+        {'address': response.citta},
+        function(results, status) {
+            map.setCenter(results[0].geometry.location);
+        }
+    );
+}
 var markers = [];
 var infowindow = new google.maps.InfoWindow({'maxWidth': 400});
 google.maps.event.addListener(infowindow, 'closeclick', function(){

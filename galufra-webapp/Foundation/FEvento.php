@@ -24,11 +24,11 @@ class FEvento extends FMysql {
     public function getEventiPreferiti($idUtente){
             $this->makeQuery("
                 SELECT * FROM evento as e
-                WHERE e.id_evento IN (
+                WHERE e.data >= NOW()
+                AND e.id_evento IN (
                     SELECT evento FROM preferisce as p, evento as e1
                     WHERE p.utente =  $idUtente
-                    AND p.evento = e1.id_evento
-                )"
+                    AND p.evento = e1.id_evento )"
             );
             return $this->getObjectArray();
         }

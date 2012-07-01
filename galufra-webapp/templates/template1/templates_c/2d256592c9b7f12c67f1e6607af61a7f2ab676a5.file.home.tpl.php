@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.10, created on 2012-06-29 18:40:55
+<?php /* Smarty version Smarty-3.1.10, created on 2012-07-01 16:23:51
          compiled from "../templates/template1/template/home.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:9675248954fedd991d17b62-10319381%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '2d256592c9b7f12c67f1e6607af61a7f2ab676a5' => 
     array (
       0 => '../templates/template1/template/home.tpl',
-      1 => 1340988052,
+      1 => 1341152621,
       2 => 'file',
     ),
   ),
@@ -35,6 +35,7 @@ Released for free under a Creative Commons Attribution 2.5 License
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAO2zXC0wh-S8SjMgPRZfoTUGZMGHBIzZ0&sensor=false"></script>
     <script type="text/javascript" src='../js/CHome.js'></script>
+    <script type="text/javascript" src='../js/functions.js'></script>
 </head>
 <body>
 <div id="header">
@@ -42,7 +43,7 @@ Released for free under a Creative Commons Attribution 2.5 License
 		<li><a href="login.html" accesskey="1" title="">Home</a></li>
 		<li><a href="profilo.html" accesskey="2" title="">Profilo</a></li>
 		<li><a href="#" accesskey="3" title="">Crea Evento</a></li>
-		
+        <li id='messagebox'></li>
 	</ul>
 	<form id="search" method="get" action="">
 		<fieldset>
@@ -142,15 +143,14 @@ Released for free under a Creative Commons Attribution 2.5 License
 			<ul class="bottom">
 			</ul>
 		</div>
-		<div class="box">
+		<div class="box" id="boxPreferiti">
 			<h3>Eventi Preferiti</h3>
-			<ul class="bottom">
+			<ul class="bottom" id='ulPreferiti'>
 			</ul>
 		</div>
 		<div class="box">
 			<h3>Eventi Consigliati</h3>
 			<ul class="bottom">
-
 			</ul>
 		</div>
 	</div>

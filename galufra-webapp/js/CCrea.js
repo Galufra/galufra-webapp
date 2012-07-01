@@ -11,13 +11,13 @@ $(document).ready(function(){
             !coord
             )
         ){
-            ShowError('Tutti i campi devono essere riempiti.');
+            showMessage('Tutti i campi devono essere riempiti.');
         }
         else{
             var defaultConv = new AnyTime.Converter({format: "%d %M %Y %T"});
             var timestamp = defaultConv.parse($('#data').val()+" "+$('#ora').val());
             if(!timestamp){
-                ShowError('La data inserita non è corretta');
+                showMessage('La data inserita non è corretta');
                 return false;
             }
             // invio della richiesta
@@ -30,9 +30,9 @@ $(document).ready(function(){
                  'lon': coord.lng()
                 }).success(function(data){
                     response = jQuery.parseJSON(data);
-                    ShowError(response.message);
-                    if(response.status == 'OK')
-                        $('#creaEvento').find('input,textarea').val('');
+                    showMessage(response.message);
+                // if(response.status == 'OK')
+                   //     $('#creaEvento').find('input,textarea').val('');
                 });
         }
         return false;
@@ -85,7 +85,7 @@ $(document).ready(function(){
                     });
                 }
                 else {
-                    ShowError('Indirizzo non valido');
+                    showMessage('Indirizzo non valido');
                     $('#map_canvas').hide('slow');
                     coord = undefined;
                     
@@ -94,10 +94,3 @@ $(document).ready(function(){
         );
     });
 });
-
-function ShowError(text){
-    if($('.errore').length)
-        $('.errore').remove();
-    $('<div class="errore">'+text+'</div>')
-        .hide().prependTo('.colTwo').fadeIn('fast');
-}

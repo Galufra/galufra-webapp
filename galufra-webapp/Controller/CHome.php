@@ -14,8 +14,7 @@ public function __construct(){
      */
     $u = new Futente();
     $u->connect();
-    $l = $u->load('luca');
-    $this->utente = $l[1][1];
+    $this->utente = $u->load('luca');
     /* Se "action" non è impostato, eseguiremo il comportamento
      * di default nello switch successivo.
      */
@@ -57,17 +56,7 @@ public function __construct(){
             break;
             
         case('getUtente'):
-            if($this->utente)
-                $response= array(
-                    'logged' => true,
-                    'username' => $this->utente->getUsername(),
-                    'nome' => $this->utente->getNome(),
-                    'cognome' => $this->utente->getCognome(),
-                    'citta' => $this->utente->getCitta()
-                );
-            else
-                $response = array('logged' => false);
-            echo json_encode($response);
+            $this->getUtente();
             break;            
         /* default: stampa la pagina
          */
@@ -81,18 +70,38 @@ public function __construct(){
      * Crea un XML contenente gli eventi restituiti da 
      * FEvento::searchEventi().
      */
+     
+     public function getUtente(){
+        $out = array('logged' => false);
+        if($this->utente){
+            $out['logged'] = true;
+            $out['username'] = $this->utente->getUsername();
+            $out['nome'] = $this->utente->getNome();
+            $out['cognome'] = $this->utente->getCognome();
+            $out['citta'] = $this->utente->getCitta();
+        }
+        echo json_encode($out);
+     }
+     
     public function getEventiMappa($neLat, $neLon, $swLat, $swLon){
         $ev = new FEvento();
         $ev->connect();
         $ev_array = $ev->searchEventiMappa($neLat, $neLon, $swLat, $swLon);
-        $View = new VEventiXML($ev_array[1][1]);
+        echo json_encode($ev_array);
+        //$View = new VEventiXML($ev_array[1][1]);
         exit;
     }
     public function getEventiPreferiti(){
         $ev = new FEvento();
         $ev->connect();
         $ev_array = $ev->getEventiPreferiti($this->utente->getId());
-        $View = new VEventiXML($ev_array[1]);
+        //$View = new VEventiXML($ev_array[1]);
+        
+        $out = array(
+                'total' => count($ev_array),
+                'eventi' => $ev_array
+        );
+        echo json_encode($out);
         exit;
     }
 }

@@ -15,7 +15,7 @@ public function __construct(){
     $u = new Futente();
     $u->connect();
     $l = $u->load('luca');
-    $this->utente = $l[1][1];
+    $this->utente = $l;
     /* Se "action" non è impostato, eseguiremo il comportamento
      * di default nello switch successivo.
      */
@@ -24,8 +24,8 @@ public function __construct(){
     switch($_GET['action']){
         case('creaEvento'):
             $ev = new EEvento();
-            $ev->setNome($_GET['nome']);
-            $ev->setDescrizione($_GET['descrizione']);
+            $ev->setNome(utf8_decode($_GET['nome']));
+            $ev->setDescrizione(utf8_decode($_GET['descrizione']));
             // Conversione della data in formato MySql
             $unixdate = strtotime($_GET['timestamp']);
             $ev->setData(date( 'Y-m-d H:i:s', $unixdate));
@@ -43,7 +43,7 @@ public function __construct(){
                 );
             else $response = array(
                 'status' => 'OK',
-                'message' => "L'evento  &egrave; stato creato correttamente."
+                'message' => "L'evento è stato creato correttamente."
                 );
             echo json_encode($response);
             break;

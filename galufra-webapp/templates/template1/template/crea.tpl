@@ -15,6 +15,7 @@ Released for free under a Creative Commons Attribution 2.5 License
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAO2zXC0wh-S8SjMgPRZfoTUGZMGHBIzZ0&sensor=false"></script>
     <script type="text/javascript" src='../js/anytime.c.js'></script>
+    <script type="text/javascript" src='../js/functions.js'></script>
     <script type="text/javascript" src='../js/CCrea.js'></script>
     
 </head>
@@ -24,6 +25,7 @@ Released for free under a Creative Commons Attribution 2.5 License
 		<li><a href="login.html" accesskey="1" title="">Home</a></li>
 		<li><a href="profilo.html" accesskey="2" title="">Profilo</a></li>
 		<li><a href="#" accesskey="3" title="">Crea Evento</a></li>
+        <li id='messagebox'></li>
 		
 	</ul>
 	<form id="search" method="get" action="">
@@ -124,7 +126,7 @@ Released for free under a Creative Commons Attribution 2.5 License
 			<ul class="bottom">
 			</ul>
 		</div>
-		<div class="box">
+        <div class="box" id="boxPreferiti">
 			<h3>Eventi Preferiti</h3>
 			<ul class="bottom">
 			</ul>

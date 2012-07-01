@@ -67,9 +67,6 @@ class FMysql implements FDb {
 
     public function makeQuery($query) {
         if ($this->up) {
-
-            //~ try {
-
                 $this->_query = mysql_query($query);
 
                 if ($this->_query == NULL) {
@@ -79,10 +76,6 @@ class FMysql implements FDb {
 
                     return array(true, $this->_query);
                 }
-            //~ } catch (dbException $ex) {
-//~ 
-                //~ return array($ex->getCode(), $ex->getMessage());
-            //~ }
         } else {
 
             return array(false, "isUp()");
@@ -106,17 +99,18 @@ class FMysql implements FDb {
     }
 
     /*
-     * Returns the selected object
+     * Returns the selected object or null on failure
      */
 
     public function getObject() {
         if (mysql_num_rows($this->_query) > 0) {
-            $result = mysql_fetch_object($this->_query, $this->_class);            
+            $result = mysql_fetch_object($this->_query, $this->_class);
             $this->_query = false;
-            return array(true,$result);
+            array_walk($result, 'utf8_encode_array');
+            return $result;
         }
         else
-            return array(false,"getObject()");
+            return null;
     }
 
     /*
@@ -127,13 +121,15 @@ class FMysql implements FDb {
     public function getObjectArray() {
         if (mysql_num_rows($this->_query) > 0) {
             $result = array();
-            while ($row = mysql_fetch_object($this->_query, $this->_class))
+            while ($row = mysql_fetch_object($this->_query, $this->_class)){
                 $result[] = $row;
+            }
             $this->_query = false;
-            return array(true,$result);
+            array_walk($result, 'utf8_encode_array');
+            return $result;
         }
         else
-            return array(false,"getObjectArray");
+            return null;
     }
 
 
@@ -178,9 +174,9 @@ class FMysql implements FDb {
                 'WHERE `' . $this->_key . '` = "' . $k . '"';
         $r = $this->makeQuery($query);
         if($r[0])
-            return array(true,$this->getObject());
+            return $this->getObject();
         else
-            return array(false,"load()");
+            return false;
     }
 
     /*deletes an entity*/
@@ -213,7 +209,7 @@ class FMysql implements FDb {
     }
 
     /*Search values using the "SELECT FROM WHERE ORDER BY LIMIT" statement*/
-    function search($param = array(), $order = '', $limit = '') {
+    function search($param = array(), $order = '', $limit = ''){
         $filtro = '';
         for ($i = 0; $i < count($param); $i++) {
             if ($i > 0)
@@ -229,7 +225,7 @@ class FMysql implements FDb {
         if ($limit != '')
             $query.='LIMIT ' . $limit . ' ';
         $this->makeQuery($query);
-        return array(true,$this->getObjectArray());
+        return $this->getObjectArray();
     }
 
     public function close() {
@@ -249,6 +245,18 @@ class FMysql implements FDb {
         }
     }
 
+}
+
+/*
+ * Questa funzione codifica ricorsivamente in UTF-8 un array/oggetto,
+ * per permettere l'invio di caratteri speciali tramite JSON.
+ */
+function utf8_encode_array (&$array, $key) {
+    if(is_array($array) || is_object($array)) {
+      array_walk ($array, 'utf8_encode_array');
+    } else {
+      $array = utf8_encode($array);
+    }
 }
 
 ?>

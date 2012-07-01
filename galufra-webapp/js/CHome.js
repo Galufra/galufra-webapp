@@ -1,12 +1,17 @@
 $(document).ready(function(){
+updatePreferiti();
 var map;
 var myOptions = {
     zoom: 16,
     mapTypeId: google.maps.MapTypeId.ROADMAP
 };
 map = new google.maps.Map(document.getElementById('map_canvas'), myOptions);
-// Centra la mappa sulla città dell'utente.
-// geocoder trasforma indirizzi in coppie lat/lon
+/* 
+ * Centra la mappa sulla città dell'utente: geocoder trasforma 
+ * strinche (indirizzi) in coppie lat/lon. La richiesta è sincrona: 
+ * dobbiamo posizionare la mappa prima di chiedere al server 
+ * la lista di eventi. 
+ */
 geocoder = new google.maps.Geocoder();
 $.ajax({
     async: false,
@@ -15,16 +20,20 @@ $.ajax({
 })
 .done(function(data){
     response = jQuery.parseJSON(data);
+    if (response.logged){
+        geocoder.geocode(
+            {'address': response.citta},
+            function(results, status) {
+                map.setCenter(results[0].geometry.location);
+            }
+        );
+    }
 });
-if (response.logged){
-    geocoder.geocode(
-        {'address': response.citta},
-        function(results, status) {
-            map.setCenter(results[0].geometry.location);
-        }
-    );
-}
-var markers = [];
+
+/* Markers conterrà i riferimenti ai markers che verranno inseriti 
+ * sulla mappa, rendendo più facile la loro modifica/cancellazione
+ */
+markers = [];
 var infowindow = new google.maps.InfoWindow({'maxWidth': 400});
 google.maps.event.addListener(infowindow, 'closeclick', function(){
     infowindow.marker = null;
@@ -48,14 +57,16 @@ $('.addPreferiti').live("click", function(event){
      'id_evento': event.target.id
     })
     .done(function(data){
-        console.log(data);
+        showMessage(data);
+        updatePreferiti();
     });
-    for(i=0; i<markers.length; ++i){
-        if(markers[i].id == event.target.id){
-            markers[i].preferito = function(){return true; };
-            infowindow.setContent(markers[i].infoHTML());
+    if (markers)
+        for(i=0; i<markers.length; ++i){
+            if(markers[i].id == event.target.id){
+                markers[i].preferito = function(){return true; };
+                infowindow.setContent(markers[i].infoHTML());
+            }
         }
-    }
 });
 
 $('.removePreferiti').live("click", function(event){
@@ -64,14 +75,16 @@ $('.removePreferiti').live("click", function(event){
      'id_evento': event.target.id
     })
     .done(function(data){
-        console.log(data);
+        showMessage(data);
+        updatePreferiti();
     });
-    for(i=0; i<markers.length; ++i){
-        if(markers[i].id == event.target.id){
-            markers[i].preferito = function(){return false; };
-            infowindow.setContent(markers[i].infoHTML());
+    if (markers)
+        for(i=0; i<markers.length; ++i){
+            if(markers[i].id == event.target.id){
+                markers[i].preferito = function(){return false; };
+                infowindow.setContent(markers[i].infoHTML());
+            }
         }
-    }
 });
 
 /*
@@ -95,45 +108,50 @@ function getEventiMappa(){
                 markers[i].setMap(null);
         }
         markers.length = 0;
-        /* Creazione dei nuovi markers dall'XML
+        /* Creazione dei nuovi markers dal JSON
          */
-        $(data).find('evento').each(function(){
-          //  console.log($(this).find('nome').text());
+        var response = jQuery.parseJSON(data);
+        $.each(response, function(i){
             var pos = new google.maps.LatLng(
-                parseFloat($(this).find('lat').text()),
-                parseFloat($(this).find('lon').text()));
-            var marker = new google.maps.Marker({'position':pos,
-            'map':map});
-            marker.id = parseInt($(this).find('id').text());
-            marker.title = $(this).find('nome').text();
-            marker.descrizione = $(this).find('descrizione').text();
-            marker.data = $(this).find('data').text();
+                parseFloat(response[i].lat),
+                parseFloat(response[i].lon)
+            );
+            var marker = new google.maps.Marker({'position':pos, 'map':map});
+            marker.id = parseInt(response[i].id_evento);
+            marker.title = response[i].nome;
+            marker.descrizione = response[i].descrizione;
+            marker.data = response[i].data;
             marker.preferito = checkPreferito;
             marker.infoHTML = infoHTML;
+            
             markers.push(marker);
         });
-        for( i=0; i<markers.length; ++i){
-            var marker = markers[i];
-            google.maps.event.addListener(marker, 'click', function () {
-                google.maps.event.clearListeners(map, 'idle');
-                google.maps.event.addListener(map, 'idle', mapWait);
-                /* 
-                 * Se la infowindow era chiusa o era posizionata
-                 * su un altro marker, la posizioniamo su this
-                 * e carichiamo le informazioni relative.
-                 */
-                if (infowindow.marker != this.id){                       
-                    infowindow.marker = this.id;
-                    infowindow.setContent(this.infoHTML());
-                    infowindow.open(map, this);
-                }
-                else { 
-                    infowindow.close();
-                    infowindow.marker = null;
-                }
-            });
-        }
-
+        
+            
+        if (markers)
+            for(i=0; i<markers.length; ++i){
+                var marker = markers[i];
+                google.maps.event.addListener(marker, 'click', function(){
+                    google.maps.event.clearListeners(map, 'idle');
+                    google.maps.event.addListener(map, 'idle', mapWait);
+                    /* 
+                     * Se la infowindow era chiusa o era posizionata
+                     * su un altro marker, la posizioniamo su this
+                     * e carichiamo le informazioni relative.
+                     */
+                    if (infowindow.marker != this.id){
+                        infowindow.marker = this.id;
+                        infowindow.setContent(this.infoHTML());
+                        infowindow.open(map, this);
+                    }
+                    /* Altrimenti chiudiamo la infowindow.
+                     */
+                    else {
+                        infowindow.close();
+                        infowindow.marker = null;
+                    }
+                });
+            }
     });
 }
 /* Controlliamo che un marker faccia parte degli eventi preferiti
@@ -142,24 +160,27 @@ function getEventiMappa(){
  */
 function checkPreferito(){
     var out = false;
-    var marker=this;
+    var marker = this;
     $.ajax({
         async: false,
         url: "CHome.php",
         data: {'action': "getEventiPreferiti"}
-    }).done(function(data){
-            $(data).find('id').each(function(){
-                if (parseInt($(this).text()) == marker.id){
+    })
+    .done(function(data){
+        response = jQuery.parseJSON(data);
+        if (response.total > 0)
+            $.each(response.eventi, function(i){
+                if (parseInt(response.eventi[i].id_evento) == marker.id){
                     out = true;
                     return false;
                 }
-            });
-            /* 
-             * Per le prossime volte, restituiamo semplicemente
-             * il valore ottenuto anziché fare una nuova richiesta
-             */
-            marker.preferito = function(){ return out; }
-        });
+            });            
+        /* 
+         * Per le prossime volte, restituiamo semplicemente
+         * il valore ottenuto anziché fare una nuova richiesta
+         */
+        marker.preferito = function(){ return out; }
+    });
     return out;
 }
 /*
@@ -193,3 +214,25 @@ function infoHTML(){
     return output;
 }
 });
+
+/*
+ * Recupera i preferiti e li inserisce nell'apposito box
+ */
+function updatePreferiti(){
+    boxPreferiti = $('#ulPreferiti');
+    boxPreferiti.find('.preferito').remove();
+    $.get("CHome.php",
+    {'action': "getEventiPreferiti"})
+    .success(function(data) {
+        var response = jQuery.parseJSON(data);
+        if(response.total > 0)
+            var eventi = response.eventi;
+            $.each(eventi, function(i){
+                $('<li class="preferito">')
+                .append($('<ul>')
+                .append('<li>'+eventi[i].nome+'</li>')
+                .append('<li>'+eventi[i].data+'</li>'))
+                .appendTo(boxPreferiti);
+            });
+        });
+}

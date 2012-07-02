@@ -49,18 +49,10 @@ $(document).ready(function(){
         labelHour: 'Ora',
         labelMinute: 'Minuto'} );
     
-    var map, marker;
-    // Bisognerebbe impostare la posizione iniziale alla città
-    // dell'utente... Per ora:
-    var latlng = new google.maps.LatLng(42.366, 13.3944);
-    var myOptions = {
-            zoom: 16,
-            center: latlng,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    map = new google.maps.Map(document.getElementById('map_canvas'), myOptions);
+    var marker;
+    var map = initializeMap();
     $('#map_canvas').hide();
-    // Quando l'utente fornisce un indirizzo, visualizza la mappa e
+    // L'utente fornisce un indirizzo: visualizza la mappa e
     // posiziona un marker per permettere al gestore di controllare
     // la corretta "traduzione" dell'indirizzo da parte del server Google
     $('#indirizzo').change(function(){

@@ -1,11 +1,6 @@
 $(document).ready(function(){
 updatePreferiti();
-var map;
-var myOptions = {
-    zoom: 16,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-};
-map = new google.maps.Map($('#map_canvas')[0], myOptions);
+var map = initializeMap();
 /* 
  * Centra la mappa sulla città dell'utente: geocoder trasforma 
  * strinche (indirizzi) in coppie lat/lon. La richiesta è sincrona: 
@@ -52,39 +47,25 @@ google.maps.event.addListener(map, 'click', function(){
  * Aggiunta di un evento ai preferiti.
  */
 $('.addPreferiti').live("click", function(event){
-    $.get("CHome.php",
-    {'action': "addPreferiti",
-     'id_evento': event.target.id
-    })
-    .done(function(data){
-        showMessage(data);
-        updatePreferiti();
-    });
+    addPreferiti(event.target.id);
     if (markers)
         for(i=0; i<markers.length; ++i){
             if(markers[i].id == event.target.id){
-                markers[i].preferito = function(){return true; };
                 infowindow.setContent(markers[i].infoHTML());
             }
         }
+    return false;
 });
 
 $('.removePreferiti').live("click", function(event){
-    $.get("CHome.php",
-    {'action': "removePreferiti",
-     'id_evento': event.target.id
-    })
-    .done(function(data){
-        showMessage(data);
-        updatePreferiti();
-    });
+    removePreferiti(event.target.id);
     if (markers)
         for(i=0; i<markers.length; ++i){
             if(markers[i].id == event.target.id){
-                markers[i].preferito = function(){return false; };
                 infowindow.setContent(markers[i].infoHTML());
             }
         }
+    return false;
 });
 
 /*
@@ -92,6 +73,7 @@ $('.removePreferiti').live("click", function(event){
  * bounds (oggetto LatLngBounds di Google Maps)
  */
 function getEventiMappa(){
+    updatePreferiti();
     bounds = map.getBounds();
     $.get("CHome.php",
     {'action': "getEventiMappa",
@@ -121,9 +103,8 @@ function getEventiMappa(){
             marker.title = response[i].nome;
             marker.descrizione = response[i].descrizione;
             marker.data = response[i].data;
-            marker.preferito = checkPreferito;
+            marker.preferito = checkPreferito(marker.id);
             marker.infoHTML = infoHTML;
-            
             markers.push(marker);
         });
         
@@ -154,35 +135,7 @@ function getEventiMappa(){
             }
     });
 }
-/* Controlliamo che un marker faccia parte degli eventi preferiti
- * dell'utente. Dobbiamo effettuare una chiamata sincrona perché
- * non possiamo scrivere la infobox senza prima sapere questo valore!
- */
-function checkPreferito(){
-    var out = false;
-    var marker = this;
-    $.ajax({
-        async: false,
-        url: "CHome.php",
-        data: {'action': "getEventiPreferiti"}
-    })
-    .done(function(data){
-        response = jQuery.parseJSON(data);
-        if (response.total > 0)
-            $.each(response.eventi, function(i){
-                if (parseInt(response.eventi[i].id_evento) == marker.id){
-                    out = true;
-                    return false;
-                }
-            });            
-        /* 
-         * Per le prossime volte, restituiamo semplicemente
-         * il valore ottenuto anziché fare una nuova richiesta
-         */
-        marker.preferito = function(){ return out; }
-    });
-    return out;
-}
+
 /*
  * Quando viene aperta una infowindow bisogna impedire il triggering 
  * di getEventiMappa(). Altrimenti il marker verrebbe cancellato
@@ -197,10 +150,12 @@ function mapWait(){
  * Formattazione del contenuto delle infoWindow
  */
 function infoHTML(){
+    this.preferito = checkPreferito(this.id);
+    console.log (this.preferito);
     var output= '<div class="infowindow">'+
         '<h2>'+this.title+'</h2>'+
         '<h3>'+this.data;
-    if (this.preferito() == false){
+    if (this.preferito == false){
         output +=' - <a href="#" class="addPreferiti" id="'+this.id+
         '">Aggiungi ai Preferiti</a></h3>';
     }
@@ -214,25 +169,3 @@ function infoHTML(){
     return output;
 }
 });
-
-/*
- * Recupera i preferiti e li inserisce nell'apposito box
- */
-function updatePreferiti(){
-    Preferiti = $('#ulPreferiti');
-    Preferiti.find('.preferito').remove();
-    $.get("CHome.php",
-    {'action': "getEventiPreferiti"})
-    .success(function(data) {
-        var response = jQuery.parseJSON(data);
-        if(response.total > 0)
-            var eventi = response.eventi;
-            $.each(eventi, function(i){
-                $('<li class="preferito">')
-                .append($('<ul>')
-                .append('<li>'+eventi[i].nome+'</li>')
-                .append('<li>'+eventi[i].data+'</li>'))
-                .appendTo(Preferiti);
-            });
-        });
-}

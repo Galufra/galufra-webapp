@@ -219,8 +219,8 @@ function infoHTML(){
  * Recupera i preferiti e li inserisce nell'apposito box
  */
 function updatePreferiti(){
-    boxPreferiti = $('#ulPreferiti');
-    boxPreferiti.find('.preferito').remove();
+    Preferiti = $('#ulPreferiti');
+    Preferiti.find('.preferito').remove();
     $.get("CHome.php",
     {'action': "getEventiPreferiti"})
     .success(function(data) {
@@ -232,7 +232,7 @@ function updatePreferiti(){
                 .append($('<ul>')
                 .append('<li>'+eventi[i].nome+'</li>')
                 .append('<li>'+eventi[i].data+'</li>'))
-                .appendTo(boxPreferiti);
+                .appendTo(Preferiti);
             });
         });
 }

@@ -3,7 +3,6 @@ require_once('../Foundation/FUtente.php');
 require_once('../Foundation/FEvento.php');
 require_once('../Entity/EUtente.php');
 require_once('../Entity/EEvento.php');
-require_once('../View/VEventiXML.php');
 require_once '../View/VHome.php';
 
 class CHome{
@@ -23,8 +22,10 @@ public function __construct(){
     switch($_GET['action']){
         case('getEventiMappa'):
             $this->getEventiMappa(
-				$_GET['neLat'], $_GET['neLon'],
-				$_GET['swLat'], $_GET['swLon']
+				mysql_real_escape_string($_GET['neLat']),
+                mysql_real_escape_string($_GET['neLon']),
+				mysql_real_escape_string($_GET['swLat']),
+                mysql_real_escape_string( $_GET['swLon'])
 				);
             break;
         case('getEventiPreferiti'):
@@ -38,6 +39,7 @@ public function __construct(){
                 $this->utente->addPreferiti($_GET['id_evento']);
                 echo "L'evento è stato aggiunto ai tuoi preferiti.";
             } catch (dbException $e) {
+                // 1062 = esiste già una tupla con gli stessi id
                 if ($e->getMessage() == '1062')
                     echo "L'evento fa già parte dei tuoi preferiti!";
                 else echo "C'è stato un errore. Riprova :)";
@@ -51,10 +53,6 @@ public function __construct(){
                     echo "C'è stato un errore. Riprova :)";
                 }
             break;
-        case('getCitta'):
-            echo $this->utente->getCitta();
-            break;
-            
         case('getUtente'):
             $this->getUtente();
             break;            
@@ -66,11 +64,7 @@ public function __construct(){
             break;
         }
     }
-    /* 
-     * Crea un XML contenente gli eventi restituiti da 
-     * FEvento::searchEventi().
-     */
-     
+
      public function getUtente(){
         $out = array('logged' => false);
         if($this->utente){
@@ -82,21 +76,22 @@ public function __construct(){
         }
         echo json_encode($out);
      }
-     
+         
+    /* 
+     * Crea un JSON contenente gli eventi restituiti da 
+     * FEvento::searchEventiMappa().
+     */
     public function getEventiMappa($neLat, $neLon, $swLat, $swLon){
         $ev = new FEvento();
         $ev->connect();
         $ev_array = $ev->searchEventiMappa($neLat, $neLon, $swLat, $swLon);
         echo json_encode($ev_array);
-        //$View = new VEventiXML($ev_array[1][1]);
         exit;
     }
     public function getEventiPreferiti(){
         $ev = new FEvento();
         $ev->connect();
         $ev_array = $ev->getEventiPreferiti($this->utente->getId());
-        //$View = new VEventiXML($ev_array[1]);
-        
         $out = array(
                 'total' => count($ev_array),
                 'eventi' => $ev_array

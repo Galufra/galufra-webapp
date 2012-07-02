@@ -5,7 +5,7 @@ var myOptions = {
     zoom: 16,
     mapTypeId: google.maps.MapTypeId.ROADMAP
 };
-map = new google.maps.Map(document.getElementById('map_canvas'), myOptions);
+map = new google.maps.Map($('#map_canvas')[0], myOptions);
 /* 
  * Centra la mappa sulla città dell'utente: geocoder trasforma 
  * strinche (indirizzi) in coppie lat/lon. La richiesta è sincrona: 

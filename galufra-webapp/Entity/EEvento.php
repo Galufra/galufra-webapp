@@ -2,16 +2,16 @@
 
 class EEvento {
 
-    private $id_evento = null;
-    private $nome = null;
-    private $descrizione = null;
-    private $data = null;
-    private $n_visite = null;
-    private $n_iscritti = null;
-    private $gestore = null;
-    private $locale = null;
-    private $lat = null;
-    private $lon = null;
+    public $id_evento = null;
+    public $nome = null;
+    public $descrizione = null;
+    public $data = null;
+    public $n_visite = 0;
+    public $n_iscritti = 0;
+    public $gestore = null;
+    public $locale = null;
+    public $lat = null;
+    public $lon = null;
 
     public function getIdEvento() {
         return $this->id_evento;
@@ -81,8 +81,16 @@ class EEvento {
 		return $this->lat;
     }
     
+    public function setLat($lat) {
+        $this->lat = $lat;
+    }
+    
     public function getLon() {
 		return $this->lon;
+    }
+    
+    public function setLon($lon) {
+        $this->lon = $lon;
     }
 
 }

@@ -133,6 +133,16 @@ a:hover {
 	background: #A4B74C url(images/img04.gif) repeat-x;
 }
 
+#menu>li#messagebox {
+    
+    color: #FFFFFF;
+    font-size: 16px;
+	font-weight: bold;
+    text-align:center;
+    padding-top: 6px;
+    display: none
+}
+
 /* Search */
 
 #search {
@@ -318,4 +328,12 @@ color:#2582A4;
 #footer p {
 	margin: 0;
 	text-align: center;
+}
+
+form#creaEvento input, textarea{
+    width: 200px;
+}
+
+.errore {
+    color: #ff0000;
 }

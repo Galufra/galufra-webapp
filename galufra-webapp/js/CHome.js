@@ -1,29 +1,34 @@
 $(document).ready(function(){
-var citta;
-var map;
-var myOptions = {
-    zoom: 16,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-};
-map = new google.maps.Map(document.getElementById('map_canvas'), myOptions);
-// Centra la mappa sulla città dell'utente.
-// geocoder trasforma indirizzi in coppie lat/lon
+updatePreferiti();
+var map = initializeMap();
+/* 
+ * Centra la mappa sulla città dell'utente: geocoder trasforma 
+ * strinche (indirizzi) in coppie lat/lon. La richiesta è sincrona: 
+ * dobbiamo posizionare la mappa prima di chiedere al server 
+ * la lista di eventi. 
+ */
 geocoder = new google.maps.Geocoder();
 $.ajax({
     async: false,
     url: "CHome.php",
-    data: {'action': "getCitta"}
+    data: {'action': "getUtente"}
 })
 .done(function(data){
-    citta = data;
-});
-geocoder.geocode(
-    {'address': citta},
-    function(results, status) {
-        map.setCenter(results[0].geometry.location);
+    response = jQuery.parseJSON(data);
+    if (response.logged){
+        geocoder.geocode(
+            {'address': response.citta},
+            function(results, status) {
+                map.setCenter(results[0].geometry.location);
+            }
+        );
     }
-);
-var markers = [];
+});
+
+/* Markers conterrà i riferimenti ai markers che verranno inseriti 
+ * sulla mappa, rendendo più facile la loro modifica/cancellazione
+ */
+markers = [];
 var infowindow = new google.maps.InfoWindow({'maxWidth': 400});
 google.maps.event.addListener(infowindow, 'closeclick', function(){
     infowindow.marker = null;
@@ -42,35 +47,25 @@ google.maps.event.addListener(map, 'click', function(){
  * Aggiunta di un evento ai preferiti.
  */
 $('.addPreferiti').live("click", function(event){
-    $.get("CHome.php",
-    {'action': "addPreferiti",
-     'id_evento': event.target.id
-    })
-    .done(function(data){
-        console.log(data);
-    });
-    for(i=0; i<markers.length; ++i){
-        if(markers[i].id == event.target.id){
-            markers[i].preferito = function(){return true; };
-            infowindow.setContent(markers[i].infoHTML());
+    addPreferiti(event.target.id);
+    if (markers)
+        for(i=0; i<markers.length; ++i){
+            if(markers[i].id == event.target.id){
+                infowindow.setContent(markers[i].infoHTML());
+            }
         }
-    }
+    return false;
 });
 
 $('.removePreferiti').live("click", function(event){
-    $.get("CHome.php",
-    {'action': "removePreferiti",
-     'id_evento': event.target.id
-    })
-    .done(function(data){
-        console.log(data);
-    });
-    for(i=0; i<markers.length; ++i){
-        if(markers[i].id == event.target.id){
-            markers[i].preferito = function(){return false; };
-            infowindow.setContent(markers[i].infoHTML());
+    removePreferiti(event.target.id);
+    if (markers)
+        for(i=0; i<markers.length; ++i){
+            if(markers[i].id == event.target.id){
+                infowindow.setContent(markers[i].infoHTML());
+            }
         }
-    }
+    return false;
 });
 
 /*
@@ -78,6 +73,7 @@ $('.removePreferiti').live("click", function(event){
  * bounds (oggetto LatLngBounds di Google Maps)
  */
 function getEventiMappa(){
+    updatePreferiti();
     bounds = map.getBounds();
     $.get("CHome.php",
     {'action': "getEventiMappa",
@@ -94,73 +90,52 @@ function getEventiMappa(){
                 markers[i].setMap(null);
         }
         markers.length = 0;
-        /* Creazione dei nuovi markers dall'XML
+        /* Creazione dei nuovi markers dal JSON
          */
-        $(data).find('evento').each(function(){
-          //  console.log($(this).find('nome').text());
+        var response = jQuery.parseJSON(data);
+        $.each(response, function(i){
             var pos = new google.maps.LatLng(
-                parseFloat($(this).find('lat').text()),
-                parseFloat($(this).find('lon').text()));
-            var marker = new google.maps.Marker({'position':pos,
-            'map':map});
-            marker.id = parseInt($(this).find('id').text());
-            marker.title = $(this).find('nome').text();
-            marker.descrizione = $(this).find('descrizione').text();
-            marker.data = $(this).find('data').text();
-            marker.preferito = checkPreferito;
+                parseFloat(response[i].lat),
+                parseFloat(response[i].lon)
+            );
+            var marker = new google.maps.Marker({'position':pos, 'map':map});
+            marker.id = parseInt(response[i].id_evento);
+            marker.title = response[i].nome;
+            marker.descrizione = response[i].descrizione;
+            marker.data = response[i].data;
+            marker.preferito = checkPreferito(marker.id);
             marker.infoHTML = infoHTML;
             markers.push(marker);
         });
-        for( i=0; i<markers.length; ++i){
-            var marker = markers[i];
-            google.maps.event.addListener(marker, 'click', function () {
-                google.maps.event.clearListeners(map, 'idle');
-                google.maps.event.addListener(map, 'idle', mapWait);
-                /* 
-                 * Se la infowindow era chiusa o era posizionata
-                 * su un altro marker, la posizioniamo su this
-                 * e carichiamo le informazioni relative.
-                 */
-                if (infowindow.marker != this.id){                       
-                    infowindow.marker = this.id;
-                    infowindow.setContent(this.infoHTML());
-                    infowindow.open(map, this);
-                }
-                else { 
-                    infowindow.close();
-                    infowindow.marker = null;
-                }
-            });
-        }
-
+        
+            
+        if (markers)
+            for(i=0; i<markers.length; ++i){
+                var marker = markers[i];
+                google.maps.event.addListener(marker, 'click', function(){
+                    google.maps.event.clearListeners(map, 'idle');
+                    google.maps.event.addListener(map, 'idle', mapWait);
+                    /* 
+                     * Se la infowindow era chiusa o era posizionata
+                     * su un altro marker, la posizioniamo su this
+                     * e carichiamo le informazioni relative.
+                     */
+                    if (infowindow.marker != this.id){
+                        infowindow.marker = this.id;
+                        infowindow.setContent(this.infoHTML());
+                        infowindow.open(map, this);
+                    }
+                    /* Altrimenti chiudiamo la infowindow.
+                     */
+                    else {
+                        infowindow.close();
+                        infowindow.marker = null;
+                    }
+                });
+            }
     });
 }
-/* Controlliamo che un marker faccia parte degli eventi preferiti
- * dell'utente. Dobbiamo effettuare una chiamata sincrona perché
- * non possiamo scrivere la infobox senza prima sapere questo valore!
- */
-function checkPreferito(){
-    var out = false;
-    var marker=this;
-    $.ajax({
-        async: false,
-        url: "CHome.php",
-        data: {'action': "getEventiPreferiti"}
-    }).done(function(data){
-            $(data).find('id').each(function(){
-                if (parseInt($(this).text()) == marker.id){
-                    out = true;
-                    return false;
-                }
-            });
-            /* 
-             * Per le prossime volte, restituiamo semplicemente
-             * il valore ottenuto anziché fare una nuova richiesta
-             */
-            marker.preferito = function(){ return out; }
-        });
-    return out;
-}
+
 /*
  * Quando viene aperta una infowindow bisogna impedire il triggering 
  * di getEventiMappa(). Altrimenti il marker verrebbe cancellato
@@ -175,10 +150,12 @@ function mapWait(){
  * Formattazione del contenuto delle infoWindow
  */
 function infoHTML(){
+    this.preferito = checkPreferito(this.id);
+    console.log (this.preferito);
     var output= '<div class="infowindow">'+
         '<h2>'+this.title+'</h2>'+
         '<h3>'+this.data;
-    if (this.preferito() == false){
+    if (this.preferito == false){
         output +=' - <a href="#" class="addPreferiti" id="'+this.id+
         '">Aggiungi ai Preferiti</a></h3>';
     }

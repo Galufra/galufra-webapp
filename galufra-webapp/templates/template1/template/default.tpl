@@ -1,25 +1,4 @@
-<?php /* Smarty version Smarty-3.1.10, created on 2012-06-29 18:59:23
-         compiled from "../templates/template1/template/home.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:2905953674feddeeb8dfbb2-66939864%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
-$_valid = $_smarty_tpl->decodeProperties(array (
-  'file_dependency' => 
-  array (
-    '2d256592c9b7f12c67f1e6607af61a7f2ab676a5' => 
-    array (
-      0 => '../templates/template1/template/home.tpl',
-      1 => 1340988472,
-      2 => 'file',
-    ),
-  ),
-  'nocache_hash' => '2905953674feddeeb8dfbb2-66939864',
-  'function' => 
-  array (
-  ),
-  'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.10',
-  'unifunc' => 'content_4feddeeb90b354_64636808',
-),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_4feddeeb90b354_64636808')) {function content_4feddeeb90b354_64636808($_smarty_tpl) {?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--
 Design by Free CSS Templates
 http://www.freecsstemplates.org
@@ -32,9 +11,14 @@ Released for free under a Creative Commons Attribution 2.5 License
     <meta name="Keywords" content="" />
     <meta name="Description" content="" />
     <link href="../templates/template1/template/default.css" rel="stylesheet" type="text/css" />
+    <link href="../js/anytime.c.css" rel="stylesheet" type="text/css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAO2zXC0wh-S8SjMgPRZfoTUGZMGHBIzZ0&sensor=false"></script>
-    <script type="text/javascript" src='../js/CHome.js'></script>
+    <script type="text/javascript" src='../js/functions.js'></script>
+{foreach $scripts as $s}
+    <script type="text/javascript" src='../js/{$s}'></script>
+{/foreach}
+    
 </head>
 <body>
 <div id="header">
@@ -42,8 +26,9 @@ Released for free under a Creative Commons Attribution 2.5 License
 		<li><a href="login.html" accesskey="1" title="">Home</a></li>
 		<li><a href="profilo.html" accesskey="2" title="">Profilo</a></li>
 		<li><a href="#" accesskey="3" title="">Crea Evento</a></li>
-		
+        <li id='messagebox'></li>		
 	</ul>
+    
 	<form id="search" method="get" action="">
 		<fieldset>
 		<input name="input1" type="text" id="input1" />
@@ -51,9 +36,6 @@ Released for free under a Creative Commons Attribution 2.5 License
 		</fieldset>
 	</form>
 </div>
-
-
-
 
 <div id="content">
 	<div id="colOne">
@@ -142,9 +124,9 @@ Released for free under a Creative Commons Attribution 2.5 License
 			<ul class="bottom">
 			</ul>
 		</div>
-		<div class="box">
+        <div class="box" id="boxPreferiti">
 			<h3>Eventi Preferiti</h3>
-			<ul class="bottom">
+			<ul class="bottom" id='ulPreferiti'>
 			</ul>
 		</div>
 		<div class="box">
@@ -155,9 +137,8 @@ Released for free under a Creative Commons Attribution 2.5 License
 		</div>
 	</div>
 	
-	<!-- questo è il div che dovra contenere la mappa -->
 	<div  class="colTwo">
-        <div id="map_canvas" style='height: 600px'></div>
+        {include $content}
 	</div>
 	
 	<script>
@@ -172,7 +153,6 @@ Released for free under a Creative Commons Attribution 2.5 License
     });
 </script>
 
-
 	
 </div>
 <div id="footer">
@@ -180,4 +160,3 @@ Released for free under a Creative Commons Attribution 2.5 License
 </div>
 </body>
 </html>
-<?php }} ?>

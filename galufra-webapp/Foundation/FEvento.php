@@ -9,8 +9,6 @@ class FEvento extends FMysql {
         $this->_key = 'id_evento';
         $this->_class = 'EEvento';
     }
-    
-    
     /* 
      * Restituisce un array di eventi futuri (data >= oggi)
      * con coordinate comprese nel rettangolo ne-sw.
@@ -26,11 +24,12 @@ class FEvento extends FMysql {
     public function getEventiPreferiti($idUtente){
             $this->makeQuery("
                 SELECT * FROM evento as e
-                WHERE e.id_evento IN (
+                WHERE e.data >= NOW()
+                AND e.id_evento IN (
                     SELECT evento FROM preferisce as p, evento as e1
                     WHERE p.utente =  $idUtente
-                    AND p.evento = e1.id_evento
-                )"
+                    AND p.evento = e1.id_evento )
+                ORDER BY data"
             );
             return $this->getObjectArray();
         }

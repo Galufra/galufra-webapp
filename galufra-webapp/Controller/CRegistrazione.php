@@ -33,11 +33,11 @@ class CRegistrazione {
 
                 $this->autenticato = TRUE;
                 $this->initSession();
-                $u->close();
+                //$u->close();
                 return true;
             } else {
                 $this->errore = "Password non valida";
-                $u->close();
+                //$u->close();
                 return false;
             }
         }

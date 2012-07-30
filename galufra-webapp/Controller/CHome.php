@@ -1,73 +1,147 @@
 <?php
+
 require_once('../Foundation/FUtente.php');
 require_once('../Foundation/FEvento.php');
+require_once('../Foundation/Utility/USession.php');
 require_once('../Entity/EUtente.php');
 require_once('../Entity/EEvento.php');
 require_once '../View/VHome.php';
+require_once 'CRegistrazione.php';
 
-class CHome{
-private $utente;
+class CHome {
 
-public function __construct(){
-    /* Caricamento dell'utente.
-     */
-    $u = new Futente();
-    $u->connect();
-    $this->utente = $u->load('luca');
-    /* Se "action" non è impostato, eseguiremo il comportamento
-     * di default nello switch successivo.
-     */
-    if(!isset($_GET['action']))
-        $_GET['action'] = '';
-    switch($_GET['action']){
-        case('getEventiMappa'):
-            $this->getEventiMappa(
-				mysql_real_escape_string($_GET['neLat']),
-                mysql_real_escape_string($_GET['neLon']),
-				mysql_real_escape_string($_GET['swLat']),
-                mysql_real_escape_string( $_GET['swLon'])
-				);
-            break;
-        case('getEventiPreferiti'):
-            $this->getEventiPreferiti();
-            break;
-        /* 
-         * Aggiunta/rimozione di un evento nell'elenco dei preferiti
+    private $utente;
+
+    public function __construct() {
+        /* Caricamento dell'utente.
          */
-        case('addPreferiti'):
-            try {
-                $this->utente->addPreferiti($_GET['id_evento']);
-                echo "L'evento è stato aggiunto ai tuoi preferiti.";
-            } catch (dbException $e) {
-                // 1062 = esiste già una tupla con gli stessi id
-                if ($e->getMessage() == '1062')
-                    echo "L'evento fa già parte dei tuoi preferiti!";
-                else echo "C'è stato un errore. Riprova :)";
-            }
-            break;
-        case('removePreferiti'):
-            try {
+        $u = new Futente();
+        $u->connect();
+        $session = new USession();
+        $user = $session->leggi_valore('username');
+        if ($user != null)
+            $this->utente = $u->load($user);
+        $view = new VHome();
+        /* else
+          $this->utente = $u->load('luca'); */
+
+
+        /* Se "action" non è impostato, eseguiremo il comportamento
+         * di default nello switch successivo.
+         */
+        if (!isset($_GET['action']))
+            $_GET['action'] = '';
+
+        switch ($_GET['action']) {
+            case('getEventiMappa'):
+                $this->getEventiMappa(
+                        mysql_real_escape_string($_GET['neLat']),
+                        mysql_real_escape_string($_GET['neLon']),
+                        mysql_real_escape_string($_GET['swLat']),
+                        mysql_real_escape_string($_GET['swLon'])
+                );
+                break;
+            case('getEventiPreferiti'):
+                $this->getEventiPreferiti();
+                break;
+            /*
+             * Aggiunta/rimozione di un evento nell'elenco dei preferiti
+             */
+            case('addPreferiti'):
+                try {
+                    $this->utente->addPreferiti($_GET['id_evento']);
+                    echo "L'evento è stato aggiunto ai tuoi preferiti.";
+                } catch (dbException $e) {
+                    // 1062 = esiste già una tupla con gli stessi id
+                    if ($e->getMessage() == '1062')
+                        echo "L'evento fa già parte dei tuoi preferiti!";
+                    else
+                        echo "C'è stato un errore. Riprova :)";
+                }
+                break;
+
+            case('removePreferiti'):
+                try {
                     $this->utente->removePreferiti($_GET['id_evento']);
                     echo "L'evento è stato rimosso dai tuoi preferiti.";
                 } catch (dbException $e) {
                     echo "C'è stato un errore. Riprova :)";
                 }
-            break;
-        case('getUtente'):
-            $this->getUtente();
-            break;            
-        /* default: stampa la pagina
-         */
-        default: 
-            $view = new VHome();
-            $view->mostraPagina();
-            break;
+                break;
+
+            case('login'):
+                session_destroy();
+                if (isset($_POST['username']) && isset($_POST["password"])) {
+                    $uname = mysql_real_escape_string($_POST['username']);
+                    $pwd = mysql_real_escape_string($_POST['password']);
+                    $login = new CRegistrazione($uname, $pwd);
+                    $login->logIn();
+                    if ($login->isLogged()) {
+                        $this->utente = $u->load($uname);
+                        $view->isAutenticato(true);
+                        $view->showUser($this->utente->getUsername());
+                        $view->mostraPagina();
+                    }
+                } else {
+                    $view->isAutenticato(false);
+                    $view->mostraPagina();
+                }
+                break;
+
+            case('logout'):
+                $session->cancella_valore('username');
+                session_unset();
+                session_destroy();
+                $view->isAutenticato(false);
+                $view->mostraPagina();
+                break;
+
+            case('getUtente'):
+                $this->getUtente();
+                break;
+            /* default: stampa la pagina
+             */
+            case('reg'):
+                if (isset($_POST['username']) && isset($_POST["password"]) && isset($_POST['password1'])
+                        && isset($_POST["citta"]) && isset($_POST["mail"])) {
+                    $uname = mysql_real_escape_string($_POST['username']);
+                    $pwd = mysql_real_escape_string($_POST['password']);
+                    $pwd1 = mysql_real_escape_string($_POST['password1']);
+                    $citta = mysql_real_escape_string($_POST['citta']);
+                    $mail = mysql_real_escape_string($_POST['mail']);
+                    if ($pwd == $pwd1) {
+                        $registra = new CRegistrazione($uname, $pwd, $citta, $mail);
+                        session_destroy();
+                        $result = $registra->regUtente();
+                        if ($result[0]) {
+                            $this->utente = $result[1];
+                            $view->isAutenticato(true);
+                            $view->showUser($this->utente->getUsername());
+                            $view->mostraPagina();
+                        }
+                    }
+                } else {
+                    $view->isAutenticato(false);
+                    $view->mostraPagina();
+                }
+
+                break;
+
+            default:
+                if ($this->utente) {
+                    $view->isAutenticato(true);
+                    $view->showUser($this->utente->getUsername());
+                }else
+                    $view->isAutenticato(false);
+
+                $view->mostraPagina();
+                break;
         }
     }
 
-     public function getUtente(){
+    public function getUtente() {
         $out = array('logged' => false);
-        if($this->utente){
+        if ($this->utente) {
             $out['logged'] = true;
             $out['username'] = $this->utente->getUsername();
             $out['nome'] = $this->utente->getNome();
@@ -75,31 +149,34 @@ public function __construct(){
             $out['citta'] = $this->utente->getCitta();
         }
         echo json_encode($out);
-     }
-         
-    /* 
-     * Crea un JSON contenente gli eventi restituiti da 
+    }
+
+    /*
+     * Crea un JSON contenente gli eventi restituiti da
      * FEvento::searchEventiMappa().
      */
-    public function getEventiMappa($neLat, $neLon, $swLat, $swLon){
+
+    public function getEventiMappa($neLat, $neLon, $swLat, $swLon) {
         $ev = new FEvento();
         $ev->connect();
         $ev_array = $ev->searchEventiMappa($neLat, $neLon, $swLat, $swLon);
         echo json_encode($ev_array);
         exit;
     }
-    public function getEventiPreferiti(){
+
+    public function getEventiPreferiti() {
         $ev = new FEvento();
         $ev->connect();
         $ev_array = $ev->getEventiPreferiti($this->utente->getId());
         $out = array(
-                'total' => count($ev_array),
-                'eventi' => $ev_array
+            'total' => count($ev_array),
+            'eventi' => $ev_array
         );
         echo json_encode($out);
         exit;
     }
+
 }
 
-$home= new CHome();
+$home = new CHome();
 ?>

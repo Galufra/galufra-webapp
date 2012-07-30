@@ -18,6 +18,7 @@ abstract class View extends Smarty {
     public function mostraPagina(){
         if(!is_array($this->scripts) || is_null($this->content))
             throw new Exception('parametri non definiti');
+
         $this->assign('scripts', $this->scripts);
         $this->assign('content', $this->content);
         $this->display('default.tpl');

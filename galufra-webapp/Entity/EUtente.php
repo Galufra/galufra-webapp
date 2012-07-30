@@ -2,19 +2,19 @@
 
 class EUtente {
 
-	private $id_utente = null;
+	private $_id_utente = null;
 	private $username = null;
 	private $password = null;
 	private $nome = null;
 	private $cognome = null;
 	private $email = null;
 	private $citta = null;
-	private $confirmed = null;
+	private $_confirmed = null;
 	private $date = null;
-	private $permessi = null;
+	private $_permessi = null;
 
 	public function getId(){
-		return $this->id_utente;
+		return $this->_id_utente;
 	}
 
 	public function getUsername(){
@@ -65,8 +65,11 @@ class EUtente {
          * per indirizzi email. Restituisce true se $email
          * è un indirizzo corretto.
          */
-		if(filter_var($email, FILTER_VALIDATE_EMAIL))
+        if(filter_var($email, FILTER_VALIDATE_EMAIL))
+        {
             $this->email = $email;
+            return true;
+        }
         else
             throw new Exception('email non valida!');
 	}
@@ -80,11 +83,11 @@ class EUtente {
 	}
 
 	public function getConfirmed(){
-		return $this->confirmed;
+		return $this->_confirmed;
 	}
 
 	public function setConfirmed($confirmed){
-		$this->confirmed = $confirmed;
+		$this->_confirmed = $confirmed;
 	}
 
 	public function getDate(){
@@ -92,21 +95,21 @@ class EUtente {
 	}
 
 	public function getPermessi(){
-		return $this->permessi;
+		return $this->_permessi;
 	}
 
 	public function setPermessi($permessi){
-		$this->permessi = $permessi;
+		$this->_permessi = $permessi;
 	}
     public function addPreferiti($evento){
         $ev = new FEvento();
         $ev->connect();
-        $ev->storePreferiti($this->id_utente, $evento);
+        $ev->storePreferiti($this->_id_utente, $evento);
     }
     public function removePreferiti($evento){
         $ev = new FEvento();
         $ev->connect();
-        $ev->removePreferiti($this->id_utente, $evento);
+        $ev->removePreferiti($this->_id_utente, $evento);
     }
 }
 ?>

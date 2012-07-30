@@ -11,6 +11,7 @@ function showMessage(message){
 function initializeMap(){
     var myOptions = {
         zoom: 16,
+        center: new google.maps.LatLng(42.354008, 13.391992),
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     return new google.maps.Map($('#map_canvas')[0], myOptions);

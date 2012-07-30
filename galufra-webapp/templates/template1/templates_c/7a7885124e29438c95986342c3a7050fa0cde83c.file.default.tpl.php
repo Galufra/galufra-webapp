@@ -1,4 +1,33 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<?php /* Smarty version Smarty-3.1.10, created on 2012-07-30 13:14:23
+         compiled from "../templates/template1/template/default.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:116381495150127392e30ec1-13862966%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '7a7885124e29438c95986342c3a7050fa0cde83c' => 
+    array (
+      0 => '../templates/template1/template/default.tpl',
+      1 => 1343646823,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '116381495150127392e30ec1-13862966',
+  'function' => 
+  array (
+  ),
+  'version' => 'Smarty-3.1.10',
+  'unifunc' => 'content_50127392ea25b1_78331766',
+  'variables' => 
+  array (
+    'scripts' => 0,
+    's' => 0,
+    'name' => 0,
+    'content' => 0,
+    'autenticato' => 0,
+  ),
+  'has_nocache_code' => false,
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_50127392ea25b1_78331766')) {function content_50127392ea25b1_78331766($_smarty_tpl) {?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--
 Design by Free CSS Templates
 http://www.freecsstemplates.org
@@ -15,9 +44,14 @@ Released for free under a Creative Commons Attribution 2.5 License
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
         <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAO2zXC0wh-S8SjMgPRZfoTUGZMGHBIzZ0&sensor=false"></script>
         <script type="text/javascript" src='../js/functions.js'></script>
-{foreach $scripts as $s}
-        <script type="text/javascript" src='../js/{$s}'></script>
-{/foreach}
+<?php  $_smarty_tpl->tpl_vars['s'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['s']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['scripts']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['s']->key => $_smarty_tpl->tpl_vars['s']->value){
+$_smarty_tpl->tpl_vars['s']->_loop = true;
+?>
+        <script type="text/javascript" src='../js/<?php echo $_smarty_tpl->tpl_vars['s']->value;?>
+'></script>
+<?php } ?>
 
     </head>
     <body>
@@ -103,9 +137,10 @@ Released for free under a Creative Commons Attribution 2.5 License
 
                 </div>
                 <div id="logo3">
-                    {if $name != null}
-                    <h2>Ciao {$name}</h2>
-                    {/if}
+                    <?php if ($_smarty_tpl->tpl_vars['name']->value!=null){?>
+                    <h2>Ciao <?php echo $_smarty_tpl->tpl_vars['name']->value;?>
+</h2>
+                    <?php }?>
                     <div>
                         <h3><a href="CHome.php?action=logout">Logout</a></h3>
                     </div>
@@ -132,7 +167,8 @@ Released for free under a Creative Commons Attribution 2.5 License
             </div>
 
             <div  class="colTwo">
-        {include $content}
+        <?php echo $_smarty_tpl->getSubTemplate ($_smarty_tpl->tpl_vars['content']->value, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+
             </div>
 
             <script>
@@ -140,12 +176,12 @@ Released for free under a Creative Commons Attribution 2.5 License
         $("#logo3").hide();
             </script>
 
-            {if $autenticato}
+            <?php if ($_smarty_tpl->tpl_vars['autenticato']->value){?>
             <script>
                  $("#logo").hide("slow");
                  $("#logo3").show("slow");
             </script>
-            {/if}
+            <?php }?>
 
             <script>
                 $("#areg").click(function ( event ) {
@@ -162,3 +198,4 @@ Released for free under a Creative Commons Attribution 2.5 License
         </div>
     </body>
 </html>
+<?php }} ?>

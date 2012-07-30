@@ -41,8 +41,8 @@ class FMysql implements FDb {
             try {
 
                 $result = @mysql_connect($config['mysql']['host'],
-                                         $config['mysql']['username'],
-                                         $config['mysql']['password']);
+                                $config['mysql']['username'],
+                                $config['mysql']['password']);
                 if ($result == NULL) {
 
                     throw new dbException("Connect()", false);
@@ -67,15 +67,15 @@ class FMysql implements FDb {
 
     public function makeQuery($query) {
         if ($this->up) {
-                $this->_query = mysql_query($query);
+            $this->_query = mysql_query($query);
 
-                if ($this->_query == NULL) {
+            if ($this->_query == NULL) {
 
-                    throw new dbException(mysql_errno(), false);
-                } else {
+                throw new dbException(mysql_errno(), false);
+            } else {
 
-                    return array(true, $this->_query);
-                }
+                return array(true, $this->_query);
+            }
         } else {
 
             return array(false, "isUp()");
@@ -92,10 +92,10 @@ class FMysql implements FDb {
             if (@mysql_num_rows($this->_query) > 0) {
                 $row = mysql_fetch_assoc($this->_query);
                 $this->_query = false;
-                return array(true,$row);
+                return array(true, $row);
             }
         }
-        return array(false,"getResult()");
+        return array(false, "getResult()");
     }
 
     /*
@@ -121,7 +121,7 @@ class FMysql implements FDb {
     public function getObjectArray() {
         if (mysql_num_rows($this->_query) > 0) {
             $result = array();
-            while ($row = mysql_fetch_object($this->_query, $this->_class)){
+            while ($row = mysql_fetch_object($this->_query, $this->_class)) {
                 $result[] = $row;
             }
             $this->_query = false;
@@ -132,11 +132,11 @@ class FMysql implements FDb {
             return null;
     }
 
-
     /*
      * Stores the object state in the dabase.
      * Previously retrieves the keys-values pair and then inserts information onto the db
      */
+
     public function store($object) {
 
         $i = 0;
@@ -158,38 +158,41 @@ class FMysql implements FDb {
         $query = 'INSERT INTO ' . $this->_table . ' (' . $fields . ') VALUES (' . $values . ')';
         $return = $this->makeQuery($query);
         //~ if ($this->_is_an_autoincrement_key) {
-            //~ $query = 'SELECT LAST_INSERT_ID() AS id';
-            //~ $this->makeQuery($query);
-            //~ $result = $this->getResult();
-            //~ return array(true,$result['id']);
+        //~ $query = 'SELECT LAST_INSERT_ID() AS id';
+        //~ $this->makeQuery($query);
+        //~ $result = $this->getResult();
+        //~ return array(true,$result['id']);
         //~ } else {
-            return array(true,$return);
+        return array(true, $return);
         //~ }
     }
 
-    /*loads an object (entity)*/
+    /* loads an object (entity) */
+
     public function load($k) {
         $query = 'SELECT * ' .
                 'FROM `' . $this->_table . '` ' .
                 'WHERE `' . $this->_key . '` = "' . $k . '"';
         $r = $this->makeQuery($query);
-        if($r[0])
+        if ($r[0])
             return $this->getObject();
         else
             return false;
     }
 
-    /*deletes an entity*/
+    /* deletes an entity */
+
     public function delete(& $object) {
         $arrayObject = get_object_vars($object);
         $query = 'DELETE ' .
                 'FROM `' . $this->_table . '` ' .
                 'WHERE `' . $this->_key . '` = \'' . $arrayObject[$this->_key] . '\'';
         unset($object);
-        return array(true,$this->makeQuery($query));
+        return array(true, $this->makeQuery($query));
     }
 
-    /*updates the state of a given object*/
+    /* updates the state of a given object */
+
     public function update($object) {
         $i = 0;
         $fields = '';
@@ -205,11 +208,12 @@ class FMysql implements FDb {
         }
         $arrayObject = get_object_vars($object);
         $query = 'UPDATE `' . $this->_table . '` SET ' . $fields . ' WHERE `' . $this->_key . '` = \'' . $arrayObject[$this->_key] . '\'';
-        return array(true,$this->makeQuery($query));
+        return array(true, $this->makeQuery($query));
     }
 
-    /*Search values using the "SELECT FROM WHERE ORDER BY LIMIT" statement*/
-    function search($param = array(), $order = '', $limit = ''){
+    /* Search values using the "SELECT FROM WHERE ORDER BY LIMIT" statement */
+
+    function search($param = array(), $order = '', $limit = '') {
         $filtro = '';
         for ($i = 0; $i < count($param); $i++) {
             if ($i > 0)
@@ -251,11 +255,12 @@ class FMysql implements FDb {
  * Questa funzione codifica ricorsivamente in UTF-8 un array/oggetto,
  * per permettere l'invio di caratteri speciali tramite JSON.
  */
-function utf8_encode_array (&$array, $key) {
-    if(is_array($array) || is_object($array)) {
-      array_walk ($array, 'utf8_encode_array');
+
+function utf8_encode_array(&$array, $key) {
+    if (is_array($array) || is_object($array)) {
+        array_walk($array, 'utf8_encode_array');
     } else {
-      $array = utf8_encode($array);
+        $array = utf8_encode($array);
     }
 }
 

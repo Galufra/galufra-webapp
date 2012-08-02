@@ -72,6 +72,7 @@ class FMysql implements FDb {
             if ($this->_query == NULL) {
 
                 throw new dbException(mysql_errno(), false);
+
             } else {
 
                 return array(true, $this->_query);

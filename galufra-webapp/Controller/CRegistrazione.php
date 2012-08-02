@@ -14,12 +14,13 @@ class CRegistrazione {
     private $autenticato = false;
     private $errore = null;
 
-    public function __construct($uname, $pwd, $citta=null, $mail=null) {
+    public function __construct($uname, $pwd, $citta=null, $mail=null, $uid=null) {
 
         $this->username = $uname;
-        $this->password = md5($pwd);
+        $this->password = $pwd;
         $this->citta = $citta;
         $this->mail = $mail;
+
     }
 
     public function logIn() {
@@ -29,7 +30,7 @@ class CRegistrazione {
         $utente = $u->load($this->username);
         if ($utente != FALSE) {
 
-            if ($utente->getPassword() == $this->password) {
+            if ($utente->getPassword() == md5($this->password)) {
 
                 $this->autenticato = TRUE;
                 $this->initSession();
@@ -66,13 +67,8 @@ class CRegistrazione {
         $newUtente->setUsername($this->username);
         $newUtente->setPassword($this->password);
         $newUtente->setCitta($this->citta);
-        $newUtente->setNome("fabio");
-        $newUtente->setCognome("fabio");
-        if ($newUtente->setEmail($this->mail)) {
-            $result = $db->store($newUtente);
-            if ($result[0])
-                $result = $db->makeQuery("UPDATE utente SET confirm_id = '" . $uid . "' WHERE username = '".$newUtente->getUsername()."'");
-        }
+        if ($newUtente->setEmail($this->mail))
+            $result = $db->storeUtente($newUtente,$uid);
         if ($result[0]) {
             if ($this->sendConfirmationMail($this->mail, "fra.miscia@gmail.com", $uid)) {
                 $this->errore = "Registrazione avvenuta con successo";
@@ -102,6 +98,8 @@ class CRegistrazione {
 
         return true;
     }
+
+
 
 }
 

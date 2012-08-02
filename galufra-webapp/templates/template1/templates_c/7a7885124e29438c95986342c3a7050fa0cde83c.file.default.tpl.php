@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.10, created on 2012-07-30 13:14:23
+<?php /* Smarty version Smarty-3.1.10, created on 2012-08-02 11:38:38
          compiled from "../templates/template1/template/default.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:116381495150127392e30ec1-13862966%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7a7885124e29438c95986342c3a7050fa0cde83c' => 
     array (
       0 => '../templates/template1/template/default.tpl',
-      1 => 1343646823,
+      1 => 1343900301,
       2 => 'file',
     ),
   ),
@@ -144,6 +144,9 @@ $_smarty_tpl->tpl_vars['s']->_loop = true;
                     <div>
                         <h3><a href="CHome.php?action=logout">Logout</a></h3>
                     </div>
+                    <div id="crea">
+                        <h3><a href="CCrea.php?action=">Crea Evento</a></h3>
+                    </div>
                 </div>
 
 
@@ -190,6 +193,7 @@ $_smarty_tpl->tpl_vars['s']->_loop = true;
                       $("#logo2").show("slow");
                 });
             </script>
+
 
 
         </div>

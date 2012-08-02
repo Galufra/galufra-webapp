@@ -109,6 +109,9 @@ Released for free under a Creative Commons Attribution 2.5 License
                     <div>
                         <h3><a href="CHome.php?action=logout">Logout</a></h3>
                     </div>
+                    <div id="crea">
+                        <h3><a href="CCrea.php?action=">Crea Evento</a></h3>
+                    </div>
                 </div>
 
 
@@ -154,6 +157,7 @@ Released for free under a Creative Commons Attribution 2.5 License
                       $("#logo2").show("slow");
                 });
             </script>
+
 
 
         </div>

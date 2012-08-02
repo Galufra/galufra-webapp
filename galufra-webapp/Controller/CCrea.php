@@ -6,7 +6,7 @@ require_once '../Entity/EUtente.php';
 require_once '../Entity/EEvento.php';
 
 class CCrea{
-private $utente;
+private $utente = null;
 
 public function __construct(){
     /* In futuro dovremo controllare che l'utente sia loggato
@@ -14,12 +14,12 @@ public function __construct(){
      */
     $u = new Futente();
     $u->connect();
-    $l = $u->load('luca');
-    $this->utente = $l;
+    if(isset($_SESSION['username']))
+            $this->utente = $u->load($_SESSION['username']);
     /* Se "action" non è impostato, eseguiremo il comportamento
      * di default nello switch successivo.
      */
-    if(!isset($_GET['action']))
+    if(!isset($_GET['action']) || !$this->utente)
         $_GET['action'] = '';
     switch($_GET['action']){
         case('creaEvento'):
@@ -49,6 +49,10 @@ public function __construct(){
             break;
         default:
             $view = new VCrea();
+            if($this->utente){
+                $view->isAutenticato(true);
+                $view->showUser($this->utente->getUsername());
+            }
             $view->mostraPagina();
             break;
     }
@@ -56,6 +60,7 @@ public function __construct(){
     
 }
 
+session_start();
 $crea = new CCrea();
 
 ?>

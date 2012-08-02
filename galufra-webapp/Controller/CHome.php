@@ -22,8 +22,6 @@ class CHome {
         if ($user != null)
             $this->utente = $u->load($user);
         $view = new VHome();
-        /* else
-          $this->utente = $u->load('luca'); */
 
 
         /* Se "action" non è impostato, eseguiremo il comportamento
@@ -33,6 +31,7 @@ class CHome {
             $_GET['action'] = '';
 
         switch ($_GET['action']) {
+
             case('getEventiMappa'):
                 $this->getEventiMappa(
                         mysql_real_escape_string($_GET['neLat']),
@@ -70,22 +69,25 @@ class CHome {
                 break;
 
             case('login'):
-                session_destroy();
-                if (isset($_POST['username']) && isset($_POST["password"])) {
+                if (!$this->utente && isset($_POST['username']) && isset($_POST["password"])) {
+                    session_destroy();
                     $uname = mysql_real_escape_string($_POST['username']);
                     $pwd = mysql_real_escape_string($_POST['password']);
                     $login = new CRegistrazione($uname, $pwd);
                     $login->logIn();
                     if ($login->isLogged()) {
                         $this->utente = $u->load($uname);
-                        $view->isAutenticato(true);
-                        $view->showUser($this->utente->getUsername());
-                        $view->mostraPagina();
                     }
-                } else {
-                    $view->isAutenticato(false);
-                    $view->mostraPagina();
                 }
+                if ($this->utente) {
+                    $view->isAutenticato(true);
+                    $view->showUser($this->utente->getUsername());
+                }else
+                    $view->isAutenticato(false);
+
+
+                $view->mostraPagina();
+
                 break;
 
             case('logout'):
@@ -102,7 +104,7 @@ class CHome {
             /* default: stampa la pagina
              */
             case('reg'):
-                if (isset($_POST['username']) && isset($_POST["password"]) && isset($_POST['password1'])
+                if (!$this->utente && isset($_POST['username']) && isset($_POST["password"]) && isset($_POST['password1'])
                         && isset($_POST["citta"]) && isset($_POST["mail"])) {
                     $uname = mysql_real_escape_string($_POST['username']);
                     $pwd = mysql_real_escape_string($_POST['password']);
@@ -115,17 +117,31 @@ class CHome {
                         $result = $registra->regUtente();
                         if ($result[0]) {
                             $this->utente = $result[1];
-                            $view->isAutenticato(true);
-                            $view->showUser($this->utente->getUsername());
-                            $view->mostraPagina();
                         }
                     }
-                } else {
-                    $view->isAutenticato(false);
-                    $view->mostraPagina();
                 }
+                if ($this->utente) {
+                    $view->isAutenticato(true);
+                    $view->showUser($this->utente->getUsername());
+                }
+                else
+                    $view->isAutenticato(false);
+
+                $view->mostraPagina();
+
 
                 break;
+
+                case('confirm'):
+                    if(isset($_GET['id'])){
+                        if ($this->confirmReg($_GET['id]'])){
+                            //tpl di conferma
+                        }
+                        else{
+                            //tpl di errore
+                        }
+                        $view->mostraPagina();
+                    }
 
             default:
                 if ($this->utente) {
@@ -174,6 +190,15 @@ class CHome {
         );
         echo json_encode($out);
         exit;
+    }
+
+    public function confirmReg($uid){
+
+        $u = new FUtente();
+        $u->connect();
+        $result = $u->userConfirmation($uid);
+        return $result[0];
+
     }
 
 }

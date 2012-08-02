@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    updatePreferiti();
     var coord;
     $('#creaEvento').submit(function(){
         // Blocchiamo la submit se uno o più campi non sono riempiti,

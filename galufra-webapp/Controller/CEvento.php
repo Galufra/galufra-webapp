@@ -12,10 +12,13 @@ class CEvento {
     private $utente;
 
     public function __construct($id = null) {
-        // DA SOSTITUIRE con il sistema di autenticazione!
+
         $u = new Futente();
         $u->connect();
-        $this->utente = $u->load('luca');
+        if(isset($_SESSION['username']))
+            $this->utente = $u->load($_SESSION['username']);
+
+        //$this->utente = $u->load('luca');
         //////
         $ev = new FEvento();
         $ev->connect();
@@ -25,7 +28,8 @@ class CEvento {
         if (!$id || !$this->evento)
             echo 'Errore...';
         else {
-            if (!isset($_GET['action']))
+            //se non sono loggato va al comportamento di default che però non mostra la window dell'evento
+            if (!isset($_GET['action']) || !$this->utente)
                 $_GET['action'] = '';
             switch ($_GET['action']) {
                 case('getEvento'):
@@ -77,6 +81,7 @@ class CEvento {
 
 if (!isset($_GET['id']))
     $_GET['id'] = null;
-
+//da provare con USession
+session_start();
 $CEvento = new CEvento($_GET['id']);
 ?>

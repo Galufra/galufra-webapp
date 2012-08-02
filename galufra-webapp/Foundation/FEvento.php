@@ -45,6 +45,11 @@ class FEvento extends FMysql {
             WHERE utente = '$idUtente'
             AND evento = '$idEvento'");
     }
+
+    public function storeGestione($idUtente, $idEvento){
+
+        $this->makeQuery("INSERT INTO gestisce VALUES ($idUtente, $idEvento)");
+    }
 }
 
 ?>

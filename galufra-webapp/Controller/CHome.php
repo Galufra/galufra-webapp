@@ -17,10 +17,11 @@ class CHome {
          */
         $u = new Futente();
         $u->connect();
-        $session = new USession();
-        $user = $session->leggi_valore('username');
-        if ($user != null)
+
+        if (isset($_SESSION["username"])) {
+            $user = $_SESSION["username"];
             $this->utente = $u->load($user);
+        }
         $view = new VHome();
 
 
@@ -91,7 +92,6 @@ class CHome {
                 break;
 
             case('logout'):
-                $session->cancella_valore('username');
                 session_unset();
                 session_destroy();
                 $view->isAutenticato(false);
@@ -101,8 +101,7 @@ class CHome {
             case('getUtente'):
                 $this->getUtente();
                 break;
-            /* default: stampa la pagina
-             */
+ 
             case('reg'):
                 if (!$this->utente && isset($_POST['username']) && isset($_POST["password"]) && isset($_POST['password1'])
                         && isset($_POST["citta"]) && isset($_POST["mail"])) {
@@ -132,16 +131,15 @@ class CHome {
 
                 break;
 
-                case('confirm'):
-                    if(isset($_GET['id'])){
-                        if ($this->confirmReg($_GET['id]'])){
-                            //tpl di conferma
-                        }
-                        else{
-                            //tpl di errore
-                        }
-                        $view->mostraPagina();
+            case('confirm'):
+                if (isset($_GET['id'])) {
+                    if ($this->confirmReg($_GET['id]'])) {
+                        //tpl di conferma
+                    } else {
+                        //tpl di errore
                     }
+                    $view->mostraPagina();
+                }
 
             default:
                 if ($this->utente) {
@@ -192,16 +190,16 @@ class CHome {
         exit;
     }
 
-    public function confirmReg($uid){
+    public function confirmReg($uid) {
 
         $u = new FUtente();
         $u->connect();
         $result = $u->userConfirmation($uid);
         return $result[0];
-
     }
 
 }
 
+session_start();
 $home = new CHome();
 ?>

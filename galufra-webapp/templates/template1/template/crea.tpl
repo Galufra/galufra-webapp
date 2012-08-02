@@ -1,4 +1,4 @@
-<form id='creaEvento'>
+<form id='creaEvento' >
             <table>
             <tr>
                 <td><label>Nome:</label></td>

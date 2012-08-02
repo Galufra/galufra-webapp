@@ -157,6 +157,7 @@ class FMysql implements FDb {
         }
 
         $query = 'INSERT INTO ' . $this->_table . ' (' . $fields . ') VALUES (' . $values . ')';
+        var_dump($query);
         $return = $this->makeQuery($query);
         //~ if ($this->_is_an_autoincrement_key) {
         //~ $query = 'SELECT LAST_INSERT_ID() AS id';

@@ -91,7 +91,7 @@ class FMysql implements FDb {
     public function getResult() {
         if ($this->_query != false) {
             if (@mysql_num_rows($this->_query) > 0) {
-                $row = mysql_fetch_assoc($this->_query);
+                $row = @mysql_fetch_assoc($this->_query);
                 $this->_query = false;
                 return array(true, $row);
             }

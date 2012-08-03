@@ -10,7 +10,7 @@ require_once 'CRegistrazione.php';
 
 class CHome {
 
-    private $utente;
+    private $utente = null;
 
     public function __construct() {
         /* Caricamento dell'utente.
@@ -21,6 +21,8 @@ class CHome {
         if (isset($_SESSION["username"])) {
             $user = $_SESSION["username"];
             $this->utente = $u->load($user);
+            //carico il num di eventi. la funzione blocca automaticamente l'utente se si accorge che gli eventi sono troppi
+            $this->utente->setNumEventi();
         }
         $view = new VHome();
 
@@ -78,11 +80,14 @@ class CHome {
                     $login->logIn();
                     if ($login->isLogged()) {
                         $this->utente = $u->load($uname);
+                        $this->utente->setNumEventi();
                     }
                 }
                 if ($this->utente) {
                     $view->isAutenticato(true);
                     $view->showUser($this->utente->getUsername());
+                    if (!$this->utente->isSbloccato())
+                        $view->blocca();
                 }else
                     $view->isAutenticato(false);
 
@@ -101,7 +106,7 @@ class CHome {
             case('getUtente'):
                 $this->getUtente();
                 break;
- 
+
             case('reg'):
                 if (!$this->utente && isset($_POST['username']) && isset($_POST["password"]) && isset($_POST['password1'])
                         && isset($_POST["citta"]) && isset($_POST["mail"])) {
@@ -116,12 +121,16 @@ class CHome {
                         $result = $registra->regUtente();
                         if ($result[0]) {
                             $this->utente = $result[1];
+                            //$this->utente->setNumEventi();
                         }
                     }
                 }
                 if ($this->utente) {
                     $view->isAutenticato(true);
                     $view->showUser($this->utente->getUsername());
+                    if (!$this->utente->isSbloccato())
+                            //cambia il link a home.php
+                        $view->blocca();
                 }
                 else
                     $view->isAutenticato(false);
@@ -145,6 +154,8 @@ class CHome {
                 if ($this->utente) {
                     $view->isAutenticato(true);
                     $view->showUser($this->utente->getUsername());
+                    if (!$this->utente->isSbloccato())
+                        $view->blocca();
                 }else
                     $view->isAutenticato(false);
 

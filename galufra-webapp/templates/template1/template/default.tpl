@@ -110,7 +110,18 @@ Released for free under a Creative Commons Attribution 2.5 License
                         <h3><a href="CHome.php?action=logout">Logout</a></h3>
                     </div>
                     <div id="crea">
-                        <h3><a href="CCrea.php?action=">Crea Evento</a></h3>
+                        <h3>
+                            {if $sbloccato}
+                            <a href="CCrea.php?action=">
+                            {else}
+                                <a href="CHome.php?action=">
+                                    <script>
+                                        showMessage("Limite eventi superato. Diventa SUPERUSER!");
+                                    </script>
+                             {/if}
+                                    Crea Evento
+                                </a>
+                        </h3>
                     </div>
                 </div>
 

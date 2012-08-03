@@ -1,6 +1,7 @@
 <?php
 
 require_once '../View/VCrea.php';
+require_once '../View/VHome.php';
 require_once '../Foundation/FUtente.php';
 require_once '../Foundation/FEvento.php';
 require_once '../Entity/EUtente.php';
@@ -16,13 +17,20 @@ class CCrea {
          */
         $u = new Futente();
         $u->connect();
-        if (isset($_SESSION['username']))
+        if (isset($_SESSION['username'])) {
+
             $this->utente = $u->load($_SESSION['username']);
-        /* Se "action" non è impostato, eseguiremo il comportamento
+            //carico il numero di eventi
+            $this->utente->setNumEventi();
+        }
+
+        /* Se "action" non è impostato, o l' utente non esiste oppure ha esaurito il num di eventi, eseguiremo il comportamento
          * di default nello switch successivo.
          */
-        if (!isset($_GET['action']) || !$this->utente)
+        if (!isset($_GET['action']) || !$this->utente || !$this->utente->isSbloccato()) {
             $_GET['action'] = '';
+        }
+
         switch ($_GET['action']) {
             case('creaEvento'):
                 $ev = new EEvento();
@@ -43,28 +51,44 @@ class CCrea {
                         'status' => 'ERR',
                         'message' => 'Si è verificato un errore'
                     );
-                else{
+                else {
                     $response = array(
                         'status' => 'OK',
                         'message' => "L'evento è stato creato correttamente."
                     );
-                }
-                echo json_encode($response);
+                    $this->utente->incrementaNumEventi();
 
+                }
+                //echo json_encode($response);
                 break;
 
             default:
-
-                $view = new VCrea();
-                if ($this->utente) {
+                if ($this->utente && !$this->utente->isSbloccato()) {
+                    //cambio il tpl di ccrea per evitare hack in html visto che il metodo blocca modifica solo il link
+                    //di crea evento
+                    $view = new VCrea('home.tpl',array ('CHome.js'));
                     $view->isAutenticato(true);
                     $view->showUser($this->utente->getUsername());
+                    if (!$this->utente->isSbloccato())
+                        $view->blocca();
+                    $view->mostraPagina();
                 }
-                $view->mostraPagina();
+                else if ($this->utente) {
+                    $view = new VCrea();
+                    $view->isAutenticato(true);
+                    $view->showUser($this->utente->getUsername());
+                    if (!$this->utente->isSbloccato())
+                        $view->blocca();
+                    $view->mostraPagina();
+                }else {
+                    $view = new VCrea();
+                    $view->mostraPagina();
+                }
 
                 break;
         }
     }
+
 
 }
 

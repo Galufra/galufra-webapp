@@ -13,7 +13,7 @@ class EUtente {
     private $date = null;
     private $permessi = null;
     private $num_eventi = 0;
-    private $sbloccato = false;
+    private $sbloccato = 1;
 
     public function getId() {
         return $this->id_utente;
@@ -66,8 +66,16 @@ class EUtente {
 
     public function sblocca(){
 
-        $this->sbloccato = true;
+        $this->sbloccato = 1;
 
+    }
+
+    public function blocca(){
+
+        $this->sbloccato = 0;
+        $ev = new FEvento();
+        $ev->connect();
+        return $ev->bloccaUtente($this->id_utente);
     }
 
     /**
@@ -116,13 +124,14 @@ class EUtente {
 
     public function incrementaNumEventi() {
 
-        if ($this->num_eventi < 2) {
+        if ($this->num_eventi < 3) {
             $this->num_eventi++;
             return true;
-        } else if ($this->num_eventi >= 2 && $this->sbloccato) {
+        } else if ($this->num_eventi >= 3 && $this->sbloccato) {
             $this->num_eventi++;
             return true;
-        }
+        }else
+            $this->blocca ();
 
         return false;
     }
@@ -144,6 +153,18 @@ class EUtente {
         $ev->connect();
         $ev->removePreferiti($this->id_utente, $evento);
     }
+
+    public function setNumEventi(){
+
+        $ev = new FEvento();
+        $ev->connect();
+        $result = $ev->userEventCounter($this->id_utente);
+        $this->num_eventi = $result["COUNT(*)"];
+        if($this->num_eventi >= 3)
+                $this->blocca ();
+
+    }
+
 
 }
 

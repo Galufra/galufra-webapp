@@ -30,12 +30,7 @@ $(document).ready(function(){
                 map.setCenter(results[0].geometry.location);
             }
         );
-        }else
-            geocoder.geocode(
-        function(results,status){
-
-            map.setCenter(results[0].geometry.location);
-        });
+        }
     });
 
     /* Markers conterrà i riferimenti ai markers che verranno inseriti

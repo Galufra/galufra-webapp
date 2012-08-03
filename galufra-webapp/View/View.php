@@ -9,6 +9,7 @@ abstract class View extends Smarty {
     public $scripts = null;
     public $autenticato = false;
     public $user = null;
+    public $sbloccato = true;
 
     public function __construct() {
         parent::__construct();
@@ -30,6 +31,12 @@ abstract class View extends Smarty {
 
         $this->autenticato = $b;
     }
+
+    public function blocca() {
+
+        $this->sbloccato=false;
+
+    }
     
     public function mostraPagina() {
         if (!is_array($this->scripts) || is_null($this->content))
@@ -37,10 +44,12 @@ abstract class View extends Smarty {
         if (!$this->autenticato) {
             $this->assign('name', "anonimo");
             $this->assign('autenticato', false);
+            $this->assign('sbloccato',$this->sbloccato);
         } else {
 
             $this->assign('name', $this->user);
             $this->assign('autenticato', $this->autenticato);
+            $this->assign('sbloccato',  $this->sbloccato);
         }
         $this->assign('scripts', $this->scripts);
         $this->assign('content', $this->content);

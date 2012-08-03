@@ -38,6 +38,7 @@ $(document).ready(function(){
             // if(response.status == 'OK')
             //     $('#creaEvento').find('input,textarea').val('');
             });
+
         }
         return false;
     });

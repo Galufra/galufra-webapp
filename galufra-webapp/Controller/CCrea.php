@@ -25,7 +25,7 @@ class CCrea {
         }
 
         /* Se "action" non è impostato, o l' utente non esiste oppure ha esaurito il num di eventi, eseguiremo il comportamento
-         * di default nello switch successivo.
+         * di default nello switch successivo, ignorando anche i dati mandati via get.
          */
         if (!isset($_GET['action']) || !$this->utente || !$this->utente->isSbloccato()) {
             $_GET['action'] = '';

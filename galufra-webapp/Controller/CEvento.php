@@ -15,8 +15,10 @@ class CEvento {
 
         $u = new Futente();
         $u->connect();
-        if(isset($_SESSION['username']))
+        if(isset($_SESSION['username'])){
             $this->utente = $u->load($_SESSION['username']);
+            $this->utente->setNumEventi();
+        }
 
         //$this->utente = $u->load('luca');
         //////

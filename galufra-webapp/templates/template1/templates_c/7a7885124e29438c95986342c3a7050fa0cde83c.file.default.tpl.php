@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.10, created on 2012-08-03 14:56:47
+<?php /* Smarty version Smarty-3.1.10, created on 2012-08-05 13:55:58
          compiled from "../templates/template1/template/default.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:116381495150127392e30ec1-13862966%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7a7885124e29438c95986342c3a7050fa0cde83c' => 
     array (
       0 => '../templates/template1/template/default.tpl',
-      1 => 1343998603,
+      1 => 1344167752,
       2 => 'file',
     ),
   ),
@@ -58,7 +58,7 @@ $_smarty_tpl->tpl_vars['s']->_loop = true;
     <body>
         <div id="header">
             <ul id="menu">
-                <li><a href="login.html" accesskey="1" title="">Home</a></li>
+                <li><a href="CHome.php" accesskey="1" title="">Home</a></li>
                 <li><a href="profilo.html" accesskey="2" title="">Profilo</a></li>
                 <li><a href="#" accesskey="3" title="">Crea Evento</a></li>
                 <li id='messagebox'></li>
@@ -163,20 +163,18 @@ $_smarty_tpl->tpl_vars['s']->_loop = true;
 
 
 
-                <div class="box">
-                    <h3>Prossimi Eventi</h3>
-                    <ul class="bottom">
-                    </ul>
+                <div class="box" id="boxPersonali">
+                    <h3>Tuoi Eventi</h3>
+                    <ul class="bottom" id='ulPersonali'></ul>
                 </div>
                 <div class="box" id="boxPreferiti">
                     <h3>Eventi Preferiti</h3>
                     <ul class="bottom" id='ulPreferiti'>
                     </ul>
                 </div>
-                <div class="box">
+                <div class="box" id="boxConsigliati">
                     <h3>Eventi Consigliati</h3>
-                    <ul class="bottom">
-
+                    <ul class="bottom" id='ulConsigliati'>
                     </ul>
                 </div>
             </div>

@@ -23,7 +23,7 @@ Released for free under a Creative Commons Attribution 2.5 License
     <body>
         <div id="header">
             <ul id="menu">
-                <li><a href="login.html" accesskey="1" title="">Home</a></li>
+                <li><a href="CHome.php" accesskey="1" title="">Home</a></li>
                 <li><a href="profilo.html" accesskey="2" title="">Profilo</a></li>
                 <li><a href="#" accesskey="3" title="">Crea Evento</a></li>
                 <li id='messagebox'></li>
@@ -127,20 +127,18 @@ Released for free under a Creative Commons Attribution 2.5 License
 
 
 
-                <div class="box">
-                    <h3>Prossimi Eventi</h3>
-                    <ul class="bottom">
-                    </ul>
+                <div class="box" id="boxPersonali">
+                    <h3>Tuoi Eventi</h3>
+                    <ul class="bottom" id='ulPersonali'></ul>
                 </div>
                 <div class="box" id="boxPreferiti">
                     <h3>Eventi Preferiti</h3>
                     <ul class="bottom" id='ulPreferiti'>
                     </ul>
                 </div>
-                <div class="box">
+                <div class="box" id="boxConsigliati">
                     <h3>Eventi Consigliati</h3>
-                    <ul class="bottom">
-
+                    <ul class="bottom" id='ulConsigliati'>
                     </ul>
                 </div>
             </div>

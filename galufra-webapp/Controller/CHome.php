@@ -71,6 +71,24 @@ class CHome {
                 }
                 break;
 
+            case( 'getEventiPersonali'):
+                try {
+                    $eventi = $this->utente->getEventi($this->utente->getId());
+                    $this->inviaEventiPersonali($eventi);
+                } catch (dbException $e) {
+                    echo "C'è stato un errore. Riprova :)";
+                }
+                break;
+
+            case('getEventiConsigliati'):
+                $this->getEventiConsigliatiMappa(
+                        mysql_real_escape_string($_GET['neLat']),
+                        mysql_real_escape_string($_GET['neLon']),
+                        mysql_real_escape_string($_GET['swLat']),
+                        mysql_real_escape_string($_GET['swLon'])
+                );
+                break;
+
             case('login'):
                 if (!$this->utente && isset($_POST['username']) && isset($_POST["password"])) {
                     session_destroy();
@@ -129,7 +147,7 @@ class CHome {
                     $view->isAutenticato(true);
                     $view->showUser($this->utente->getUsername());
                     if (!$this->utente->isSbloccato())
-                            //cambia il link a home.php
+                    //cambia il link a home.php
                         $view->blocca();
                 }
                 else
@@ -189,13 +207,25 @@ class CHome {
         exit;
     }
 
-    public function getEventiPreferiti() {
+    public function getEventiConsigliatiMappa($neLat, $neLon, $swLat, $swLon) {
+        $ev = new FEvento();
+        $ev->connect();
+        $ev_array = $ev->getEventiConsigliati($this->utente->getId(), $neLat, $neLon, $swLat, $swLon);
+        $out = array(
+        'total' => count($ev_array),
+        'eventi' => $ev_array
+        );
+        echo json_encode($out);
+        exit;
+    }
+
+    public function getEventiPreferiti($fornisciTutti=false) {
         $ev = new FEvento();
         $ev->connect();
         $ev_array = $ev->getEventiPreferiti($this->utente->getId());
         $out = array(
-            'total' => count($ev_array),
-            'eventi' => $ev_array
+            'total' => ($fornisciTutti)? count($ev_array) : '3' ,
+            'eventi' =>  $ev_array
         );
         echo json_encode($out);
         exit;
@@ -207,6 +237,16 @@ class CHome {
         $u->connect();
         $result = $u->userConfirmation($uid);
         return $result[0];
+    }
+
+    public function inviaEventiPersonali($eventi) {
+
+        $out = array(
+            'total' => count($eventi),
+            'eventi' => $eventi
+        );
+        echo json_encode($out);
+        exit;
     }
 
 }

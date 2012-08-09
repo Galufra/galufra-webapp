@@ -1,7 +1,10 @@
 $(document).ready(function(){
-
+    
     updatePreferiti();
+    updatePersonali();
+
     var map = initializeMap();
+
     /*
      * Centra la mappa sulla città dell'utente: geocoder trasforma
      * strinche (indirizzi) in coppie lat/lon. La richiesta è sincrona:
@@ -29,7 +32,7 @@ $(document).ready(function(){
             function(results, status) {
                 map.setCenter(results[0].geometry.location);
             }
-        );
+            );
         }
     });
 
@@ -64,7 +67,7 @@ $(document).ready(function(){
                 if(markers[i].id == event.target.id){
                     infowindow.setContent(markers[i].infoHTML());
                 }
-        }
+            }
         return false;
     });
     //{/if}
@@ -77,10 +80,34 @@ $(document).ready(function(){
                 if(markers[i].id == event.target.id){
                     infowindow.setContent(markers[i].infoHTML());
                 }
-        }
+            }
         return false;
     });
     //{/if}
+
+    //Aggiungo/tolgo un evento tra i consigliati
+    $('.addConsigliati').live("click", function(event){
+        addConsigliati(event.target.id);
+        if (markers)
+            for(i=0; i<markers.length; ++i){
+                if(markers[i].id == event.target.id){
+                    infowindow.setContent(markers[i].infoHTML());
+                }
+            }
+        return false;
+    });
+    
+   $('.removeConsigliati').live("click", function(event){
+        removeConsigliati(event.target.id);
+        if (markers)
+            for(i=0; i<markers.length; ++i){
+                if(markers[i].id == event.target.id){
+                    infowindow.setContent(markers[i].infoHTML());
+                }
+            }
+        return false;
+    });
+     
 
     /*
      * Visualizza sulla mappa gli eventi contenuti in
@@ -100,6 +127,10 @@ $(document).ready(function(){
         .success(function(data) {
             /* Per prima cosa eliminiamo i "vecchi" markers
              */
+
+            //ho inizializzato la mappa, posso fornire eventi consigliati
+            updateConsigliati(map,false);
+
             if (markers){
                 for(i=0; i<markers.length; ++i)
                     markers[i].setMap(null);
@@ -110,9 +141,9 @@ $(document).ready(function(){
             var response = jQuery.parseJSON(data);
             $.each(response, function(i){
                 var pos = new google.maps.LatLng(
-                parseFloat(response[i].lat),
-                parseFloat(response[i].lon)
-            );
+                    parseFloat(response[i].lat),
+                    parseFloat(response[i].lon)
+                    );
                 var marker = new google.maps.Marker({
                     'position':pos,
                     'map':map
@@ -149,8 +180,8 @@ $(document).ready(function(){
                             infowindow.close();
                             infowindow.marker = null;
                         }
-                });
-            }
+                    });
+                }
         });
     }
 
@@ -169,21 +200,28 @@ $(document).ready(function(){
      */
     function infoHTML(){
         this.preferito = checkPreferito(this.id);
+        this.consigliato = checkConsigliato(this.id);
         console.log (this.preferito);
         var output= '<div class="infowindow">'+
-            '<h2>'+this.title+'</h2>'+
-            '<h3>'+this.data;
+        '<h2>'+this.title+'</h2>'+
+        '<h3>'+this.data;
         if (this.preferito == false){
             output +=' - <a href="#" class="addPreferiti" id="'+this.id+
-                '">Aggiungi ai Preferiti</a></h3>';
+            '">Aggiungi ai Preferiti</a></h3>';
         }
         else {
             output +=' - <a href="#" class="removePreferiti" id="'+this.id+
-                '">Rimuovi dai Preferiti</a></h3>';
+            '">Rimuovi dai Preferiti</a></h3>';
         }
         output+='<p>'+this.descrizione+
-            ' <a href="#">(visualizza altro)</a></p>'+
-            '</div>';
+        ' <a href="CBacheca.php?id='+this.id+'">(visualizza altro)</a></p>';
+        if(this.consigliato == false){
+            output += '<div><h3><a href="#" class="addConsigliati" id="'+this.id+'">Lo Consiglio!'+
+            '</a></h3></div></div>';
+        }else {
+            output += '<div><h3><a href="#" class="removeConsigliati" id="'+this.id+'">Non lo Consiglio Più!'+
+            '</a></h3></div></div>';
+        }
         return output;
     }
 });

@@ -148,10 +148,22 @@ class EUtente {
         $ev->storePreferiti($this->id_utente, $evento);
     }
 
+    public function addConsigliati($evento,$lat,$lon){
+        $ev = new FEvento();
+        $ev->connect();
+        $ev->storeConsigliati($this->id_utente, $evento,$lat,$lon);
+    }
+
     public function removePreferiti($evento) {
         $ev = new FEvento();
         $ev->connect();
         $ev->removePreferiti($this->id_utente, $evento);
+    }
+
+    public function removeConsigliati($evento){
+        $ev = new FEvento();
+        $ev->connect();
+        $ev->removeConsigliati($this->id_utente, $evento);
     }
 
     public function setNumEventi(){
@@ -162,6 +174,14 @@ class EUtente {
         $this->num_eventi = $result["COUNT(*)"];
         if($this->num_eventi >= 3)
                 $this->blocca ();
+
+    }
+
+    public function getEventi($id){
+
+        $ev = new FEvento();
+        $ev->connect();
+        return  $ev->getUserEventi($id);
 
     }
 

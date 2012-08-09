@@ -9,7 +9,7 @@ class FUtente extends FMysql {
         $this->_key = 'username';
         $this->_class = 'EUtente';
     }
-
+    //faccio lo store dell' utente appena dopo la registrazione, evito la store per non registrare dei campi inutili
     public function storeUtente($user,$uid){
         $u = new EUtente();
         $u = $user;
@@ -20,9 +20,9 @@ class FUtente extends FMysql {
         $result = $this->makeQuery($query);
         return $result;
     }
-
+    
+    //Conferma la registrazione
     public function userConfirmation($uid){
-
         $this->connect();
         $query = "UPDATE $this->_table SET confirmed = 0 WHERE confirm_id = $uid";
         $result = $this->makeQuery($query);

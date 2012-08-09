@@ -1,5 +1,10 @@
 $(document).ready(function(){
     updatePreferiti();
+    updatePersonali();
+    //poichè non si visualizza una mappa non mostro eventi consigliati nella
+    //parte di mappa che dovrebbe esserci
+    updateConsigliati(null,true);
+    
     var coord;
     $('#creaEvento').submit(function(){
         // Blocchiamo la submit se uno o più campi non sono riempiti,
@@ -24,7 +29,7 @@ $(document).ready(function(){
                 return false;
             }
             // invio della richiesta
-            $.get("CCrea.php",
+            /*$.get("CCrea.php",
             {
                 'action': "creaEvento",
                 'nome': $('#nome').val(),
@@ -35,10 +40,31 @@ $(document).ready(function(){
             }).success(function(data){
                 response = jQuery.parseJSON(data);
                 showMessage(response.message);
+                updatePersonali();
             // if(response.status == 'OK')
             //     $('#creaEvento').find('input,textarea').val('');
-            });
+            });*/
 
+            //Utilizzo una chiamata sincrona per ricaricare la classe CEvento in modo da poter reindirizzare verso la home
+            //nel caso in cui l'utente abbia registrato con successo un evento'
+            $.ajax({
+
+                async: false,
+                url: "CCrea.php",
+                data: {
+
+                    'action': "creaEvento",
+                    'nome': $('#nome').val(),
+                    'descrizione': $('#descrizione').val(),
+                    'timestamp': timestamp,
+                    'lat': coord.lat(),
+                    'lon': coord.lng()
+                }
+            }).done(function(data){
+                response = jQuery.parseJSON(data);
+                showMessage(response.message);
+
+            });
         }
         return false;
     });
@@ -70,7 +96,7 @@ $(document).ready(function(){
         geocoder.geocode(
         {
             'address': $(this).val()
-            },
+        },
         function(results, status) {
             // Cancelliamo il marker preesistente
             if (marker)

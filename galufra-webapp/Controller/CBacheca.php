@@ -1,9 +1,12 @@
 <?php
 
-require_once('../Foundation/FUtente.php');
-require_once('../Entity/EUtente.php');
-require_once('../Foundation/FMessaggio.php');
-require_once('../Entity/EEvento.php');
+require_once '../Foundation/FUtente.php';
+require_once '../Foundation/FEvento.php';
+require_once '../Entity/EUtente.php';
+require_once '../Entity/EMessaggio.php';
+require_once '../Foundation/FMessaggio.php';
+require_once '../Entity/EEvento.php';
+require_once '../View/VBacheca.php';
 
 class Cbacheca {
 
@@ -11,30 +14,93 @@ class Cbacheca {
     private $evento;
     private $message = array();
 
-    public function __construct($user, $event) {
+    public function __construct($id) {
 
-        $this->utente = new EUtente();
-        $this->evento = new EEvento();
-        $this->utente = $user->__clone();
-        $this->evento = $event->__clone();
-        $m = new FMessaggio();
-        $m->connect();
-        $this->message = $m->loadMessages($this->evento->getId());
+        $u = new Futente();
+        $u->connect();
+
+        if ($id) {
+            $ev = new FEvento();
+            $ev->connect();
+            $this->evento = $ev->load($id);
+            $_SESSION['evento'] = $id;
+        }
+
+        if (isset($_SESSION['username'])) {
+            $this->utente = $u->load($_SESSION['username']);
+            //carico il numero dell' utente
+            $this->utente->setNumEventi();
+        }
+        if (!$id && isset($_SESSION['evento'])) {
+            $ev = new FEvento();
+            $ev->connect();
+            $this->evento = $ev->load($_SESSION['evento']);
+        }
+
+
+        if (!isset($_GET['action']))
+            $_GET['action'] = "";
+
+        switch ($_GET['action']) {
+
+            case ('creaMessaggio'):
+                $message = htmlspecialchars(utf8_decode($_GET['messaggio']));
+                $this->insertMessage($message);
+                break;
+
+            case ('getMessaggi'):
+                $this->getMessages();
+                break;
+
+            default:
+                if ($this->evento) {
+                    $view = new VBacheca($this->evento);
+                    if ($this->utente) {
+                        $view->isAutenticato(true);
+                        $view->showUser($this->utente->getUsername());
+                        if (!$this->utente->isSbloccato())
+                            $view->blocca();
+                    }
+                    $view->mostraPagina();
+                }
+                break;
+        }
     }
 
     public function getMessages() {
 
-        return $this->message;
+        $mex = new FMessaggio();
+        $mex->connect();
+        $messaggi = $mex->loadMessages($this->evento->getIdEvento());
+        $out = array(
+            'total' => count($messaggi),
+            'messaggi' => $messaggi
+        );
+        echo json_encode($out);
     }
 
-    public function insertMessage($messaggio) {
+    public function insertMessage($mess) {
 
-        $m = new FMessage();
-        $m->connect();
-        $id_mex = $m->store($messaggio);
-        $mex = $m->load($id_mex);
-        array_push($this->message, $mex);
-        return $mex;
+        $mex = new EMessaggio();
+        $mex->setTesto($mess);
+        $mex->setData(date('Y-m-d H:i:s'));
+        $mex->setUtente($this->utente->getUsername());
+        $mex->setEvento($this->evento->getIdEvento());
+        $Foundation = new FMessaggio();
+        $Foundation->connect();
+        $result = $Foundation->storeMessaggio($mex);
+        if (!$result[0])
+            $response = array(
+                'status' => 'ERR',
+                'message' => 'Si è verificato un errore'
+            );
+        else {
+            $response = array(
+                'status' => 'OK',
+                'message' => "Messaggio Inserito!"
+            );
+        }
+        echo json_encode($response);
     }
 
     public function deleteMessage($messaggio) {
@@ -46,11 +112,14 @@ class Cbacheca {
             $m->delete($messaggio);
         else
             return false;
-
-        $this->message = $m->loadMessages($this->evento->getId());
-        return $this->getMessages();
     }
 
 }
 
+session_start();
+
+if (!isset($_GET['id']))
+    $_GET['id'] = null;
+
+$bacheca = new CBacheca($_GET['id']);
 ?>

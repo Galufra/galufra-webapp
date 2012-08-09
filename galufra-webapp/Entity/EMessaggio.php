@@ -3,13 +3,10 @@
 class EMessaggio {
 
     private $id_mess = null;
-    private $data = null;
-    private $testo = null;
-    private $titolo = null;
-    private $descrizione = null;
-    private $evento = null;
-    private $utente = null;
-    
+    public $testo = null;
+    public $data = null;
+    public $evento = null;
+    public $utente = null;
 
     public function getId() {
         return $this->id_mess;
@@ -23,36 +20,28 @@ class EMessaggio {
         return $this->testo;
     }
 
-    public function getTitolo() {
-        return $this->titolo;
-    }
-    
-    public function getDescrizione(){
-        return $this->descrizione;
-    }
-    
-    public function getEvento(){
+    public function getEvento() {
         return $this->evento;
     }
-    
-    public function getUtente(){
+
+    public function getUtente() {
         return $this->utente;
     }
 
-    public function setData($data){
+    public function setData($data) {
         $this->data = $data;
     }
 
-    public function setTesto($testo){
+    public function setTesto($testo) {
         $this->testo = $testo;
     }
 
-    public function setTitolo($titolo){
-        $this->titolo = $titolo;
+    public function setEvento($evento){
+        $this->evento = $evento;
     }
 
-    public function setDescrizione($descr){
-        $this->descrizione = $descr;
+    public function setUtente($user) {
+        $this->utente = $user;
     }
 
 }

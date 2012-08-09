@@ -157,7 +157,6 @@ class FMysql implements FDb {
         }
 
         $query = 'INSERT INTO ' . $this->_table . ' (' . $fields . ') VALUES (' . $values . ')';
-        var_dump($query);
         $return = $this->makeQuery($query);
         //~ if ($this->_is_an_autoincrement_key) {
         //~ $query = 'SELECT LAST_INSERT_ID() AS id';
@@ -223,7 +222,7 @@ class FMysql implements FDb {
             $filtro .= ' `' . $param[$i][0] . '` ' . $param[$i][1] . ' \'' . $param[$i][2] . '\'';
         }
         $query = 'SELECT * ' .
-                'FROM `' . $this->_table . '` ';
+                'FROM `' .$this->_table . '` ';
         if ($filtro != '')
             $query.='WHERE ' . $filtro . ' ';
         if ($order != '')

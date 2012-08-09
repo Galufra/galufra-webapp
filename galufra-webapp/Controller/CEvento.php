@@ -15,8 +15,9 @@ class CEvento {
 
         $u = new Futente();
         $u->connect();
-        if(isset($_SESSION['username'])){
+        if (isset($_SESSION['username'])) {
             $this->utente = $u->load($_SESSION['username']);
+            //carico il numero dell' utente
             $this->utente->setNumEventi();
         }
 
@@ -51,6 +52,21 @@ class CEvento {
                         }
                     echo json_encode($out);
                     break;
+                case('isConsigliato'):
+                    $out = false;
+                    $ev = new FEvento();
+                    $ev->connect();
+                    $ev_array = $ev->getAllConsigliati($this->utente->getId());
+                    if (is_array($ev_array))
+                        foreach ($ev_array as $i) {
+                            if ($i->id_evento == $this->evento->id_evento) {
+                                $out = true;
+                                break;
+                            }
+                        }
+                    echo json_encode($out);
+                    break;
+
                 case('addPreferiti'):
                     try {
                         $this->utente->addPreferiti($this->evento->id_evento);
@@ -67,6 +83,22 @@ class CEvento {
                     try {
                         $this->utente->removePreferiti($this->evento->id_evento);
                         echo "L'evento è stato rimosso dai tuoi preferiti.";
+                    } catch (dbException $e) {
+                        echo "C'è stato un errore. Riprova :)";
+                    }
+                    break;
+                case('addConsigliati'):
+                    try {
+                        $this->utente->addConsigliati($this->evento->id_evento,$this->evento->getLat(),$this->evento->getLon());
+                        echo "Hai consigliato l' evento agli utenti";
+                    } catch (dbException $e) {
+                        echo "C'è stato un errore. Riprova :)";
+                    }
+                    break;
+                case('removeConsigliati'):
+                    try {
+                        $this->utente->removeConsigliati($this->evento->id_evento);
+                        echo "Hai tolto il tuo consiglio!";
                     } catch (dbException $e) {
                         echo "C'è stato un errore. Riprova :)";
                     }

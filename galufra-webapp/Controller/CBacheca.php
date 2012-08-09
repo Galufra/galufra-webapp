@@ -7,6 +7,8 @@ require_once '../Entity/EMessaggio.php';
 require_once '../Foundation/FMessaggio.php';
 require_once '../Entity/EEvento.php';
 require_once '../View/VBacheca.php';
+require_once '../View/VHome.php';
+
 
 class Cbacheca {
 
@@ -53,8 +55,9 @@ class Cbacheca {
                 break;
 
             default:
-                if ($this->evento) {
+                if ($this->evento) 
                     $view = new VBacheca($this->evento);
+                else $view = new VHome ();
                     if ($this->utente) {
                         $view->isAutenticato(true);
                         $view->showUser($this->utente->getUsername());
@@ -62,7 +65,7 @@ class Cbacheca {
                             $view->blocca();
                     }
                     $view->mostraPagina();
-                }
+                
                 break;
         }
     }

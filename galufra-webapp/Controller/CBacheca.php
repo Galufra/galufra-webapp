@@ -46,7 +46,7 @@ class Cbacheca {
         switch ($_GET['action']) {
 
             case ('creaMessaggio'):
-                $message = htmlspecialchars(utf8_decode($_GET['messaggio']));
+                $message = mysql_escape_string(htmlspecialchars(utf8_decode($_GET['messaggio'])));
                 $this->insertMessage($message);
                 break;
 

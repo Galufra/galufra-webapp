@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.10, created on 2012-08-05 13:55:58
+<?php /* Smarty version Smarty-3.1.10, created on 2012-08-11 11:30:19
          compiled from "../templates/template1/template/default.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:116381495150127392e30ec1-13862966%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7a7885124e29438c95986342c3a7050fa0cde83c' => 
     array (
       0 => '../templates/template1/template/default.tpl',
-      1 => 1344167752,
+      1 => 1344677416,
       2 => 'file',
     ),
   ),
@@ -159,21 +159,24 @@ $_smarty_tpl->tpl_vars['s']->_loop = true;
                                 </a>
                         </h3>
                     </div>
+                    <div>
+                        <h3><a href="CProfilo.php" class="profilo">Profilo</a></h3>
+                    </div>
                 </div>
 
 
 
                 <div class="box" id="boxPersonali">
-                    <h3>Tuoi Eventi</h3>
+                    <h3><a href="CListaEventi.php?action=personali">Tuoi Eventi</a></h3>
                     <ul class="bottom" id='ulPersonali'></ul>
                 </div>
                 <div class="box" id="boxPreferiti">
-                    <h3>Eventi Preferiti</h3>
+                    <h3><a href="CListaEventi.php?action=preferiti">Eventi Preferiti</a></h3>
                     <ul class="bottom" id='ulPreferiti'>
                     </ul>
                 </div>
                 <div class="box" id="boxConsigliati">
-                    <h3>Eventi Consigliati</h3>
+                    <h3><a href="CListaEventi.php?action=consigliati">Eventi Consigliati</a></h3>
                     <ul class="bottom" id='ulConsigliati'>
                     </ul>
                 </div>

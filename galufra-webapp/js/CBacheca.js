@@ -1,7 +1,7 @@
 $(document).ready(function(){
     updatePreferiti();
     updatePersonali();
-    updateBacheca(false)
+    updateBacheca(false);
 
     //poichè non si visualizza una mappa non mostro eventi consigliati nella
     //parte di mappa che dovrebbe esserci

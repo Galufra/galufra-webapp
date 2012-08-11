@@ -33,10 +33,10 @@ function updatePreferiti(){
         if(response.total > 0)
             var eventi = response.eventi;
         $.each(eventi, function(i){
-            //if(i==3) return false;
+            if(i==3) return false;
             $('<li class="preferito">')
             .append($('<ul>')
-            .append('<li>'+eventi[i].nome+'</li>')
+            .append('<a href="CBacheca.php?id='+eventi[i].id_evento+'"><li>'+eventi[i].nome+'</li></a>')
             .append('<li>'+eventi[i].data+'</li>')
             .append('</ul>'))
             .appendTo(Preferiti);
@@ -62,7 +62,7 @@ function updatePersonali(){
             //if(i==3) return false;
             $('<li class="personale">')
             .append($('<ul>')
-            .append('<li>'+eventi[i].nome+'</li>')
+            .append('<a href="CBacheca.php?id='+eventi[i].id_evento+'"><li>'+eventi[i].nome+'</li></a>')
             .append('<li>'+eventi[i].data+'</li>')
             .append('</ul>'))
             .appendTo(Personali);
@@ -99,7 +99,7 @@ function updateConsigliati(map,mantieni){
                 //if(i==3) return false;
                 $('<li class="consigliato">')
                 .append($('<ul>')
-                .append('<li>'+eventi[i].nome+'</li>')
+                .append('<a href="CBacheca.php?id='+eventi[i].id_evento+'"><li>'+eventi[i].nome+'</li></a>')
                 .append('<li>'+eventi[i].data+'</li>')
                 .append('</ul>'))
                 .appendTo(Consigliati);
@@ -124,7 +124,7 @@ function updateBacheca(scroll){
         $.each(messaggi,function(i){
             $('<div class="box messaggio">')
             .append($('<ul>')
-            .append('<h2>'+messaggi[i].utente+' dice: '+messaggi[i].testo+'</h2>')
+            .append('<h2><a href=CProfilo.php?name='+messaggi[i].utente+'>'+messaggi[i].utente+'</a> dice: '+messaggi[i].testo+'</h2>')
             .append('<h3>Quando? Il '+messaggi[i].data+'</h3>')
             .append('</ul>'))
             .appendTo(Messaggi);

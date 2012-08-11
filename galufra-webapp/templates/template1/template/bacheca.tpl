@@ -13,7 +13,7 @@
     <div id='creaMessaggio' >
         <table>
             <tr>
-                <td><label>Descrizione:</label></td>
+                <td><label>Messaggio:</label></td>
                 <td><textarea id='messaggio' rows=4></textarea></td>
             </tr>
             <tr>

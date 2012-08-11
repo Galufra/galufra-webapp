@@ -86,16 +86,16 @@ class FEvento extends FMysql {
     }
 
     //Mi fornisce tutti gli eventi consigliati
-    public function getAllConsigliati($idUtente) {
-        $this->makeQuery("
-                SELECT * FROM evento as e
-                WHERE e.data >= NOW()
-                AND e.id_evento IN (
-                    SELECT evento FROM consiglia as c, evento as e1
-                    WHERE c.utente =  $idUtente
-                    AND c.evento = e1.id_evento )
-                ORDER BY data"
+    public function getAllConsigliati($idUtente,$dellUtente) {
+        $query = (
+                "SELECT * FROM evento
+                WHERE data >= NOW()
+                AND id_evento IN (
+                    SELECT evento FROM consiglia as c
+                    WHERE c.utente ".(($dellUtente)?"=":"!=")." $idUtente
+                    GROUP BY evento ORDER BY COUNT(*) DESC) ".(($dellUtente)?"":"LIMIT 15").""
         );
+        $this->makeQuery($query);
         return $this->getObjectArray();
     }
 

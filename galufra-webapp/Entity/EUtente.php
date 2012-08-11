@@ -3,12 +3,12 @@
 class EUtente {
 
     private $id_utente = null;
-    private $username = null;
-    private $password = null;
-    private $nome = null;
-    private $cognome = null;
-    private $email = null;
-    private $citta = null;
+    public $username = null;
+    public $password = null;
+    public $nome = null;
+    public $cognome = null;
+    public $email = null;
+    public $citta = null;
     private $confirmed = null;
     private $date = null;
     private $permessi = null;

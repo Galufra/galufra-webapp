@@ -123,21 +123,24 @@ Released for free under a Creative Commons Attribution 2.5 License
                                 </a>
                         </h3>
                     </div>
+                    <div>
+                        <h3><a href="CProfilo.php" class="profilo">Profilo</a></h3>
+                    </div>
                 </div>
 
 
 
                 <div class="box" id="boxPersonali">
-                    <h3>Tuoi Eventi</h3>
+                    <h3><a href="CListaEventi.php?action=personali">Tuoi Eventi</a></h3>
                     <ul class="bottom" id='ulPersonali'></ul>
                 </div>
                 <div class="box" id="boxPreferiti">
-                    <h3>Eventi Preferiti</h3>
+                    <h3><a href="CListaEventi.php?action=preferiti">Eventi Preferiti</a></h3>
                     <ul class="bottom" id='ulPreferiti'>
                     </ul>
                 </div>
                 <div class="box" id="boxConsigliati">
-                    <h3>Eventi Consigliati</h3>
+                    <h3><a href="CListaEventi.php?action=consigliati">Eventi Consigliati</a></h3>
                     <ul class="bottom" id='ulConsigliati'>
                     </ul>
                 </div>

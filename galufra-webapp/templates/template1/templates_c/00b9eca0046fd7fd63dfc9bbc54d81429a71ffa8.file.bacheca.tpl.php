@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.10, created on 2012-08-08 21:15:26
+<?php /* Smarty version Smarty-3.1.10, created on 2012-08-11 20:19:44
          compiled from "../templates/template1/template/bacheca.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1427448665020ebd368acc9-39753850%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '00b9eca0046fd7fd63dfc9bbc54d81429a71ffa8' => 
     array (
       0 => '../templates/template1/template/bacheca.tpl',
-      1 => 1344453275,
+      1 => 1344709182,
       2 => 'file',
     ),
   ),
@@ -41,7 +41,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <div id='creaMessaggio' >
         <table>
             <tr>
-                <td><label>Descrizione:</label></td>
+                <td><label>Messaggio:</label></td>
                 <td><textarea id='messaggio' rows=4></textarea></td>
             </tr>
             <tr>

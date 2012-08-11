@@ -10,7 +10,6 @@ require_once '../Entity/EEvento.php';
 class CCrea {
 
     private $utente = null;
-    private $aggiuntoEvento = false;
 
     public function __construct() {
         /* In futuro dovremo controllare che l'utente sia loggato
@@ -23,29 +22,27 @@ class CCrea {
             $this->utente = $u->load($_SESSION['username']);
             //carico il numero di eventi
             $this->utente->setNumEventi();
-            if (isset($_SESSION['aggiuntoEvento']))
-                //in questo modo torno alla home
-                $this->aggiuntoEvento = $_SESSION['aggiuntoEvento'];
         }
 
         /* Se "action" non è impostato, o l' utente non esiste oppure ha esaurito il num di eventi, eseguiremo il comportamento
          * di default nello switch successivo, ignorando anche i dati mandati via get.
          */
-        if (!isset($_GET['action']) || !$this->utente || !$this->utente->isSbloccato()) {
-            $_GET['action'] = '';
+        if (!isset($_POST['action']) || !$this->utente || !$this->utente->isSbloccato()) {
+            $_POST['action'] = '';
         }
 
-        switch ($_GET['action']) {
+        switch ($_POST['action']) {
             case('creaEvento'):
                 $ev = new EEvento();
-                $ev->setNome(utf8_decode($_GET['nome']));
-                $ev->setDescrizione(utf8_decode($_GET['descrizione']));
+                //filtro con mysql escape string o html special chars?
+                $ev->setNome(utf8_decode(mysql_escape_string($_POST['nome'])));
+                $ev->setDescrizione(utf8_decode(mysql_escape_string($_POST['descrizione'])));
                 // Conversione della data in formato MySql
-                $unixdate = strtotime($_GET['timestamp']);
+                $unixdate = strtotime(mysql_escape_string($_POST['timestamp']));
                 $ev->setData(date('Y-m-d H:i:s', $unixdate));
                 $ev->setGestore($this->utente->getId());
-                $ev->setLat($_GET['lat']);
-                $ev->setLon($_GET['lon']);
+                $ev->setLat(mysql_escape_string($_POST['lat']));
+                $ev->setLon(mysql_escape_string($_POST['lon']));
                 $Foundation = new FEvento();
                 $Foundation->connect();
                 $result = $Foundation->store($ev);
@@ -60,18 +57,14 @@ class CCrea {
                         'message' => "L'evento è stato creato correttamente."
                     );
                     $this->utente->incrementaNumEventi();
-                    //trick per tornare alla home
-                    $_SESSION['aggiuntoEvento'] = true;
                 }
                 echo json_encode($response);
                 break;
 
             default:
-                if ($this->utente && (!$this->utente->isSbloccato() || $this->aggiuntoEvento)) {
+                if ($this->utente && !$this->utente->isSbloccato()) {
                     //cambio il tpl di CCrea per evitare hack in html visto che il metodo blocca modifica solo il link
                     //di crea evento
-                    $this->aggiuntoEvento = false;
-                    $_SESSION['aggiuntoEvento'] = false;
                     $view = new VCrea('home.tpl', array('CHome.js'));
                     $view->isAutenticato(true);
                     $view->showUser($this->utente->getUsername());

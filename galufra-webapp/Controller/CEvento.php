@@ -56,7 +56,7 @@ class CEvento {
                     $out = false;
                     $ev = new FEvento();
                     $ev->connect();
-                    $ev_array = $ev->getAllConsigliati($this->utente->getId());
+                    $ev_array = $ev->getAllConsigliati($this->utente->getId(),true);
                     if (is_array($ev_array))
                         foreach ($ev_array as $i) {
                             if ($i->id_evento == $this->evento->id_evento) {
@@ -117,5 +117,5 @@ if (!isset($_GET['id']))
     $_GET['id'] = null;
 //da provare con USession
 session_start();
-$CEvento = new CEvento($_GET['id']);
+$CEvento = new CEvento(htmlspecialchars($_GET['id']));
 ?>

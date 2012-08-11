@@ -11,16 +11,19 @@ class CRegistrazione {
     private $password = null;
     private $citta = null;
     private $mail = null;
+    private $nome = null;
+    private $cognome = null;
     private $autenticato = false;
     private $errore = null;
 
-    public function __construct($uname, $pwd, $citta=null, $mail=null, $uid=null) {
+    public function __construct($uname, $pwd, $citta=null, $mail=null, $nome=null, $cognome=null, $uid=null) {
 
         $this->username = $uname;
         $this->password = $pwd;
         $this->citta = $citta;
         $this->mail = $mail;
-
+        $this->nome = $nome;
+        $this->cognome = $cognome;
     }
 
     public function logIn() {
@@ -28,6 +31,7 @@ class CRegistrazione {
         $u = new FUtente();
         $u->connect();
         $utente = $u->load($this->username);
+
         if ($utente != FALSE) {
 
             if ($utente->getPassword() == md5($this->password)) {
@@ -68,17 +72,16 @@ class CRegistrazione {
         $newUtente->setPassword($this->password);
         $newUtente->setCitta($this->citta);
         if ($newUtente->setEmail($this->mail))
-            $result = $db->storeUtente($newUtente,$uid);
+            $result = $db->storeUtente($newUtente, $uid);
         if ($result[0]) {
             if ($this->sendConfirmationMail($this->mail, "fra.miscia@gmail.com", $uid)) {
                 $this->errore = "Registrazione avvenuta con successo";
                 $this->autenticato = true;
                 $this->initSession();
-                return array(true,$newUtente);
-            }
-            else {
+                return array(true, $newUtente);
+            } else {
                 $this->errore = "Registrazione fallita";
-                return array(false,null);
+                return array(false, null);
             }
         }
     }
@@ -99,7 +102,23 @@ class CRegistrazione {
         return true;
     }
 
-
+    public function updateProfilo() {
+        $db = new FUtente();
+        $db->connect();
+        $newUtente = new EUtente();
+        //$newUtente->setUsername($this->username);
+        $newUtente->setPassword($this->password);
+        $newUtente->setCitta($this->citta);
+        $newUtente->setNome($this->nome);
+        $newUtente->setCognome($this->cognome);
+        if ($newUtente->setEmail($this->mail))
+            $result = $db->update ($newUtente);
+        if ($result[0]) {
+            return array(true,$newUtente);
+        }else{
+            return array(false,null);
+        }
+    }
 
 }
 

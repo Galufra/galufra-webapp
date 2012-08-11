@@ -97,7 +97,7 @@ $(document).ready(function(){
         return false;
     });
     
-   $('.removeConsigliati').live("click", function(event){
+    $('.removeConsigliati').live("click", function(event){
         removeConsigliati(event.target.id);
         if (markers)
             for(i=0; i<markers.length; ++i){
@@ -107,7 +107,6 @@ $(document).ready(function(){
             }
         return false;
     });
-     
 
     /*
      * Visualizza sulla mappa gli eventi contenuti in

@@ -46,6 +46,9 @@ class CHome {
             case('getEventiPreferiti'):
                 $this->getEventiPreferiti();
                 break;
+            case('getMaxConsigliati'):
+                $this->getMaxConsigliati();
+                break;
             /*
              * Aggiunta/rimozione di un evento nell'elenco dei preferiti
              */
@@ -212,8 +215,21 @@ class CHome {
         $ev->connect();
         $ev_array = $ev->getEventiConsigliati($this->utente->getId(), $neLat, $neLon, $swLat, $swLon);
         $out = array(
-        'total' => count($ev_array),
-        'eventi' => $ev_array
+            'total' => count($ev_array),
+            'eventi' => $ev_array
+        );
+        echo json_encode($out);
+        exit;
+    }
+
+    public function getMaxConsigliati() {
+        
+        $ev = new FEvento();
+        $ev->connect();
+        $ev_array = $ev->getAllConsigliati($this->utente->getId(), false);
+        $out = array(
+            'total' => count($ev_array),
+            'eventi' => $ev_array
         );
         echo json_encode($out);
         exit;
@@ -224,8 +240,8 @@ class CHome {
         $ev->connect();
         $ev_array = $ev->getEventiPreferiti($this->utente->getId());
         $out = array(
-            'total' => ($fornisciTutti)? count($ev_array) : '3' ,
-            'eventi' =>  $ev_array
+            'total' => ($fornisciTutti) ? count($ev_array) : '3',
+            'eventi' => $ev_array
         );
         echo json_encode($out);
         exit;

@@ -2,7 +2,7 @@
 
 require_once 'View.php';
 
-class VCrea extends View {
+class VProfilo extends View {
 
     public $scripts = null;
     public $content = null;

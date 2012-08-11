@@ -28,28 +28,11 @@ $(document).ready(function(){
                 showMessage('La data inserita non è corretta');
                 return false;
             }
-            // invio della richiesta
-            /*$.get("CCrea.php",
-            {
-                'action': "creaEvento",
-                'nome': $('#nome').val(),
-                'descrizione': $('#descrizione').val(),
-                'timestamp': timestamp,
-                'lat': coord.lat(),
-                'lon': coord.lng()
-            }).success(function(data){
-                response = jQuery.parseJSON(data);
-                showMessage(response.message);
-                updatePersonali();
-            // if(response.status == 'OK')
-            //     $('#creaEvento').find('input,textarea').val('');
-            });*/
 
-            //Utilizzo una chiamata sincrona per ricaricare la classe CEvento in modo da poter reindirizzare verso la home
-            //nel caso in cui l'utente abbia registrato con successo un evento'
             $.ajax({
 
-                async: false,
+                async: true,
+                type: "POST",
                 url: "CCrea.php",
                 data: {
 
@@ -63,8 +46,14 @@ $(document).ready(function(){
             }).done(function(data){
                 response = jQuery.parseJSON(data);
                 showMessage(response.message);
-
+                updatePersonali();
+                $('#map_canvas').hide('slow');
+                $('#creaEvento :input').each(function(){
+                    $(this).val('');
+                });
             });
+                
+            
         }
         return false;
     });

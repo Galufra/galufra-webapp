@@ -1,13 +1,39 @@
 
 <div id = 'bacheca' >
 
-    <h1 align=center>{$evento->getNome()}</h1>
-    <h3>{$evento->getData()}</h3>
+    <div>
+        {if $utente->isAdmin()}
+        <h4><a href="#" id='eliminaEvento'>(Elimina Evento)</a></h4>
+        {/if}
+        <h1 align=center>{$evento->getNome()}</h1>
+    </div>
+    <h3>Data: {$evento->getData()}</h3>
+
+    <h4>Partecipanti: {$partecipanti}</h4>
 
     <h2>{$evento->getDescrizione()}</h2>
 
-    <div id='messaggiBacheca'>
+    <div id='annuncioGestore'>
 
+
+    </div>
+
+    {if $utente->getId() == $evento->getGestore() || $utente->isAdmin()}
+    <div id='creaAnnuncio' >
+        <table>
+            <tr>
+                <td><label>Annuncio:</label></td>
+                <td><textarea id='annuncio' rows=4></textarea></td>
+            </tr>
+            <tr>
+                <td><button id='inserisciAnnuncio' class = "button">Annuncia!</button></td>
+            </tr>
+        </table>
+    </div>
+    {/if}
+
+    <div id='messaggiBacheca'>
+        <br><h2>Bacheca Messaggi Evento:</h2>
     </div>
 
     <div id='creaMessaggio' >

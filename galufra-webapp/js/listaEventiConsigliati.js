@@ -18,18 +18,18 @@ $(document).ready(function(data){
     })
     .success(function(data) {
         var response = jQuery.parseJSON(data);
-        if(response.total > 0)
+        if(response.total > 0){
             var eventi = response.eventi;
-        $.each(eventi, function(i){
-            $('<div class="cons">')
-            .append($('<div class="box">')
-                .append('<a href="CBacheca.php?id='+eventi[i].id_evento+'"><li>'+eventi[i].nome+'</li></a>')
-                .append('<ul>'+eventi[i].data+'</ul>')
-                .append('<ul>'+eventi[i].descrizione+'</ul>')
-                .append('</div>'))
-            .appendTo(Cons);
-        });
-
+            $.each(eventi, function(i){
+                $('<div class="cons">')
+                .append($('<div class="box">')
+                    .append('<a href="CBacheca.php?id='+eventi[i].id_evento+'"><li>'+eventi[i].nome+'</li></a>')
+                    .append('<ul>'+eventi[i].data+'</ul>')
+                    .append('<ul>'+eventi[i].descrizione+'</ul>')
+                    .append('</div>'))
+                .appendTo(Cons);
+            });
+        }else $('<div><h3 align=center>Nessun evento trovato...</h3></div>').appendTo(Cons);
     });
 
 });

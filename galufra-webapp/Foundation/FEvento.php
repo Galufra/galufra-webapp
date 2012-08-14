@@ -86,15 +86,15 @@ class FEvento extends FMysql {
     }
 
     //Mi fornisce tutti gli eventi consigliati
-    public function getAllConsigliati($idUtente,$dellUtente) {
+    public function getAllConsigliati($idUtente, $dellUtente) {
         $query = (
                 "SELECT * FROM evento
                 WHERE data >= NOW()
                 AND id_evento IN (
                     SELECT evento FROM consiglia as c
-                    WHERE c.utente ".(($dellUtente)?"=":"!=")." $idUtente
-                    GROUP BY evento ORDER BY COUNT(*) DESC) ".(($dellUtente)?"":"LIMIT 15").""
-        );
+                    WHERE c.utente " . (($dellUtente) ? "=" : "!=") . " $idUtente
+                    GROUP BY evento ORDER BY COUNT(*) DESC) " . (($dellUtente) ? "" : "LIMIT 15") . ""
+                );
         $this->makeQuery($query);
         return $this->getObjectArray();
     }
@@ -125,6 +125,16 @@ class FEvento extends FMysql {
             return $eventi;
         }
         return false;
+    }
+
+    public function guestCounter($id) {
+        $number = 0;
+        $result = $this->makeQuery("SELECT COUNT(*) FROM preferisce WHERE evento = $id");
+        if ($result[0]) {
+            $res = $this->getResult();
+            return $res[1]["COUNT(*)"];
+        }else
+            return $nummber;
     }
 
 }

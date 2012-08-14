@@ -2,7 +2,7 @@
 
 class EMessaggio {
 
-    private $id_mess = null;
+    public $id_mess = null;
     public $testo = null;
     public $data = null;
     public $evento = null;

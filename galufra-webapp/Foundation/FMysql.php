@@ -200,9 +200,9 @@ class FMysql implements FDb {
         foreach ($object as $k => $val) {
             if (!($k == $this->_key) && substr($k, 0, 1) != '_') {
                 if ($i == 0) {
-                    $fields.='`' . $k . '` = \'' . $val . '\'';
+                    $fields.='`' . $k . '` = \'' . mysql_real_escape_string($val) . '\'';
                 } else {
-                    $fields.=', `' . $k . '` = \'' . $val . '\'';
+                    $fields.=', `' . $k . '` = \'' . mysql_real_escape_string($val) . '\'';
                 }
                 $i++;
             }

@@ -17,12 +17,15 @@ class CHome {
          */
         $u = new Futente();
         $u->connect();
+        $u->cleanExpired();
 
         if (isset($_SESSION["username"])) {
             $user = $_SESSION["username"];
             $this->utente = $u->load($user);
+
             //carico il num di eventi. la funzione blocca automaticamente l'utente se si accorge che gli eventi sono troppi
-            $this->utente->setNumEventi();
+            if ($this->utente)
+                $this->utente->setNumEventi($this->utente->isAdmin(), $this->utente->isSuperuser());
         }
         $view = new VHome();
 
@@ -93,10 +96,11 @@ class CHome {
                 break;
 
             case('login'):
+
                 if (!$this->utente && isset($_POST['username']) && isset($_POST["password"])) {
                     session_destroy();
-                    $uname = mysql_real_escape_string($_POST['username']);
-                    $pwd = mysql_real_escape_string($_POST['password']);
+                    $uname = mysql_real_escape_string(htmlspecialchars(($_POST['username'])));
+                    $pwd = mysql_real_escape_string(htmlspecialchars(($_POST['password'])));
                     $login = new CRegistrazione($uname, $pwd);
                     $login->logIn();
                     if ($login->isLogged()) {
@@ -107,10 +111,15 @@ class CHome {
                 if ($this->utente) {
                     $view->isAutenticato(true);
                     $view->showUser($this->utente->getUsername());
-                    if (!$this->utente->isSbloccato())
-                        $view->blocca();
-                }else
+                    if ($this->utente->isConfirmed())
+                        $view->regConfermata();
+                    if ($this->utente->isSuperuser())
+                        $view->isSuperuser();
+                }else {
                     $view->isAutenticato(false);
+                    $view->regConfermata();
+                    $view->errorLogin();
+                }
 
 
                 $view->mostraPagina();
@@ -121,6 +130,7 @@ class CHome {
                 session_unset();
                 session_destroy();
                 $view->isAutenticato(false);
+                $view->regConfermata();
                 $view->mostraPagina();
                 break;
 
@@ -128,14 +138,22 @@ class CHome {
                 $this->getUtente();
                 break;
 
+            case('recupera'):
+                $this->recuperaPwd();
+                break;
+
             case('reg'):
-                if (!$this->utente && isset($_POST['username']) && isset($_POST["password"]) && isset($_POST['password1'])
-                        && isset($_POST["citta"]) && isset($_POST["mail"])) {
-                    $uname = mysql_real_escape_string($_POST['username']);
-                    $pwd = mysql_real_escape_string($_POST['password']);
-                    $pwd1 = mysql_real_escape_string($_POST['password1']);
-                    $citta = mysql_real_escape_string($_POST['citta']);
-                    $mail = mysql_real_escape_string($_POST['mail']);
+                if (!$this->utente
+                        && (isset($_POST["username"]) && $_POST["username"] != null)
+                        && isset($_POST["password"]) && isset($_POST["password1"])
+                        && (isset($_POST["citta"]) && $_POST["citta"] != null)
+                        && (isset($_POST["mail"]) && $_POST["mail"] != null)) {
+
+                    $uname = mysql_real_escape_string(htmlspecialchars($_POST['username']));
+                    $pwd = mysql_real_escape_string(htmlspecialchars($_POST['password']));
+                    $pwd1 = mysql_real_escape_string(htmlspecialchars($_POST['password1']));
+                    $citta = mysql_real_escape_string(htmlspecialchars($_POST['citta']));
+                    $mail = mysql_real_escape_string(htmlspecialchars($_POST['mail']));
                     if ($pwd == $pwd1) {
                         $registra = new CRegistrazione($uname, $pwd, $citta, $mail);
                         session_destroy();
@@ -149,27 +167,22 @@ class CHome {
                 if ($this->utente) {
                     $view->isAutenticato(true);
                     $view->showUser($this->utente->getUsername());
-                    if (!$this->utente->isSbloccato())
-                    //cambia il link a home.php
-                        $view->blocca();
-                }
-                else
+                    if ($this->utente->isConfirmed()) {
+                        $view->regConfermata();
+                    }
+                    if ($this->utente->isSuperuser())
+                        $view->isSuperuser();
+                } else {
                     $view->isAutenticato(false);
+                    $view->regConfermata();
+                    $view->errorRegistrazione();
+                }
 
                 $view->mostraPagina();
 
 
                 break;
 
-            case('confirm'):
-                if (isset($_GET['id'])) {
-                    if ($this->confirmReg($_GET['id]'])) {
-                        //tpl di conferma
-                    } else {
-                        //tpl di errore
-                    }
-                    $view->mostraPagina();
-                }
 
             default:
                 if ($this->utente) {
@@ -177,8 +190,16 @@ class CHome {
                     $view->showUser($this->utente->getUsername());
                     if (!$this->utente->isSbloccato())
                         $view->blocca();
-                }else
+                    if ($this->utente->isConfirmed()) {
+                        $view->regConfermata();
+                    }
+                    if ($this->utente->isSuperuser())
+                        $view->isSuperuser();
+                } else {
+
                     $view->isAutenticato(false);
+                    $view->regConfermata();
+                }
 
                 $view->mostraPagina();
                 break;
@@ -223,7 +244,7 @@ class CHome {
     }
 
     public function getMaxConsigliati() {
-        
+
         $ev = new FEvento();
         $ev->connect();
         $ev_array = $ev->getAllConsigliati($this->utente->getId(), false);
@@ -247,19 +268,35 @@ class CHome {
         exit;
     }
 
-    public function confirmReg($uid) {
-
-        $u = new FUtente();
-        $u->connect();
-        $result = $u->userConfirmation($uid);
-        return $result[0];
-    }
-
     public function inviaEventiPersonali($eventi) {
 
         $out = array(
             'total' => count($eventi),
             'eventi' => $eventi
+        );
+        echo json_encode($out);
+        exit;
+    }
+
+    /*invia una nuova password all' utente. La funzione mail verrà scommentata una volta che facciamo il deploy dell'applicazione*/
+    public function recuperaPwd() {
+        $status = false;
+        if (!$this->utente && (isset($_GET['username']) && $_GET['username'] != null)) {
+            $pwd = CRegistrazione::getUniqueId();
+            $u = new FUtente();
+            $u->connect();
+            $user = $u->load($_GET['username']);
+            if ($user != null) {
+                //$user->setPassword($pwd);
+                /* $status = mail($user->getEmail(), "Recupero password Galufra",
+                  "Ciao $user->getUsername()!! \nLa tua nuova password è $pwd.
+                  Fai di nuovo il login e cambiala secondo le tue preferenze!)");
+                  $u->update($user); */
+                $status = true;
+            }
+        }
+        $out = array(
+            'inviata' => "$status"
         );
         echo json_encode($out);
         exit;

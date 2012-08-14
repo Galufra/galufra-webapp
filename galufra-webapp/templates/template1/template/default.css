@@ -302,8 +302,17 @@ a:hover {
     color: #FFFFFF;
 }
 
+#recuperoPwd{
 
-#logo h1, #logo h2, #logo a , #logo2 h1, #logo2 h2, #logo2 a {
+    height: 200px;
+    width:238px;
+    background: url(images/Immagine1.png) no-repeat;
+    color: #FFFFFF;
+
+}
+
+
+#logo h1, #logo h2, #logo a , #logo2 h1, #logo2 h2, #logo2 a, #recuperoPwd a {
     margin: 0;
     padding: 0;
     text-decoration: none;
@@ -354,6 +363,22 @@ form#creaEvento input, textarea{
 
 }
 
+#creaAnnuncio .button{
+    width: 80px;
+    height: 30px;
+}
+
+#search .button{
+    width: 60px;
+    height: 25px;
+}
+
+
 .errore {
     color: #ff0000;
+}
+
+.profilo {
+
+    margin-left: 15px;
 }

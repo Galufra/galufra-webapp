@@ -21,6 +21,7 @@ class CProfilo {
         if (isset($_SESSION['username'])) {
 
             $this->utente = $u->load($_SESSION['username']);
+            $this->utente->setNumEventi();
 
             if ($name && $this->utente->getUsername() == $name) {
                 $this->action = "modifica_profilo";
@@ -39,30 +40,60 @@ class CProfilo {
                 $this->updateUtente();
                 $this->action = null;
             }
+            if (isset($_POST["action"]) && $_POST["action"] == "eliminaUtente") {
+                $this->deleteUtente();
+                $this->action = null;
+            }
+
+            if (isset($_POST["action"]) && $_POST["action"] == "addSuperuser") {
+                $this->addSuperuser();
+                $this->action = null;
+            }
+
+            if (isset($_POST["action"]) && $_POST["action"] == "addAdmin") {
+                $this->addAdmin();
+                $this->action = null;
+            }
         }
 
         switch ($this->action) {
             case('modifica_profilo'):
-                $view = new VProfilo($this->utente, false);
+                $view = new VProfilo($this->utente, null, false);
                 if ($this->utente) {
                     $view->isAutenticato(true);
                     $view->showUser($this->utente->getUsername());
+                    if ($this->utente->isConfirmed())
+                        $view->regConfermata();
+                    if ($this->utente->isSuperuser())
+                        $view->isSuperuser();
+                }else {
+                    $view->regConfermata();
                 }
                 $view->mostraPagina();
                 break;
             case('visualizza_profilo'):
                 $this->utenteDaVis = $u->load($name);
                 if ($this->utenteDaVis) {
-                    $view = new VProfilo($this->utenteDaVis, true);
+                    $view = new VProfilo($this->utente, $this->utenteDaVis, true);
                     if ($this->utente) {
                         $view->isAutenticato(true);
                         $view->showUser($this->utente->getUsername());
+                        if ($this->utente->isConfirmed())
+                            $view->regConfermata();
+                        if ($this->utente->isSuperuser())
+                            $view->isSuperuser();
                     }
                 } else {
                     $view = new VHome();
                     if ($this->utente) {
                         $view->isAutenticato(true);
                         $view->showUser($this->utente->getUsername());
+                        if ($this->utente->isConfirmed())
+                            $view->regConfermata();
+                        if ($this->utente->isSuperuser())
+                            $view->isSuperuser();
+                    }else {
+                        $view->regConfermata();
                     }
                 }
                 $view->mostraPagina();
@@ -72,6 +103,12 @@ class CProfilo {
                 if ($this->utente) {
                     $view->isAutenticato(true);
                     $view->showUser($this->utente->getUsername());
+                    if ($this->utente->isConfirmed())
+                        $view->regConfermata();
+                    if ($this->utente->isSuperuser())
+                        $view->isSuperuser();
+                }else {
+                    $view->regConfermata();
                 }
                 $view->mostraPagina();
         }
@@ -79,24 +116,23 @@ class CProfilo {
 
     public function updateUtente() {
 
-        /* if (isset($_POST["password"]) || isset($_POST['password1'])
-          || isset($_POST["nome"]) || isset($_POST["cognome"]) || isset($_POST["citta"]) || isset($_POST["email"])) { */
         $pwd = null;
         $pwd1 = null;
         if (isset($_POST['password']) && isset($_POST['password1'])) {
             $pwd = $_POST['password'];
             $pwd1 = $_POST['password1'];
         }
-        $this->utente->setCitta(mysql_real_escape_string(isset($_POST['citta']) ? $_POST['citta'] : $this->utente->getCitta()));
-        $this->utente->setNome(mysql_real_escape_string(isset($_POST['nome']) ? $_POST['nome'] : $this->utente->getNome()));
-        $this->utente->setCognome(mysql_real_escape_string(isset($_POST['cognome']) ? $_POST['cognome'] : $this->utente->getCognome()));
-        if ($this->utente->setEmail(
-                        (isset($_POST['email']) ? mysql_real_escape_string($_POST['email']) : $this->utente->getEmail()))
+        $this->utente->setCitta((isset($_POST['citta']) ? mysql_real_escape_string(htmlspecialchars($_POST['citta'])) : $this->utente->getCitta()));
+        $this->utente->setNome((isset($_POST['nome']) ? mysql_real_escape_string(htmlspecialchars($_POST['nome'])) : $this->utente->getNome()));
+        $this->utente->setCognome((isset($_POST['cognome']) ? mysql_real_escape_string(htmlspecialchars($_POST['cognome'])) : $this->utente->getCognome()));
+
+        if ($this->utente->setEmail
+                        (
+                        (isset($_POST['email']) ? mysql_real_escape_string(htmlspecialchars($_POST['email'])) : $this->utente->getEmail())
+                )
                 &&
                 $pwd == $pwd1
         ) {
-            //$registra = new CRegistrazione($this->utente->getUsername(), $pwd, $citta, $mail, $nome, $cognome);
-            //$result = $registra->updateProfilo();
             if ($pwd != null && $pwd1 != null && md5($pwd) != $this->utente->getPassword())
                 $this->utente->setPassword($pwd);
             $db = new FUtente();
@@ -122,43 +158,84 @@ class CProfilo {
             echo json_encode($out);
             exit;
         }
-        // }
+    }
+
+    public function deleteUtente() {
+        $out = null;
+        if (isset($_POST['name']) && $this->utente->isAdmin()) {
+            $name = mysql_escape_string($_POST['name']);
+            $u = new FUtente();
+            $u->connect();
+            $result = $u->delete($u->load($name));
+            if (!$result[0]) {
+                $out = array('message' => "errore...");
+            }
+        }else
+            $out = array('message' => "utente non valido, o permessi insufficienti");
+    }
+
+    public function addSuperuser() {
+        $out = null;
+        if ((isset($_POST['user']) && $_POST['user'] != null) && $this->utente->isAdmin()) {
+
+            $name = mysql_escape_string($_POST['user']);
+            $u = new FUtente();
+            $u->connect();
+            $user = $u->load($name);
+            $result = array(false, "errore");
+
+            if ($user) {
+                $user->setSuperuser();
+                $result = $u->update($user);
+            }
+            if ($result[0]) {
+                $out = array(
+                    'result' => "1",
+                    'message' => "Operazione Eseguita"
+                );
+            }
+        }else
+            $out = array(
+                'result' => "0",
+                'message' => "Impossibile eseguire l'operazione"
+            );
+
+        echo json_encode($out);
+        exit;
+    }
+
+    public function addAdmin() {
+        $out = null;
+
+        if ((isset($_POST['user']) && $_POST['user'] != null) && $this->utente->isAdmin()) {
+
+            $name = mysql_escape_string($_POST['user']);
+            $u = new FUtente();
+            $u->connect();
+            $user = $u->load($name);
+            $result = array(false, "errore");
+
+            if ($user) {
+                $user->administrate();
+                $result = $u->update($user);
+            }
+
+            if ($result[0]) {
+                $out = array(
+                    'result' => "1",
+                    'message' => "Operazione Eseguita");
+            }
+        }else
+            $out = array(
+                'result' => "0",
+                'message' => "Impossibile eseguire l'operazione"
+            );
+
+        echo json_encode($out);
+        exit;
     }
 
 }
-
-/*                if (!$this->utente && isset($_POST['username']) && isset($_POST["password"]) && isset($_POST['nome']) && isset($_POST['cognome'])
-  && isset($_POST["citta"]) && isset($_POST["mail"])) {
-  $eu = new EUtente();
-  $eu->setUsername($_POST['username']);
-  $eu->setPassword($_POST['password']));
-  $eu->setNome($_POST['nome']));
-  $eu->setCognome($_POST['cognome']));
-  // Conversione della data in formato MySql
-  $unixdate = strtotime($_GET['timestamp']);
-  $eu->setData(date('Y-m-d H:i:s', $unixdate));
-  $eu->setEmail($_POST['mail']));
-  $eu->setCitta($_POST['citta']));
-  $Foundation = new FUtente();
-  $Foundation->connect();
-  $result = $Foundation->update($eu);
-  if (!$result[0])
-  $response = array(
-  'status' => 'ERR',
-  'message' => 'Si � verificato un errore'
-  );
-  else {
-  $response = array(
-  'status' => 'OK',
-  'message' => "Il profilo � stato aggiornato correttamente."
-  );
-  }
-  }
-  break;
- */
-
-
-
 
 session_start();
 

@@ -15,18 +15,25 @@ class FUtente extends FMysql {
         $u = $user;
         $query = 
         "INSERT INTO ".$this->_table." (username,password,email,citta,date,confirm_id)
-            VALUES ('".$u->getUsername()."','".$u->getPassword()."','".$u->getEmail()."','".$u->getCitta()."','".date("d/m/Y - G:i")."','".$uid."')";
+            VALUES ('".$u->getUsername()."','".$u->getPassword()."','".$u->getEmail()."','".$u->getCitta()."','"./*date("d/m/Y - G:i")*/time()."','".$uid."')";
         $this->connect();
         $result = $this->makeQuery($query);
         return $result;
+    }
+
+    public function cleanExpired(){
+
+        $query = "DELETE FROM $this->_table WHERE  (date + 24*60*60) <= " . time() ." and confirmed = 0";
+        $this->makeQuery($query);
     }
     
     //Conferma la registrazione
     public function userConfirmation($uid){
         $this->connect();
-        $query = "UPDATE $this->_table SET confirmed = 0 WHERE confirm_id = $uid";
+        $query = "UPDATE $this->_table SET confirmed = 1 WHERE confirm_id = '".$uid."'";
+
         $result = $this->makeQuery($query);
-        if($result[0] && mysql_num_rows($result[1])==1)
+        if($result[0])
             return array(true,"Utente confermato");
         else
             return array(false,"Utente non confermato");

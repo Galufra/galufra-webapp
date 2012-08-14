@@ -64,6 +64,7 @@ class CRegistrazione {
 
     public function regUtente() {
 
+        $result=array(false,"errore");
         $db = new FUtente();
         $db->connect();
         $uid = $this->getUniqueId();
@@ -83,10 +84,10 @@ class CRegistrazione {
                 $this->errore = "Registrazione fallita";
                 return array(false, null);
             }
-        }
+        }else return array(false,"errore");
     }
 
-    public function getUniqueId() {
+    public static function getUniqueId() {
 
         list($usec, $sec) = explode(' ', microtime());
         mt_srand((float) $sec + ((float) $usec * 100000));
@@ -96,10 +97,10 @@ class CRegistrazione {
     public function sendConfirmationMail($to, $from, $id) {
 
         $msg = "Hello! To confirm your galufra registration click here:
-	http://localhost/galufra/galufra-webapp/Controller/CHome.php?action=confirm&id=" . $id . "";
+	http://localhost/galufra/galufra-webapp/Controller/CHome.php?action=conferma&id=" . $id . "";
         //$status = mail($to, "Conferma la registrazione", $msg, "From: " . $from) ? true : false;
-
-        return true;
+        $status=true;
+        return $status;
     }
 
     public function updateProfilo() {

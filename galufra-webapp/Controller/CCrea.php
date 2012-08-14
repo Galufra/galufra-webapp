@@ -21,7 +21,7 @@ class CCrea {
 
             $this->utente = $u->load($_SESSION['username']);
             //carico il numero di eventi
-            $this->utente->setNumEventi();
+            $this->utente->setNumEventi($this->utente->isAdmin(), $this->utente->isSuperuser());
         }
 
         /* Se "action" non è impostato, o l' utente non esiste oppure ha esaurito il num di eventi, eseguiremo il comportamento
@@ -36,7 +36,7 @@ class CCrea {
                 $ev = new EEvento();
                 //filtro con mysql escape string o html special chars?
                 $ev->setNome(utf8_decode(mysql_escape_string($_POST['nome'])));
-                $ev->setDescrizione(utf8_decode(mysql_escape_string($_POST['descrizione'])));
+                $ev->setDescrizione(utf8_decode(htmlspecialchars(mysql_escape_string($_POST['descrizione']))));
                 // Conversione della data in formato MySql
                 $unixdate = strtotime(mysql_escape_string($_POST['timestamp']));
                 $ev->setData(date('Y-m-d H:i:s', $unixdate));
@@ -70,6 +70,10 @@ class CCrea {
                     $view->showUser($this->utente->getUsername());
                     if (!$this->utente->isSbloccato())
                         $view->blocca();
+                    if ($this->utente->isConfirmed())
+                        $view->regConfermata();
+                    if ($this->utente->isSuperuser())
+                        $view->isSuperuser();
                     $view->mostraPagina();
                 }
                 else if ($this->utente) {
@@ -78,9 +82,14 @@ class CCrea {
                     $view->showUser($this->utente->getUsername());
                     if (!$this->utente->isSbloccato())
                         $view->blocca();
+                    if ($this->utente->isConfirmed())
+                        $view->regConfermata();
+                    if ($this->utente->isSuperuser())
+                        $view->isSuperuser();
                     $view->mostraPagina();
                 }else {
                     $view = new VCrea();
+                    $view->regConfermata();
                     $view->mostraPagina();
                 }
 

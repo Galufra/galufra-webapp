@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.10, created on 2012-08-11 11:30:19
+<?php /* Smarty version Smarty-3.1.10, created on 2012-08-14 20:14:30
          compiled from "../templates/template1/template/default.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:116381495150127392e30ec1-13862966%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7a7885124e29438c95986342c3a7050fa0cde83c' => 
     array (
       0 => '../templates/template1/template/default.tpl',
-      1 => 1344677416,
+      1 => 1344968067,
       2 => 'file',
     ),
   ),
@@ -23,8 +23,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     's' => 0,
     'name' => 0,
     'sbloccato' => 0,
-    'content' => 0,
     'autenticato' => 0,
+    'superuser' => 0,
+    'content' => 0,
+    'regConfirmed' => 0,
+    'errore_loggato' => 0,
+    'errore_registrazione' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -64,12 +68,12 @@ $_smarty_tpl->tpl_vars['s']->_loop = true;
                 <li id='messagebox'></li>
             </ul>
 
-            <form id="search" method="get" action="">
+            <div id="search">
                 <fieldset>
-                    <input name="input1" type="text" id="input1" />
-                    <input name="input2" type="submit" id="input2" value="Search" />
+                    <input name="input1" type="text" id="search_input" />
+                    <button class="button" id="cerca">Centra</button>
                 </fieldset>
-            </form>
+            </div>
         </div>
 
         <div id="content">
@@ -84,12 +88,16 @@ $_smarty_tpl->tpl_vars['s']->_loop = true;
 
                             <tr>
                                 <td>    <label class="label">username:</label> </td>
-                                <td class="right">    <input type="text" name="username" class="input4" size="20"/></td>
+                                <td class="right">
+                                    <input type="text" id="username" name="username" class="input4" size="20"/>
+                                </td>
                             </tr>
 
                             <tr>
                                 <td>	<label class="label">password:</label> </td>
-                                <td>    <input type="password" name="password"class="input4" size="20" /> </td>
+                                <td>
+                                    <input type="password" id="pass" name="password"class="input4" size="20" />
+                                </td>
                             </tr>
 
                             <tr>
@@ -100,6 +108,7 @@ $_smarty_tpl->tpl_vars['s']->_loop = true;
                     </form>
 
                     <div align=center><a id="areg" href=""><b>Registrati!</b></a></div>
+                    <div align=center><a id="forgetpwd" href=""><b>password dimenticata </b></a></div>
 
                 </div>
                 <div id="logo2">
@@ -111,23 +120,23 @@ $_smarty_tpl->tpl_vars['s']->_loop = true;
 
                             <tr>
                                 <td><label class="label">username:</label></td>
-                                <td><input type="text" name="username" class="input4 " size="20"/></td>
+                                <td><input type="text" id="user" name="username" class="input4 " size="20"/></td>
                             </tr>
                             <tr>
                                 <td><label class="label">password:</label></td>
-                                <td><input type="password" name="password" class="input4 " size="20" /></td>
+                                <td><input type="password" id="password" name="password" class="input4 " size="20" /></td>
                             </tr>
                             <tr>
                                 <td><label class="label">ripeti password:</label></td>
-                                <td><input type="password" name="password1" class="input4 " size="20" /></td>
+                                <td><input type="password" id="password1" name="password1" class="input4 " size="20" /></td>
                             </tr>
                             <tr>
                                 <td><label class="label">città:</label></td>
-                                <td><input type="text" name="citta" class="input4 " size="20" /></td>
+                                <td><input type="text" id="citta" name="citta" class="input4 " size="20" /></td>
                             </tr>->
                             <tr>
                                 <td><label class="label">e-mail:</label></td>
-                                <td><input type="text" name="mail" class="input4 " size="20" /></td>
+                                <td><input type="text" id="email" name="mail" class="input4 " size="20" /></td>
                             </tr>
                             <tr>
 
@@ -137,16 +146,32 @@ $_smarty_tpl->tpl_vars['s']->_loop = true;
                     </form>
 
                 </div>
+
+                <div id="recuperoPwd">
+                    <div>
+                        <table>
+                            <tr>
+                                <td><label class="label">username:</label></td>
+                                <td><input type="text" id="userRec" name="username" class="input4 " size="20"/></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><button id="recbutton" class="button">ok</button></td>
+                            </tr>
+                        </table>
+                        <div><b>Ti verrà inviata una e-mail all' indirizzo di registrazione con una nuova password che potrai modificare
+                            successivamente dal tuo profilo</b></div>
+                    </div>
+                </div>
+
                 <div id="logo3">
                     <?php if ($_smarty_tpl->tpl_vars['name']->value!=null){?>
-                    <h2>Ciao <?php echo $_smarty_tpl->tpl_vars['name']->value;?>
-</h2>
+                    <h3>
+                        <div align=left>Benvenuto <?php echo $_smarty_tpl->tpl_vars['name']->value;?>
+!</div>
+                    </h3>
                     <?php }?>
-                    <div>
-                        <h3><a href="CHome.php?action=logout">Logout</a></h3>
-                    </div>
-                    <div id="crea">
-                        <h3>
+                    <div id="crea" class="profilo">
+                        <h4>
                             <?php if ($_smarty_tpl->tpl_vars['sbloccato']->value){?>
                             <a href="CCrea.php?action=">
                             <?php }else{ ?>
@@ -157,10 +182,19 @@ $_smarty_tpl->tpl_vars['s']->_loop = true;
                              <?php }?>
                                     Crea Evento
                                 </a>
-                        </h3>
+                        </h4>
                     </div>
-                    <div>
-                        <h3><a href="CProfilo.php" class="profilo">Profilo</a></h3>
+                    <div class="profilo">
+                        <h4><a href="CProfilo.php">Profilo</a></h4>
+                    </div>
+                    <?php if ($_smarty_tpl->tpl_vars['autenticato']->value&&!$_smarty_tpl->tpl_vars['superuser']->value){?>
+                    <div class="profilo">
+                        <h4><a href="CSuperuser.php">Diventa Superuser</a></h4>
+                    </div>
+                    <?php }?>
+
+                    <div class="profilo">
+                        <h4><a href="CHome.php?action=logout">Logout</a></h4>
                     </div>
                 </div>
 
@@ -190,6 +224,7 @@ $_smarty_tpl->tpl_vars['s']->_loop = true;
             <script>
         $("#logo2").hide();
         $("#logo3").hide();
+        $("#recuperoPwd").hide();
             </script>
 
             <?php if ($_smarty_tpl->tpl_vars['autenticato']->value){?>
@@ -199,12 +234,33 @@ $_smarty_tpl->tpl_vars['s']->_loop = true;
             </script>
             <?php }?>
 
+            <?php if (!$_smarty_tpl->tpl_vars['regConfirmed']->value){?>
+            <script>
+            showMessage("Hai 1 Giorno per confermare la registrazione!");
+            </script>
+            <?php }?>
+
+            <?php if ($_smarty_tpl->tpl_vars['errore_loggato']->value){?>
+            <script>showMessage("Login Fallito");</script>
+            <?php }?>
+
+            <?php if ($_smarty_tpl->tpl_vars['errore_registrazione']->value){?>
+            <script>showMessage("Registrazione fallita...Riprova");</script>
+            <?php }?>
+
             <script>
                 $("#areg").click(function ( event ) {
                   event.preventDefault();
                   $("#logo").hide("slow");
-                      $("#logo2").show("slow");
+                  $("#logo2").show("slow");
                 });
+
+               $("#forgetpwd").click(function ( event ) {
+                  event.preventDefault();
+                  $("#logo").hide("slow");
+                  $("#recuperoPwd").show("slow");
+                });
+
             </script>
 
 

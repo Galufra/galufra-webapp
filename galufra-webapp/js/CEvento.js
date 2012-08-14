@@ -3,8 +3,8 @@ $(document).ready(function(){
     updatePreferiti();
     updatePersonali();
 
-    var add = $('<h3><a class="addPreferiti">Aggiungi ai Preferiti</a></h3>');
-    var remove = $('<h3><a class="removePreferiti">Rimuovi dai Preferiti</a></h3>');
+    var add = $('<h3><a class="addPreferiti">Ci Sarò!:)</a></h3>');
+    var remove = $('<h3><a class="removePreferiti">Non Potrò Più Esserci!:(</a></h3>');
     var pref = checkPreferito(id_evento);
     if(!pref)
         add.insertAfter($('h2'));

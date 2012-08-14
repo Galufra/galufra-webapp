@@ -8,6 +8,7 @@ class EEvento {
     public $data = null;
     public $n_visite = 0;
     public $n_iscritti = 0;
+    public $annuncio = null;
     //public $locale = null;
     public $lat = null;
     public $lon = null;
@@ -39,6 +40,14 @@ class EEvento {
 
     public function getData() {
         return $this->data;
+    }
+    
+    public function setAnnuncio($annuncio){
+        $this->annuncio = $annuncio;
+    }
+
+    public function getAnnuncio(){
+        return $this->annuncio;
     }
 
     public function setData($data) {

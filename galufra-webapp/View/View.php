@@ -10,6 +10,10 @@ abstract class View extends Smarty {
     public $autenticato = false;
     public $user = null;
     public $sbloccato = true;
+    public $confirmed = false;
+    public $errore_loggato = false;
+    public $errore_registrazione = false;
+    public $superuser = false;
 
     public function __construct() {
         parent::__construct();
@@ -24,7 +28,25 @@ abstract class View extends Smarty {
     public function showUser($n="anonimo") {
 
         $this->user = $n;
+    }
+
+    public function errorLogin() {
+
+        $this->errore_loggato = true;
+    }
+
+    public function errorRegistrazione(){
         
+        $this->errore_registrazione = true;
+    }
+
+    public function regConfermata() {
+
+        $this->confirmed = true;
+    }
+
+    public function isSuperuser(){
+        $this->superuser = true;
     }
 
     public function isAutenticato($b) {
@@ -34,22 +56,28 @@ abstract class View extends Smarty {
 
     public function blocca() {
 
-        $this->sbloccato=false;
-
+        $this->sbloccato = false;
     }
-    
+
     public function mostraPagina() {
         if (!is_array($this->scripts) || is_null($this->content))
             throw new Exception('parametri non definiti');
         if (!$this->autenticato) {
             $this->assign('name', "anonimo");
             $this->assign('autenticato', false);
-            $this->assign('sbloccato',$this->sbloccato);
+            $this->assign('sbloccato', $this->sbloccato);
+            $this->assign('regConfirmed', $this->confirmed);
+            $this->assign('errore_loggato', $this->errore_loggato);
+            $this->assign('errore_registrazione',$this->errore_registrazione);
+            $this->assign('superuser',$this->superuser);
         } else {
-
+            $this->assign('errore_registrazione',$this->errore_registrazione);
+            $this->assign('errore_loggato', $this->errore_loggato);
             $this->assign('name', $this->user);
             $this->assign('autenticato', $this->autenticato);
-            $this->assign('sbloccato',  $this->sbloccato);
+            $this->assign('sbloccato', $this->sbloccato);
+            $this->assign('regConfirmed', $this->confirmed);
+            $this->assign('superuser',$this->superuser);
         }
         $this->assign('scripts', $this->scripts);
         $this->assign('content', $this->content);

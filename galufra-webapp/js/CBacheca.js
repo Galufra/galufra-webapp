@@ -25,12 +25,70 @@ $(document).ready(function(){
             }).success(function(data){
                 response = jQuery.parseJSON(data);
                 showMessage(response.message);
+                $('#messaggio').val('');
                 updateBacheca(true);
             });
 
 
 
         }
+    });
+
+    $('#inserisciAnnuncio').click(function(){
+
+        if(
+            !($('#annuncio').val()))
+            {
+            showMessage('Nessun Annuncio da Scrivere...');
+        }else {
+
+
+            $.get("CBacheca.php",
+            {
+                'action': "creaAnnuncio",
+                'annuncio': $('#annuncio').val()
+            }).success(function(data){
+                var response = jQuery.parseJSON(data)
+                showMessage(response.message);
+                updateBacheca(false);
+                $('#annuncio').val('');
+
+            });
+
+        }
+    });
+
+
+    $('#del').live("click", function(){
+
+        $.get("CBacheca.php",
+        {
+            'action': "eliminaMessaggio",
+            'idMex': $('#del').attr("value")
+        }).success(function(data){
+            response = jQuery.parseJSON(data);
+            showMessage(response.message);
+            updateBacheca(true);
+        });
+
+    });
+
+
+    $('#eliminaEvento').live("click", function(){
+
+        $.ajax({
+
+            async:true,
+            type: "GET",
+            url: "CBacheca.php",
+            data: {
+                'action': "eliminaEvento"
+            }
+        });
+        updatePreferiti();
+        updatePersonali();
+        $('#bacheca').hide('slow');
+
     });
 
 });

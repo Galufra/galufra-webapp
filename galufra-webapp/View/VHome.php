@@ -5,6 +5,7 @@ class VHome extends View {
     public $scripts = array('CHome.js');
 
 
+
 }
 
 ?>

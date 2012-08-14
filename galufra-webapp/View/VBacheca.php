@@ -8,10 +8,14 @@ class VBacheca extends View {
     public $content = 'bacheca.tpl';
     public $scripts = array('CBacheca.js');
     public $evento;
+    public $utente;
 
-    public function __construct($ev) {
+    public function __construct($ev,$ut,$partecipanti) {
         $this->evento = $ev;
+        $this->utente = $ut;
         $this->assignByRef("evento", $this->evento);
+        $this->assignByRef("utente", $this->utente);
+        $this->assign("partecipanti",$partecipanti);
         parent::__construct();
     }
 

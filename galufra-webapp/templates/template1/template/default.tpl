@@ -29,12 +29,12 @@ Released for free under a Creative Commons Attribution 2.5 License
                 <li id='messagebox'></li>
             </ul>
 
-            <form id="search" method="get" action="">
+            <div id="search">
                 <fieldset>
-                    <input name="input1" type="text" id="input1" />
-                    <input name="input2" type="submit" id="input2" value="Search" />
+                    <input name="input1" type="text" id="search_input" />
+                    <button class="button" id="cerca">Centra</button>
                 </fieldset>
-            </form>
+            </div>
         </div>
 
         <div id="content">
@@ -49,12 +49,16 @@ Released for free under a Creative Commons Attribution 2.5 License
 
                             <tr>
                                 <td>    <label class="label">username:</label> </td>
-                                <td class="right">    <input type="text" name="username" class="input4" size="20"/></td>
+                                <td class="right">
+                                    <input type="text" id="username" name="username" class="input4" size="20"/>
+                                </td>
                             </tr>
 
                             <tr>
                                 <td>	<label class="label">password:</label> </td>
-                                <td>    <input type="password" name="password"class="input4" size="20" /> </td>
+                                <td>
+                                    <input type="password" id="pass" name="password"class="input4" size="20" />
+                                </td>
                             </tr>
 
                             <tr>
@@ -65,6 +69,7 @@ Released for free under a Creative Commons Attribution 2.5 License
                     </form>
 
                     <div align=center><a id="areg" href=""><b>Registrati!</b></a></div>
+                    <div align=center><a id="forgetpwd" href=""><b>password dimenticata </b></a></div>
 
                 </div>
                 <div id="logo2">
@@ -76,23 +81,23 @@ Released for free under a Creative Commons Attribution 2.5 License
 
                             <tr>
                                 <td><label class="label">username:</label></td>
-                                <td><input type="text" name="username" class="input4 " size="20"/></td>
+                                <td><input type="text" id="user" name="username" class="input4 " size="20"/></td>
                             </tr>
                             <tr>
                                 <td><label class="label">password:</label></td>
-                                <td><input type="password" name="password" class="input4 " size="20" /></td>
+                                <td><input type="password" id="password" name="password" class="input4 " size="20" /></td>
                             </tr>
                             <tr>
                                 <td><label class="label">ripeti password:</label></td>
-                                <td><input type="password" name="password1" class="input4 " size="20" /></td>
+                                <td><input type="password" id="password1" name="password1" class="input4 " size="20" /></td>
                             </tr>
                             <tr>
                                 <td><label class="label">città:</label></td>
-                                <td><input type="text" name="citta" class="input4 " size="20" /></td>
+                                <td><input type="text" id="citta" name="citta" class="input4 " size="20" /></td>
                             </tr>->
                             <tr>
                                 <td><label class="label">e-mail:</label></td>
-                                <td><input type="text" name="mail" class="input4 " size="20" /></td>
+                                <td><input type="text" id="email" name="mail" class="input4 " size="20" /></td>
                             </tr>
                             <tr>
 
@@ -102,15 +107,31 @@ Released for free under a Creative Commons Attribution 2.5 License
                     </form>
 
                 </div>
+
+                <div id="recuperoPwd">
+                    <div>
+                        <table>
+                            <tr>
+                                <td><label class="label">username:</label></td>
+                                <td><input type="text" id="userRec" name="username" class="input4 " size="20"/></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><button id="recbutton" class="button">ok</button></td>
+                            </tr>
+                        </table>
+                        <div><b>Ti verrà inviata una e-mail all' indirizzo di registrazione con una nuova password che potrai modificare
+                            successivamente dal tuo profilo</b></div>
+                    </div>
+                </div>
+
                 <div id="logo3">
                     {if $name != null}
-                    <h2>Ciao {$name}</h2>
+                    <h3>
+                        <div align=left>Benvenuto {$name}!</div>
+                    </h3>
                     {/if}
-                    <div>
-                        <h3><a href="CHome.php?action=logout">Logout</a></h3>
-                    </div>
-                    <div id="crea">
-                        <h3>
+                    <div id="crea" class="profilo">
+                        <h4>
                             {if $sbloccato}
                             <a href="CCrea.php?action=">
                             {else}
@@ -121,10 +142,19 @@ Released for free under a Creative Commons Attribution 2.5 License
                              {/if}
                                     Crea Evento
                                 </a>
-                        </h3>
+                        </h4>
                     </div>
-                    <div>
-                        <h3><a href="CProfilo.php" class="profilo">Profilo</a></h3>
+                    <div class="profilo">
+                        <h4><a href="CProfilo.php">Profilo</a></h4>
+                    </div>
+                    {if $autenticato && !$superuser}
+                    <div class="profilo">
+                        <h4><a href="CSuperuser.php">Diventa Superuser</a></h4>
+                    </div>
+                    {/if}
+
+                    <div class="profilo">
+                        <h4><a href="CHome.php?action=logout">Logout</a></h4>
                     </div>
                 </div>
 
@@ -153,6 +183,7 @@ Released for free under a Creative Commons Attribution 2.5 License
             <script>
         $("#logo2").hide();
         $("#logo3").hide();
+        $("#recuperoPwd").hide();
             </script>
 
             {if $autenticato}
@@ -162,12 +193,33 @@ Released for free under a Creative Commons Attribution 2.5 License
             </script>
             {/if}
 
+            {if !$regConfirmed}
+            <script>
+            showMessage("Hai 1 Giorno per confermare la registrazione!");
+            </script>
+            {/if}
+
+            {if $errore_loggato}
+            <script>showMessage("Login Fallito");</script>
+            {/if}
+
+            {if $errore_registrazione}
+            <script>showMessage("Registrazione fallita...Riprova");</script>
+            {/if}
+
             <script>
                 $("#areg").click(function ( event ) {
                   event.preventDefault();
                   $("#logo").hide("slow");
-                      $("#logo2").show("slow");
+                  $("#logo2").show("slow");
                 });
+
+               $("#forgetpwd").click(function ( event ) {
+                  event.preventDefault();
+                  $("#logo").hide("slow");
+                  $("#recuperoPwd").show("slow");
+                });
+
             </script>
 
 

@@ -36,9 +36,9 @@ function updatePreferiti(){
             if(i==3) return false;
             $('<li class="preferito">')
             .append($('<ul>')
-            .append('<a href="CBacheca.php?id='+eventi[i].id_evento+'"><li>'+eventi[i].nome+'</li></a>')
-            .append('<li>'+eventi[i].data+'</li>')
-            .append('</ul>'))
+                .append('<a href="CBacheca.php?id='+eventi[i].id_evento+'"><li>'+eventi[i].nome+'</li></a>')
+                .append('<li>'+eventi[i].data+'</li>')
+                .append('</ul>'))
             .appendTo(Preferiti);
         });
     });
@@ -59,12 +59,12 @@ function updatePersonali(){
         if(response.total > 0)
             var eventi = response.eventi;
         $.each(eventi, function(i){
-            //if(i==3) return false;
+            if(i==3) return false;
             $('<li class="personale">')
             .append($('<ul>')
-            .append('<a href="CBacheca.php?id='+eventi[i].id_evento+'"><li>'+eventi[i].nome+'</li></a>')
-            .append('<li>'+eventi[i].data+'</li>')
-            .append('</ul>'))
+                .append('<a href="CBacheca.php?id='+eventi[i].id_evento+'"><li>'+eventi[i].nome+'</li></a>')
+                .append('<li>'+eventi[i].data+'</li>')
+                .append('</ul>'))
             .appendTo(Personali);
         });
 
@@ -93,18 +93,17 @@ function updateConsigliati(map,mantieni){
         }).success(function(data){
 
             var response = jQuery.parseJSON(data);
-            if(response.total > 0)
+            if(response.total > 0){
                 var eventi = response.eventi;
-            $.each(eventi, function(i){
-                //if(i==3) return false;
-                $('<li class="consigliato">')
-                .append($('<ul>')
-                .append('<a href="CBacheca.php?id='+eventi[i].id_evento+'"><li>'+eventi[i].nome+'</li></a>')
-                .append('<li>'+eventi[i].data+'</li>')
-                .append('</ul>'))
-                .appendTo(Consigliati);
-            });
-
+                $.each(eventi, function(i){
+                    $('<li class="consigliato">')
+                    .append($('<ul>')
+                        .append('<a href="CBacheca.php?id='+eventi[i].id_evento+'"><li>'+eventi[i].nome+'</li></a>')
+                        .append('<li>'+eventi[i].data+'</li>')
+                        .append('</ul>'))
+                    .appendTo(Consigliati);
+                });
+            }
         });
     }else $('<li class="consigliato">Nessuna Mappa in Visualizzazione</li>').appendTo(Consigliati);
 
@@ -112,6 +111,8 @@ function updateConsigliati(map,mantieni){
 
 function updateBacheca(scroll){
     Messaggi = $('#messaggiBacheca');
+    Annuncio = $('#annuncioGestore');
+    Annuncio.find('.annunci').remove();
     Messaggi.find('.messaggio').remove();
     //Messaggi.hide();
     $.get("CBacheca.php",{
@@ -119,22 +120,36 @@ function updateBacheca(scroll){
 
     }).success(function(data){
         var response = jQuery.parseJSON(data);
-        if(response.total > 0)
+        var annuncio = response.annuncio;
+        $('<div class="box annunci"><h3>Annuncio organizzatore: </h3><h2>'+annuncio+'</h3></div>').appendTo(Annuncio);
+        if(response.total > 0){
             var messaggi = response.messaggi;
-        $.each(messaggi,function(i){
-            $('<div class="box messaggio">')
-            .append($('<ul>')
-            .append('<h2><a href=CProfilo.php?name='+messaggi[i].utente+'>'+messaggi[i].utente+'</a> dice: '+messaggi[i].testo+'</h2>')
-            .append('<h3>Quando? Il '+messaggi[i].data+'</h3>')
-            .append('</ul>'))
-            .appendTo(Messaggi);
+            var isAdmin = response.isAdmin;
+            var isGestore = response.isGestore;
+            
+            $.each(messaggi,function(i){
+                $('<div class="box messaggio">')
+                .append($('<ul>')
+                    .append('<h2><a href=CProfilo.php?name='+messaggi[i].utente+'>'+messaggi[i].utente+'</a> dice: '+messaggi[i].testo+'</h2>')
+                    .append('<h3>Quando? Il '+messaggi[i].data+'</h3>')
+                    /*if(isAdmin || isGestore)
+                $('<div class="box messaggio">')*/
+                    .append(
+                        (isGestore || isAdmin)?('<h3><a href="#" id="del" value='+messaggi[i].id_mess+'>elimina</a></h3>'):('')
+                        //('<h3><a href="CBacheca.php?action=eliminaMessaggio&messaggio='+messaggi[i].id_mess+'">elimina</a></h3>'):('')
+                        )
            
-        });
-        if(scroll){
-            //Da scegliere uno dei due
-            $('#inserisciMessaggio').focus();
+                    .append('</ul>'))
+                .appendTo(Messaggi);
+           
+            });
+
+            if(scroll){
+                //Da scegliere uno dei due
+                $('#inserisciMessaggio').focus();
             //$("html, body").animate({ scrollTop: $(document).height() }, "slow");
 
+            }
         }
     });
 

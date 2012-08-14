@@ -18,7 +18,7 @@ class CEvento {
         if (isset($_SESSION['username'])) {
             $this->utente = $u->load($_SESSION['username']);
             //carico il numero dell' utente
-            $this->utente->setNumEventi();
+            $this->utente->setNumEventi($this->utente->isAdmin(),$this->utente->isSuperuser());
         }
 
         //$this->utente = $u->load('luca');
@@ -105,6 +105,7 @@ class CEvento {
                     break;
                 default:
                     $view = new VEvento($this->evento);
+                    $view->regConfermata();
                     $view->mostraPagina();
                     break;
             }

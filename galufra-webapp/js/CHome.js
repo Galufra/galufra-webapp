@@ -1,10 +1,8 @@
 $(document).ready(function(){
     
-    updatePreferiti();
-    updatePersonali();
 
     var map = initializeMap();
-
+    var logged = false;
     /*
      * Centra la mappa sulla città dell'utente: geocoder trasforma
      * strinche (indirizzi) in coppie lat/lon. La richiesta è sincrona:
@@ -24,6 +22,7 @@ $(document).ready(function(){
     })
     .done(function(data){
         response = jQuery.parseJSON(data);
+        logged = response.logged;
         if (response.logged){
             geocoder.geocode(
             {
@@ -36,6 +35,12 @@ $(document).ready(function(){
         }
     });
 
+    /*sono loggato richiamo i preferiti e i personali*/
+    if(logged){
+        updatePreferiti();
+        updatePersonali();
+
+    }
     /* Markers conterrà i riferimenti ai markers che verranno inseriti
      * sulla mappa, rendendo più facile la loro modifica/cancellazione
      */
@@ -108,10 +113,138 @@ $(document).ready(function(){
         return false;
     });
 
+    $('.goToReg').live("click", function(event){
+        $('#logo').hide();
+        $('#recuperoPwd').hide();
+        $('#logo2').show('slow');
+    });
+
+
+    $("#loginbutton").click(function(data){
+
+        var user= $('#username').val();
+        var pass= $('#pass').val();
+
+        //controllo username
+        if((user == '') || (pass =='')){
+            showMessage("Inserisci un username/password valida");
+            data.preventDefault();
+        }/*else {
+
+            $.ajax({
+
+                async: false,
+                type: "POST",
+                url:"CHome.php",
+                data :{
+                'action':"login",
+                'username': $('#username').val(),
+                'password':$('#pass').val()
+                }
+            })
+            return false;
+        }*/
+
+        return true;
+    });
+
+    $("#regbutton").click(function(data){
+        var reg2= /^[\w\.\-]+@([\w\-]+\.)+[a-zA-Z]/;
+        var reg1=/\w/;
+        var user = $('#user').val();
+        var pass = $('#password').val();
+        var pass1 = $('#password1').val();
+        var citta = $('#citta').val();
+        var email = $('#email').val();
+
+        if( ((user == '') || (reg1.test(user)==false)) ||
+            ((pass == '') || (reg1.test(pass)==false)) ||
+            ((pass1 == '') || (reg1.test(pass1)==false))||
+            ((citta == '') || (reg1.test(citta)==false))||
+            ((email == '') || (reg2.test(email)==false)) )
+            {
+
+
+            showMessage("Riempi tutti i campi con dati validi!");
+            data.preventDefault();
+
+        }
+        return true;
+    });
+
+    $("#recbutton").click(function(data){
+
+        var user= $('#userRec').val();
+
+
+        //controllo username
+        if(user == ''){
+            showMessage("Nessuna username inserita...");
+            
+        }else {
+
+            $.get("CHome.php",{
+
+                'action':"recupera",
+                'username': user
+                
+            }).success(function(data){
+
+                response = jQuery.parseJSON(data);
+
+                if(response.inviata){
+                    showMessage("Email inviata con successo!");
+                }else {
+                    showMessage("Errore...Riprova!");
+                }
+
+                $('#userRec').val('');
+            });
+
+        }
+
+        return false;
+    });
+
+    $("#cerca").click(function(data){
+
+
+        var coord;
+
+        if($('#search_input').val() == '')
+            showMessage("Nessuna posizione da cercare...");
+        else{
+
+
+            geocoder = new google.maps.Geocoder();
+            geocoder.geocode(
+            {
+                'address': $('#search_input').val()
+            },
+            function(results, status) {
+
+                if(status == 'OK'){
+                    
+                        google.maps.event.trigger(map, 'resize');
+                        coord = results[0].geometry.location;
+                        map.setCenter(coord);
+                                           
+                }
+                else {
+                    showMessage('Indirizzo non valido');
+                    coord = undefined;
+                }
+
+
+            });
+        }
+    });
+
     /*
      * Visualizza sulla mappa gli eventi contenuti in
      * bounds (oggetto LatLngBounds di Google Maps)
      */
+    
     function getEventiMappa(){
         updatePreferiti();
         bounds = map.getBounds();
@@ -128,7 +261,8 @@ $(document).ready(function(){
              */
 
             //ho inizializzato la mappa, posso fornire eventi consigliati
-            updateConsigliati(map,false);
+            if(logged)
+                updateConsigliati(map,false);
 
             if (markers){
                 for(i=0; i<markers.length; ++i)
@@ -151,7 +285,8 @@ $(document).ready(function(){
                 marker.title = response[i].nome;
                 marker.descrizione = response[i].descrizione;
                 marker.data = response[i].data;
-                marker.preferito = checkPreferito(marker.id);
+                if(logged)
+                    marker.preferito = checkPreferito(marker.id);
                 marker.infoHTML = infoHTML;
                 markers.push(marker);
             });
@@ -198,28 +333,39 @@ $(document).ready(function(){
      * Formattazione del contenuto delle infoWindow
      */
     function infoHTML(){
-        this.preferito = checkPreferito(this.id);
-        this.consigliato = checkConsigliato(this.id);
-        console.log (this.preferito);
-        var output= '<div class="infowindow">'+
-        '<h2>'+this.title+'</h2>'+
-        '<h3>'+this.data;
-        if (this.preferito == false){
-            output +=' - <a href="#" class="addPreferiti" id="'+this.id+
-            '">Aggiungi ai Preferiti</a></h3>';
-        }
-        else {
-            output +=' - <a href="#" class="removePreferiti" id="'+this.id+
-            '">Rimuovi dai Preferiti</a></h3>';
-        }
-        output+='<p>'+this.descrizione+
-        ' <a href="CBacheca.php?id='+this.id+'">(visualizza altro)</a></p>';
-        if(this.consigliato == false){
-            output += '<div><h3><a href="#" class="addConsigliati" id="'+this.id+'">Lo Consiglio!'+
-            '</a></h3></div></div>';
+        var output;
+        if(logged){
+            this.preferito = checkPreferito(this.id);
+            this.consigliato = checkConsigliato(this.id);
+            console.log (this.preferito);
+
+            output= '<div class="infowindow">'+
+            '<h2>'+this.title+'</h2>'+
+            '<h3>'+this.data;
+            if (this.preferito == false){
+                output +=' - <a href="#" class="addPreferiti" id="'+this.id+
+                '">Ci Sarò!:)</a></h3>';
+            }
+            else {
+                output +=' - <a href="#" class="removePreferiti" id="'+this.id+
+                '">Non Potrò Più Esserci! :(</a></h3>';
+            }
+            output+='<p>'+this.descrizione+
+            ' <a href="CBacheca.php?id='+this.id+'">(visualizza altro)</a></p>';
+            if(this.consigliato == false){
+                output += '<div><h3><a href="#" class="addConsigliati" id="'+this.id+'">Lo Consiglio!'+
+                '</a></h3></div></div>';
+            }else {
+                output += '<div><h3><a href="#" class="removeConsigliati" id="'+this.id+'">Non lo Consiglio Più!'+
+                '</a></h3></div></div>';
+            }
         }else {
-            output += '<div><h3><a href="#" class="removeConsigliati" id="'+this.id+'">Non lo Consiglio Più!'+
-            '</a></h3></div></div>';
+            output= '<div class="infowindow">'+
+            '<h2>'+this.title+'</h2>'+
+            '<h3>'+this.data+'</h3>'+
+            '<p>'+this.descrizione+
+            ' <a href="#" class="goToReg">(registrati per visualizzare tutto)</a></p>';
+
         }
         return output;
     }

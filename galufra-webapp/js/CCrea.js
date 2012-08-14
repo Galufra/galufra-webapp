@@ -31,7 +31,7 @@ $(document).ready(function(){
 
             $.ajax({
 
-                async: true,
+                async: false,
                 type: "POST",
                 url: "CCrea.php",
                 data: {

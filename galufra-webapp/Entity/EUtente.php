@@ -13,7 +13,9 @@ class EUtente {
     private $date = null;
     private $permessi = null;
     private $num_eventi = 0;
-    private $sbloccato = 1;
+    public $sbloccato = 1;
+    public $admin = 0;
+    public $superuser = 0;
 
     public function getId() {
         return $this->id_utente;
@@ -29,6 +31,14 @@ class EUtente {
 
     public function getPassword() {
         return $this->password;
+    }
+
+    public function administrate() {
+        $this->admin = 1;
+    }
+
+    public function setSuperuser() {
+        $this->superuser = 1;
     }
 
     /**
@@ -64,13 +74,12 @@ class EUtente {
         return $this->num_eventi;
     }
 
-    public function sblocca(){
+    public function sblocca() {
 
         $this->sbloccato = 1;
-
     }
 
-    public function blocca(){
+    public function blocca() {
 
         $this->sbloccato = 0;
         $ev = new FEvento();
@@ -91,7 +100,7 @@ class EUtente {
             return true;
         }
         else
-            throw new Exception('email non valida!');
+            return false;
     }
 
     public function getCitta() {
@@ -102,7 +111,7 @@ class EUtente {
         $this->citta = $citta;
     }
 
-    public function getConfirmed() {
+    public function isConfirmed() {
         return $this->confirmed;
     }
 
@@ -124,22 +133,29 @@ class EUtente {
 
     public function incrementaNumEventi() {
 
-        if ($this->num_eventi < 3) {
-            $this->num_eventi++;
-            return true;
-        } else if ($this->num_eventi >= 3 && $this->sbloccato) {
-            $this->num_eventi++;
-            return true;
+        $this->num_eventi++;
+        
+        if ($this->num_eventi >= 3 && (!$this->isSuperuser() || !$this->isAdmin())) {
+            $this->blocca();
+        } else if ($this->num_eventi >= 20 && !$this->isAdmin()){
+            $this->blocca();
         }else
-            $this->blocca ();
+            $this->sblocca ();
 
-        return false;
+
     }
-    
-    public function isSbloccato(){
-        
+
+    public function isSbloccato() {
+
         return $this->sbloccato;
-        
+    }
+
+    public function isAdmin() {
+        return $this->admin;
+    }
+
+    public function isSuperuser() {
+        return $this->superuser;
     }
 
     public function addPreferiti($evento) {
@@ -148,10 +164,10 @@ class EUtente {
         $ev->storePreferiti($this->id_utente, $evento);
     }
 
-    public function addConsigliati($evento,$lat,$lon){
+    public function addConsigliati($evento, $lat, $lon) {
         $ev = new FEvento();
         $ev->connect();
-        $ev->storeConsigliati($this->id_utente, $evento,$lat,$lon);
+        $ev->storeConsigliati($this->id_utente, $evento, $lat, $lon);
     }
 
     public function removePreferiti($evento) {
@@ -160,31 +176,35 @@ class EUtente {
         $ev->removePreferiti($this->id_utente, $evento);
     }
 
-    public function removeConsigliati($evento){
+    public function removeConsigliati($evento) {
         $ev = new FEvento();
         $ev->connect();
         $ev->removeConsigliati($this->id_utente, $evento);
     }
 
-    public function setNumEventi(){
+    public function setNumEventi($admin=0, $superuser=0) {
 
         $ev = new FEvento();
         $ev->connect();
         $result = $ev->userEventCounter($this->id_utente);
-        $this->num_eventi = $result["COUNT(*)"];
-        if($this->num_eventi >= 3)
-                $this->blocca ();
 
+        $this->num_eventi = $result["COUNT(*)"];
+
+        if ($this->num_eventi >= 3 && (!$admin && !$superuser )) {
+            $this->blocca();
+        } else if ($this->num_eventi >= 20 && ($superuser && !$admin)) {
+            $this->blocca();
+        } else {
+            $this->sblocca();
+        }
     }
 
-    public function getEventi($id){
+    public function getEventi($id) {
 
         $ev = new FEvento();
         $ev->connect();
-        return  $ev->getUserEventi($id);
-
+        return $ev->getUserEventi($id);
     }
-
 
 }
 

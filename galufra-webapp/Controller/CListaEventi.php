@@ -19,6 +19,7 @@ class CListaEventi {
         if (isset($_SESSION['username'])) {
 
             $this->utente = $u->load($_SESSION['username']);
+            $this->utente->setNumEventi();
         }
 
         if (!isset($_GET['action']))
@@ -31,6 +32,12 @@ class CListaEventi {
                 if ($this->utente) {
                     $lista->isAutenticato(true);
                     $lista->showUser($this->utente->getUsername());
+                    if ($this->utente->isConfirmed())
+                        $lista->regConfermata();
+                    if ($this->utente->isSuperuser())
+                        $lista->isSuperuser();
+                }else {
+                    $lista->regConfermata();
                 }
                 $lista->mostraPagina();
                 break;
@@ -40,6 +47,12 @@ class CListaEventi {
                 if ($this->utente) {
                     $lista->isAutenticato(true);
                     $lista->showUser($this->utente->getUsername());
+                    if ($this->utente->isConfirmed())
+                        $lista->regConfermata();
+                    if ($this->utente->isSuperuser())
+                        $lista->isSuperuser();
+                }else {
+                    $lista->regConfermata();
                 }
                 $lista->mostraPagina();
                 break;
@@ -49,6 +62,12 @@ class CListaEventi {
                 if ($this->utente) {
                     $lista->isAutenticato(true);
                     $lista->showUser($this->utente->getUsername());
+                    if ($this->utente->isConfirmed())
+                        $lista->regConfermata();
+                    if ($this->utente->isSuperuser())
+                        $lista->isSuperuser();
+                }else {
+                    $lista->regConfermata();
                 }
                 $lista->mostraPagina();
                 break;
@@ -59,6 +78,12 @@ class CListaEventi {
                 if ($this->utente) {
                     $view->isAutenticato(true);
                     $view->showUser($this->utente->getUsername());
+                    if ($this->utente->isConfirmed())
+                        $view->regConfermata();
+                    if ($this->utente->isSuperuser())
+                        $view->isSuperuser();
+                }else {
+                    $view->regConfermata();
                 }
                 $view->mostraPagina();
 

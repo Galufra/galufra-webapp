@@ -260,6 +260,7 @@ class CProfilo {
 
             if ($user) {
                 $user->administrate();
+                $user->setSuperuser();
                 $result = $u->update($user);
             }
 

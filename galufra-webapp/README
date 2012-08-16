@@ -1,0 +1,42 @@
+Galufra Web App 1.0
+
+L'applicazione web in qestione si pone come obiettivo quello di proporre un nuovo modo di valorizzare 
+il territorio utilizzando una mappa come punto di accesso ad ogni luogo.
+In particolare infatti permette l'inserimento e la gestione di eventi all'interno di una mappa utilizzando il 
+classico ambiente fornito da google map nei suoi servizi.
+
+Un evento è rappresentato sulla mappa da un segnaposto che si espanderà in una infowindow che conterrà data,luogo
+e  breve descrizione. Ci sarà inoltre la possibilità di iscriversi e/o consigliare l'evento agli altri utenti e
+una bacheca (in una pagina  aparte) dove gli utenti iscritti potranno commentare l' evento o comunque 
+scambiarsi messaggi.
+
+Un visitatore non registrato potrà visualizzare completamente la mappa e consultare gli eventi pubblici 
+gestiti da utenti opportunamente registrati. 
+Non potrà però interagire con questi ultimi senza registrazione.
+
+Un visitatore registrato (utente) potrà invece usufruire di alcune funzionalità aggiuntive quali:
+-Iscriversi all' evento (rendere nota la propria partecipazione agli iscritti)
+-Commentare l' evento prima e dopo il suo svolgimento
+-Creare fino a 3 eventi pubblici
+-Moderare la bacheca del proprio evento
+-Gestire il profilo personale
+-Ricevere un elenco di eventi consigliati dal sistema in base alla posizione in cui si trova la mappa
+-Avere un promemoria degli eventi a cui è registrato o ha creato ordinati per data
+
+
+Un ente organizzatore, o Superuser, (utente opportunamente autorizzato dal sistema, 
+sotto il pagamento di una piccola cifra in denaro) potrà usufruire di tutte le funzionalità di un utente
+,ma avrà la possibilità di:
+
+-creare fino a 20 eventi pubblici
+
+Ci sarà inoltre un amministratore del sistema che potrà:
+- Autenticare i superuser e aggiungere altri admin
+- Moderare completamente la mappa (ogni tipo di evento)
+- Gestire gli utenti
+
+Le tecnologie lato client saranno:
+- ajax
+- jquery
+- api di google maps
+- Json

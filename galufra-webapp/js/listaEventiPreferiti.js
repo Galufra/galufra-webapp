@@ -8,7 +8,7 @@ $(document).ready(function(data){
     updateConsigliati(null,true);
 
 
-
+    //Creo l'html per visualizzare gli eventi preferiti sulla pagina (non sulla barra laterale)
     Pref = $('#listaeventi');
     Pref.find('.pref').remove
     $('<div><h2 align=center>I TUOI PREFERITI</h2></div>').appendTo(Pref);

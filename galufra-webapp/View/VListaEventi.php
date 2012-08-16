@@ -6,7 +6,13 @@ class VListaEventi extends View {
     public $scripts = null;
     public $content = 'listaEventi.tpl';
 
-    //permetto di cambiare il tpl per reindirizzare la pagina alla home page una volta costruito l'evento
+    /**
+     * @access public
+     * @param FILE $script
+     *
+     * Assegna lo script che si occupa della particolare lista di eventi
+     * che vogliamo mostrare: preferiti,consigliati,personali
+     */
     public function __construct($scripts) {
        
         $this->scripts = $scripts;

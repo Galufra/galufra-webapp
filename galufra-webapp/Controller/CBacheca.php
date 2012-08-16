@@ -16,6 +16,13 @@ class Cbacheca {
     private $message = array();
     private $numPartecipanti = 0;
 
+    /**
+     * @access public
+     * @param int id_evento
+     * 
+     *Smista attraverso uno switch le richieste del client una
+     *volta caricati i dati di sessione
+     * */
     public function __construct($id) {
 
         $u = new Futente();
@@ -26,6 +33,7 @@ class Cbacheca {
             $ev->connect();
             $this->evento = $ev->load($id);
             if ($this->evento) {
+                //carico il numero di partecipanti dell'evento
                 $this->numPartecipanti = $ev->guestCounter($this->evento->getIdEvento());
                 $_SESSION['evento'] = $id;
             }
@@ -36,6 +44,7 @@ class Cbacheca {
             //carico il numero dell' utente
             $this->utente->setNumEventi($this->utente->isAdmin(), $this->utente->isSuperuser());
         }
+        //Se non è impostato l'id carico l' evento dai dati di sessione
         if (!$id && isset($_SESSION['evento'])) {
             $ev = new FEvento();
             $ev->connect();
@@ -74,6 +83,7 @@ class Cbacheca {
 
 
             default:
+                //Se sono loggato e un evento esiste visualizzo la bacheca
                 if ($this->evento && $this->utente) {
                     $view = new VBacheca($this->evento, $this->utente, $this->numPartecipanti);
                     if ($this->utente->isConfirmed())
@@ -82,17 +92,21 @@ class Cbacheca {
                         $view->isSuperuser();
                 }
                 else
+                    //altrimenti visualizzo la home
                     $view = new VHome ();
                 if ($this->utente) {
                     $view->isAutenticato(true);
                     $view->showUser($this->utente->getUsername());
                     if (!$this->utente->isSbloccato())
                         $view->blocca();
+                    //blocco il messaggio di conferma registrazione
                     if ($this->utente->isConfirmed())
                         $view->regConfermata();
+                    //tolgo il link "diventa supersuser"
                     if ($this->utente->isSuperuser())
                         $view->isSuperuser();
                 }else {
+                    //blocco il messaggio di conferma registrazione
                     $view->regConfermata();
                 }
                 $view->mostraPagina();
@@ -101,6 +115,12 @@ class Cbacheca {
         }
     }
 
+    /**
+     * @access public
+     * @return Json
+     * fornisce tutti i messaggi di un determinato evento e ci dice inoltre se l' utente è
+     * amministratore o gestore dell' evento.Fornisce inoltre un json di risposta
+     */
     public function getMessages() {
 
         $mex = new FMessaggio();
@@ -122,6 +142,12 @@ class Cbacheca {
         echo json_encode($out);
     }
 
+    /**
+     * @access public
+     * 
+     *
+     * inserisce un messaggio in bacheca e fornisce un json di risposta
+     */
     public function insertMessage($mess) {
 
         $mex = new EMessaggio();
@@ -145,7 +171,14 @@ class Cbacheca {
         }
         echo json_encode($response);
     }
-
+    /**
+     * @access public
+     *
+     * @param string $mess
+     * 
+     *
+     * inserisce un annuncio da parte del gestore dell'evento. Fornisce un json di risposta
+     */
     public function insertAnnuncio($mess) {
 
         if ($this->evento) {
@@ -165,7 +198,12 @@ class Cbacheca {
             echo json_encode($response);
         }
     }
-
+    /**
+     * @access public
+     * @return Json
+     *
+     * elimina un messaggio dalla bacheca
+     */
     public function deleteMessage() {
         $m = new FMessaggio();
         $m->connect();
@@ -192,7 +230,12 @@ class Cbacheca {
 
         echo json_encode($out);
     }
-
+    /**
+     * @access public
+     * @return Json
+     *
+     * Se siamo amministratori, elimina l'evento
+     */
     public function eliminaEvento() {
 
         if ($this->evento && $this->utente->isAdmin()) {

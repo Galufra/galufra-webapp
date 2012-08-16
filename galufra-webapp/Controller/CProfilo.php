@@ -14,6 +14,17 @@ class CProfilo {
     private $utenteDaVis = null;
     private $action = "";
 
+    /**
+     * @access public
+     *
+     * @param string $name
+     *
+     * Una volta controllati i dati di sessione controlla se un utente sta visualizzando il proprio
+     * profilo, e quindi può modificarlo, altrimenti può solo leggerlo
+     * La variabile di sessione 'enable' permette di tornare al nostro profilo se non inseriamo un
+     * username come parametro del costruttore.
+     * Permette inoltre di aggiornare,eliminare,rendere superuser o admin un particolare utente
+     * */
     public function __construct($name) {
 
         $u = new FUtente();
@@ -55,7 +66,7 @@ class CProfilo {
                 $this->action = null;
             }
         }
-
+        //stampo la pagina da modificare o solo da leggere
         switch ($this->action) {
             case('modifica_profilo'):
                 $view = new VProfilo($this->utente, null, false);
@@ -114,6 +125,14 @@ class CProfilo {
         }
     }
 
+    /**
+     * @access public
+     *
+     * ritorna un json che ci dice se l' update è andato a buon fine.
+     * Faccio inoltre tutti i controlli necessari per evitare errori indesiderati
+     *
+     *
+     * */
     public function updateUtente() {
 
         $pwd = null;
@@ -160,6 +179,14 @@ class CProfilo {
         }
     }
 
+    /**
+     * @access public
+     *
+     * ritorna un json che ci dice se l' eliminazione dell'utente è andata a buon fine.
+     * Faccio inoltre tutti i controlli necessari per evitare errori indesiderati
+     *
+     *
+     * */
     public function deleteUtente() {
         $out = null;
         if (isset($_POST['name']) && $this->utente->isAdmin()) {
@@ -174,6 +201,14 @@ class CProfilo {
             $out = array('message' => "utente non valido, o permessi insufficienti");
     }
 
+    /**
+     * @access public
+     *
+     * ritorna un json che ci dice se l' update dei permessi è andato a buon fine.
+     * Faccio inoltre tutti i controlli necessari per evitare errori indesiderati
+     *
+     *
+     * */
     public function addSuperuser() {
         $out = null;
         if ((isset($_POST['user']) && $_POST['user'] != null) && $this->utente->isAdmin()) {
@@ -204,6 +239,14 @@ class CProfilo {
         exit;
     }
 
+    /**
+     * @access public
+     *
+     * ritorna un json che ci dice se l' update dei permessi è andato a buon fine.
+     * Faccio inoltre tutti i controlli necessari per evitare errori indesiderati
+     *
+     *
+     * */
     public function addAdmin() {
         $out = null;
 

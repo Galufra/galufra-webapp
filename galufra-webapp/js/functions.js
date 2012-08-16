@@ -8,6 +8,7 @@ function showMessage(message){
     .fadeOut('slow');
 }
 
+//inizializza la mappa. Di default è centrata a L'Aquila
 function initializeMap(){
     var myOptions = {
         zoom: 16,
@@ -109,6 +110,10 @@ function updateConsigliati(map,mantieni){
 
 }
 
+//Aggiorna la bacheca dell'evento. Inserendo i messaggi o gli annunci appena inseriti
+//il parametro scroll indica se la pagina deve tornare sulla parte più bassa
+//questo può essere fatto con un effetto di scorrimento o con un focus diretto.
+//Adesso lo fa con un focus diretto
 function updateBacheca(scroll){
     Messaggi = $('#messaggiBacheca');
     Annuncio = $('#annuncioGestore');
@@ -145,9 +150,9 @@ function updateBacheca(scroll){
             });
 
             if(scroll){
-                //Da scegliere uno dei due
+                //Da scegliere uno dei due: focus o scorrimento
                 $('#inserisciMessaggio').focus();
-            //$("html, body").animate({ scrollTop: $(document).height() }, "slow");
+                //$("html, body").animate({ scrollTop: $(document).height() }, "slow");
 
             }
         }
@@ -197,7 +202,7 @@ function checkConsigliato(id){
 
 
 /*
- * Aggiunge/rimuove l'evento id ai preferiti e ai consigliati
+ * Aggiungono/rimuovono l'evento id ai preferiti e ai consigliati
  */
 function addPreferiti(id){
     if(id){
@@ -225,6 +230,7 @@ function addConsigliati(id){
 
     }
 }
+
 function removePreferiti(id) {
     $.get("CEvento.php", {
         'action': "removePreferiti",

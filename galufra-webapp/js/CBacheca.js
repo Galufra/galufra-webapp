@@ -8,9 +8,10 @@ $(document).ready(function(){
     updateConsigliati(null,true);
 
 
+    //inserisce un messaggio in bacheca
     $('#inserisciMessaggio').click(function(){
-        // Blocchiamo la submit se uno o più campi non sono riempiti,
-        
+
+        // Blocchiamo la submit se uno o più campi non sono riempiti       
         if(
             !($('#messaggio').val()))
             {
@@ -34,6 +35,7 @@ $(document).ready(function(){
         }
     });
 
+    //inserisce un annuncio in bacheca
     $('#inserisciAnnuncio').click(function(){
 
         if(
@@ -59,6 +61,7 @@ $(document).ready(function(){
     });
 
 
+    //elimina un messaggio
     $('#del').live("click", function(){
 
         $.get("CBacheca.php",
@@ -73,7 +76,7 @@ $(document).ready(function(){
 
     });
 
-
+    //elimina un evento
     $('#eliminaEvento').live("click", function(){
 
         $.ajax({

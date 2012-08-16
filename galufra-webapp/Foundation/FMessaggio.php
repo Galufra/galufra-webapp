@@ -5,6 +5,9 @@ require_once '../Entity/EMessaggio.php';
 
 class FMessaggio extends FMysql {
 
+    /**
+     * @access public
+     */
     public function __construct() {
         parent::__construct();
         $this->_table = 'messaggio';
@@ -12,6 +15,13 @@ class FMessaggio extends FMysql {
         $this->_class = 'EMessaggio';
     }
 
+    /**
+     * @access public
+     * @param int $idEvento
+     * @return array
+     *
+     * Carica tutti i messaggi. Non uso la load per accelerare i tempi
+     */
     public function loadMessages($idEvento) {
         $query = "SELECT * FROM $this->_table
                   WHERE evento = $idEvento ORDER BY data";
@@ -22,6 +32,13 @@ class FMessaggio extends FMysql {
             return array(false, "loadMessages()");
     }
 
+     /**
+     * @access public
+     * @param EMessaggio $messaggio
+     * @return array
+     *
+     * Salva un messaggio. Non uso la store per accelerare i tempi
+     */
     public function storeMessaggio($messaggio) {
         $m = new EMessaggio();
         $m = $messaggio;

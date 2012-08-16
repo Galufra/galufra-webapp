@@ -12,11 +12,18 @@ class CHome {
 
     private $utente = null;
 
+    /**
+     * @access public
+     *
+     * Smista le operazioni più importanti dell' applicazione attraverso uno switch che prende come
+     * parametro un dato passato via get.
+     */
     public function __construct() {
         /* Caricamento dell'utente.
          */
         $u = new Futente();
         $u->connect();
+        //elimino gli utenti non confermati
         $u->cleanExpired();
 
         if (isset($_SESSION["username"])) {
@@ -76,7 +83,7 @@ class CHome {
                     echo "C'è stato un errore. Riprova :)";
                 }
                 break;
-
+            /* Forniamo eventi preferiti e consigliati */
             case( 'getEventiPersonali'):
                 try {
                     $eventi = $this->utente->getEventi($this->utente->getId());
@@ -94,7 +101,7 @@ class CHome {
                         mysql_real_escape_string($_GET['swLon'])
                 );
                 break;
-
+            /* facciamo il login */
             case('login'):
 
                 if (!$this->utente && isset($_POST['username']) && isset($_POST["password"])) {
@@ -105,17 +112,21 @@ class CHome {
                     $login->logIn();
                     if ($login->isLogged()) {
                         $this->utente = $u->load($uname);
+                        //carico il numero di eventi dell'utente
                         $this->utente->setNumEventi();
                     }
                 }
+                //stampo la home
                 if ($this->utente) {
                     $view->isAutenticato(true);
                     $view->showUser($this->utente->getUsername());
+                    //blocco il messaggio di conferma registrazione e il link "diventa superuser"
                     if ($this->utente->isConfirmed())
                         $view->regConfermata();
                     if ($this->utente->isSuperuser())
                         $view->isSuperuser();
                 }else {
+                    //Errore di login
                     $view->isAutenticato(false);
                     $view->regConfermata();
                     $view->errorLogin();
@@ -143,6 +154,7 @@ class CHome {
                 break;
 
             case('reg'):
+                //Gestisco la registrazione
                 if (!$this->utente
                         && (isset($_POST["username"]) && $_POST["username"] != null)
                         && isset($_POST["password"]) && isset($_POST["password1"])
@@ -164,6 +176,7 @@ class CHome {
                         }
                     }
                 }
+                //stampo come prima home con o senza messaggio di errore
                 if ($this->utente) {
                     $view->isAutenticato(true);
                     $view->showUser($this->utente->getUsername());
@@ -185,6 +198,7 @@ class CHome {
 
 
             default:
+                //il comportamento di default è la home page
                 if ($this->utente) {
                     $view->isAutenticato(true);
                     $view->showUser($this->utente->getUsername());
@@ -206,6 +220,11 @@ class CHome {
         }
     }
 
+    /**
+     * @access public
+     *
+     * Fornisce un Json con i dati dell'utente
+     */
     public function getUtente() {
         $out = array('logged' => false);
         if ($this->utente) {
@@ -219,8 +238,15 @@ class CHome {
     }
 
     /*
+     *
+     * @access public
+     * @param int $neLat
+     * @param int $neLon
+     * @param int $swLat
+     * @param int $swLon
+     *
      * Crea un JSON contenente gli eventi restituiti da
-     * FEvento::searchEventiMappa().
+     * FEvento::searchEventiMappa() utilizzando le coordinate della mappa
      */
 
     public function getEventiMappa($neLat, $neLon, $swLat, $swLon) {
@@ -230,6 +256,20 @@ class CHome {
         echo json_encode($ev_array);
         exit;
     }
+
+    /*
+     *
+     * @access public
+     * @param int $neLat
+     * @param int $neLon
+     * @param int $swLat
+     * @param int $swLon
+     *
+     *
+     * Crea un JSON contenente gli eventi restituiti da
+     * FEvento::getEventiConsigliati() utilizzando le coordinate della mappa.
+     *
+     */
 
     public function getEventiConsigliatiMappa($neLat, $neLon, $swLat, $swLon) {
         $ev = new FEvento();
@@ -242,6 +282,14 @@ class CHome {
         echo json_encode($out);
         exit;
     }
+
+    /*
+     *
+     * @access public
+     *
+     * Crea un JSON contenente gli eventi restituiti da
+     * FEvento::getAllConsigliati() utilizzando le coordinate della mappa.
+     */
 
     public function getMaxConsigliati() {
 
@@ -256,6 +304,15 @@ class CHome {
         exit;
     }
 
+    /*
+     *
+     * @access public
+     * @param Boolean $fornisciTutti
+     *
+     * Crea un JSON contenente gli eventi restituiti da
+     * FEvento::getEventiPreferiti() utilizzando le coordinate della mappa
+     */
+
     public function getEventiPreferiti($fornisciTutti=false) {
         $ev = new FEvento();
         $ev->connect();
@@ -268,6 +325,15 @@ class CHome {
         exit;
     }
 
+    /*
+     *
+     * @access public
+     * @param EEvento $eventi
+     *
+     * Crea un JSON contenente gli eventi personali dell' utente
+     *
+     */
+
     public function inviaEventiPersonali($eventi) {
 
         $out = array(
@@ -278,7 +344,15 @@ class CHome {
         exit;
     }
 
-    /*invia una nuova password all' utente. La funzione mail verrà scommentata una volta che facciamo il deploy dell'applicazione*/
+    /*
+     *
+     * @access public
+     *
+     * invia una nuova password all' utente. La funzione mail verrà
+     * scommentata una volta che facciamo il deploy dell'applicazione
+     *
+     */
+
     public function recuperaPwd() {
         $status = false;
         if (!$this->utente && (isset($_GET['username']) && $_GET['username'] != null)) {

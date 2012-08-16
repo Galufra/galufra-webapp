@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.10, created on 2012-08-14 20:14:30
+<?php /* Smarty version Smarty-3.1.10, created on 2012-08-16 15:13:18
          compiled from "../templates/template1/template/default.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:116381495150127392e30ec1-13862966%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7a7885124e29438c95986342c3a7050fa0cde83c' => 
     array (
       0 => '../templates/template1/template/default.tpl',
-      1 => 1344968067,
+      1 => 1345122797,
       2 => 'file',
     ),
   ),
@@ -21,9 +21,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
     'scripts' => 0,
     's' => 0,
-    'name' => 0,
-    'sbloccato' => 0,
     'autenticato' => 0,
+    'sbloccato' => 0,
+    'name' => 0,
     'superuser' => 0,
     'content' => 0,
     'regConfirmed' => 0,
@@ -63,8 +63,18 @@ $_smarty_tpl->tpl_vars['s']->_loop = true;
         <div id="header">
             <ul id="menu">
                 <li><a href="CHome.php" accesskey="1" title="">Home</a></li>
-                <li><a href="profilo.html" accesskey="2" title="">Profilo</a></li>
-                <li><a href="#" accesskey="3" title="">Crea Evento</a></li>
+                <?php if ($_smarty_tpl->tpl_vars['autenticato']->value){?>
+                <li><a href="CProfilo.php" accesskey="2" title="">Profilo</a></li>
+                <?php if ($_smarty_tpl->tpl_vars['sbloccato']->value){?>
+                <li><a href="CCrea.php?action=">
+                <?php }else{ ?>
+                 <a href="CHome.php?action=">
+                 <script>
+                 showMessage("Limite eventi superato. Diventa SUPERUSER!");
+                 </script>
+                <?php }?>
+                 Crea Evento</a></li>
+                <?php }?>
                 <li id='messagebox'></li>
             </ul>
 
@@ -159,7 +169,7 @@ $_smarty_tpl->tpl_vars['s']->_loop = true;
                             </tr>
                         </table>
                         <div><b>Ti verrà inviata una e-mail all' indirizzo di registrazione con una nuova password che potrai modificare
-                            successivamente dal tuo profilo</b></div>
+                                successivamente dal tuo profilo</b></div>
                     </div>
                 </div>
 

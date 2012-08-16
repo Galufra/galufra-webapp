@@ -4,18 +4,20 @@ $(document).ready(function(){
     //poichè non si visualizza una mappa non mostro eventi consigliati nella
     //parte di mappa che dovrebbe esserci
     updateConsigliati(null,true);
-    $('.password').hide();
 
+    $('.password').hide();
+    //mostra le input text per la password
     $('.modificaPwd').live("click", function(event){
         $('.password').show('slow');
     });
 
+    //si occupa dell'eliminazione di un utente. una volta fatto la pagina scompare
+    //con un effetto
     $('#eliminaUtente').live("click", function(){
 
         $.ajax({
 
             async:true,
-            type: "POST",
             type: "POST",
             url: "CProfilo.php",
             data: {
@@ -31,6 +33,7 @@ $(document).ready(function(){
 
     });
 
+    //si occupa di aggiungere un admin
     $('#adminButton').click(function(){
         if( !($('#admin').val()) ){
             showMessage('nessun utente selezionato...')
@@ -59,6 +62,7 @@ $(document).ready(function(){
 
     });
 
+    //si occupa di aggiungere un superuser
     $('#superuserButton').click(function(){
         if( !($('#superuser').val()) ){
             showMessage('nessun utente selezionato...')
@@ -85,6 +89,7 @@ $(document).ready(function(){
 
     });
 
+    //Fa l'update dell'utente facendo un controllo sui campi
     $('#updateButton').click(function(){
         // Blocchiamo la submit se uno o più campi non sono riempiti,
         // o se Google non ha trovato coordinate corrispondenti all'indirizzo

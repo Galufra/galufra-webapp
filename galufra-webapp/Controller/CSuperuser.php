@@ -9,6 +9,13 @@ class CSuperuser {
 
     private $utente = null;
 
+    /**
+     * @access public
+     *
+     * una volta caricati i dati di sessione
+     * esegue la stampa della pagina per diventare superuser utilizzando
+     * la view apposita
+     */
     public function __construct() {
 
         $u = new FUtente();

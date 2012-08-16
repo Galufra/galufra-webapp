@@ -10,6 +10,12 @@ class VBacheca extends View {
     public $evento;
     public $utente;
 
+    /**
+     * @access public
+     * @param EEvento $ev
+     * @param EUtente $ut
+     * @param int $partecipanti
+     */
     public function __construct($ev,$ut,$partecipanti) {
         $this->evento = $ev;
         $this->utente = $ut;

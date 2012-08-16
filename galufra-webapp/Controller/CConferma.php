@@ -10,6 +10,14 @@ require_once '../Entity/EUtente.php';
 require_once '../View/VConferma.php';
 require_once '../View/VHome.php';
 
+  /**
+     * @access public
+     *
+     *
+   * una volta controllati i dati di sessione attraverso uno switch,
+   * smista le azioni del controller, in questo caso una sola:
+   * la conferma della registrazione
+ **/
 class CConferma {
 
     private $utente = null;
@@ -32,6 +40,7 @@ class CConferma {
 
             case ('conferma'):
                 if ($this->confermaReg()) {
+                    //stampo la pagina di conferma registrazione avvenuta
                     $view = new VConferma ();
                     $view->regConfermata();
                     if ($this->utente) {
@@ -44,6 +53,7 @@ class CConferma {
                     }
                     $view->mostraPagina();
                 } else {
+                    //altrimenti stampo la home page
                     $view = new VHome();
                     if ($this->utente) {
                         $view->isAutenticato(true);
@@ -60,6 +70,7 @@ class CConferma {
                 break;
 
             default:
+                //se non c'è un action stampo la home
                 $view = new VHome();
                 if ($this->utente) {
                     $view->isAutenticato(true);
@@ -75,6 +86,13 @@ class CConferma {
         }
     }
 
+  /**
+     * @access public
+     *
+     * @return boolean
+   *
+   * conferma la registrazione dell' utente
+   **/
     public function confermaReg() {
 
         if (isset($_GET['id'])) {

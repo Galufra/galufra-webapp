@@ -7,7 +7,7 @@ $(document).ready(function(data){
     updateConsigliati(null,true);
 
 
-
+    //Creo l'html per visualizzare gli eventi consigliati sulla pagina (non sulla barra laterale)
     Cons = $('#listaeventi');
     Cons.find('.cons').remove();
     $('<div><h2 align=center>I PIÙ CONSIGLIATI IN ASSOLUTO</h2></div>').appendTo(Cons);

@@ -6,6 +6,8 @@ $(document).ready(function(){
     updateConsigliati(null,true);
     
     var coord;
+
+    //si preoccupa della creazione dell'evento'
     $('#creaEvento').submit(function(){
         // Blocchiamo la submit se uno o più campi non sono riempiti,
         // o se Google non ha trovato coordinate corrispondenti all'indirizzo
@@ -20,15 +22,19 @@ $(document).ready(function(){
             showMessage('Tutti i campi devono essere riempiti.');
         }
         else{
+            //definisce il formato di data che vogliamo
             var defaultConv = new AnyTime.Converter({
                 format: "%d %M %Y %T"
             });
+            //inserisce uno spazio tra data e orario
             var timestamp = defaultConv.parse($('#data').val()+" "+$('#ora').val());
             if(!timestamp){
                 showMessage('La data inserita non è corretta');
                 return false;
             }
 
+            //chiamata: sincrona perchè ho bisogno che il controller venga ricaricato per
+            //controllare il numero di eventi inseriti e nel caso bloccare l'utente'
             $.ajax({
 
                 async: false,

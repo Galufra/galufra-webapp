@@ -1,7 +1,8 @@
 <?php
-/* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+/*
+ * pattern per creare foundation a seconda della tecnologia
+ * che si vuole utilizzare
+ *
  */
 
 interface FDb {

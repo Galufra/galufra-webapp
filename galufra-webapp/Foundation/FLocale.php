@@ -1,4 +1,6 @@
 <?php
+
+/*inutilizzato*/
 require_once('FMysql.php');
 
 class Flocale extends FMysql {

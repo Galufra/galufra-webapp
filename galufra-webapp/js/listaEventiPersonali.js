@@ -8,7 +8,7 @@ $(document).ready(function(data){
     updateConsigliati(null,true);
 
 
-
+    //Creo l'html per visualizzare gli eventi personali sulla pagina (non sulla barra laterale)
     Pers = $('#listaeventi');
     Pers.find('.pers').remove();
     $('<div><h2 align=center>I TUOI EVENTI</h2></div>').appendTo(Pers);

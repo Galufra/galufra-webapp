@@ -1,21 +1,6 @@
 <?php
 
-/*
- * 
- * 
- *
- *
- * each one methods returns an array with two fields:
- *
- *  result[0] - true/false whether or not the method accomplishes its work
- *
- *  result[1] - provides a description message of the result (error or not)
- *              except for makeQuery() in which provides the results
- *              of the query
- *
- *
- *
- */
+
 
 require_once '../exception/dbException.php';
 require_once 'FDb.php';
@@ -31,10 +16,20 @@ class FMysql implements FDb {
     protected $_class;
     protected $_is_an_autoincrement_key = true;
 
+    /**
+     * @access public
+     */
     function __construct() {
         $this->up = false;
     }
 
+    /**
+     * @access public
+     * @global array $config
+     * @return array
+     *
+     * Si connette al database
+     */
     public function connect() {
         global $config;
         if (!$this->up) {
@@ -65,6 +60,13 @@ class FMysql implements FDb {
         return array(true, "connection successfull!");
     }
 
+    /**
+     * @access public
+     * @param string $query
+     * @return array
+     *
+     * Si preoccupa di salvare una query
+     */
     public function makeQuery($query) {
         if ($this->up) {
             $this->_query = mysql_query($query);
@@ -83,9 +85,11 @@ class FMysql implements FDb {
         }
     }
 
-    /*
-     * Returns the result of a query in array form
+    /**
+     * @access public
+     * @return array
      *
+     * Fornisce i risultati di una query
      */
 
     public function getResult() {
@@ -99,9 +103,15 @@ class FMysql implements FDb {
         return array(false, "getResult()");
     }
 
-    /*
-     * Returns the selected object or null on failure
+    /**
+     *
+     *
+     * @access public
+     * @return Object
+     *
+     * Fornisce il risultato di una query che richiede un oggetto
      */
+   
 
     public function getObject() {
         if (mysql_num_rows($this->_query) > 0) {
@@ -114,9 +124,13 @@ class FMysql implements FDb {
             return null;
     }
 
-    /*
-     * Returns one or more objects in array form
-     * 
+    /**
+     *
+     *
+     * @access public
+     * @return array(Object)
+     *
+     * Fornisce il risultato di una query che richiede un array di oggetti
      */
 
     public function getObjectArray() {
@@ -133,9 +147,14 @@ class FMysql implements FDb {
             return null;
     }
 
-    /*
-     * Stores the object state in the dabase.
-     * Previously retrieves the keys-values pair and then inserts information onto the db
+
+    /**
+     * @access public
+     * @param Object $object
+     * @return array
+     *
+     * Si preoccupa di salvare un oggetto. Si prende le coppie campo-valore scorrendo
+     * l'oggetto in questione come se fosse un array
      */
 
     public function store($object) {
@@ -158,17 +177,19 @@ class FMysql implements FDb {
 
         $query = 'INSERT INTO ' . $this->_table . ' (' . $fields . ') VALUES (' . $values . ')';
         $return = $this->makeQuery($query);
-        //~ if ($this->_is_an_autoincrement_key) {
-        //~ $query = 'SELECT LAST_INSERT_ID() AS id';
-        //~ $this->makeQuery($query);
-        //~ $result = $this->getResult();
-        //~ return array(true,$result['id']);
-        //~ } else {
+
         return array(true, $return);
-        //~ }
+
     }
 
-    /* loads an object (entity) */
+    /**
+     * @access public
+     * @param Key $k
+     * @return Object
+     *
+     * Carica un'entità
+     *
+     */
 
     public function load($k) {
         $query = 'SELECT * ' .
@@ -181,7 +202,13 @@ class FMysql implements FDb {
             return false;
     }
 
-    /* deletes an entity */
+    /**
+     * @access public
+     * @param Object $object
+     * @return array
+     *
+     * Elimina un'entità
+     */
 
     public function delete(& $object) {
         $arrayObject = get_object_vars($object);
@@ -192,7 +219,13 @@ class FMysql implements FDb {
         return array(true, $this->makeQuery($query));
     }
 
-    /* updates the state of a given object */
+    /**
+     * @access public
+     * @param Object $object
+     * @return array
+     *
+     * Fa l'update di un'entità
+     */
 
     public function update($object) {
         $i = 0;
@@ -212,7 +245,16 @@ class FMysql implements FDb {
         return array(true, $this->makeQuery($query));
     }
 
-    /* Search values using the "SELECT FROM WHERE ORDER BY LIMIT" statement */
+    /**
+     * @access public
+     * @param array $param
+     * @param string $order
+     * @param string $limit
+     * @return array(Object)
+     *
+     * Esegue una query utilizzando i filtri forniti come parametro
+     */
+    
 
     function search($param = array(), $order = '', $limit = '') {
         $filtro = '';
@@ -233,6 +275,12 @@ class FMysql implements FDb {
         return $this->getObjectArray();
     }
 
+    /**
+     * @access public
+     * @return array
+     *
+     * Chiude una connessione
+     */
     public function close() {
 
         try {
@@ -252,7 +300,11 @@ class FMysql implements FDb {
 
 }
 
-/*
+/**
+ * @access public
+ * @param array $array
+ * @param int $key
+ * 
  * Questa funzione codifica ricorsivamente in UTF-8 un array/oggetto,
  * per permettere l'invio di caratteri speciali tramite JSON.
  */

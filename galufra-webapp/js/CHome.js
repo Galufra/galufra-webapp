@@ -2,6 +2,7 @@ $(document).ready(function(){
     
 
     var map = initializeMap();
+    //questa variabile mi servirà per sapere cosa mostrare all'utente'
     var logged = false;
     /*
      * Centra la mappa sulla città dell'utente: geocoder trasforma
@@ -62,9 +63,8 @@ $(document).ready(function(){
     });
 
     /*
-     * Aggiunta di un evento ai preferiti.
+     * Aggiunta/rimozione di un evento ai preferiti.
      */
-    //{if $autenticato}
     $('.addPreferiti').live("click", function(event){
         addPreferiti(event.target.id);
         if (markers)
@@ -75,9 +75,8 @@ $(document).ready(function(){
             }
         return false;
     });
-    //{/if}
 
-    //{if $autenticato}
+
     $('.removePreferiti').live("click", function(event){
         removePreferiti(event.target.id);
         if (markers)
@@ -88,7 +87,7 @@ $(document).ready(function(){
             }
         return false;
     });
-    //{/if}
+    
 
     //Aggiungo/tolgo un evento tra i consigliati
     $('.addConsigliati').live("click", function(event){
@@ -113,6 +112,10 @@ $(document).ready(function(){
         return false;
     });
 
+    //Si occupa di far mostrare la form di registrazione dalla infowindow dell'evento.
+    //Questo avviene quando non si è loggati. Invece del link "mostra tutto" alla fine
+    //della descrizione dell'evento si trova
+    //il link "registrati per visualizzare "
     $('.goToReg').live("click", function(event){
         $('#logo').hide();
         $('#recuperoPwd').hide();
@@ -120,6 +123,8 @@ $(document).ready(function(){
     });
 
 
+    //Si occupa del login. Se non sono riempiti i campi
+    //non avviene la richiesta
     $("#loginbutton").click(function(data){
 
         var user= $('#username').val();
@@ -129,25 +134,14 @@ $(document).ready(function(){
         if((user == '') || (pass =='')){
             showMessage("Inserisci un username/password valida");
             data.preventDefault();
-        }/*else {
-
-            $.ajax({
-
-                async: false,
-                type: "POST",
-                url:"CHome.php",
-                data :{
-                'action':"login",
-                'username': $('#username').val(),
-                'password':$('#pass').val()
-                }
-            })
-            return false;
-        }*/
-
+        }
         return true;
     });
 
+    //Viene fatto il controllo della registrazione
+    //utilizzando delle espressioni regolari per validare
+    //i campi. Se c'è qualcosa che non va la richiesta di registrazione
+    //viene bloccata
     $("#regbutton").click(function(data){
         var reg2= /^[\w\.\-]+@([\w\-]+\.)+[a-zA-Z]/;
         var reg1=/\w/;
@@ -172,6 +166,7 @@ $(document).ready(function(){
         return true;
     });
 
+    //Si occupa del recupero pwd.
     $("#recbutton").click(function(data){
 
         var user= $('#userRec').val();
@@ -206,6 +201,7 @@ $(document).ready(function(){
         return false;
     });
 
+    //Centra la mappa nella posizione desiderata.
     $("#cerca").click(function(data){
 
 
@@ -244,8 +240,7 @@ $(document).ready(function(){
      * Visualizza sulla mappa gli eventi contenuti in
      * bounds (oggetto LatLngBounds di Google Maps)
      */
-    
-    function getEventiMappa(){
+     function getEventiMappa(){
         updatePreferiti();
         bounds = map.getBounds();
         $.get("CHome.php",
@@ -257,13 +252,14 @@ $(document).ready(function(){
             'swLon': bounds.getSouthWest().lng()
         })
         .success(function(data) {
-            /* Per prima cosa eliminiamo i "vecchi" markers
-             */
+
 
             //ho inizializzato la mappa, posso fornire eventi consigliati
             if(logged)
                 updateConsigliati(map,false);
 
+            /* Per prima cosa eliminiamo i "vecchi" markers
+             */
             if (markers){
                 for(i=0; i<markers.length; ++i)
                     markers[i].setMap(null);
@@ -281,13 +277,17 @@ $(document).ready(function(){
                     'position':pos,
                     'map':map
                 });
+                //Settiamo i parametri del marker
                 marker.id = parseInt(response[i].id_evento);
                 marker.title = response[i].nome;
                 marker.descrizione = response[i].descrizione;
                 marker.data = response[i].data;
+                //se sono loggato richiamo la funzione checkPreferito
                 if(logged)
                     marker.preferito = checkPreferito(marker.id);
+                //assegno una info
                 marker.infoHTML = infoHTML;
+                //inserisco in mappa
                 markers.push(marker);
             });
 
@@ -330,7 +330,8 @@ $(document).ready(function(){
     }
 
     /*
-     * Formattazione del contenuto delle infoWindow
+     * Formattazione del contenuto delle infoWindow, aseconda se l'utente è
+     * loggato o no
      */
     function infoHTML(){
         var output;

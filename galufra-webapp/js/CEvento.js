@@ -1,7 +1,9 @@
+//inizializzo alcune variabili
 $(document).ready(function(){
 
     updatePreferiti();
     updatePersonali();
+
 
     var add = $('<h3><a class="addPreferiti">Ci Sarò!:)</a></h3>');
     var remove = $('<h3><a class="removePreferiti">Non Potrò Più Esserci!:(</a></h3>');
@@ -10,6 +12,7 @@ $(document).ready(function(){
         add.insertAfter($('h2'));
     else
         remove.insertAfter($('h2'));
+
     var map = initializeMap();
 
     //aggiorno i consigliati qui perchè mi serve una mappa inizializzata

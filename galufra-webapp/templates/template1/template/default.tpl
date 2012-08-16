@@ -24,8 +24,18 @@ Released for free under a Creative Commons Attribution 2.5 License
         <div id="header">
             <ul id="menu">
                 <li><a href="CHome.php" accesskey="1" title="">Home</a></li>
-                <li><a href="profilo.html" accesskey="2" title="">Profilo</a></li>
-                <li><a href="#" accesskey="3" title="">Crea Evento</a></li>
+                {if $autenticato}
+                <li><a href="CProfilo.php" accesskey="2" title="">Profilo</a></li>
+                {if $sbloccato}
+                <li><a href="CCrea.php?action=">
+                {else}
+                 <a href="CHome.php?action=">
+                 <script>
+                 showMessage("Limite eventi superato. Diventa SUPERUSER!");
+                 </script>
+                {/if}
+                 Crea Evento</a></li>
+                {/if}
                 <li id='messagebox'></li>
             </ul>
 
@@ -120,7 +130,7 @@ Released for free under a Creative Commons Attribution 2.5 License
                             </tr>
                         </table>
                         <div><b>Ti verrà inviata una e-mail all' indirizzo di registrazione con una nuova password che potrai modificare
-                            successivamente dal tuo profilo</b></div>
+                                successivamente dal tuo profilo</b></div>
                     </div>
                 </div>
 

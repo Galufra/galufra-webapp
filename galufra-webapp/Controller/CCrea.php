@@ -11,6 +11,15 @@ class CCrea {
 
     private $utente = null;
 
+      /**
+     * @access public
+     *
+     *
+     *
+       * Una volta controllati i dati di sessione,
+       * gestisce la creazione dell' evento da parte dell'utente
+      **/
+
     public function __construct() {
         /* In futuro dovremo controllare che l'utente sia loggato
          * e sia un Gestore. Per ora carico il mio utente
@@ -33,6 +42,7 @@ class CCrea {
 
         switch ($_POST['action']) {
             case('creaEvento'):
+                //creo un entity Evento e salvo in database
                 $ev = new EEvento();
                 //filtro con mysql escape string o html special chars?
                 $ev->setNome(utf8_decode(mysql_escape_string($_POST['nome'])));
@@ -62,6 +72,8 @@ class CCrea {
                 break;
 
             default:
+                //stampo la home se ho esaurito il numero di eventi che
+                //si possono creare
                 if ($this->utente && !$this->utente->isSbloccato()) {
                     //cambio il tpl di CCrea per evitare hack in html visto che il metodo blocca modifica solo il link
                     //di crea evento
@@ -76,6 +88,7 @@ class CCrea {
                         $view->isSuperuser();
                     $view->mostraPagina();
                 }
+                //altrimenti stampo la pagina di creazione evento
                 else if ($this->utente) {
                     $view = new VCrea();
                     $view->isAutenticato(true);

@@ -11,18 +11,26 @@ class CEvento {
     private $evento;
     private $utente;
 
+    /**
+     * @access public
+     *
+     *
+     * @param int $id
+     *
+     * Una volta caricati i dati di sessione attraverso uno
+     * switch gestiscele varie operazioni da svolgere sull' evento nella mappa.
+     * Si utilizza in alcuni casi json per ritornare dati al client
+     */
     public function __construct($id = null) {
 
         $u = new Futente();
         $u->connect();
         if (isset($_SESSION['username'])) {
             $this->utente = $u->load($_SESSION['username']);
-            //carico il numero dell' utente
-            $this->utente->setNumEventi($this->utente->isAdmin(),$this->utente->isSuperuser());
+            //carico il numero di eventi dell' utente
+            $this->utente->setNumEventi($this->utente->isAdmin(), $this->utente->isSuperuser());
         }
 
-        //$this->utente = $u->load('luca');
-        //////
         $ev = new FEvento();
         $ev->connect();
         if ($id)
@@ -31,7 +39,7 @@ class CEvento {
         if (!$id || !$this->evento)
             echo 'Errore...';
         else {
-            //se non sono loggato va al comportamento di default che però non mostra la window dell'evento
+            //se non sono loggato va al comportamento di default
             if (!isset($_GET['action']) || !$this->utente)
                 $_GET['action'] = '';
             switch ($_GET['action']) {
@@ -56,7 +64,7 @@ class CEvento {
                     $out = false;
                     $ev = new FEvento();
                     $ev->connect();
-                    $ev_array = $ev->getAllConsigliati($this->utente->getId(),true);
+                    $ev_array = $ev->getAllConsigliati($this->utente->getId(), true);
                     if (is_array($ev_array))
                         foreach ($ev_array as $i) {
                             if ($i->id_evento == $this->evento->id_evento) {
@@ -89,7 +97,7 @@ class CEvento {
                     break;
                 case('addConsigliati'):
                     try {
-                        $this->utente->addConsigliati($this->evento->id_evento,$this->evento->getLat(),$this->evento->getLon());
+                        $this->utente->addConsigliati($this->evento->id_evento, $this->evento->getLat(), $this->evento->getLon());
                         echo "Hai consigliato l' evento agli utenti";
                     } catch (dbException $e) {
                         echo "C'è stato un errore. Riprova :)";
@@ -116,7 +124,7 @@ class CEvento {
 
 if (!isset($_GET['id']))
     $_GET['id'] = null;
-//da provare con USession
+
 session_start();
 $CEvento = new CEvento(htmlspecialchars($_GET['id']));
 ?>

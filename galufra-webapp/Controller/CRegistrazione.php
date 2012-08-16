@@ -16,6 +16,15 @@ class CRegistrazione {
     private $autenticato = false;
     private $errore = null;
 
+     /**
+     * @access public
+     * @param  uname 
+     * @param  pwd 
+     * @param  mail 
+     * @param nome 
+     * @param  cognome 
+     * @param  uid 
+     * */
     public function __construct($uname, $pwd, $citta=null, $mail=null, $nome=null, $cognome=null, $uid=null) {
 
         $this->username = $uname;
@@ -26,6 +35,12 @@ class CRegistrazione {
         $this->cognome = $cognome;
     }
 
+    /**
+     * @access public
+     * @return Boolean
+     *
+     * esegue il login e inizia una sessione utente
+     */
     public function logIn() {
 
         $u = new FUtente();
@@ -51,17 +66,32 @@ class CRegistrazione {
         return false;
     }
 
+    /**
+     * @access public
+     *
+     * Fa partire la sessione utilizzando la classe USession
+     */
     public function initSession() {
 
         $session = new USession();
         $session->imposta_valore('username', $this->username);
         $this->errore = "Login riuscito";
     }
+    /**
+     * @access public
+     * @return Boolean
+     * 
+     * 
+     */
 
     public function isLogged() {
         return $this->autenticato;
     }
 
+    /**
+     * @access public
+     * @return array(2){Boolean,String}
+     */
     public function regUtente() {
 
         $result=array(false,"errore");
@@ -87,6 +117,14 @@ class CRegistrazione {
         }else return array(false,"errore");
     }
 
+    /**
+     * @access public
+     * @return String
+     *
+     * Fornisce un id univoco utilizzando l' orario. Prende i secondi
+     * e i microsecondi e li usa come chiave per generare un numero random
+     * di cui viene fatto l'md5
+     */
     public static function getUniqueId() {
 
         list($usec, $sec) = explode(' ', microtime());
@@ -94,6 +132,15 @@ class CRegistrazione {
         return md5(uniqid(mt_rand(), true));
     }
 
+    /**
+     * @access public
+     * @param string $to
+     * @param string $from
+     * @param int $id
+     * @return boolean
+     *
+     * invia l' email di conferma
+     */
     public function sendConfirmationMail($to, $from, $id) {
 
         $msg = "Hello! To confirm your galufra registration click here:
@@ -103,6 +150,12 @@ class CRegistrazione {
         return $status;
     }
 
+    /**
+     * @access public
+     * @return array(2){boolean,EUtente}
+     *
+     * Esegue l'update di un utente
+     */
     public function updateProfilo() {
         $db = new FUtente();
         $db->connect();

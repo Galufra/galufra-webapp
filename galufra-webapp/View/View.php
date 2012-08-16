@@ -15,6 +15,10 @@ abstract class View extends Smarty {
     public $errore_registrazione = false;
     public $superuser = false;
 
+    /**
+     * @access public
+     * @global array $config
+     */
     public function __construct() {
         parent::__construct();
         global $config;
@@ -25,40 +29,86 @@ abstract class View extends Smarty {
         $this->caching = false;
     }
 
+    /**
+     * @access public
+     * @param string $n
+     *
+     * Assegna il nome utente
+     */
     public function showUser($n="anonimo") {
 
         $this->user = $n;
     }
 
+    /**
+     * @access public
+     *
+     * Farà mostrare un messaggio di errore di login
+     */
     public function errorLogin() {
 
         $this->errore_loggato = true;
     }
 
+    /**
+     * @access public
+     *
+     * Farà mostrare un messaggio di errore di registrazione
+     */
     public function errorRegistrazione(){
         
         $this->errore_registrazione = true;
     }
 
+    /**
+     * @access public
+     *
+     * Se non viene chiamato, farà mostrare il messaggio che richiede la conferma
+     * della registrazione
+     */
     public function regConfermata() {
 
         $this->confirmed = true;
     }
 
+    /**
+     * @access public
+     *
+     * Se non viene chiamato apparirà un link all'utente "Diventa Superuser"
+     *
+     */
     public function isSuperuser(){
         $this->superuser = true;
     }
 
+    /**
+     * @access public
+     * @param boolean $b
+     *
+     * Dice al tpl che l'utente in questione è autenticato
+     */
     public function isAutenticato($b) {
 
         $this->autenticato = $b;
     }
 
+    /**
+     * @access public
+     *
+     * Mostra il messaggio che indica il superamento del numero di eventi personali
+     * massimi concessi dal sistema
+     */
     public function blocca() {
 
         $this->sbloccato = false;
     }
 
+    /**
+     * @access public
+     *
+     * Mostra la pagina assegnando tutte le variabili
+     *
+     */
     public function mostraPagina() {
         if (!is_array($this->scripts) || is_null($this->content))
             throw new Exception('parametri non definiti');

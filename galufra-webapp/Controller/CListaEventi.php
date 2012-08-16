@@ -11,6 +11,15 @@ class CListaEventi {
 
     private $utente;
 
+    /**
+     * @access public
+     *
+     * uno volta controllati i dati di sessione fornisce attraverso uno switch che prende come
+     * parametro un dato passato via get la lista completa dobbiamo stampare:
+     * preferiti
+     * consigliati
+     * personali
+     */
     public function __construct() {
 
         $u = new Futente();
@@ -25,9 +34,12 @@ class CListaEventi {
         if (!isset($_GET['action']))
             $_GET['action'] = "";
 
+        //stampiamo le liste fornendo sempre i dati per la view, ovvero i parametri
+        //dell'utente
         switch ($_GET['action']) {
 
             case ('preferiti'):
+
                 $lista = new VListaEventi(array("listaEventiPreferiti.js"));
                 if ($this->utente) {
                     $lista->isAutenticato(true);
@@ -73,7 +85,7 @@ class CListaEventi {
                 break;
 
             default:
-
+                //nessun action impostato: visualizzo la home
                 $view = new VHome ();
                 if ($this->utente) {
                     $view->isAutenticato(true);
@@ -91,6 +103,12 @@ class CListaEventi {
         }
     }
 
+    /**
+     * @access public
+     *
+     * fornisce un Json con gli eventi preferiti.
+     *
+     */
     public function getPreferiti() {
         $ev = new FEvento();
         $ev->connect();
@@ -103,6 +121,12 @@ class CListaEventi {
         exit;
     }
 
+    /**
+     * @access public
+     *
+     * fornisce un Json con gli eventi consigliati.
+     *
+     */
     public function getConsigliati() {
         $ev = new FEvento();
         $ev->connect();
@@ -115,6 +139,12 @@ class CListaEventi {
         exit;
     }
 
+    /**
+     * @access public
+     *
+     * fornisce un Json con gli eventi personali.
+     *
+     */
     public function getPersonali() {
         $ev = new FEvento();
         $ev->connect();

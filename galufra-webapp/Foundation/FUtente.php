@@ -3,13 +3,25 @@ require_once('FMysql.php');
 
 class FUtente extends FMysql {
 
+    /**
+     * @access public
+     */
     public function __construct() {
         parent::__construct();
         $this->_table = 'utente';
         $this->_key = 'username';
         $this->_class = 'EUtente';
     }
-    //faccio lo store dell' utente appena dopo la registrazione, evito la store per non registrare dei campi inutili
+
+    /**
+     * @access public
+     * @param EUtente $user
+     * @param int $uid
+     * @return array
+     *
+     * Esegue la registrazione sul db di un utente. Non uso la store per accelerare
+     * i tempi.
+     */
     public function storeUtente($user,$uid){
         $u = new EUtente();
         $u = $user;
@@ -21,13 +33,25 @@ class FUtente extends FMysql {
         return $result;
     }
 
+    /**
+     * @access public
+     *
+     * Eliminto gli utenti che non hanno confermato la registrazione entro 24h
+     */
     public function cleanExpired(){
 
         $query = "DELETE FROM $this->_table WHERE  (date + 24*60*60) <= " . time() ." and confirmed = 0";
         $this->makeQuery($query);
     }
     
-    //Conferma la registrazione
+    /**
+     * @access public
+     * @param int $uid
+     * @return array
+     *
+     * Confermo sul db un utente
+     *
+     */
     public function userConfirmation($uid){
         $this->connect();
         $query = "UPDATE $this->_table SET confirmed = 1 WHERE confirm_id = '".$uid."'";

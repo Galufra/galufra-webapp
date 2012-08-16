@@ -7,7 +7,7 @@ classico ambiente fornito da google map nei suoi servizi.
 
 Un evento è rappresentato sulla mappa da un segnaposto che si espanderà in una infowindow che conterrà data,luogo
 e  breve descrizione. Ci sarà inoltre la possibilità di iscriversi e/o consigliare l'evento agli altri utenti e
-una bacheca (in una pagina  aparte) dove gli utenti iscritti potranno commentare l' evento o comunque 
+una bacheca (in una pagina  a parte) dove gli utenti iscritti potranno commentare l' evento o comunque 
 scambiarsi messaggi.
 
 Un visitatore non registrato potrà visualizzare completamente la mappa e consultare gli eventi pubblici 
@@ -20,8 +20,9 @@ Un visitatore registrato (utente) potrà invece usufruire di alcune funzionalit�
 -Creare fino a 3 eventi pubblici
 -Moderare la bacheca del proprio evento
 -Gestire il profilo personale
--Ricevere un elenco di eventi consigliati dal sistema in base alla posizione in cui si trova la mappa
--Avere un promemoria degli eventi a cui è registrato o ha creato ordinati per data
+-Ricevere un elenco di eventi consigliati dal sistema in base alla posizione in cui si trova la mappa 
+  che sta consultando.
+-Avere un promemoria degli eventi a cui è registrato oppure che ha creato ordinati per data
 
 
 Un ente organizzatore, o Superuser, (utente opportunamente autorizzato dal sistema, 

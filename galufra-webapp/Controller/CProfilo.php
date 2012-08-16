@@ -135,9 +135,9 @@ class CProfilo {
      * */
     public function updateUtente() {
 
-        $pwd = null;
-        $pwd1 = null;
-        if (isset($_POST['password']) && isset($_POST['password1'])) {
+        $pwd = '';
+        $pwd1 = '';
+        if ((isset($_POST['password']) && $_POST['password']!=null) && (isset($_POST['password1']) && $_POST['password']!=null )) {
             $pwd = $_POST['password'];
             $pwd1 = $_POST['password1'];
         }
@@ -152,7 +152,7 @@ class CProfilo {
                 &&
                 $pwd == $pwd1
         ) {
-            if ($pwd != null && $pwd1 != null && md5($pwd) != $this->utente->getPassword())
+            if ($pwd != '' && $pwd1 != '' && md5($pwd) != $this->utente->getPassword())
                 $this->utente->setPassword($pwd);
             $db = new FUtente();
             $db->connect();

@@ -20,12 +20,12 @@
                 <tr class = 'password'>
                     <td><label class="label1">password:</label></td>
                     <td>
-                        <input type="password"  name="password" id="password" class="input3" />
+                        <input type="password"  name="password" id="codice" class="input3" />
                     </td>
                 </tr>
                 <tr class = 'password'>
                     <td><label class="label1">ripeti password:</label></td>
-                    <td><input type="password" name="password1" id="password1" class="input3"/>
+                    <td><input type="password" name="password1" id="codice1" class="input3"/>
                 </tr>
                 <tr>
                     <td><label class="label1">nome:</label></td>
@@ -35,14 +35,13 @@
                     <td><label class="label1">cognome:</label></td>
                     <td><input type="text" name="cognome" id='cognome' class="input3" value={$utente->getCognome()} /></td>
                 </tr>
-
                 <tr>
                     <td><label class="label1">città:</label></td>
-                    <td><input type="text" name="citta" id='citta' class="input3 " value={$utente->getCitta()} /></td>
+                    <td><input type="text" name="citta" id='city' class="input3" value={$utente->getCitta()} /></td>
                 </tr>
                 <tr>
                     <td><label class="label1">e-mail:</label></td>
-                    <td><input type="text" name="email" id='email' class="input3 " value={$utente->getEmail()} /></td>
+                    <td><input type="text" name="email" id='email' class="input3" value={$utente->getEmail()}/></td>
                 </tr>
                 <tr>
                     <td colspan="2"><button id="updateButton" class="button">Salva</button></td>

@@ -7,7 +7,7 @@ $(document).ready(function(){
 
     $('.password').hide();
     //mostra le input text per la password
-    $('.modificaPwd').live("click", function(event){
+    $('.modificaPwd').live("click", function(){
         $('.password').show('slow');
     });
 
@@ -93,38 +93,35 @@ $(document).ready(function(){
     $('#updateButton').click(function(){
         // Blocchiamo la submit se uno o più campi non sono riempiti,
         // o se Google non ha trovato coordinate corrispondenti all'indirizzo
-        if( 
-            !($('#password').val()) &&
-            !($('#password1').val()) &&
+        
+        if(
+            !($('#codice').val()) &&
+            !($('#codice').val()) &&
             !($('#nome').val())  &&
             !($('#cognome').val()) &&
-            !($('#citta').val()) &&
-            !($('#email').val())
+            !($('#city').val()) &&
+            !($('#posta').val())
 
             ){
             showMessage('Nulla da Modificare...');
         }
         else{
-            $.ajax({
-                async:false,
-                type: "POST",
-                url: "CProfilo.php",
-                data: {
-                    'action': "update",
-                    'password': $('#password').val(),
-                    'password1':$('#password1').val(),
-                    'nome': $('#nome').val(),
-                    'cognome': $('#cognome').val(),
-                    'email': $('#email').val(),
-                    'citta': $('#citta').val()
 
-                }
+
+            $.post("CProfilo.php", {
+                'action': "update",
+                'password': $('#codice').val(),
+                'password1':$('#codice1').val(),
+                'nome': $('#nome').val(),
+                'cognome': $('#cognome').val(),
+                'email': $('#posta').val(),
+                'citta': $('#city').val()
             }).done(function(data){
                 response = jQuery.parseJSON(data);
                 showMessage(response.message);
 
             });
-           
+
         }
         return false;
     });

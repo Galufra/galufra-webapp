@@ -5,14 +5,14 @@ il territorio utilizzando una mappa come punto di accesso ad ogni luogo.
 In particolare infatti permette l'inserimento e la gestione di eventi all'interno di una mappa utilizzando il 
 classico ambiente fornito da google map nei suoi servizi.
 
-Un evento è rappresentato sulla mappa da un segnaposto che si espanderà in una infowindow che conterrà data,luogo
+Un evento è rappresentato sulla mappa da un segnaposto che si espanderà in una infowindow la quale conterrà data,luogo
 e  breve descrizione. Ci sarà inoltre la possibilità di iscriversi e/o consigliare l'evento agli altri utenti e
 una bacheca (in una pagina  a parte) dove gli utenti iscritti potranno commentare l' evento o comunque 
 scambiarsi messaggi.
 
 Un visitatore non registrato potrà visualizzare completamente la mappa e consultare gli eventi pubblici 
 gestiti da utenti opportunamente registrati. 
-Non potrà però interagire con questi ultimi senza registrazione.
+Non potrà però interagire con questi ultimi, ne tantomeno con la bacheca senza registrazione.
 
 Un visitatore registrato (utente) potrà invece usufruire di alcune funzionalità aggiuntive quali:
 -Iscriversi all' evento (rendere nota la propria partecipazione agli iscritti)
@@ -41,3 +41,63 @@ Le tecnologie lato client saranno:
 - jquery
 - api di google maps
 - Json
+
+L'applicazione fa un uso massiccio di javascript e in particolare della tecnologia jQuery, tanto che quasi
+la totalità delle richieste verso il server vengono fatte con chiamate asincrone e non da parte di jQuery.
+La risposta da parte del server viene ogni volta compattata in una struttura dati Json, che viene parsata 
+e quindi mostrata in output.Quello che si vuole ottenere infatti è fornire all'utilizzatore dell'applicazione
+la sensazione di non trovarsi di fronte ad un sito web ma di fronte ad un applicazione che risponde 
+istantaneamente ad i suoi comandi con e senza effetti grafici.Ogni inserimento,cancellazione,modifica di 
+un'entità all'interno dell'applicazione viene infatti eseguita grazie all'utilizzo di Ajax con jQuery 
+quasi istantaneamente rendendo quasi piacevole (talvolta utilizzando degli effetti grafici) l'utilizzo dell'app.
+L'idea è quella di continuare a sviluppare e migliorare il progetto offrendolo al web in un futuro non troppo 
+lontano con però qualche funzionalità aggiuntiva.
+Le idee per il futuro sono infatti le seguenti:
+
+-Sviluppare un meccanismo avanzato di ricerca dell'evento
+-Creare un meccanismo di notifica istantanea per ogni utente
+-Collegarsi ai social network più importanti come Facebook e Twitter per la condivisione degli eventi
+-Gestire tutti i tipi di contenuti multimediali (foto,video,immagini,ecc..)
+
+Nel dettaglio il codice del progetto si divide in 4 package più un'ampia sezione javascript:
+
+-Foundation
+-Controller
+-Entity
+-View
+
+Nelle Foundation troviamo tutti i metodi che interagiscono a più basso livello con il database, chiamati
+dai controller a seconda delle necessità. Questi ultimi sostanzialmente lavorano come intermediari tra le 
+richieste effettuate dal client attraverso jQuery e le Entity e si preoccupano di fornire in risposta array Json 
+che i client possono interpretare.Si preoccupano inoltre di gestire le View a seconda delle azioni che un utente
+ha scelto di compiere.La loro struttura è molto semplice, nella maggioranza dei casi nel costruttore è presente
+un costrutto switch-case che smista le azioni ("action") da svolgere inviati dal client via GET o POST.
+Le view infine non fanno altro che impostare la parte statica della pagina da mostrare in output utilizzando
+Smarty.
+
+Per quanto riguarda la grafica, si è selezionato un template gratuito preso dal web. L'applicazione però viene 
+gestita su un'unica pagina dove il contenuto del "div" centrale viene ogni volta riempito con un file "tpl" a 
+seconda di quello che si vuole mostrare utilizzando la tecnologia jQuery per eseguire qualche effetto grafico
+
+Il login e la registrazione vengono gestiti in maniera classica con una prima validazione dei campi riempiti
+dall'utente via javascript ed una seconda lato server, stando attenti per quanto possibile alla sicurezza 
+applicazione. Una volta effettuata la registrazione verrà inviata una email all'utente con un link di conferma.
+Da quel momento viene dato un giorno di tempo all'utente per confermare la propria registrazione e all'interno
+dell' applicazione verranno mostrate dei promemoria a questo riguardo. Il recupero password viene fatto invece 
+inviando all'utente una password univoca, generata con lo stesso meccanismo con il quale vengono generadi gli id
+di conferma della registrazione, attraverso una nuova email.L'utente potrà così collegarsi e modificarla dal 
+proprio profilo personale.
+
+Per quanto riguarda la divisione dei compiti il lavoro è stato così suddiviso:
+-Francesco Miscia: Controller,Foundation,View,Javascript,Templating 
+-Luca Di Stefano: Controller,Foundation,Entity,javascript,Install.php
+-Gabriele Cianetti: View,Templating,Database,Testing
+
+L'applicazione a seguito di vari test sembra sicura,veloce e affidabile. Sicuramente sarà soggetta a
+miglioramenti che speriamo possano essere messi in atto in futuro.
+
+Autori:
+Francesco Miscia
+Luca Di Stefano
+Gabriele Cianetti
+

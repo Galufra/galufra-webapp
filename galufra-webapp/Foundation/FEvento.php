@@ -48,7 +48,7 @@ class FEvento extends FMysql {
                     SELECT evento FROM preferisce as p, evento as e1
                     WHERE p.utente =  $idUtente
                     AND p.evento = e1.id_evento )
-                ORDER BY data"
+                ORDER BY DATE_FORMAT(data, '%y-%m-%d')"
         );
         return $this->getObjectArray();
     }
@@ -212,7 +212,7 @@ class FEvento extends FMysql {
      */
     public function getUserEventi($id) {
 
-        $result = $this->makeQuery("SELECT * FROM $this->_table WHERE id_gestore = $id");
+        $result = $this->makeQuery("SELECT * FROM $this->_table WHERE id_gestore = $id ORDER BY DATE_FORMAT(data, '%y-%m%d')");
         if ($result[0]) {
             $eventi = $this->getObjectArray();
             return $eventi;

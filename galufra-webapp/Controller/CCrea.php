@@ -45,7 +45,7 @@ class CCrea {
                 //creo un entity Evento e salvo in database
                 $ev = new EEvento();
                 //filtro con mysql escape string o html special chars?
-                $ev->setNome(utf8_decode(mysql_escape_string($_POST['nome'])));
+                $ev->setNome(utf8_decode(htmlspecialchars(mysql_escape_string($_POST['nome']))));
                 $ev->setDescrizione(utf8_decode(htmlspecialchars(mysql_escape_string($_POST['descrizione']))));
                 // Conversione della data in formato MySql
                 $unixdate = strtotime(mysql_escape_string($_POST['timestamp']));

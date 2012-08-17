@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.10, created on 2012-08-16 15:13:18
+<?php /* Smarty version Smarty-3.1.10, created on 2012-08-17 11:38:58
          compiled from "../templates/template1/template/default.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:116381495150127392e30ec1-13862966%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7a7885124e29438c95986342c3a7050fa0cde83c' => 
     array (
       0 => '../templates/template1/template/default.tpl',
-      1 => 1345122797,
+      1 => 1345196336,
       2 => 'file',
     ),
   ),
@@ -215,7 +215,7 @@ $_smarty_tpl->tpl_vars['s']->_loop = true;
                     <ul class="bottom" id='ulPersonali'></ul>
                 </div>
                 <div class="box" id="boxPreferiti">
-                    <h3><a href="CListaEventi.php?action=preferiti">Eventi Preferiti</a></h3>
+                    <h3><a href="CListaEventi.php?action=preferiti">Dove Sarò</a></h3>
                     <ul class="bottom" id='ulPreferiti'>
                     </ul>
                 </div>

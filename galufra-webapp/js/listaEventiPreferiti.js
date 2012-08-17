@@ -11,7 +11,7 @@ $(document).ready(function(data){
     //Creo l'html per visualizzare gli eventi preferiti sulla pagina (non sulla barra laterale)
     Pref = $('#listaeventi');
     Pref.find('.pref').remove
-    $('<div><h2 align=center>I TUOI PREFERITI</h2></div>').appendTo(Pref);
+    $('<div><h2 align=center>EVENTI A CUI ANDRAI</h2></div>').appendTo(Pref);
     $.get("CHome.php",
     {
         'action': "getEventiPreferiti"

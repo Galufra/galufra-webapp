@@ -175,7 +175,7 @@ Released for free under a Creative Commons Attribution 2.5 License
                     <ul class="bottom" id='ulPersonali'></ul>
                 </div>
                 <div class="box" id="boxPreferiti">
-                    <h3><a href="CListaEventi.php?action=preferiti">Eventi Preferiti</a></h3>
+                    <h3><a href="CListaEventi.php?action=preferiti">Dove Sarò</a></h3>
                     <ul class="bottom" id='ulPreferiti'>
                     </ul>
                 </div>

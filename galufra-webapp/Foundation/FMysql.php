@@ -233,9 +233,9 @@ class FMysql implements FDb {
         foreach ($object as $k => $val) {
             if (!($k == $this->_key) && substr($k, 0, 1) != '_') {
                 if ($i == 0) {
-                    $fields.='`' . $k . '` = \'' . htmlspecialchars($val) . '\'';
+                    $fields.='`' . $k . '` = \'' . htmlentities($val) . '\'';
                 } else {
-                    $fields.=', `' . $k . '` = \'' . htmlspecialchars($val) . '\'';
+                    $fields.=', `' . $k . '` = \'' . htmlentities($val) . '\'';
                 }
                 $i++;
             }

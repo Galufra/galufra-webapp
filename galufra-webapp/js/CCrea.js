@@ -8,7 +8,7 @@ $(document).ready(function(){
     var coord;
 
     //si preoccupa della creazione dell'evento'
-    $('#creaEvento').submit(function(){
+    $('#submit').click(function(){
         // Blocchiamo la submit se uno o più campi non sono riempiti,
         // o se Google non ha trovato coordinate corrispondenti all'indirizzo
         if( !($('#nome').val()) ||
@@ -22,16 +22,28 @@ $(document).ready(function(){
             showMessage('Tutti i campi devono essere riempiti.');
         }
         else{
+
+           /* Forse c'è un bug! Non si riesce a fare la conversione della data alcune volte.
+            * Viene generata una eccezione che dice che il formato giorno mese anno ora
+            * che si è immesso nella form non è come quello stabilito (format: "%d %M %Y %T)
+            * Per ora non passo per il parser, perchè non posso permettermi che "qualche volta non funzioni".
+            * Definisco la data così come la vogliamo nel
+            * db direttamente dalle impostazioni del picker qui in basso dopo la chiamata ajax
+
             //definisce il formato di data che vogliamo
             var defaultConv = new AnyTime.Converter({
                 format: "%d %M %Y %T"
             });
+
             //inserisce uno spazio tra data e orario
-            var timestamp = defaultConv.parse($('#data').val()+" "+$('#ora').val());
+            var timestamp = defaultConv.parse($('#data').val()+' '+$('#ora').val());
             if(!timestamp){
                 showMessage('La data inserita non è corretta');
                 return false;
             }
+
+
+             */
 
             //chiamata: sincrona perchè ho bisogno che il controller venga ricaricato per
             //controllare il numero di eventi inseriti e nel caso bloccare l'utente'
@@ -45,7 +57,7 @@ $(document).ready(function(){
                     'action': "creaEvento",
                     'nome': $('#nome').val(),
                     'descrizione': $('#descrizione').val(),
-                    'timestamp': timestamp,
+                    'timestamp': $('#data').val()+' '+$('#ora').val(),
                     'lat': coord.lat(),
                     'lon': coord.lng()
                 }
@@ -65,7 +77,7 @@ $(document).ready(function(){
     });
     // Picker per la data e l'ora dell'evento
     AnyTime.picker( "data", {
-        format: "%d %M %Y",
+        format: "%d-%m-%Y",
         labelTitle: 'Data',
         labelYear: 'Anno',
         labelDayOfMonth: 'Giorno',

@@ -1,4 +1,4 @@
-<form id='creaEvento' >
+<div id='creaEvento' >
             <table>
             <tr>
                 <td><label>Nome:</label></td>
@@ -25,5 +25,5 @@
                 <td><button id='submit' class = "button">Invia</button></td>
             </tr>
         </table>
-        </form>
+        </div>
 <div id='map_canvas' style='height: 300px'></div>

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.10, created on 2012-08-17 11:38:58
+<?php /* Smarty version Smarty-3.1.10, created on 2012-08-18 18:12:05
          compiled from "../templates/template1/template/default.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:116381495150127392e30ec1-13862966%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7a7885124e29438c95986342c3a7050fa0cde83c' => 
     array (
       0 => '../templates/template1/template/default.tpl',
-      1 => 1345196336,
+      1 => 1345306322,
       2 => 'file',
     ),
   ),
@@ -99,14 +99,14 @@ $_smarty_tpl->tpl_vars['s']->_loop = true;
                             <tr>
                                 <td>    <label class="label">username:</label> </td>
                                 <td class="right">
-                                    <input type="text" id="username" name="username" class="input4" size="20"/>
+                                    <input type="text" id="username" name="username" class="input4" size="13"/>
                                 </td>
                             </tr>
 
                             <tr>
                                 <td>	<label class="label">password:</label> </td>
                                 <td>
-                                    <input type="password" id="pass" name="password"class="input4" size="20" />
+                                    <input type="password" id="pass" name="password"class="input4" size="13" />
                                 </td>
                             </tr>
 
@@ -130,23 +130,23 @@ $_smarty_tpl->tpl_vars['s']->_loop = true;
 
                             <tr>
                                 <td><label class="label">username:</label></td>
-                                <td><input type="text" id="user" name="username" class="input4 " size="20"/></td>
+                                <td><input type="text" id="user" name="username" class="input4 " size="13"/></td>
                             </tr>
                             <tr>
                                 <td><label class="label">password:</label></td>
-                                <td><input type="password" id="password" name="password" class="input4 " size="20" /></td>
+                                <td><input type="password" id="password" name="password" class="input4 " size="13" /></td>
                             </tr>
                             <tr>
                                 <td><label class="label">ripeti password:</label></td>
-                                <td><input type="password" id="password1" name="password1" class="input4 " size="20" /></td>
+                                <td><input type="password" id="password1" name="password1" class="input4 " size="13" /></td>
                             </tr>
                             <tr>
                                 <td><label class="label">città:</label></td>
-                                <td><input type="text" id="citta" name="citta" class="input4 " size="20" /></td>
+                                <td><input type="text" id="citta" name="citta" class="input4 " size="13" /></td>
                             </tr>->
                             <tr>
                                 <td><label class="label">e-mail:</label></td>
-                                <td><input type="text" id="email" name="mail" class="input4 " size="20" /></td>
+                                <td><input type="text" id="email" name="mail" class="input4 " size="13" /></td>
                             </tr>
                             <tr>
 
@@ -162,7 +162,7 @@ $_smarty_tpl->tpl_vars['s']->_loop = true;
                         <table>
                             <tr>
                                 <td><label class="label">username:</label></td>
-                                <td><input type="text" id="userRec" name="username" class="input4 " size="20"/></td>
+                                <td><input type="text" id="userRec" name="username" class="input4 " size="13"/></td>
                             </tr>
                             <tr>
                                 <td colspan="2"><button id="recbutton" class="button">ok</button></td>

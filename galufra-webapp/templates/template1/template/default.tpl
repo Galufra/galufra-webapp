@@ -60,14 +60,14 @@ Released for free under a Creative Commons Attribution 2.5 License
                             <tr>
                                 <td>    <label class="label">username:</label> </td>
                                 <td class="right">
-                                    <input type="text" id="username" name="username" class="input4" size="20"/>
+                                    <input type="text" id="username" name="username" class="input4" size="13"/>
                                 </td>
                             </tr>
 
                             <tr>
                                 <td>	<label class="label">password:</label> </td>
                                 <td>
-                                    <input type="password" id="pass" name="password"class="input4" size="20" />
+                                    <input type="password" id="pass" name="password"class="input4" size="13" />
                                 </td>
                             </tr>
 
@@ -91,23 +91,23 @@ Released for free under a Creative Commons Attribution 2.5 License
 
                             <tr>
                                 <td><label class="label">username:</label></td>
-                                <td><input type="text" id="user" name="username" class="input4 " size="20"/></td>
+                                <td><input type="text" id="user" name="username" class="input4 " size="13"/></td>
                             </tr>
                             <tr>
                                 <td><label class="label">password:</label></td>
-                                <td><input type="password" id="password" name="password" class="input4 " size="20" /></td>
+                                <td><input type="password" id="password" name="password" class="input4 " size="13" /></td>
                             </tr>
                             <tr>
                                 <td><label class="label">ripeti password:</label></td>
-                                <td><input type="password" id="password1" name="password1" class="input4 " size="20" /></td>
+                                <td><input type="password" id="password1" name="password1" class="input4 " size="13" /></td>
                             </tr>
                             <tr>
                                 <td><label class="label">città:</label></td>
-                                <td><input type="text" id="citta" name="citta" class="input4 " size="20" /></td>
+                                <td><input type="text" id="citta" name="citta" class="input4 " size="13" /></td>
                             </tr>->
                             <tr>
                                 <td><label class="label">e-mail:</label></td>
-                                <td><input type="text" id="email" name="mail" class="input4 " size="20" /></td>
+                                <td><input type="text" id="email" name="mail" class="input4 " size="13" /></td>
                             </tr>
                             <tr>
 
@@ -123,7 +123,7 @@ Released for free under a Creative Commons Attribution 2.5 License
                         <table>
                             <tr>
                                 <td><label class="label">username:</label></td>
-                                <td><input type="text" id="userRec" name="username" class="input4 " size="20"/></td>
+                                <td><input type="text" id="userRec" name="username" class="input4 " size="13"/></td>
                             </tr>
                             <tr>
                                 <td colspan="2"><button id="recbutton" class="button">ok</button></td>

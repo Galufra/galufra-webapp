@@ -1,4 +1,18 @@
 /* 
+ * Trasforma una stringa datetime (YYYY-mm-dd hh:mm:ss)
+ * in un formato più leggibile (dd-mm-YYYY hh:mm)
+ */
+function formatDate(datetime){
+    var out = '';
+    datetime = datetime.split(' ');
+    var date = datetime[0].split('-');
+    out = date[2] +'-' + date[1] + '-' + date[0];
+    var time = datetime[1].split(':');
+    out += ' ' + time[0] + ':' + time[1];
+    return out;
+}
+
+/* 
  * Visualizza un messaggio nella messagebox (nel menu 'header')
  */
 function showMessage(message){
@@ -38,7 +52,7 @@ function updatePreferiti(){
             $('<li class="preferito">')
             .append($('<ul>')
                 .append('<a href="CBacheca.php?id='+eventi[i].id_evento+'"><li>'+eventi[i].nome+'</li></a>')
-                .append('<li>'+eventi[i].data+'</li>')
+                .append('<li>'+formatDate(eventi[i].data)+'</li>')
                 .append('</ul>'))
             .appendTo(Preferiti);
         });
@@ -64,7 +78,7 @@ function updatePersonali(){
             $('<li class="personale">')
             .append($('<ul>')
                 .append('<a href="CBacheca.php?id='+eventi[i].id_evento+'"><li>'+eventi[i].nome+'</li></a>')
-                .append('<li>'+eventi[i].data+'</li>')
+                .append('<li>'+formatDate(eventi[i].data)+'</li>')
                 .append('</ul>'))
             .appendTo(Personali);
         });
@@ -100,7 +114,7 @@ function updateConsigliati(map,mantieni){
                     $('<li class="consigliato">')
                     .append($('<ul>')
                         .append('<a href="CBacheca.php?id='+eventi[i].id_evento+'"><li>'+eventi[i].nome+'</li></a>')
-                        .append('<li>'+eventi[i].data+'</li>')
+                        .append('<li>'+formatDate(eventi[i].data)+'</li>')
                         .append('</ul>'))
                     .appendTo(Consigliati);
                 });
@@ -136,7 +150,7 @@ function updateBacheca(scroll){
                 $('<div class="box messaggio">')
                 .append($('<ul>')
                     .append('<h2><a href=CProfilo.php?name='+messaggi[i].utente+'>'+messaggi[i].utente+'</a> dice: '+messaggi[i].testo+'</h2>')
-                    .append('<h3>Quando? Il '+messaggi[i].data+'</h3>')
+                    .append('<h3>Quando? Il '+formatDate(messaggi[i].data)+'</h3>')
                     /*if(isAdmin || isGestore)
                 $('<div class="box messaggio">')*/
                     .append(

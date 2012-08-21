@@ -11,6 +11,8 @@ class VEvento extends View {
     public function __construct($ev){
         parent::__construct();
         $this->assign('evento',$ev);
+        $data = 'aaa';
+        $this->assign('data', $data);
     }
 }
 

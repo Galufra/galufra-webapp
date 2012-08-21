@@ -7,7 +7,7 @@
         {/if}
         <h1 align=center>{$evento->getNome()}</h1>
     </div>
-    <h3>Data: {$evento->getData()}</h3>
+    <h3>Data: {$data}</h3>
 
     <h4>Partecipanti: {$partecipanti}</h4>
 

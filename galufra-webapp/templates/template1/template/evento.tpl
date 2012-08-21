@@ -5,7 +5,7 @@ lon= {$evento->lon}
 </script>
 
 <h1 id='nome'>{$evento->nome}</h1>
-<h2 id='data'>{$evento->data}</h2>
+<h2 id='data'></h2>
 
 <div id='descrizione'>
 <p>{$evento->descrizione}</p>

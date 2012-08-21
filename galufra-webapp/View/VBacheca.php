@@ -21,6 +21,8 @@ class VBacheca extends View {
         $this->utente = $ut;
         $this->assignByRef("evento", $this->evento);
         $this->assignByRef("utente", $this->utente);
+        $data = new DateTime($this->evento->getData());
+        $this->assign("data",$data->format('d-m-Y H:i'));
         $this->assign("partecipanti",$partecipanti);
         parent::__construct();
     }

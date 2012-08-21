@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.10, created on 2012-08-14 20:54:54
+<?php /* Smarty version Smarty-3.1.10, created on 2012-08-21 17:29:57
          compiled from "../templates/template1/template/bacheca.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1427448665020ebd368acc9-39753850%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '00b9eca0046fd7fd63dfc9bbc54d81429a71ffa8' => 
     array (
       0 => '../templates/template1/template/bacheca.tpl',
-      1 => 1344970492,
+      1 => 1345562793,
       2 => 'file',
     ),
   ),
@@ -21,6 +21,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
     'utente' => 0,
     'evento' => 0,
+    'data' => 0,
     'partecipanti' => 0,
   ),
   'has_nocache_code' => false,
@@ -35,7 +36,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <h1 align=center><?php echo $_smarty_tpl->tpl_vars['evento']->value->getNome();?>
 </h1>
     </div>
-    <h3>Data: <?php echo $_smarty_tpl->tpl_vars['evento']->value->getData();?>
+    <h3>Data: <?php echo $_smarty_tpl->tpl_vars['data']->value;?>
 </h3>
 
     <h4>Partecipanti: <?php echo $_smarty_tpl->tpl_vars['partecipanti']->value;?>

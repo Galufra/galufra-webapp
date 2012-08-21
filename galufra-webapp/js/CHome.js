@@ -338,11 +338,10 @@ $(document).ready(function(){
         if(logged){
             this.preferito = checkPreferito(this.id);
             this.consigliato = checkConsigliato(this.id);
-            console.log (this.preferito);
-
+            
             output= '<div class="infowindow">'+
             '<h2>'+this.title+'</h2>'+
-            '<h3>'+this.data;
+            '<h3>'+ formatDate(this.data);
             if (this.preferito == false){
                 output +=' - <a href="#" class="addPreferiti" id="'+this.id+
                 '">Ci Sarò!:)</a></h3>';

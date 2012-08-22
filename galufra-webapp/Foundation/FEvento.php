@@ -237,7 +237,7 @@ class FEvento extends FMysql {
             $res = $this->getResult();
             return $res[1]["COUNT(*)"];
         }else
-            return $nummber;
+            return $number;
     }
 
 }

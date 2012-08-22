@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.10, created on 2012-08-21 17:29:57
+<?php /* Smarty version Smarty-3.1.10, created on 2012-08-22 17:42:53
          compiled from "../templates/template1/template/bacheca.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1427448665020ebd368acc9-39753850%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '00b9eca0046fd7fd63dfc9bbc54d81429a71ffa8' => 
     array (
       0 => '../templates/template1/template/bacheca.tpl',
-      1 => 1345562793,
+      1 => 1345650071,
       2 => 'file',
     ),
   ),
@@ -19,14 +19,20 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'unifunc' => 'content_5020ebd36e3778_64057303',
   'variables' => 
   array (
-    'utente' => 0,
     'evento' => 0,
+    'utente' => 0,
     'data' => 0,
     'partecipanti' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5020ebd36e3778_64057303')) {function content_5020ebd36e3778_64057303($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_5020ebd36e3778_64057303')) {function content_5020ebd36e3778_64057303($_smarty_tpl) {?><script type='text/javascript'>
+lat = <?php echo $_smarty_tpl->tpl_vars['evento']->value->getLat();?>
+;
+lon = <?php echo $_smarty_tpl->tpl_vars['evento']->value->getLon();?>
+;
+</script>
+
 <div id = 'bacheca' >
 
     <div>
@@ -44,6 +50,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
     <h2><?php echo $_smarty_tpl->tpl_vars['evento']->value->getDescrizione();?>
 </h2>
+    
+	<div id='map_canvas' style='height: 300px'></div>
 
     <div id='annuncioGestore'>
 

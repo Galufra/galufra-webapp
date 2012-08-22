@@ -1,3 +1,7 @@
+<script type='text/javascript'>
+lat = {$evento->getLat()};
+lon = {$evento->getLon()};
+</script>
 
 <div id = 'bacheca' >
 
@@ -12,6 +16,8 @@
     <h4>Partecipanti: {$partecipanti}</h4>
 
     <h2>{$evento->getDescrizione()}</h2>
+    
+	<div id='map_canvas' style='height: 300px'></div>
 
     <div id='annuncioGestore'>
 

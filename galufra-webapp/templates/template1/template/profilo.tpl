@@ -29,19 +29,19 @@
                 </tr>
                 <tr>
                     <td><label class="label1">nome:</label></td>
-                    <td><input type="text" name="nome" id='nome' class="input3" value={$utente->getNome()} /></td>
+                    <td><input type="text" name="nome" id='nome' class="input3" value="{$utente->getNome()}" /></td>
                 </tr>
                 <tr>
                     <td><label class="label1">cognome:</label></td>
-                    <td><input type="text" name="cognome" id='cognome' class="input3" value={$utente->getCognome()} /></td>
+                    <td><input type="text" name="cognome" id='cognome' class="input3" value="{$utente->getCognome()}" /></td>
                 </tr>
                 <tr>
                     <td><label class="label1">città:</label></td>
-                    <td><input type="text" name="citta" id='city' class="input3" value={$utente->getCitta()} /></td>
+                    <td><input type="text" name="citta" id='city' class="input3" value="{$utente->getCitta()}" /></td>
                 </tr>
                 <tr>
                     <td><label class="label1">e-mail:</label></td>
-                    <td><input type="text" name="email" id='email' class="input3" value={$utente->getEmail()}/></td>
+                    <td><input type="text" name="email" id='email' class="input3" value="{$utente->getEmail()}" /></td>
                 </tr>
                 <tr>
                     <td colspan="2"><button id="updateButton" class="button">Salva</button></td>
@@ -82,7 +82,7 @@
             <tr><h1>Profilo Utente</h1></tr>
 
             {if $utente->isAdmin()}
-            <h4><a href="#" id='eliminaUtente' value={$utenteV->getUsername()}>(Elimina Utente)</a></h4>
+            <h4><a href="#" id='eliminaUtente' value="{$utenteV->getUsername()}">(Elimina Utente)</a></h4>
             {/if}
             <tr>
                 <td><label class="box">Username: {$utenteV->getUsername()}</label></td>

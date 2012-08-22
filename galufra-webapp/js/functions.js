@@ -149,8 +149,8 @@ function updateBacheca(scroll){
             $.each(messaggi,function(i){
                 $('<div class="box messaggio">')
                 .append($('<ul>')
-                    .append('<h2><a href=CProfilo.php?name='+messaggi[i].utente+'>'+messaggi[i].utente+'</a> dice: '+messaggi[i].testo+'</h2>')
-                    .append('<h3>Quando? Il '+formatDate(messaggi[i].data)+'</h3>')
+                    .append('<h3><a href=CProfilo.php?name='+messaggi[i].utente+'>'+messaggi[i].utente+'</a>: '+messaggi[i].testo+'</h3>')
+                    .append('<p>Quando? Il '+formatDate(messaggi[i].data)+'</p>')
                     /*if(isAdmin || isGestore)
                 $('<div class="box messaggio">')*/
                     .append(

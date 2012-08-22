@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.10, created on 2012-08-22 17:42:53
+<?php /* Smarty version Smarty-3.1.10, created on 2012-08-22 18:01:08
          compiled from "../templates/template1/template/bacheca.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1427448665020ebd368acc9-39753850%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '00b9eca0046fd7fd63dfc9bbc54d81429a71ffa8' => 
     array (
       0 => '../templates/template1/template/bacheca.tpl',
-      1 => 1345650071,
+      1 => 1345651266,
       2 => 'file',
     ),
   ),
@@ -48,8 +48,8 @@ lon = <?php echo $_smarty_tpl->tpl_vars['evento']->value->getLon();?>
     <h4>Partecipanti: <?php echo $_smarty_tpl->tpl_vars['partecipanti']->value;?>
 </h4>
 
-    <h2><?php echo $_smarty_tpl->tpl_vars['evento']->value->getDescrizione();?>
-</h2>
+    <p id='descrizione'><?php echo $_smarty_tpl->tpl_vars['evento']->value->getDescrizione();?>
+</p>
     
 	<div id='map_canvas' style='height: 300px'></div>
 

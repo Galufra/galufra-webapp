@@ -120,7 +120,7 @@ function updateConsigliati(map,mantieni){
                 });
             }
         });
-    }else $('<li class="consigliato">Nessuna Mappa in Visualizzazione</li>').appendTo(Consigliati);
+    }else $('#boxConsigliati').remove();
 
 }
 

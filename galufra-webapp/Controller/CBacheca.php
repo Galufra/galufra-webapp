@@ -60,12 +60,12 @@ class Cbacheca {
         switch ($_GET['action']) {
 
             case ('creaMessaggio'):
-                $message = mysql_escape_string(utf8_decode($_GET['messaggio']));
+                $message = mysql_real_escape_string(utf8_decode($_GET['messaggio']));
                 $this->insertMessage($message);
                 break;
 
             case ('creaAnnuncio'):
-                $message = mysql_escape_string(utf8_decode($_GET['annuncio']));
+                $message = htmlentities(utf8_decode($_GET['annuncio']));
                 $this->insertAnnuncio($message);
                 break;
 
@@ -180,7 +180,7 @@ class Cbacheca {
      * inserisce un annuncio da parte del gestore dell'evento. Fornisce un json di risposta
      */
     public function insertAnnuncio($mess) {
-
+        $response = false;
         if ($this->evento) {
             $ev = new FEvento();
             $ev->connect();
@@ -195,8 +195,9 @@ class Cbacheca {
                     'message' => "Annuncio Inserito!"
                 );
             }
-            echo json_encode($response);
+            
         }
+        echo json_encode($response);
     }
     /**
      * @access public

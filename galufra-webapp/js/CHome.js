@@ -362,7 +362,7 @@ $(document).ready(function(){
         }else {
             output= '<div class="infowindow">'+
             '<h2>'+this.title+'</h2>'+
-            '<h3>'+this.data+'</h3>'+
+            '<h3>'+formatDate(this.data)+'</h3>'+
             '<p>'+this.descrizione+
             ' <a href="#" class="goToReg">(registrati per visualizzare tutto)</a></p>';
 

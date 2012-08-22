@@ -29,7 +29,7 @@ class FEvento extends FMysql {
         return $this->search(array(
             array('lat', 'BETWEEN', "$swLat' AND '$neLat"),
             array('lon', 'BETWEEN', "$swLon' AND '$neLon"),
-            array('data', '>=', date('Y-m-d'))
+            array('data', '>=', date("Y-m-d"))
         ));
     }
 
@@ -48,7 +48,7 @@ class FEvento extends FMysql {
                     SELECT evento FROM preferisce as p, evento as e1
                     WHERE p.utente =  $idUtente
                     AND p.evento = e1.id_evento )
-                ORDER BY DATE_FORMAT(data, '%y-%m-%d')"
+                ORDER BY DATE_FORMAT(data, '%y-%m-%d %H:%i')"
         );
         return $this->getObjectArray();
     }
@@ -212,7 +212,7 @@ class FEvento extends FMysql {
      */
     public function getUserEventi($id) {
 
-        $result = $this->makeQuery("SELECT * FROM $this->_table WHERE id_gestore = $id ORDER BY DATE_FORMAT(data, '%y-%m%d')");
+        $result = $this->makeQuery("SELECT * FROM $this->_table WHERE id_gestore = $id ORDER BY DATE_FORMAT(data, '%y-%m%d %H:%i')");
         if ($result[0]) {
             $eventi = $this->getObjectArray();
             return $eventi;

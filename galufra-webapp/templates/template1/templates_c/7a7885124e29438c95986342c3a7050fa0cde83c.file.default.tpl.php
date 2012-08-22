@@ -1,20 +1,22 @@
-<?php /* Smarty version Smarty-3.1.10, created on 2012-08-22 19:46:05
+<?php /* Smarty version Smarty-3.1.10, created on 2012-08-22 20:01:41
          compiled from "../templates/template1/template/default.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:23888221650351add518064-39415631%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:209803574150351b4c3b7b22-39851856%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '7a7885124e29438c95986342c3a7050fa0cde83c' => 
     array (
       0 => '../templates/template1/template/default.tpl',
-      1 => 1345656557,
+      1 => 1345658499,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '23888221650351add518064-39415631',
+  'nocache_hash' => '209803574150351b4c3b7b22-39851856',
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.10',
+  'unifunc' => 'content_50351b4c446ee6_96919504',
   'variables' => 
   array (
     'scripts' => 0,
@@ -29,10 +31,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'errore_registrazione' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.10',
-  'unifunc' => 'content_50351add597a71_53137337',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_50351add597a71_53137337')) {function content_50351add597a71_53137337($_smarty_tpl) {?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<?php if ($_valid && !is_callable('content_50351b4c446ee6_96919504')) {function content_50351b4c446ee6_96919504($_smarty_tpl) {?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--
 Design by Free CSS Templates
 http://www.freecsstemplates.org
@@ -290,7 +290,7 @@ $_smarty_tpl->tpl_vars['s']->_loop = true;
 
         </div>
         <div id="footer">
-            <p>Copyright (c) 2006 Sitename.com. All rights reserved. Design by <a href="http://freecsstemplates.org/">Free CSS Templates</a>.</p>
+            <p>Copyright (c) 2006 Galufra web-app. All rights reserved. Design by <a href="http://freecsstemplates.org/">Free CSS Templates</a>.</p>
         </div>
     </body>
 </html>

@@ -221,7 +221,7 @@ $(document).ready(function(){
 
         var coord;
 
-        if($('#search_input').val() == '')
+        if($('#cercaInputBox').val() == '')
             showMessage("Nessuna posizione da cercare...");
         else{
 
@@ -229,7 +229,7 @@ $(document).ready(function(){
             geocoder = new google.maps.Geocoder();
             geocoder.geocode(
             {
-                'address': $('#search_input').val()
+                'address': $('#cercaInputBox').val()
             },
             function(results, status) {
 

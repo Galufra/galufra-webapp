@@ -206,7 +206,7 @@ $(document).ready(function(){
         return false;
     });
 
-    //si allaccia al bottone cerca appena si inizia a scrivere
+    //si allaccia al bottone "cerca" non appena si preme invio
     $("#cercaInputBox").keypress(function (event){
 
        if(event.which == 13){

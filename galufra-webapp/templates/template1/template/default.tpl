@@ -29,19 +29,19 @@ Released for free under a Creative Commons Attribution 2.5 License
                 {if $sbloccato}
                 <li><a href="CCrea.php?action=">
                 {else}
-                 <a href="CHome.php?action=">
-                 <script>
-                 showMessage("Limite eventi superato. Diventa SUPERUSER!");
-                 </script>
+                        <a href="CHome.php?action=">
+                            <script>
+                            showMessage("Limite eventi superato. Diventa SUPERUSER!");
+                            </script>
                 {/if}
-                 Crea Evento</a></li>
+                            Crea Evento</a></li>
                 {/if}
                 <li id='messagebox'></li>
             </ul>
 
             <div id="search">
                 <fieldset>
-                    <input name="input1" type="text" id="search_input" />
+                    <input id="cercaInputBox" name="input1" type="text" id="search_input" />
                     <button class="button" id="cerca">Centra</button>
                 </fieldset>
             </div>
@@ -110,7 +110,7 @@ Released for free under a Creative Commons Attribution 2.5 License
                                 <td><input type="text" id="email" name="mail" class="input4 " size="13" /></td>
                             </tr>
                             <tr>
-
+                                <td colspan="1"><a href="#" id="backHome"><b>indietro</b></a></td>
                                 <td colspan="2"><button id="regbutton" class="button">ok</button></td>
                             </tr>
                         </table>
@@ -126,6 +126,7 @@ Released for free under a Creative Commons Attribution 2.5 License
                                 <td><input type="text" id="userRec" name="username" class="input4 " size="13"/></td>
                             </tr>
                             <tr>
+                                <td colspan="1"><a href="#" id="backHome"><b>indietro</b></a></td>
                                 <td colspan="2"><button id="recbutton" class="button">ok</button></td>
                             </tr>
                         </table>
@@ -169,7 +170,7 @@ Released for free under a Creative Commons Attribution 2.5 License
                 </div>
 
 
-
+                {if $autenticato}
                 <div class="box" id="boxPersonali">
                     <h3><a href="CListaEventi.php?action=personali">Tuoi Eventi</a></h3>
                     <ul class="bottom" id='ulPersonali'></ul>
@@ -184,8 +185,20 @@ Released for free under a Creative Commons Attribution 2.5 License
                     <ul class="bottom" id='ulConsigliati'>
                     </ul>
                 </div>
-            </div>
+                {else}
+                <div class="box">
+                    <p id="benvenuto">Benvenuto in Galufra WebApp. L'applicazione si pone
+                        come obiettivo quello di proporre un nuovo modo di valorizzare
+                        il territorio utilizzando una mappa come punto di accesso ad ogni luogo.
+                        Adesso puoi consultarla liberamente, ma per avere accesso a tutte le
+                        funzionalità è necessaria la <a href="#" class="goToReg">registrazione ;)</a></p>
+                    <p id="benvenuto">
+                        Francesco, Luca e Gabriele
+                    </p>
+                </div>
+               {/if}
 
+            </div>
             <div  class="colTwo">
         {include $content}
             </div>

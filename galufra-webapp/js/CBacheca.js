@@ -3,6 +3,17 @@ $(document).ready(function(){
     updatePersonali();
     updateBacheca(false);
 
+
+	var map = initializeMap();
+	var coord = new google.maps.LatLng(
+		parseFloat(lat),
+        parseFloat(lon)
+    );
+	map.setCenter(coord);
+	marker = new google.maps.Marker({
+		'position':coord,
+        'map':map
+	});
     //poichè non si visualizza una mappa non mostro eventi consigliati nella
     //parte di mappa che dovrebbe esserci
     updateConsigliati(null,true);

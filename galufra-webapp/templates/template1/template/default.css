@@ -382,3 +382,11 @@ form#creaEvento input, textarea{
 
     margin-left: 15px;
 }
+
+#benvenuto{
+
+    color: #2582A4;
+    font-weight: bold;
+    font-size: 1.1em;
+
+}

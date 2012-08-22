@@ -122,6 +122,11 @@ $(document).ready(function(){
         $('#logo2').show('slow');
     });
 
+    $('#backHome').live("click",function(){
+        $('#logo2').hide();
+        $('#recuperoPwd').hide();
+        $('#logo').show('slow');
+    });
 
     //Si occupa del login. Se non sono riempiti i campi
     //non avviene la richiesta
@@ -199,6 +204,15 @@ $(document).ready(function(){
         }
 
         return false;
+    });
+
+    //si allaccia al bottone cerca appena si inizia a scrivere
+    $("#cercaInputBox").keypress(function (event){
+
+       if(event.which == 13){
+           $('#cerca').trigger('click');
+       }
+
     });
 
     //Centra la mappa nella posizione desiderata.
@@ -330,7 +344,7 @@ $(document).ready(function(){
     }
 
     /*
-     * Formattazione del contenuto delle infoWindow, aseconda se l'utente è
+     * Formattazione del contenuto delle infoWindow, a seconda se l'utente è
      * loggato o no
      */
     function infoHTML(){

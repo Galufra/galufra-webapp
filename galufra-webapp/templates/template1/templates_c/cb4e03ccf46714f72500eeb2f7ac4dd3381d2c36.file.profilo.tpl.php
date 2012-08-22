@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.10, created on 2012-08-21 16:50:28
+<?php /* Smarty version Smarty-3.1.10, created on 2012-08-22 18:59:52
          compiled from "../templates/template1/template/profilo.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:10810680105024dad4f22ba7-58075765%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'cb4e03ccf46714f72500eeb2f7ac4dd3381d2c36' => 
     array (
       0 => '../templates/template1/template/profilo.tpl',
-      1 => 1345455219,
+      1 => 1345654787,
       2 => 'file',
     ),
   ),
@@ -53,27 +53,27 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 </tr>
                 <tr class = 'password'>
                     <td><label class="label1">ripeti password:</label></td>
-                    <td><input type="password" name="password1" id="codice1" class="input3"/>
+                    <td><input type="password" name="password1" id="codice1" class="input3" />
                 </tr>
                 <tr>
                     <td><label class="label1">nome:</label></td>
-                    <td><input type="text" name="nome" id='nome' class="input3" value=<?php echo $_smarty_tpl->tpl_vars['utente']->value->getNome();?>
- /></td>
+                    <td><input type="text" name="nome" id='nome' class="input3" value="<?php echo $_smarty_tpl->tpl_vars['utente']->value->getNome();?>
+" /></td>
                 </tr>
                 <tr>
                     <td><label class="label1">cognome:</label></td>
-                    <td><input type="text" name="cognome" id='cognome' class="input3" value=<?php echo $_smarty_tpl->tpl_vars['utente']->value->getCognome();?>
- /></td>
+                    <td><input type="text" name="cognome" id='cognome' class="input3" value="<?php echo $_smarty_tpl->tpl_vars['utente']->value->getCognome();?>
+" /></td>
                 </tr>
                 <tr>
                     <td><label class="label1">città:</label></td>
-                    <td><input type="text" name="citta" id='city' class="input3" value=<?php echo $_smarty_tpl->tpl_vars['utente']->value->getCitta();?>
- /></td>
+                    <td><input type="text" name="citta" id='city' class="input3" value="<?php echo $_smarty_tpl->tpl_vars['utente']->value->getCitta();?>
+" /></td>
                 </tr>
                 <tr>
                     <td><label class="label1">e-mail:</label></td>
-                    <td><input type="text" name="email" id='email' class="input3" value=<?php echo $_smarty_tpl->tpl_vars['utente']->value->getEmail();?>
-/></td>
+                    <td><input type="text" name="email" id='email' class="input3" value="<?php echo $_smarty_tpl->tpl_vars['utente']->value->getEmail();?>
+" /></td>
                 </tr>
                 <tr>
                     <td colspan="2"><button id="updateButton" class="button">Salva</button></td>
@@ -114,8 +114,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <tr><h1>Profilo Utente</h1></tr>
 
             <?php if ($_smarty_tpl->tpl_vars['utente']->value->isAdmin()){?>
-            <h4><a href="#" id='eliminaUtente' value=<?php echo $_smarty_tpl->tpl_vars['utenteV']->value->getUsername();?>
->(Elimina Utente)</a></h4>
+            <h4><a href="#" id='eliminaUtente' value="<?php echo $_smarty_tpl->tpl_vars['utenteV']->value->getUsername();?>
+">(Elimina Utente)</a></h4>
             <?php }?>
             <tr>
                 <td><label class="box">Username: <?php echo $_smarty_tpl->tpl_vars['utenteV']->value->getUsername();?>

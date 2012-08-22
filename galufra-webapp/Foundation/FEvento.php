@@ -26,10 +26,13 @@ class FEvento extends FMysql {
      */
 
     public function searchEventiMappa($neLat, $neLon, $swLat, $swLon) {
+        $prossimomese = new DateTime();
+        $prossimomese->modify('+1 month');
         return $this->search(array(
             array('lat', 'BETWEEN', "$swLat' AND '$neLat"),
             array('lon', 'BETWEEN', "$swLon' AND '$neLon"),
-            array('data', '>=', date("Y-m-d"))
+            array('data', '>=', date("Y-m-d")),
+            array('data', '<=', $prossimomese->format("Y-m-d"))
         ));
     }
 

@@ -23,28 +23,6 @@ $(document).ready(function(){
         }
         else{
 
-           /* Forse c'è un bug! Non si riesce a fare la conversione della data alcune volte.
-            * Viene generata una eccezione che dice che il formato giorno mese anno ora
-            * che si è immesso nella form non è come quello stabilito (format: "%d %M %Y %T)
-            * Per ora non passo per il parser, perchè non posso permettermi che "qualche volta non funzioni".
-            * Definisco la data così come la vogliamo nel
-            * db direttamente dalle impostazioni del picker qui in basso dopo la chiamata ajax
-
-            //definisce il formato di data che vogliamo
-            var defaultConv = new AnyTime.Converter({
-                format: "%d %M %Y %T"
-            });
-
-            //inserisce uno spazio tra data e orario
-            var timestamp = defaultConv.parse($('#data').val()+' '+$('#ora').val());
-            if(!timestamp){
-                showMessage('La data inserita non è corretta');
-                return false;
-            }
-
-
-             */
-
             //chiamata: sincrona perchè ho bisogno che il controller venga ricaricato per
             //controllare il numero di eventi inseriti e nel caso bloccare l'utente'
             $.ajax({

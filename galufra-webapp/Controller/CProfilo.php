@@ -141,13 +141,13 @@ class CProfilo {
             $pwd = $_POST['password'];
             $pwd1 = $_POST['password1'];
         }
-        $this->utente->setCitta((isset($_POST['citta']) ? mysql_real_escape_string(htmlspecialchars($_POST['citta'])) : $this->utente->getCitta()));
-        $this->utente->setNome((isset($_POST['nome']) ? mysql_real_escape_string(htmlspecialchars($_POST['nome'])) : $this->utente->getNome()));
-        $this->utente->setCognome((isset($_POST['cognome']) ? mysql_real_escape_string(htmlspecialchars($_POST['cognome'])) : $this->utente->getCognome()));
+        $this->utente->setCitta((isset($_POST['citta']) ? (htmlentities($_POST['citta'])) : $this->utente->getCitta()));
+        $this->utente->setNome((isset($_POST['nome']) ? (htmlentities($_POST['nome'])) : $this->utente->getNome()));
+        $this->utente->setCognome((isset($_POST['cognome']) ? (htmlentities($_POST['cognome'])) : $this->utente->getCognome()));
 
         if ($this->utente->setEmail
                         (
-                        (isset($_POST['email']) ? mysql_real_escape_string(htmlspecialchars($_POST['email'])) : $this->utente->getEmail())
+                        (isset($_POST['email']) ? (htmlentities($_POST['email'])) : $this->utente->getEmail())
                 )
                 &&
                 $pwd == $pwd1

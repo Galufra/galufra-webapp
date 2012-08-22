@@ -26,10 +26,13 @@ class FEvento extends FMysql {
      */
 
     public function searchEventiMappa($neLat, $neLon, $swLat, $swLon) {
+        $prossimomese = new DateTime();
+        $prossimomese->modify('+1 month');
         return $this->search(array(
             array('lat', 'BETWEEN', "$swLat' AND '$neLat"),
             array('lon', 'BETWEEN', "$swLon' AND '$neLon"),
-            array('data', '>=', date('Y-m-d'))
+            array('data', '>=', date("Y-m-d")),
+            array('data', '<=', $prossimomese->format("Y-m-d"))
         ));
     }
 
@@ -48,7 +51,7 @@ class FEvento extends FMysql {
                     SELECT evento FROM preferisce as p, evento as e1
                     WHERE p.utente =  $idUtente
                     AND p.evento = e1.id_evento )
-                ORDER BY DATE_FORMAT(data, '%y-%m-%d')"
+                ORDER BY DATE_FORMAT(data, '%y-%m-%d %H:%i')"
         );
         return $this->getObjectArray();
     }
@@ -212,7 +215,7 @@ class FEvento extends FMysql {
      */
     public function getUserEventi($id) {
 
-        $result = $this->makeQuery("SELECT * FROM $this->_table WHERE id_gestore = $id ORDER BY DATE_FORMAT(data, '%y-%m%d')");
+        $result = $this->makeQuery("SELECT * FROM $this->_table WHERE id_gestore = $id ORDER BY DATE_FORMAT(data, '%y-%m%d %H:%i')");
         if ($result[0]) {
             $eventi = $this->getObjectArray();
             return $eventi;
@@ -234,7 +237,7 @@ class FEvento extends FMysql {
             $res = $this->getResult();
             return $res[1]["COUNT(*)"];
         }else
-            return $nummber;
+            return $number;
     }
 
 }

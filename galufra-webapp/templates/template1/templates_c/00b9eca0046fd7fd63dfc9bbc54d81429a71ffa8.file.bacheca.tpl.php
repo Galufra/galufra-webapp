@@ -1,22 +1,30 @@
+<<<<<<< HEAD
 <?php /* Smarty version Smarty-3.1.10, created on 2012-08-22 18:01:08
+=======
+<?php /* Smarty version Smarty-3.1.10, created on 2012-08-22 18:02:57
+>>>>>>> 19f3628e3a4bdb9bf1d4cc9a041b65ca4123bcb4
          compiled from "../templates/template1/template/bacheca.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:1427448665020ebd368acc9-39753850%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:13343284135035025aee5b00-68063111%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '00b9eca0046fd7fd63dfc9bbc54d81429a71ffa8' => 
     array (
       0 => '../templates/template1/template/bacheca.tpl',
+<<<<<<< HEAD
       1 => 1345651266,
+=======
+      1 => 1345651372,
+>>>>>>> 19f3628e3a4bdb9bf1d4cc9a041b65ca4123bcb4
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1427448665020ebd368acc9-39753850',
+  'nocache_hash' => '13343284135035025aee5b00-68063111',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.10',
-  'unifunc' => 'content_5020ebd36e3778_64057303',
+  'unifunc' => 'content_5035025af416e1_96944956',
   'variables' => 
   array (
     'evento' => 0,
@@ -26,7 +34,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5020ebd36e3778_64057303')) {function content_5020ebd36e3778_64057303($_smarty_tpl) {?><script type='text/javascript'>
+<?php if ($_valid && !is_callable('content_5035025af416e1_96944956')) {function content_5035025af416e1_96944956($_smarty_tpl) {?><script type='text/javascript'>
 lat = <?php echo $_smarty_tpl->tpl_vars['evento']->value->getLat();?>
 ;
 lon = <?php echo $_smarty_tpl->tpl_vars['evento']->value->getLon();?>
@@ -48,7 +56,11 @@ lon = <?php echo $_smarty_tpl->tpl_vars['evento']->value->getLon();?>
     <h4>Partecipanti: <?php echo $_smarty_tpl->tpl_vars['partecipanti']->value;?>
 </h4>
 
+<<<<<<< HEAD
     <p id='descrizione'><?php echo $_smarty_tpl->tpl_vars['evento']->value->getDescrizione();?>
+=======
+    <p><?php echo $_smarty_tpl->tpl_vars['evento']->value->getDescrizione();?>
+>>>>>>> 19f3628e3a4bdb9bf1d4cc9a041b65ca4123bcb4
 </p>
     
 	<div id='map_canvas' style='height: 300px'></div>

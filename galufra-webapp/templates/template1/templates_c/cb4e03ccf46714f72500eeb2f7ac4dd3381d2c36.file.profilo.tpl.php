@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <?php /* Smarty version Smarty-3.1.10, created on 2012-08-22 18:57:47
+=======
+<?php /* Smarty version Smarty-3.1.10, created on 2012-08-22 18:59:52
+>>>>>>> 19f3628e3a4bdb9bf1d4cc9a041b65ca4123bcb4
          compiled from "../templates/template1/template/profilo.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:10810680105024dad4f22ba7-58075765%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +11,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'cb4e03ccf46714f72500eeb2f7ac4dd3381d2c36' => 
     array (
       0 => '../templates/template1/template/profilo.tpl',
+<<<<<<< HEAD
       1 => 1345654657,
+=======
+      1 => 1345654787,
+>>>>>>> 19f3628e3a4bdb9bf1d4cc9a041b65ca4123bcb4
       2 => 'file',
     ),
   ),
@@ -53,7 +61,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 </tr>
                 <tr class = 'password'>
                     <td><label class="label1">ripeti password:</label></td>
-                    <td><input type="password" name="password1" id="codice1" class="input3"/>
+                    <td><input type="password" name="password1" id="codice1" class="input3" />
                 </tr>
                 <tr>
                     <td><label class="label1">nome:</label></td>

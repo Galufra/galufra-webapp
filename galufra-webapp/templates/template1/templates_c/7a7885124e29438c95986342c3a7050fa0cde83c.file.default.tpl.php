@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.10, created on 2012-08-20 11:39:04
+<?php /* Smarty version Smarty-3.1.10, created on 2012-08-22 19:29:21
          compiled from "../templates/template1/template/default.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:116381495150127392e30ec1-13862966%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7a7885124e29438c95986342c3a7050fa0cde83c' => 
     array (
       0 => '../templates/template1/template/default.tpl',
-      1 => 1345455219,
+      1 => 1345656557,
       2 => 'file',
     ),
   ),
@@ -68,19 +68,19 @@ $_smarty_tpl->tpl_vars['s']->_loop = true;
                 <?php if ($_smarty_tpl->tpl_vars['sbloccato']->value){?>
                 <li><a href="CCrea.php?action=">
                 <?php }else{ ?>
-                 <a href="CHome.php?action=">
-                 <script>
-                 showMessage("Limite eventi superato. Diventa SUPERUSER!");
-                 </script>
+                        <a href="CHome.php?action=">
+                            <script>
+                            showMessage("Limite eventi superato. Diventa SUPERUSER!");
+                            </script>
                 <?php }?>
-                 Crea Evento</a></li>
+                            Crea Evento</a></li>
                 <?php }?>
                 <li id='messagebox'></li>
             </ul>
 
             <div id="search">
                 <fieldset>
-                    <input name="input1" type="text" id="search_input" />
+                    <input id="cercaInputBox" name="input1" type="text" id="search_input" />
                     <button class="button" id="cerca">Centra</button>
                 </fieldset>
             </div>
@@ -149,7 +149,7 @@ $_smarty_tpl->tpl_vars['s']->_loop = true;
                                 <td><input type="text" id="email" name="mail" class="input4 " size="13" /></td>
                             </tr>
                             <tr>
-
+                                <td colspan="1"><a href="#" id="backHome"><b>indietro</b></a></td>
                                 <td colspan="2"><button id="regbutton" class="button">ok</button></td>
                             </tr>
                         </table>
@@ -165,6 +165,7 @@ $_smarty_tpl->tpl_vars['s']->_loop = true;
                                 <td><input type="text" id="userRec" name="username" class="input4 " size="13"/></td>
                             </tr>
                             <tr>
+                                <td colspan="1"><a href="#" id="backHome"><b>indietro</b></a></td>
                                 <td colspan="2"><button id="recbutton" class="button">ok</button></td>
                             </tr>
                         </table>
@@ -209,7 +210,7 @@ $_smarty_tpl->tpl_vars['s']->_loop = true;
                 </div>
 
 
-
+                <?php if ($_smarty_tpl->tpl_vars['autenticato']->value){?>
                 <div class="box" id="boxPersonali">
                     <h3><a href="CListaEventi.php?action=personali">Tuoi Eventi</a></h3>
                     <ul class="bottom" id='ulPersonali'></ul>
@@ -224,8 +225,20 @@ $_smarty_tpl->tpl_vars['s']->_loop = true;
                     <ul class="bottom" id='ulConsigliati'>
                     </ul>
                 </div>
-            </div>
+                <?php }else{ ?>
+                <div class="box">
+                    <p id="benvenuto">Benvenuto in Galufra WebApp. L'applicazione si pone
+                        come obiettivo quello di proporre un nuovo modo di valorizzare
+                        il territorio utilizzando una mappa come punto di accesso ad ogni luogo.
+                        Adesso puoi consultarla liberamente, ma per avere accesso a tutte le
+                        funzionalità è necessaria la <a href="#" class="goToReg">registrazione ;)</a></p>
+                    <p id="benvenuto">
+                        Francesco, Luca e Gabriele
+                    </p>
+                </div>
+               <?php }?>
 
+            </div>
             <div  class="colTwo">
         <?php echo $_smarty_tpl->getSubTemplate ($_smarty_tpl->tpl_vars['content']->value, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 

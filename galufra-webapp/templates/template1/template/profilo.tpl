@@ -25,7 +25,7 @@
                 </tr>
                 <tr class = 'password'>
                     <td><label class="label1">ripeti password:</label></td>
-                    <td><input type="password" name="password1" id="codice1" class="input3"/>
+                    <td><input type="password" name="password1" id="codice1" class="input3" />
                 </tr>
                 <tr>
                     <td><label class="label1">nome:</label></td>

@@ -52,7 +52,7 @@ function updatePreferiti(){
             $('<li class="preferito">')
             .append($('<ul>')
                 .append('<a href="CBacheca.php?id='+eventi[i].id_evento+'"><li>'+eventi[i].nome+'</li></a>')
-                .append('<li>'+formatDate(eventi[i].data)+'</li>')
+                //.append('<li>'+formatDate(eventi[i].data)+'</li>')
                 .append('</ul>'))
             .appendTo(Preferiti);
         });
@@ -78,7 +78,7 @@ function updatePersonali(){
             $('<li class="personale">')
             .append($('<ul>')
                 .append('<a href="CBacheca.php?id='+eventi[i].id_evento+'"><li>'+eventi[i].nome+'</li></a>')
-                .append('<li>'+formatDate(eventi[i].data)+'</li>')
+                //.append('<li>'+formatDate(eventi[i].data)+'</li>')
                 .append('</ul>'))
             .appendTo(Personali);
         });
@@ -114,7 +114,7 @@ function updateConsigliati(map,mantieni){
                     $('<li class="consigliato">')
                     .append($('<ul>')
                         .append('<a href="CBacheca.php?id='+eventi[i].id_evento+'"><li>'+eventi[i].nome+'</li></a>')
-                        .append('<li>'+formatDate(eventi[i].data)+'</li>')
+                        //.append('<li>'+formatDate(eventi[i].data)+'</li>')
                         .append('</ul>'))
                     .appendTo(Consigliati);
                 });

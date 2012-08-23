@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.10, created on 2012-08-23 10:27:00
+<?php /* Smarty version Smarty-3.1.10, created on 2012-08-23 11:08:29
          compiled from "../templates/template1/template/default.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:209803574150351b4c3b7b22-39851856%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7a7885124e29438c95986342c3a7050fa0cde83c' => 
     array (
       0 => '../templates/template1/template/default.tpl',
-      1 => 1345710265,
+      1 => 1345712899,
       2 => 'file',
     ),
   ),
@@ -127,7 +127,7 @@ $_smarty_tpl->tpl_vars['s']->_loop = true;
                         <table>
 
                             <tr><h1>Registrazione</h1></tr>
-
+                            
                             <tr>
                                 <td><label class="label">username:</label></td>
                                 <td><input type="text" id="user" name="username" class="input4 " size="13"/></td>
@@ -143,7 +143,7 @@ $_smarty_tpl->tpl_vars['s']->_loop = true;
                             <tr>
                                 <td><label class="label">città:</label></td>
                                 <td><input type="text" id="citta" name="citta" class="input4 " size="13" /></td>
-                            </tr>->
+                            </tr>
                             <tr>
                                 <td><label class="label">e-mail:</label></td>
                                 <td><input type="text" id="email" name="mail" class="input4 " size="13" /></td>
@@ -169,8 +169,9 @@ $_smarty_tpl->tpl_vars['s']->_loop = true;
                                 <td colspan="2"><button id="recbutton" class="button">ok</button></td>
                             </tr>
                         </table>
-                        <div><b>Ti verrà inviata una e-mail all' indirizzo di registrazione con una nuova password che potrai modificare
-                                successivamente dal tuo profilo</b></div>
+                        <div align=center><b>Ti verrà inviata una e-mail all' indirizzo di registrazione con una nuova password che potrai</div>
+                        <div align=center>modificare
+                            successivamente dal tuo profilo</b></div>
                     </div>
                 </div>
 

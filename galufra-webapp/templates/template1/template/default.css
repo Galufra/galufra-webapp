@@ -390,3 +390,7 @@ form#creaEvento input, textarea{
     font-size: 1.1em;
 
 }
+
+#backHome b{
+    color: #2582A4;
+}

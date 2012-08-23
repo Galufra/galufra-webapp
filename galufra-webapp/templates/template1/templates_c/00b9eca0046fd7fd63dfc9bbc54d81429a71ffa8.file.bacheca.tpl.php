@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.10, created on 2012-08-22 19:49:50
+<?php /* Smarty version Smarty-3.1.10, created on 2012-08-23 11:20:21
          compiled from "../templates/template1/template/bacheca.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:143893498150351b4c44a934-76211985%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '00b9eca0046fd7fd63dfc9bbc54d81429a71ffa8' => 
     array (
       0 => '../templates/template1/template/bacheca.tpl',
-      1 => 1345657788,
+      1 => 1345713531,
       2 => 'file',
     ),
   ),
@@ -74,7 +74,7 @@ lon = <?php echo $_smarty_tpl->tpl_vars['evento']->value->getLon();?>
     <?php }?>
 
     <div id='messaggiBacheca'>
-        <br><h2>Bacheca Messaggi Evento:</h2>
+        <br><h2>Bacheca Messaggi:</h2>
     </div>
 
     <div id='creaMessaggio' >
@@ -84,7 +84,7 @@ lon = <?php echo $_smarty_tpl->tpl_vars['evento']->value->getLon();?>
                 <td><textarea id='messaggio' rows=4></textarea></td>
             </tr>
             <tr>
-                <td><button id='inserisciMessaggio' class = "button">Scrivilo!</button></td>
+                <td><button id='inserisciMessaggio' class = "button">Scrivi!</button></td>
             </tr>
         </table>
     </div>

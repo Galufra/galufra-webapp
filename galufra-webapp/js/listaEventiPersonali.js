@@ -23,7 +23,7 @@ $(document).ready(function(data){
         var eventi = response.eventi;
         $.each(eventi, function(i){
             $('<div class="pers">')
-            .append($('<div = "box">')
+            .append($('<div class="box">')
                 .append('<a href="CBacheca.php?id='+eventi[i].id_evento+'"><li>'+eventi[i].nome+'</li></a>')
                 .append('<ul>'+eventi[i].data+'</ul>')
                 .append('<ul>'+eventi[i].descrizione+'</ul>')

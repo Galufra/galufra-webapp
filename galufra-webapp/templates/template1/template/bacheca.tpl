@@ -40,7 +40,7 @@ lon = {$evento->getLon()};
     {/if}
 
     <div id='messaggiBacheca'>
-        <br><h2>Bacheca Messaggi Evento:</h2>
+        <br><h2>Bacheca Messaggi:</h2>
     </div>
 
     <div id='creaMessaggio' >
@@ -50,7 +50,7 @@ lon = {$evento->getLon()};
                 <td><textarea id='messaggio' rows=4></textarea></td>
             </tr>
             <tr>
-                <td><button id='inserisciMessaggio' class = "button">Scrivilo!</button></td>
+                <td><button id='inserisciMessaggio' class = "button">Scrivi!</button></td>
             </tr>
         </table>
     </div>

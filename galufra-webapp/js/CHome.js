@@ -358,11 +358,11 @@ $(document).ready(function(){
             '<h3>'+ formatDate(this.data);
             if (this.preferito == false){
                 output +=' - <a href="#" class="addPreferiti" id="'+this.id+
-                '">Ci Sarò!:)</a></h3>';
+                '">Ci Sarò!</a></h3>';
             }
             else {
                 output +=' - <a href="#" class="removePreferiti" id="'+this.id+
-                '">Non Potrò Più Esserci! :(</a></h3>';
+                '">Non Potrò Più Esserci!</a></h3>';
             }
             output+='<p>'+this.descrizione+
             ' <a href="CBacheca.php?id='+this.id+'">(visualizza altro)</a></p>';
@@ -370,7 +370,7 @@ $(document).ready(function(){
                 output += '<div><h3><a href="#" class="addConsigliati" id="'+this.id+'">Lo Consiglio!'+
                 '</a></h3></div></div>';
             }else {
-                output += '<div><h3><a href="#" class="removeConsigliati" id="'+this.id+'">Non lo Consiglio Più!'+
+                output += '<div><h3><a href="#" class="removeConsigliati" id="'+this.id+'">Non Lo Consiglio Più!'+
                 '</a></h3></div></div>';
             }
         }else {

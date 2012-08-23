@@ -88,7 +88,7 @@ Released for free under a Creative Commons Attribution 2.5 License
                         <table>
 
                             <tr><h1>Registrazione</h1></tr>
-
+                            
                             <tr>
                                 <td><label class="label">username:</label></td>
                                 <td><input type="text" id="user" name="username" class="input4 " size="13"/></td>
@@ -104,7 +104,7 @@ Released for free under a Creative Commons Attribution 2.5 License
                             <tr>
                                 <td><label class="label">città:</label></td>
                                 <td><input type="text" id="citta" name="citta" class="input4 " size="13" /></td>
-                            </tr>->
+                            </tr>
                             <tr>
                                 <td><label class="label">e-mail:</label></td>
                                 <td><input type="text" id="email" name="mail" class="input4 " size="13" /></td>
@@ -130,8 +130,9 @@ Released for free under a Creative Commons Attribution 2.5 License
                                 <td colspan="2"><button id="recbutton" class="button">ok</button></td>
                             </tr>
                         </table>
-                        <div><b>Ti verrà inviata una e-mail all' indirizzo di registrazione con una nuova password che potrai modificare
-                                successivamente dal tuo profilo</b></div>
+                        <div align=center><b>Ti verrà inviata una e-mail all' indirizzo di registrazione con una nuova password che potrai</div>
+                        <div align=center>modificare
+                            successivamente dal tuo profilo</b></div>
                     </div>
                 </div>
 

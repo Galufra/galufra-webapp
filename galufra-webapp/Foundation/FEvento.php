@@ -238,7 +238,6 @@ class FEvento extends FMysql {
      **/
     public function cleanExpiredEvent() {
         $query = "DELETE FROM $this->_table WHERE  data <= '".date("Y-m-d H:m:s")."'";
-        var_dump($query);
         $this->makeQuery($query);
     }
 

@@ -11,26 +11,45 @@ class CCrea {
 
     private $utente = null;
 
-      /**
+    /**
      * @access public
      *
      *
      *
-       * Una volta controllati i dati di sessione,
-       * gestisce la creazione dell' evento da parte dell'utente
-      **/
-
+     * Una volta controllati i dati di sessione,
+     * gestisce la creazione dell' evento da parte dell'utente
+     * */
     public function __construct() {
         /* In futuro dovremo controllare che l'utente sia loggato
          * e sia un Gestore. Per ora carico il mio utente
          */
         $u = new Futente();
         $u->connect();
-        if (isset($_SESSION['username'])) {
+        if (isset($_SESSION['username']) && $_SESSION['username'] != null) {
 
             $this->utente = $u->load($_SESSION['username']);
             //carico il numero di eventi
             $this->utente->setNumEventi($this->utente->isAdmin(), $this->utente->isSuperuser());
+        } else {
+            //stampo la home se non sono loggato
+            $view = new VHome ();
+            if ($this->utente) {
+                $view->isAutenticato(true);
+                $view->showUser($this->utente->getUsername());
+                if (!$this->utente->isSbloccato())
+                    $view->blocca();
+                //blocco il messaggio di conferma registrazione
+                if ($this->utente->isConfirmed())
+                    $view->regConfermata();
+                //tolgo il link "diventa supersuser"
+                if ($this->utente->isSuperuser())
+                    $view->isSuperuser();
+            }else {
+                //blocco il messaggio di conferma registrazione
+                $view->regConfermata();
+            }
+            $view->mostraPagina();
+            exit;
         }
 
         /* Se "action" non è impostato, o l' utente non esiste oppure ha esaurito il num di eventi, eseguiremo il comportamento

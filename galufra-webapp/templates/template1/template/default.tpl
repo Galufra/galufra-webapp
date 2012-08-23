@@ -249,7 +249,7 @@ Released for free under a Creative Commons Attribution 2.5 License
 
         </div>
         <div id="footer">
-            <p>Copyright (c) 2006 Galufra web-app. All rights reserved. Design by <a href="http://freecsstemplates.org/">Free CSS Templates</a>.</p>
+            <p>Copyright (c) 2012 Galufra web-app. All rights reserved. Design by <a href="http://freecsstemplates.org/">Free CSS Templates</a>.</p>
         </div>
     </body>
 </html>

@@ -4,6 +4,7 @@ require_once '../Foundation/FUtente.php';
 require_once '../View/VSuperuser.php';
 require_once '../Entity/EUtente.php';
 require_once '../Foundation/FEvento.php';
+require_once '../View/VHome.php';
 
 class CSuperuser {
 
@@ -21,10 +22,30 @@ class CSuperuser {
         $u = new FUtente();
         $u->connect();
 
-        if (isset($_SESSION['username'])) {
+        if (isset($_SESSION['username']) && $_SESSION['username'] != null) {
             $this->utente = $u->load($_SESSION['username']);
             //carico il numero dell' utente
             $this->utente->setNumEventi($this->utente->isAdmin(), $this->utente->isSuperuser());
+        } else {
+            //stampo la home se non sono loggato
+            $view = new VHome ();
+            if ($this->utente) {
+                $view->isAutenticato(true);
+                $view->showUser($this->utente->getUsername());
+                if (!$this->utente->isSbloccato())
+                    $view->blocca();
+                //blocco il messaggio di conferma registrazione
+                if ($this->utente->isConfirmed())
+                    $view->regConfermata();
+                //tolgo il link "diventa supersuser"
+                if ($this->utente->isSuperuser())
+                    $view->isSuperuser();
+            }else {
+                //blocco il messaggio di conferma registrazione
+                $view->regConfermata();
+            }
+            $view->mostraPagina();
+            exit;
         }
 
         $view = new VSuperuser();

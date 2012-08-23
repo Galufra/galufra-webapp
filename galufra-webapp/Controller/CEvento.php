@@ -5,6 +5,7 @@ include '../Foundation/FUtente.php';
 include '../Entity/EEvento.php';
 include '../Entity/EUtente.php';
 include '../View/VEvento.php';
+include '../View/VHome.php';
 
 class CEvento {
 
@@ -35,10 +36,27 @@ class CEvento {
         $ev->connect();
         if ($id)
             $this->evento = $ev->load($id);
-        // Id non fornito o non valido: messaggio di errore
-        if (!$id || !$this->evento)
-            echo 'Errore...';
-        else {
+        // Id non fornito o non valido: homepage
+        if (!$id || !$this->evento) {
+            $view = new VHome ();
+            if ($this->utente) {
+                $view->isAutenticato(true);
+                $view->showUser($this->utente->getUsername());
+                if (!$this->utente->isSbloccato())
+                    $view->blocca();
+                //blocco il messaggio di conferma registrazione
+                if ($this->utente->isConfirmed())
+                    $view->regConfermata();
+                //tolgo il link "diventa supersuser"
+                if ($this->utente->isSuperuser())
+                    $view->isSuperuser();
+            }else {
+                //blocco il messaggio di conferma registrazione
+                $view->regConfermata();
+            }
+            $view->mostraPagina();
+            exit;
+        } else {
             //se non sono loggato va al comportamento di default
             if (!isset($_GET['action']) || !$this->utente)
                 $_GET['action'] = '';

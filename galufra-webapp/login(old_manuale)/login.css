@@ -1,0 +1,198 @@
+/* 
+    Document   : login
+    Created on : 31-mar-2012, 12.36.16
+    Author     : francesco
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+html,body{margin:0;padding:0}
+
+body {
+
+    font: 100.01% "Trebuchet MS",Verdana,Arial,sans-serif;
+    background: #FFFFCC;
+    color: coral;
+
+}
+
+/*green bar on the top*/
+#box {
+
+    width: 100%;
+    min-height: 5em;
+    min-width: 800px;
+    background: darkgreen;
+
+}
+
+/*manages input type on the top*/
+.loginInput {
+
+    color:darkgreen;
+    font-size: 16px;
+
+}
+
+/*right part of the top bar*/
+#boxr{
+
+    float: right;
+    width: 70%;
+    margin-top: 1.5em;
+    text-align: center;
+    min-width: 600px;
+
+}
+
+/*left part of the top bar*/
+#boxl{
+
+    float:left;
+    max-width: 30%;
+    margin-top: 1.5em;
+
+}
+
+/*button class for the header (login,..)*/
+.button{
+
+    width: 50px;
+    height: 30px;
+    position: inherit;
+    background-color: darkolivegreen;
+    border-color: darkgreen;
+    border-bottom-color: darkgreen;
+    border-right-style: solid;
+    /*border-left-style: solid;
+    border-top-style: solid;*/
+    border-bottom-style: solid;
+    color: darkgreen;
+
+}
+
+/*scalable window used with jquery*/
+#window {
+
+    width: 200px;
+    height: 200px;
+    background: brown;
+    display: none;
+
+}
+
+/*body*/
+#content {
+
+    min-width: 100%;
+    min-height: 100%;
+
+}
+
+/*body left*/
+#contentl {
+
+    float: left;
+    width: 50%;
+    height: 100%;
+    text-align: center;
+
+}
+
+/*body right*/
+#contentr {
+
+    float: right;
+    width: 50%;
+    text-align: center;
+}
+
+/*register form container*/
+#containerForm{
+
+    text-align:left;
+    width:500px;
+    padding:10px;
+    margin:0;
+
+}
+
+/*manages the form position in #containerForm*/
+#registerForm{
+
+    padding:10px;
+    margin:20px 0 0 0;
+
+}
+
+/*form labels*/
+#registerForm label{
+
+    display:block;
+    font-weight:bold;
+    text-align:right;
+    width:140px;
+    float:left;
+
+}
+
+/*manages suggestion*/
+#registerForm .suggest{
+
+    color:#339900;
+    display:block;
+    font-size:11px;
+    font-weight:normal;
+    text-align:right;
+    width:140px;
+
+}
+
+/*manages input types of the form*/
+#registerForm input{
+
+
+    float:left;
+    font-size:16px;
+    color: darkgreen;
+    padding:4px 2px;
+    width:250px;
+    margin:2px 0 20px 10px;
+
+}
+
+/*register button*/
+
+#registerForm .button{
+
+    width:70px;
+    height:30px;
+    background-color: darkolivegreen;
+    border-color: darkolivegreen;
+    border-right-style: solid;
+    /*border-left-style: solid;
+    border-top-style: solid;*/
+    border-bottom-style: solid;
+    font-size:90%;
+    text-align:center;
+    line-height:16px;
+    margin-left:150px;
+
+}
+/*
+#loginForm .button:hover {
+
+    width:100px;
+    height:16px;
+    background-color:darkolivegreen;
+    border-color: darkgreen;
+    font-size:100%;
+    text-align:center;
+    line-height:16px;
+    margin-left:150px;
+
+}*/

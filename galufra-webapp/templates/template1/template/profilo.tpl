@@ -99,7 +99,7 @@
             <tr>
                 <td><label class="box">E-Mail: {$utenteV->getEmail()}</label></td>
             </tr>
-            {if $utente->isSuperuser()}
+            {if $utenteV->isSuperuser()}
             <tr>
                 <td>È un Superuser di Galufra web-app</td>
             </tr>

@@ -284,6 +284,7 @@ $(document).ready(function(){
             /* Creazione dei nuovi markers dal JSON
              */
             var response = jQuery.parseJSON(data);
+            if(response){
             $.each(response, function(i){
                 var pos = new google.maps.LatLng(
                     parseFloat(response[i].lat),
@@ -332,7 +333,9 @@ $(document).ready(function(){
                         }
                     });
                 }
+            }
         });
+
     }
 
     /*

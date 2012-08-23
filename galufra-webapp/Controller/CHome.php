@@ -1,6 +1,6 @@
 <?php
 
-require_once('../Foundation/FUtente.php');
+require_once '../Foundation/FUtente.php';
 require_once('../Foundation/FEvento.php');
 require_once('../Foundation/Utility/USession.php');
 require_once('../Entity/EUtente.php');
@@ -363,8 +363,9 @@ class CHome {
             if ($user != null) {
                 //$user->setPassword($pwd);
                 /* $status = mail($user->getEmail(), "Recupero password Galufra",
-                  "Ciao $user->getUsername()!! \nLa tua nuova password è $pwd.
-                  Fai di nuovo il login e cambiala secondo le tue preferenze!)");
+                  "Ciao ".$user->getUsername()."!!. La tua nuova password è $pwd .
+                  Fai di nuovo il login e cambiala secondo le tue preferenze!","From: galufra@galufra.com");
+                if($status)
                   $u->update($user); */
                 $status = true;
             }

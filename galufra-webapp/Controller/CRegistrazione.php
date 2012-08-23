@@ -105,7 +105,7 @@ class CRegistrazione {
         if ($newUtente->setEmail($this->mail))
             $result = $db->storeUtente($newUtente, $uid);
         if ($result[0]) {
-            if ($this->sendConfirmationMail($this->mail, "fra.miscia@gmail.com", $uid)) {
+            if ($this->sendConfirmationMail($this->mail, "galufra@galufra.com", $uid)) {
                 $this->errore = "Registrazione avvenuta con successo";
                 $this->autenticato = true;
                 $this->initSession();
@@ -143,8 +143,8 @@ class CRegistrazione {
      */
     public function sendConfirmationMail($to, $from, $id) {
 
-        $msg = "Hello! To confirm your galufra registration click here:
-	http://localhost/galufra/galufra-webapp/Controller/CHome.php?action=conferma&id=" . $id . "";
+        $msg = "Ciao! Per confermare la tua registrazione clicca qui:
+	http://localhost/galufra/galufra-webapp/Controller/CConferma.php?action=conferma&id=" . $id . "";
         //$status = mail($to, "Conferma la registrazione", $msg, "From: " . $from) ? true : false;
         $status=true;
         return $status;

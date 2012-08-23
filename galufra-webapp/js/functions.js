@@ -45,17 +45,19 @@ function updatePreferiti(){
     })
     .success(function(data) {
         var response = jQuery.parseJSON(data);
-        if(response.total > 0)
-            var eventi = response.eventi;
-        $.each(eventi, function(i){
-            if(i==3) return false;
-            $('<li class="preferito">')
-            .append($('<ul>')
-                .append('<a href="CBacheca.php?id='+eventi[i].id_evento+'"><li>'+eventi[i].nome+'</li></a>')
-                //.append('<li>'+formatDate(eventi[i].data)+'</li>')
-                .append('</ul>'))
-            .appendTo(Preferiti);
-        });
+        if(response.eventi){
+            if(response.total > 0)
+                var eventi = response.eventi;
+            $.each(eventi, function(i){
+                if(i==3) return false;
+                $('<li class="preferito">')
+                .append($('<ul>')
+                    .append('<a href="CBacheca.php?id='+eventi[i].id_evento+'"><li>'+eventi[i].nome+'</li></a>')
+                    //.append('<li>'+formatDate(eventi[i].data)+'</li>')
+                    .append('</ul>'))
+                .appendTo(Preferiti);
+            });
+        }
     });
 }
 
@@ -71,18 +73,19 @@ function updatePersonali(){
         'action':"getEventiPersonali"
     }).success(function(data){
         var response = jQuery.parseJSON(data);
-        if(response.total > 0)
-            var eventi = response.eventi;
-        $.each(eventi, function(i){
-            if(i==3) return false;
-            $('<li class="personale">')
-            .append($('<ul>')
-                .append('<a href="CBacheca.php?id='+eventi[i].id_evento+'"><li>'+eventi[i].nome+'</li></a>')
-                //.append('<li>'+formatDate(eventi[i].data)+'</li>')
-                .append('</ul>'))
-            .appendTo(Personali);
-        });
-
+        if(response.eventi){
+            if(response.total > 0)
+                var eventi = response.eventi;
+            $.each(eventi, function(i){
+                if(i==3) return false;
+                $('<li class="personale">')
+                .append($('<ul>')
+                    .append('<a href="CBacheca.php?id='+eventi[i].id_evento+'"><li>'+eventi[i].nome+'</li></a>')
+                    //.append('<li>'+formatDate(eventi[i].data)+'</li>')
+                    .append('</ul>'))
+                .appendTo(Personali);
+            });
+        }
     });
 
 
@@ -108,16 +111,18 @@ function updateConsigliati(map,mantieni){
         }).success(function(data){
 
             var response = jQuery.parseJSON(data);
-            if(response.total > 0){
-                var eventi = response.eventi;
-                $.each(eventi, function(i){
-                    $('<li class="consigliato">')
-                    .append($('<ul>')
-                        .append('<a href="CBacheca.php?id='+eventi[i].id_evento+'"><li>'+eventi[i].nome+'</li></a>')
-                        //.append('<li>'+formatDate(eventi[i].data)+'</li>')
-                        .append('</ul>'))
-                    .appendTo(Consigliati);
-                });
+            if(response.eventi){
+                if(response.total > 0){
+                    var eventi = response.eventi;
+                    $.each(eventi, function(i){
+                        $('<li class="consigliato">')
+                        .append($('<ul>')
+                            .append('<a href="CBacheca.php?id='+eventi[i].id_evento+'"><li>'+eventi[i].nome+'</li></a>')
+                            //.append('<li>'+formatDate(eventi[i].data)+'</li>')
+                            .append('</ul>'))
+                        .appendTo(Consigliati);
+                    });
+                }
             }
         });
     }else $('#boxConsigliati').remove();
@@ -163,7 +168,7 @@ function updateBacheca(scroll){
             if(scroll){
                 //Da scegliere uno dei due: focus o scorrimento
                 $('#inserisciMessaggio').focus();
-                //$("html, body").animate({ scrollTop: $(document).height() }, "slow");
+            //$("html, body").animate({ scrollTop: $(document).height() }, "slow");
 
             }
         }

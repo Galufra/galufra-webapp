@@ -255,7 +255,7 @@ $(document).ready(function(){
      * bounds (oggetto LatLngBounds di Google Maps)
      */
      function getEventiMappa(){
-        updatePreferiti();
+        
         bounds = map.getBounds();
         $.get("CHome.php",
         {
@@ -269,8 +269,10 @@ $(document).ready(function(){
 
 
             //ho inizializzato la mappa, posso fornire eventi consigliati
-            if(logged)
+            if(logged){
                 updateConsigliati(map,false);
+                updatePreferiti();
+            }
 
             /* Per prima cosa eliminiamo i "vecchi" markers
              */

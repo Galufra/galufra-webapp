@@ -35,8 +35,9 @@ class Installer {
 				}
 				
 				
-				$file = fopen('config.inc.php', 'w') 
-					or die ('Non hai permessi di scrittura in questa directory');
+				$file = fopen('includes/config.inc.php', 'w+') 
+					or die ('<p>Non hai permessi di scrittura in questa directory.</p><br/>
+					<a href="./installer.class.php">Torna indietro</a>');
 				$config = '<?php
 	global $config;
 	$config["mysql"] = array(
@@ -54,12 +55,10 @@ class Installer {
 ';
 				fwrite($file, $config);
 				fclose($file);
-				if(!rename('config.inc.php', 'includes/config.inc.php'))
-					echo '<p>Non ho i permessi per spostare config.inc.php nella cartella includes/.
-					Dovrai farlo manualmente prima di continuare.</p>';
-				
-				echo'<p>Assicurati che il proprietario di includes/config.inc.php sia '. get_current_user()
-				.' e imposta i permessi a 755 prima di proseguire.</p>' ;
+					
+				echo'<h3>File di configurazione pronto</h3>
+				<p>Assicurati che il proprietario di includes/config.inc.php sia '. get_current_user()
+				.' e imposta i permessi di includes/ e dei file in essa contenuti a 755 prima di proseguire.</p>' ;
 				$this->getAdminInfo();
 			break;
 			//Step 2: popolamento del DB
@@ -86,7 +85,6 @@ class Installer {
 						.',1, 0, 1, 1, 1)
 					');
 					echo'<h3>Installazione completata!</h3>
-					<p>Ora puoi cambiare i permessi della cartella includes/ a 755.</p>
 					<p>Ricordati di eliminare questo file e galufra.sql!</p><br>
 					<a href="./index.php">Vai all\'applicazione</a>';
 				}
@@ -107,7 +105,7 @@ class Installer {
 	public function getDBInfo(){
 		echo '<h2>Credenziali di accesso al database</h2>
 		<p>Inserisci lo username e la password che verranno usati per la connessione al database.</p>
-		<p>Assicurati che la cartella includes/ abbia permessi impostati a 777.</p>
+		<p>Assicurati che la directory includes/ abbia permessi impostati a 777.</p>
 			<form method="POST" action="installer.class.php">
 			<label>Username:</label><input type="text" name="dbuser"/><br />
 			<label>Password:</label><input type="password" name="dbpassword"/> <br />

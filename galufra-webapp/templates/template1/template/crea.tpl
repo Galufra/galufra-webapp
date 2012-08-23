@@ -22,7 +22,7 @@
                 name='descrizione'></textarea></td>
             </tr>
             <tr>
-                <td><button id='submit' class = "button">Invia</button></td>
+                <td><button id='submit' class = "button">crea</button></td>
             </tr>
         </table>
         </div>

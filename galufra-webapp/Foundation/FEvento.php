@@ -24,7 +24,6 @@ class FEvento extends FMysql {
      * Restituisce un array di eventi futuri (data >= oggi)
      * con coordinate comprese nel rettangolo ne-sw.
      */
-
     public function searchEventiMappa($neLat, $neLon, $swLat, $swLon) {
         $prossimomese = new DateTime();
         $prossimomese->modify('+1 month');
@@ -100,14 +99,12 @@ class FEvento extends FMysql {
      * Pone/rimuove un evento come Consigliato
      *
      */
-
     public function storeConsigliati($idUtente, $idEvento, $lat, $lon) {
-        
+
 
         $this->makeQuery("INSERT INTO consiglia VALUES ($idUtente, $idEvento,$lat,$lon)");
         //$this->makeQuery("UPDATE $this->_table SET consigliato = 1 WHERE id_evento = $idEvento");
     }
-
 
     /**
      * @access public
@@ -120,8 +117,6 @@ class FEvento extends FMysql {
             WHERE utente = '$idUtente'
             AND evento = '$idEvento'");
     }
-
-
 
     /**
      *
@@ -150,7 +145,6 @@ class FEvento extends FMysql {
         return $this->getObjectArray();
     }
 
-
     /**
      * @access public
      * @param int $idUtente
@@ -172,7 +166,6 @@ class FEvento extends FMysql {
         return $this->getObjectArray();
     }
 
-
     /**
      * @acess public
      * @param int $id
@@ -190,7 +183,6 @@ class FEvento extends FMysql {
             return false;
     }
 
-
     /**
      * @access public
      * @param int $id
@@ -202,7 +194,6 @@ class FEvento extends FMysql {
         $result = $this->makeQuery("UPDATE utente SET sbloccato = 0 WHERE id_utente = $id");
         return $result[0];
     }
-
 
     /**
      * @access public
@@ -239,6 +230,16 @@ class FEvento extends FMysql {
         }else
             return $number;
     }
+
+    /**
+     * @access public
+     *
+     * Eliminto gli eventi scaduti
+     *
+    public function cleanExpiredEvent() {
+        $query = "DELETE FROM $this->_table WHERE  data <= DATE_FORMAT(" .date("Y-m-d H:i"). ",'%y-%m-%d %H:%i')";
+        $this->makeQuery($query);
+    }*/
 
 }
 

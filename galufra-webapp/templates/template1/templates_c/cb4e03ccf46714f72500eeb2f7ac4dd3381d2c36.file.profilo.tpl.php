@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.10, created on 2012-08-22 20:46:52
+<?php /* Smarty version Smarty-3.1.10, created on 2012-08-23 16:37:33
          compiled from "../templates/template1/template/profilo.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:14692376975035291c5551a6-71286112%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'cb4e03ccf46714f72500eeb2f7ac4dd3381d2c36' => 
     array (
       0 => '../templates/template1/template/profilo.tpl',
-      1 => 1345657513,
+      1 => 1345729099,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.10',
+  'unifunc' => 'content_5035291c5ddd77_92401446',
   'variables' => 
   array (
     'reader' => 0,
@@ -22,8 +24,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'utenteV' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.10',
-  'unifunc' => 'content_5035291c5ddd77_92401446',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5035291c5ddd77_92401446')) {function content_5035291c5ddd77_92401446($_smarty_tpl) {?><div id="profilo">
 
@@ -31,7 +31,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
     <h2>Profilo</h2>
 
-    <img src="" alt="" width="109" height="109" class="image" />
+   
     <div class="indent">
 
 
@@ -137,7 +137,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <td><label class="box">E-Mail: <?php echo $_smarty_tpl->tpl_vars['utenteV']->value->getEmail();?>
 </label></td>
             </tr>
-            <?php if ($_smarty_tpl->tpl_vars['utente']->value->isSuperuser()){?>
+            <?php if ($_smarty_tpl->tpl_vars['utenteV']->value->isSuperuser()){?>
             <tr>
                 <td>È un Superuser di Galufra web-app</td>
             </tr>

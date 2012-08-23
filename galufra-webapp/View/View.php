@@ -14,6 +14,7 @@ abstract class View extends Smarty {
     public $errore_loggato = false;
     public $errore_registrazione = false;
     public $superuser = false;
+    public $pulsante_cerca = false;
 
     /**
      * @access public
@@ -120,6 +121,7 @@ abstract class View extends Smarty {
             $this->assign('errore_loggato', $this->errore_loggato);
             $this->assign('errore_registrazione',$this->errore_registrazione);
             $this->assign('superuser',$this->superuser);
+            $this->assign('cerca',$this->pulsante_cerca);
         } else {
             $this->assign('errore_registrazione',$this->errore_registrazione);
             $this->assign('errore_loggato', $this->errore_loggato);
@@ -128,6 +130,7 @@ abstract class View extends Smarty {
             $this->assign('sbloccato', $this->sbloccato);
             $this->assign('regConfirmed', $this->confirmed);
             $this->assign('superuser',$this->superuser);
+            $this->assign('cerca',$this->pulsante_cerca);
         }
         $this->assign('scripts', $this->scripts);
         $this->assign('content', $this->content);

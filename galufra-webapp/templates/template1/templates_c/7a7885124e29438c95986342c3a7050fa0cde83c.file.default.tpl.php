@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.10, created on 2012-08-23 11:08:29
+<?php /* Smarty version Smarty-3.1.10, created on 2012-08-23 15:22:17
          compiled from "../templates/template1/template/default.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:209803574150351b4c3b7b22-39851856%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7a7885124e29438c95986342c3a7050fa0cde83c' => 
     array (
       0 => '../templates/template1/template/default.tpl',
-      1 => 1345712899,
+      1 => 1345728136,
       2 => 'file',
     ),
   ),
@@ -23,6 +23,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     's' => 0,
     'autenticato' => 0,
     'sbloccato' => 0,
+    'cerca' => 0,
     'name' => 0,
     'superuser' => 0,
     'content' => 0,
@@ -77,13 +78,14 @@ $_smarty_tpl->tpl_vars['s']->_loop = true;
                 <?php }?>
                 <li id='messagebox'></li>
             </ul>
-
+            <?php if ($_smarty_tpl->tpl_vars['cerca']->value){?>
             <div id="search">
                 <fieldset>
                     <input id="cercaInputBox" name="input1" type="text" id="search_input" />
                     <button class="button" id="cerca">Centra</button>
                 </fieldset>
             </div>
+            <?php }?>
         </div>
 
         <div id="content">

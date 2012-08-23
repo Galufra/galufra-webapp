@@ -38,13 +38,14 @@ Released for free under a Creative Commons Attribution 2.5 License
                 {/if}
                 <li id='messagebox'></li>
             </ul>
-
+            {if $cerca}
             <div id="search">
                 <fieldset>
                     <input id="cercaInputBox" name="input1" type="text" id="search_input" />
                     <button class="button" id="cerca">Centra</button>
                 </fieldset>
             </div>
+            {/if}
         </div>
 
         <div id="content">

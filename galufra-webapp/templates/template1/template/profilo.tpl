@@ -4,7 +4,7 @@
 
     <h2>Profilo</h2>
 
-    <img src="" alt="" width="109" height="109" class="image" />
+   
     <div class="indent">
 
 

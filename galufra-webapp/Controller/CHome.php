@@ -37,10 +37,6 @@ class CHome {
         
         $view = new VHome();
 
-        //elimino gli eventi scaduti
-        //$evento = new FEvento();
-        //$evento->connect();
-        //$evento->cleanExpiredEvent();
 
         /* Se "action" non è impostato, eseguiremo il comportamento
          * di default nello switch successivo.

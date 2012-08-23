@@ -234,12 +234,13 @@ class FEvento extends FMysql {
     /**
      * @access public
      *
-     * Eliminto gli eventi scaduti
-     *
+     * Elimino gli eventi scaduti
+     **/
     public function cleanExpiredEvent() {
-        $query = "DELETE FROM $this->_table WHERE  data <= DATE_FORMAT(" .date("Y-m-d H:i"). ",'%y-%m-%d %H:%i')";
+        $query = "DELETE FROM $this->_table WHERE  data <= '".date("Y-m-d H:m:s")."'";
+        var_dump($query);
         $this->makeQuery($query);
-    }*/
+    }
 
 }
 

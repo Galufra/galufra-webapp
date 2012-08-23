@@ -34,8 +34,11 @@ class CEvento {
 
         $ev = new FEvento();
         $ev->connect();
+        //elimino gli eventi scaduti
+        $ev->cleanExpiredEvent();
         if ($id)
             $this->evento = $ev->load($id);
+
         // Id non fornito o non valido: homepage
         if (!$id || !$this->evento) {
             $view = new VHome ();

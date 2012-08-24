@@ -7,7 +7,7 @@ Released for free under a Creative Commons Attribution 2.5 License
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Galufra_WebApp 1.0</title>
+        <title>Galufra_WebApp</title>
         <meta name="Keywords" content="" />
         <meta name="Description" content="" />
         <link href="../templates/template1/template/default.css" rel="stylesheet" type="text/css" />
@@ -23,7 +23,7 @@ Released for free under a Creative Commons Attribution 2.5 License
     <body>
         <div id="header">
             <ul id="menu">
-                <li><a href="CHome.php" accesskey="1" title="">Home</a></li>
+                <li><a href="CHome.php" accesskey="1" title=""><img alt="2"  src="../templates/template1/template/images/logo-galufra.png"></img></a></li>
                 {if $autenticato}
                 <li><a href="CProfilo.php" accesskey="2" title="">Profilo</a></li>
                 {if $sbloccato}

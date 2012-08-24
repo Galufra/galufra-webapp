@@ -31,7 +31,7 @@ Released for free under a Creative Commons Attribution 2.5 License
                 {else}
                         <a href="CHome.php?action=">
                             <script>
-                            showMessage("Limite eventi superato. Diventa SUPERUSER!");
+                            showMessage("Diventa SUPERUSER per creare eventi!");
                             </script>
                 {/if}
                             Crea Evento</a></li>
@@ -47,7 +47,6 @@ Released for free under a Creative Commons Attribution 2.5 License
             </div>
             {/if}
         </div>
-
         <div id="content">
             <div id="colOne">
                 <div id="logo">

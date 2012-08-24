@@ -111,10 +111,10 @@ class FEvento extends FMysql {
      *
      *
      */
-    public function storeConsigliati($idUtente, $idEvento, $lat, $lon) {
+    public function storeConsigliati($idUtente, $idEvento) {
 
 
-        $this->makeQuery("INSERT INTO consiglia VALUES ($idUtente, $idEvento,$lat,$lon)");
+        $this->makeQuery("INSERT INTO consiglia VALUES ($idUtente, $idEvento)");
         //$this->makeQuery("UPDATE $this->_table SET consigliato = 1 WHERE id_evento = $idEvento");
     }
 

@@ -297,10 +297,10 @@ class EUtente {
      * @param int $lon
      *
      */
-    public function addConsigliati($evento, $lat, $lon) {
+    public function addConsigliati($evento) {
         $ev = new FEvento();
         $ev->connect();
-        $ev->storeConsigliati($this->id_utente, $evento, $lat, $lon);
+        $ev->storeConsigliati($this->id_utente, $evento);
     }
 
     /**

@@ -136,7 +136,7 @@ class FEvento extends FMysql {
 
         $this->makeQuery("SELECT * FROM evento WHERE data >= NOW() AND id_evento IN (
 
-                select evento FROM consiglia as c INNER JOIN evento as e ON c.evento = e.id_evento
+                SELECT evento FROM consiglia as c INNER JOIN evento as e ON c.evento = e.id_evento
                 WHERE e.lat BETWEEN $swLat AND $neLat AND
                 e.lon BETWEEN $swLon AND $neLon AND
                 c.utente != $idUtente

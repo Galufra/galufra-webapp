@@ -1,0 +1,602 @@
+<!DOCTYPE html><html xmlns:date="http://exslt.org/dates-and-times" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>phpDocumentor » Smarty\PluginsModifierCompiler</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">phpDocumentor</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Packages</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+<li><a href="../packages/Smarty.html"><i class="icon-folder-open"></i> Smarty</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">847</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul>
+<li>todo 
+                <span class="label label-info">4</span>
+</li>
+<li>fixme 
+                <span class="label label-info">7</span>
+</li>
+</ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">3</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-map-marker"></i> Packages</li>
+<li>
+<a href="../packages/Smarty.PluginsModifierCompiler.html" title="PluginsModifierCompiler"><i class="icon-folder-open"></i>PluginsModifierCompiler</a><ul class="nav nav-list nav-packages"></ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-function"></i> Functions</li>
+<li class="function  "><a href="#smarty_modifiercompiler_cat" title="smarty_modifiercompiler_cat :: Smarty cat modifier plugin"><span class="description">Smarty cat modifier plugin</span><pre>smarty_modifiercompiler_cat</pre></a></li>
+<li class="function  "><a href="#smarty_modifiercompiler_count_characters" title="smarty_modifiercompiler_count_characters :: Smarty count_characters modifier plugin"><span class="description">Smarty count_characters modifier plugin</span><pre>smarty_modifiercompiler_count_characters</pre></a></li>
+<li class="function  "><a href="#smarty_modifiercompiler_count_paragraphs" title="smarty_modifiercompiler_count_paragraphs :: Smarty count_paragraphs modifier plugin"><span class="description">Smarty count_paragraphs modifier plugin</span><pre>smarty_modifiercompiler_count_paragraphs</pre></a></li>
+<li class="function  "><a href="#smarty_modifiercompiler_count_sentences" title="smarty_modifiercompiler_count_sentences :: Smarty count_sentences modifier plugin"><span class="description">Smarty count_sentences modifier plugin</span><pre>smarty_modifiercompiler_count_sentences</pre></a></li>
+<li class="function  "><a href="#smarty_modifiercompiler_count_words" title="smarty_modifiercompiler_count_words :: Smarty count_words modifier plugin"><span class="description">Smarty count_words modifier plugin</span><pre>smarty_modifiercompiler_count_words</pre></a></li>
+<li class="function  "><a href="#smarty_modifiercompiler_default" title="smarty_modifiercompiler_default :: Smarty default modifier plugin"><span class="description">Smarty default modifier plugin</span><pre>smarty_modifiercompiler_default</pre></a></li>
+<li class="function  "><a href="#smarty_modifiercompiler_escape" title="smarty_modifiercompiler_escape :: Smarty escape modifier plugin"><span class="description">Smarty escape modifier plugin</span><pre>smarty_modifiercompiler_escape</pre></a></li>
+<li class="function  "><a href="#smarty_modifiercompiler_from_charset" title="smarty_modifiercompiler_from_charset :: Smarty from_charset modifier plugin"><span class="description">Smarty from_charset modifier plugin</span><pre>smarty_modifiercompiler_from_charset</pre></a></li>
+<li class="function  "><a href="#smarty_modifiercompiler_indent" title="smarty_modifiercompiler_indent :: Smarty indent modifier plugin"><span class="description">Smarty indent modifier plugin</span><pre>smarty_modifiercompiler_indent</pre></a></li>
+<li class="function  "><a href="#smarty_modifiercompiler_lower" title="smarty_modifiercompiler_lower :: Smarty lower modifier plugin"><span class="description">Smarty lower modifier plugin</span><pre>smarty_modifiercompiler_lower</pre></a></li>
+<li class="function  "><a href="#smarty_modifiercompiler_noprint" title="smarty_modifiercompiler_noprint :: Smarty noprint modifier plugin"><span class="description">Smarty noprint modifier plugin</span><pre>smarty_modifiercompiler_noprint</pre></a></li>
+<li class="function  "><a href="#smarty_modifiercompiler_string_format" title="smarty_modifiercompiler_string_format :: Smarty string_format modifier plugin"><span class="description">Smarty string_format modifier plugin</span><pre>smarty_modifiercompiler_string_format</pre></a></li>
+<li class="function  "><a href="#smarty_modifiercompiler_strip" title="smarty_modifiercompiler_strip :: Smarty strip modifier plugin"><span class="description">Smarty strip modifier plugin</span><pre>smarty_modifiercompiler_strip</pre></a></li>
+<li class="function  "><a href="#smarty_modifiercompiler_strip_tags" title="smarty_modifiercompiler_strip_tags :: Smarty strip_tags modifier plugin"><span class="description">Smarty strip_tags modifier plugin</span><pre>smarty_modifiercompiler_strip_tags</pre></a></li>
+<li class="function  "><a href="#smarty_modifiercompiler_to_charset" title="smarty_modifiercompiler_to_charset :: Smarty to_charset modifier plugin"><span class="description">Smarty to_charset modifier plugin</span><pre>smarty_modifiercompiler_to_charset</pre></a></li>
+<li class="function  "><a href="#smarty_modifiercompiler_unescape" title="smarty_modifiercompiler_unescape :: Smarty unescape modifier plugin"><span class="description">Smarty unescape modifier plugin</span><pre>smarty_modifiercompiler_unescape</pre></a></li>
+<li class="function  "><a href="#smarty_modifiercompiler_upper" title="smarty_modifiercompiler_upper :: Smarty upper modifier plugin"><span class="description">Smarty upper modifier plugin</span><pre>smarty_modifiercompiler_upper</pre></a></li>
+<li class="function  "><a href="#smarty_modifiercompiler_wordwrap" title="smarty_modifiercompiler_wordwrap :: Smarty wordwrap modifier plugin"><span class="description">Smarty wordwrap modifier plugin</span><pre>smarty_modifiercompiler_wordwrap</pre></a></li>
+</ul>
+</div>
+<div class="span8 package-contents">
+<ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-folder-open"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../packages/Smarty.html">Smarty</a></li>
+<span class="divider">\</span><li class="active"><a href="../packages/Smarty.PluginsModifierCompiler.html">PluginsModifierCompiler</a></li>
+</ul>
+<div class="package-indent">
+<h3>
+<i class="icon-custom icon-function"></i> Functions</h3>
+<a name="smarty_modifiercompiler_cat" id="smarty_modifiercompiler_cat"></a><div class="element clickable function  smarty_modifiercompiler_cat" data-toggle="collapse" data-target=".smarty_modifiercompiler_cat .collapse">
+<h2>Smarty cat modifier plugin</h2>
+<pre>smarty_modifiercompiler_cat(array $params, $compiler) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>Type:     modifier<br>
+Name:     cat<br>
+Date:     Feb 24, 2003<br>
+Purpose:  catenate a value to a variable<br>
+Input:    string to catenate<br>
+Example:  {$var|cat:"foo"}</p></p>
+<table class="table table-bordered">
+<tr>
+<th>link</th>
+<td><a href="http://smarty.php.net/manual/en/language.modifier.cat.php">cat
+(Smarty online manual)</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="">Uwe Tews</a></td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$params</h4>
+<code>array</code><p>parameters</p></div>
+<div class="subelement argument"><h4>$compiler</h4></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>with compiled code</div>
+</div></div>
+</div>
+<a name="smarty_modifiercompiler_count_characters" id="smarty_modifiercompiler_count_characters"></a><div class="element clickable function  smarty_modifiercompiler_count_characters" data-toggle="collapse" data-target=".smarty_modifiercompiler_count_characters .collapse">
+<h2>Smarty count_characters modifier plugin</h2>
+<pre>smarty_modifiercompiler_count_characters(array $params, $compiler) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>Type:     modifier<br>
+Name:     count_characteres<br>
+Purpose:  count the number of characters in a text</p></p>
+<table class="table table-bordered">
+<tr>
+<th>link</th>
+<td><a href="http://www.smarty.net/manual/en/language.modifier.count.characters.php">count_characters (Smarty online manual)</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="">Uwe Tews</a></td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$params</h4>
+<code>array</code><p>parameters</p></div>
+<div class="subelement argument"><h4>$compiler</h4></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>with compiled code</div>
+</div></div>
+</div>
+<a name="smarty_modifiercompiler_count_paragraphs" id="smarty_modifiercompiler_count_paragraphs"></a><div class="element clickable function  smarty_modifiercompiler_count_paragraphs" data-toggle="collapse" data-target=".smarty_modifiercompiler_count_paragraphs .collapse">
+<h2>Smarty count_paragraphs modifier plugin</h2>
+<pre>smarty_modifiercompiler_count_paragraphs(array $params, $compiler) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>Type:     modifier<br>
+Name:     count_paragraphs<br>
+Purpose:  count the number of paragraphs in a text</p></p>
+<table class="table table-bordered">
+<tr>
+<th>link</th>
+<td><a href="http://www.smarty.net/manual/en/language.modifier.count.paragraphs.php%0Acount_paragraphs">(Smarty online manual)</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="">Uwe Tews</a></td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$params</h4>
+<code>array</code><p>parameters</p></div>
+<div class="subelement argument"><h4>$compiler</h4></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>with compiled code</div>
+</div></div>
+</div>
+<a name="smarty_modifiercompiler_count_sentences" id="smarty_modifiercompiler_count_sentences"></a><div class="element clickable function  smarty_modifiercompiler_count_sentences" data-toggle="collapse" data-target=".smarty_modifiercompiler_count_sentences .collapse">
+<h2>Smarty count_sentences modifier plugin</h2>
+<pre>smarty_modifiercompiler_count_sentences(array $params, $compiler) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>Type:     modifier<br>
+Name:     count_sentences
+Purpose:  count the number of sentences in a text</p></p>
+<table class="table table-bordered">
+<tr>
+<th>link</th>
+<td><a href="http://www.smarty.net/manual/en/language.modifier.count.paragraphs.php%0Acount_sentences">(Smarty online manual)</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="">Uwe Tews</a></td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$params</h4>
+<code>array</code><p>parameters</p></div>
+<div class="subelement argument"><h4>$compiler</h4></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>with compiled code</div>
+</div></div>
+</div>
+<a name="smarty_modifiercompiler_count_words" id="smarty_modifiercompiler_count_words"></a><div class="element clickable function  smarty_modifiercompiler_count_words" data-toggle="collapse" data-target=".smarty_modifiercompiler_count_words .collapse">
+<h2>Smarty count_words modifier plugin</h2>
+<pre>smarty_modifiercompiler_count_words(array $params, $compiler) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>Type:     modifier<br>
+Name:     count_words<br>
+Purpose:  count the number of words in a text</p></p>
+<table class="table table-bordered">
+<tr>
+<th>link</th>
+<td><a href="http://www.smarty.net/manual/en/language.modifier.count.words.php">count_words (Smarty online manual)</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="">Uwe Tews</a></td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$params</h4>
+<code>array</code><p>parameters</p></div>
+<div class="subelement argument"><h4>$compiler</h4></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>with compiled code</div>
+</div></div>
+</div>
+<a name="smarty_modifiercompiler_default" id="smarty_modifiercompiler_default"></a><div class="element clickable function  smarty_modifiercompiler_default" data-toggle="collapse" data-target=".smarty_modifiercompiler_default .collapse">
+<h2>Smarty default modifier plugin</h2>
+<pre>smarty_modifiercompiler_default(array $params, $compiler) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>Type:     modifier<br>
+Name:     default<br>
+Purpose:  designate default value for empty variables</p></p>
+<table class="table table-bordered">
+<tr>
+<th>link</th>
+<td><a href="http://www.smarty.net/manual/en/language.modifier.default.php">default (Smarty online manual)</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="">Uwe Tews</a></td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$params</h4>
+<code>array</code><p>parameters</p></div>
+<div class="subelement argument"><h4>$compiler</h4></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>with compiled code</div>
+</div></div>
+</div>
+<a name="smarty_modifiercompiler_escape" id="smarty_modifiercompiler_escape"></a><div class="element clickable function  smarty_modifiercompiler_escape" data-toggle="collapse" data-target=".smarty_modifiercompiler_escape .collapse">
+<h2>Smarty escape modifier plugin</h2>
+<pre>smarty_modifiercompiler_escape(array $params, $compiler) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>Type:     modifier<br>
+Name:     escape<br>
+Purpose:  escape string for output</p></p>
+<table class="table table-bordered">
+<tr>
+<th>link</th>
+<td><a href="http://www.smarty.net/docsv2/en/language.modifier.escape">count_characters (Smarty online manual)</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="">Rodney Rehm</a></td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$params</h4>
+<code>array</code><p>parameters</p></div>
+<div class="subelement argument"><h4>$compiler</h4></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>with compiled code</div>
+</div></div>
+</div>
+<a name="smarty_modifiercompiler_from_charset" id="smarty_modifiercompiler_from_charset"></a><div class="element clickable function  smarty_modifiercompiler_from_charset" data-toggle="collapse" data-target=".smarty_modifiercompiler_from_charset .collapse">
+<h2>Smarty from_charset modifier plugin</h2>
+<pre>smarty_modifiercompiler_from_charset(array $params, $compiler) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>Type:     modifier<br>
+Name:     from_charset<br>
+Purpose:  convert character encoding from $charset to internal encoding</p></p>
+<table class="table table-bordered"><tr>
+<th>author</th>
+<td><a href="">Rodney Rehm</a></td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$params</h4>
+<code>array</code><p>parameters</p></div>
+<div class="subelement argument"><h4>$compiler</h4></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>with compiled code</div>
+</div></div>
+</div>
+<a name="smarty_modifiercompiler_indent" id="smarty_modifiercompiler_indent"></a><div class="element clickable function  smarty_modifiercompiler_indent" data-toggle="collapse" data-target=".smarty_modifiercompiler_indent .collapse">
+<h2>Smarty indent modifier plugin</h2>
+<pre>smarty_modifiercompiler_indent(array $params, $compiler) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>Type:     modifier<br>
+Name:     indent<br>
+Purpose:  indent lines of text</p></p>
+<table class="table table-bordered">
+<tr>
+<th>link</th>
+<td><a href="http://www.smarty.net/manual/en/language.modifier.indent.php">indent (Smarty online manual)</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="">Uwe Tews</a></td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$params</h4>
+<code>array</code><p>parameters</p></div>
+<div class="subelement argument"><h4>$compiler</h4></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>with compiled code</div>
+</div></div>
+</div>
+<a name="smarty_modifiercompiler_lower" id="smarty_modifiercompiler_lower"></a><div class="element clickable function  smarty_modifiercompiler_lower" data-toggle="collapse" data-target=".smarty_modifiercompiler_lower .collapse">
+<h2>Smarty lower modifier plugin</h2>
+<pre>smarty_modifiercompiler_lower(array $params, $compiler) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>Type:     modifier<br>
+Name:     lower<br>
+Purpose:  convert string to lowercase</p></p>
+<table class="table table-bordered">
+<tr>
+<th>link</th>
+<td><a href="http://www.smarty.net/manual/en/language.modifier.lower.php">lower (Smarty online manual)</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="">Monte Ohrt &lt;monte at ohrt dot com&gt;</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="">Uwe Tews</a></td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$params</h4>
+<code>array</code><p>parameters</p></div>
+<div class="subelement argument"><h4>$compiler</h4></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>with compiled code</div>
+</div></div>
+</div>
+<a name="smarty_modifiercompiler_noprint" id="smarty_modifiercompiler_noprint"></a><div class="element clickable function  smarty_modifiercompiler_noprint" data-toggle="collapse" data-target=".smarty_modifiercompiler_noprint .collapse">
+<h2>Smarty noprint modifier plugin</h2>
+<pre>smarty_modifiercompiler_noprint(array $params, $compiler) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>Type:     modifier<br>
+Name:     noprint<br>
+Purpose:  return an empty string</p></p>
+<table class="table table-bordered"><tr>
+<th>author</th>
+<td><a href="">Uwe Tews</a></td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$params</h4>
+<code>array</code><p>parameters</p></div>
+<div class="subelement argument"><h4>$compiler</h4></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>with compiled code</div>
+</div></div>
+</div>
+<a name="smarty_modifiercompiler_string_format" id="smarty_modifiercompiler_string_format"></a><div class="element clickable function  smarty_modifiercompiler_string_format" data-toggle="collapse" data-target=".smarty_modifiercompiler_string_format .collapse">
+<h2>Smarty string_format modifier plugin</h2>
+<pre>smarty_modifiercompiler_string_format(array $params, $compiler) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>Type:     modifier<br>
+Name:     string_format<br>
+Purpose:  format strings via sprintf</p></p>
+<table class="table table-bordered">
+<tr>
+<th>link</th>
+<td><a href="http://www.smarty.net/manual/en/language.modifier.string.format.php">string_format (Smarty online manual)</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="">Uwe Tews</a></td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$params</h4>
+<code>array</code><p>parameters</p></div>
+<div class="subelement argument"><h4>$compiler</h4></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>with compiled code</div>
+</div></div>
+</div>
+<a name="smarty_modifiercompiler_strip" id="smarty_modifiercompiler_strip"></a><div class="element clickable function  smarty_modifiercompiler_strip" data-toggle="collapse" data-target=".smarty_modifiercompiler_strip .collapse">
+<h2>Smarty strip modifier plugin</h2>
+<pre>smarty_modifiercompiler_strip(array $params, $compiler) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>Type:     modifier<br>
+Name:     strip<br>
+Purpose:  Replace all repeated spaces, newlines, tabs
+             with a single space or supplied replacement string.<br>
+Example:  {$var|strip} {$var|strip:"&nbsp;"}<br>
+Date:     September 25th, 2002</p></p>
+<table class="table table-bordered">
+<tr>
+<th>link</th>
+<td><a href="http://www.smarty.net/manual/en/language.modifier.strip.php">strip (Smarty online manual)</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="">Uwe Tews</a></td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$params</h4>
+<code>array</code><p>parameters</p></div>
+<div class="subelement argument"><h4>$compiler</h4></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>with compiled code</div>
+</div></div>
+</div>
+<a name="smarty_modifiercompiler_strip_tags" id="smarty_modifiercompiler_strip_tags"></a><div class="element clickable function  smarty_modifiercompiler_strip_tags" data-toggle="collapse" data-target=".smarty_modifiercompiler_strip_tags .collapse">
+<h2>Smarty strip_tags modifier plugin</h2>
+<pre>smarty_modifiercompiler_strip_tags(array $params, $compiler) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>Type:     modifier<br>
+Name:     strip_tags<br>
+Purpose:  strip html tags from text</p></p>
+<table class="table table-bordered">
+<tr>
+<th>link</th>
+<td><a href="http://www.smarty.net/manual/en/language.modifier.strip.tags.php">strip_tags (Smarty online manual)</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="">Uwe Tews</a></td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$params</h4>
+<code>array</code><p>parameters</p></div>
+<div class="subelement argument"><h4>$compiler</h4></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>with compiled code</div>
+</div></div>
+</div>
+<a name="smarty_modifiercompiler_to_charset" id="smarty_modifiercompiler_to_charset"></a><div class="element clickable function  smarty_modifiercompiler_to_charset" data-toggle="collapse" data-target=".smarty_modifiercompiler_to_charset .collapse">
+<h2>Smarty to_charset modifier plugin</h2>
+<pre>smarty_modifiercompiler_to_charset(array $params, $compiler) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>Type:     modifier<br>
+Name:     to_charset<br>
+Purpose:  convert character encoding from internal encoding to $charset</p></p>
+<table class="table table-bordered"><tr>
+<th>author</th>
+<td><a href="">Rodney Rehm</a></td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$params</h4>
+<code>array</code><p>parameters</p></div>
+<div class="subelement argument"><h4>$compiler</h4></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>with compiled code</div>
+</div></div>
+</div>
+<a name="smarty_modifiercompiler_unescape" id="smarty_modifiercompiler_unescape"></a><div class="element clickable function  smarty_modifiercompiler_unescape" data-toggle="collapse" data-target=".smarty_modifiercompiler_unescape .collapse">
+<h2>Smarty unescape modifier plugin</h2>
+<pre>smarty_modifiercompiler_unescape(array $params, $compiler) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>Type:     modifier<br>
+Name:     unescape<br>
+Purpose:  unescape html entities</p></p>
+<table class="table table-bordered"><tr>
+<th>author</th>
+<td><a href="">Rodney Rehm</a></td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$params</h4>
+<code>array</code><p>parameters</p></div>
+<div class="subelement argument"><h4>$compiler</h4></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>with compiled code</div>
+</div></div>
+</div>
+<a name="smarty_modifiercompiler_upper" id="smarty_modifiercompiler_upper"></a><div class="element clickable function  smarty_modifiercompiler_upper" data-toggle="collapse" data-target=".smarty_modifiercompiler_upper .collapse">
+<h2>Smarty upper modifier plugin</h2>
+<pre>smarty_modifiercompiler_upper(array $params, $compiler) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>Type:     modifier<br>
+Name:     lower<br>
+Purpose:  convert string to uppercase</p></p>
+<table class="table table-bordered">
+<tr>
+<th>link</th>
+<td><a href="http://smarty.php.net/manual/en/language.modifier.upper.php">lower (Smarty online manual)</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="">Uwe Tews</a></td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$params</h4>
+<code>array</code><p>parameters</p></div>
+<div class="subelement argument"><h4>$compiler</h4></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>with compiled code</div>
+</div></div>
+</div>
+<a name="smarty_modifiercompiler_wordwrap" id="smarty_modifiercompiler_wordwrap"></a><div class="element clickable function  smarty_modifiercompiler_wordwrap" data-toggle="collapse" data-target=".smarty_modifiercompiler_wordwrap .collapse">
+<h2>Smarty wordwrap modifier plugin</h2>
+<pre>smarty_modifiercompiler_wordwrap(array $params, $compiler) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>Type:     modifier<br>
+Name:     wordwrap<br>
+Purpose:  wrap a string of text at a given length</p></p>
+<table class="table table-bordered">
+<tr>
+<th>link</th>
+<td><a href="http://smarty.php.net/manual/en/language.modifier.wordwrap.php">wordwrap (Smarty online manual)</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="">Uwe Tews</a></td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$params</h4>
+<code>array</code><p>parameters</p></div>
+<div class="subelement argument"><h4>$compiler</h4></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>with compiled code</div>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a9</a> and<br>
+            generated on 2012-08-24T19:58:45+02:00.<br></footer></div>
+</div>
+</body>
+</html>

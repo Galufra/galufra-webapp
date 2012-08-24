@@ -21,13 +21,14 @@ class CProfilo {
     /**
      * @access public
      *
-     * @param string $name
      *
      * Una volta controllati i dati di sessione controlla se un utente sta visualizzando il proprio
      * profilo, e quindi può modificarlo, altrimenti può solo leggerlo
      * La variabile di sessione 'enable' permette di tornare al nostro profilo se non inseriamo un
      * username come parametro del costruttore.
      * Permette inoltre di aggiornare,eliminare,rendere superuser o admin un particolare utente
+     *
+     * @param string $name
      * */
     public function __construct($name) {
 

@@ -8,10 +8,11 @@ class VListaEventi extends View {
 
     /**
      * @access public
-     * @param FILE $script
      *
      * Assegna lo script che si occupa della particolare lista di eventi
      * che vogliamo mostrare: preferiti,consigliati,personali
+     *
+     * @param FILE $script
      */
     public function __construct($scripts) {
        

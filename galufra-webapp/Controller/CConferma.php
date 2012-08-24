@@ -87,9 +87,9 @@ class CConferma {
     /**
      * @access public
      *
-     * @return boolean
-     *
      * conferma la registrazione dell' utente
+     *
+     * @return boolean
      **/
     public function confermaReg() {
 

@@ -25,10 +25,13 @@ class FMysql implements FDb {
 
     /**
      * @access public
+     *
+     * Si connette al database
+     *
      * @global array $config
      * @return array
      *
-     * Si connette al database
+     * 
      */
     public function connect() {
         global $config;
@@ -62,10 +65,13 @@ class FMysql implements FDb {
 
     /**
      * @access public
+     *
+     * Si preoccupa di salvare una query
+     *
      * @param string $query
      * @return array
      *
-     * Si preoccupa di salvare una query
+     * 
      */
     public function makeQuery($query) {
         if ($this->up) {
@@ -87,9 +93,12 @@ class FMysql implements FDb {
 
     /**
      * @access public
-     * @return array
      *
      * Fornisce i risultati di una query
+     *
+     * @return array
+     *
+     * 
      */
 
     public function getResult() {
@@ -105,11 +114,13 @@ class FMysql implements FDb {
 
     /**
      *
-     *
      * @access public
-     * @return Object
      *
      * Fornisce il risultato di una query che richiede un oggetto
+     *
+     * @return Object
+     *
+     * 
      */
    
 
@@ -125,12 +136,12 @@ class FMysql implements FDb {
     }
 
     /**
-     *
-     *
      * @access public
-     * @return array(Object)
      *
      * Fornisce il risultato di una query che richiede un array di oggetti
+     *
+     * @return array(Object)
+     *
      */
 
     public function getObjectArray() {
@@ -150,11 +161,13 @@ class FMysql implements FDb {
 
     /**
      * @access public
-     * @param Object $object
-     * @return array
      *
      * Si preoccupa di salvare un oggetto. Si prende le coppie campo-valore scorrendo
-     * l'oggetto in questione come se fosse un array
+     * l'oggetto in questione come se fosse un arra
+     *
+     * @param Object $object
+     * @return array
+     *y
      */
 
     public function store($object) {
@@ -184,10 +197,12 @@ class FMysql implements FDb {
 
     /**
      * @access public
+     *
+     * Carica un'entità
+     *
      * @param Key $k
      * @return Object
      *
-     * Carica un'entità
      *
      */
 
@@ -204,10 +219,13 @@ class FMysql implements FDb {
 
     /**
      * @access public
+     *
+     * Elimina un'entità
+     *
      * @param Object $object
      * @return array
      *
-     * Elimina un'entità
+     *
      */
 
     public function delete(& $object) {
@@ -221,10 +239,12 @@ class FMysql implements FDb {
 
     /**
      * @access public
+     *
+     * Fa l'update di un'entità
+     *
      * @param Object $object
      * @return array
      *
-     * Fa l'update di un'entità
      */
 
     public function update($object) {
@@ -247,12 +267,14 @@ class FMysql implements FDb {
 
     /**
      * @access public
+     *
+     * Esegue una query utilizzando i filtri forniti come parametro
+     *
      * @param array $param
      * @param string $order
      * @param string $limit
      * @return array(Object)
      *
-     * Esegue una query utilizzando i filtri forniti come parametro
      */
     
 
@@ -277,9 +299,11 @@ class FMysql implements FDb {
 
     /**
      * @access public
-     * @return array
      *
      * Chiude una connessione
+     *
+     * @return array
+     * 
      */
     public function close() {
 
@@ -302,11 +326,13 @@ class FMysql implements FDb {
 
 /**
  * @access public
+ *
+ * Questa funzione codifica ricorsivamente in UTF-8 un array/oggetto,
+ * per permettere l'invio di caratteri speciali tramite JSON.
+ *
  * @param array $array
  * @param int $key
  * 
- * Questa funzione codifica ricorsivamente in UTF-8 un array/oggetto,
- * per permettere l'invio di caratteri speciali tramite JSON.
  */
 
 function utf8_encode_array(&$array, $key) {

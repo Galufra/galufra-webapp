@@ -16,11 +16,11 @@ class CEvento {
      * @access public
      *
      *
-     * @param int $id
-     *
      * Una volta caricati i dati di sessione attraverso uno
      * switch gestiscele varie operazioni da svolgere sull' evento nella mappa.
      * Si utilizza in alcuni casi json per ritornare dati al client
+
+     * @param int $id
      */
     public function __construct($id = null) {
 

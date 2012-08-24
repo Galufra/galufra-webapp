@@ -18,10 +18,12 @@ class Cbacheca {
 
     /**
      * @access public
-     * @param int id_evento
+     * 
      * 
      *Smista attraverso uno switch le richieste del client una
      *volta caricati i dati di sessione
+     *
+     * @param int id_evento
      * */
     public function __construct($id) {
 
@@ -117,9 +119,11 @@ class Cbacheca {
 
     /**
      * @access public
-     * @return Json
+     * 
      * fornisce tutti i messaggi di un determinato evento e ci dice inoltre se l' utente è
      * amministratore o gestore dell' evento.Fornisce inoltre un json di risposta
+     *
+     * @return Json
      */
     public function getMessages() {
 
@@ -174,10 +178,10 @@ class Cbacheca {
     /**
      * @access public
      *
-     * @param string $mess
-     * 
      *
      * inserisce un annuncio da parte del gestore dell'evento. Fornisce un json di risposta
+     *
+     * @param string $mess
      */
     public function insertAnnuncio($mess) {
         $response = false;
@@ -201,9 +205,10 @@ class Cbacheca {
     }
     /**
      * @access public
-     * @return Json
      *
      * elimina un messaggio dalla bacheca
+     *
+     * @return Json
      */
     public function deleteMessage() {
         $m = new FMessaggio();
@@ -233,9 +238,10 @@ class Cbacheca {
     }
     /**
      * @access public
-     * @return Json
-     *
+     * 
      * Se siamo amministratori, elimina l'evento
+     *
+     * @return Json
      */
     public function eliminaEvento() {
 

@@ -245,13 +245,15 @@ class CHome {
     /**
      *
      * @access public
+     *
+     *  Crea un JSON contenente gli eventi restituiti da
+     * FEvento::searchEventiMappa() utilizzando le coordinate della mappa
+     *
      * @param int $neLat
      * @param int $neLon
      * @param int $swLat
      * @param int $swLon
      *
-     * Crea un JSON contenente gli eventi restituiti da
-     * FEvento::searchEventiMappa() utilizzando le coordinate della mappa
      */
 
     public function getEventiMappa($neLat, $neLon, $swLat, $swLon) {
@@ -264,15 +266,15 @@ class CHome {
 
     /**
      *
+     * @Crea un JSON contenente gli eventi restituiti da
+     * FEvento::getEventiConsigliati() utilizzando le coordinate della mappa.
+     *
      * @access public
      * @param int $neLat
      * @param int $neLon
      * @param int $swLat
      * @param int $swLon
      *
-     *
-     * Crea un JSON contenente gli eventi restituiti da
-     * FEvento::getEventiConsigliati() utilizzando le coordinate della mappa.
      *
      */
 
@@ -289,11 +291,11 @@ class CHome {
     }
 
     /**
+     *Crea un JSON contenente gli eventi restituiti da
+     * FEvento::getAllConsigliati() utilizzando le coordinate della mappa.
      *
      * @access public
      *
-     * Crea un JSON contenente gli eventi restituiti da
-     * FEvento::getAllConsigliati() utilizzando le coordinate della mappa.
      */
 
     public function getMaxConsigliati() {
@@ -311,11 +313,13 @@ class CHome {
 
     /**
      *
+     * Crea un JSON contenente gli eventi restituiti da
+     * FEvento::getEventiPreferiti() utilizzando le coordinate della mappa
+     *
      * @access public
      * @param Boolean $fornisciTutti
      *
-     * Crea un JSON contenente gli eventi restituiti da
-     * FEvento::getEventiPreferiti() utilizzando le coordinate della mappa
+     * 
      */
 
     public function getEventiPreferiti($fornisciTutti=false) {
@@ -331,11 +335,11 @@ class CHome {
     }
 
     /**
+     *Crea un JSON contenente gli eventi personali dell'utente
      *
      * @access public
      * @param EEvento $eventi
      *
-     * Crea un JSON contenente gli eventi personali dell'utente
      *
      */
 
@@ -350,11 +354,11 @@ class CHome {
     }
 
     /**
+     * invia una nuova password all'utente. La funzione mail verrà
+     * decommentata una volta che facciamo il deploy dell'applicazione
      *
      * @access public
      *
-     * invia una nuova password all'utente. La funzione mail verrà
-     * decommentata una volta che facciamo il deploy dell'applicazione
      *
      */
 

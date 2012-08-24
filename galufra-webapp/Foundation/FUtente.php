@@ -16,12 +16,14 @@ class FUtente extends FMysql {
 
     /**
      * @access public
+     *
+     * Esegue la registrazione sul db di un utente. Non uso la store per accelerare
+     * i tempi.
+     *
      * @param EUtente $user
      * @param int $uid
      * @return array
      *
-     * Esegue la registrazione sul db di un utente. Non uso la store per accelerare
-     * i tempi.
      */
     public function storeUtente($user, $uid) {
         $u = new EUtente();
@@ -49,10 +51,11 @@ class FUtente extends FMysql {
 
     /**
      * @access public
-     * @param int $uid
-     * @return array
      *
      * Confermo sul db un utente
+     *
+     * @param int $uid
+     * @return array
      *
      */
     public function userConfirmation($uid) {

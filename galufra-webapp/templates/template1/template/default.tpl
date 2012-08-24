@@ -23,7 +23,7 @@ Released for free under a Creative Commons Attribution 2.5 License
     <body>
         <div id="header">
             <ul id="menu">
-                <li><a href="CHome.php" accesskey="1" title=""><img alt="2"  src="../templates/template1/template/images/logo-galufra.png"></img></a></li>
+                <li><a href="CHome.php" accesskey="1" title=""><img alt=""  src="../templates/template1/template/images/logo-galufra.png"></img></a></li>
                 {if $autenticato}
                 <li><a href="CProfilo.php" accesskey="2" title="">Profilo</a></li>
                 {if $sbloccato}

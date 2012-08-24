@@ -67,9 +67,11 @@ class EUtente {
 
     /**
      * @access public
-     * @param string $password
      *
      * Codifica $password e la salva come attributo
+     *
+     * @param string $password
+     *
      */
     public function setPassword($password) {
         $this->password = md5($password);
@@ -136,9 +138,10 @@ class EUtente {
 
     /**
      * @access public
-     * @return boolean
      *
      * blocca l'utente nel creare altri eventi
+     *
+     * @return boolean
      */
     public function blocca() {
 
@@ -150,10 +153,10 @@ class EUtente {
 
     /**
      * @access public
-     * @param string $email
-     *
      *
      * Imposta l'email dopo averne verificato la correttezza
+     *
+     * @param string $email
      */
     public function setEmail($email) {
         /* FILTER_VALIDATE_EMAIL è un filtro di validazione
@@ -187,9 +190,10 @@ class EUtente {
 
     /**
      * @access public
-     * @return boolean
      *
      * Dice se l'utente ha confermato la registrazione
+     *
+     * @return boolean
      */
     public function isConfirmed() {
         return $this->confirmed;
@@ -197,9 +201,10 @@ class EUtente {
 
     /**
      * @access public
-     * @param boolean $confirmed
      *
      * Fa un set dell' utente riguardo la conferma della registrazione
+     *
+     * @param boolean $confirmed
      */
     public function setConfirmed($confirmed) {
         $this->confirmed = $confirmed;
@@ -270,10 +275,11 @@ class EUtente {
 
     /**
      * @access public
-     * @param  int $evento
      *
      * Aggiunge un evento tra i preferiti dell'utente
      * usando FEvento::storePreferiti
+     *
+     * @param  int $evento
      */
     public function addPreferiti($evento) {
         $ev = new FEvento();
@@ -283,12 +289,13 @@ class EUtente {
 
     /**
      * @access public
+     * Aggiunge un evento tra i consigliati
+     * usando FEvento::addConsigliati
+     *
      * @param int $evento
      * @param int $lat
      * @param int $lon
      *
-     * Aggiunge un evento tra i consigliati
-     * usando FEvento::addConsigliati
      */
     public function addConsigliati($evento, $lat, $lon) {
         $ev = new FEvento();
@@ -298,9 +305,10 @@ class EUtente {
 
     /**
      * @access public
-     * @param int $evento
-     *
+     * 
      * Rimuove un evento tra i preferiti usando FEvento::removePreferiti
+     *
+     * @param int $evento
      */
     public function removePreferiti($evento) {
         $ev = new FEvento();
@@ -310,10 +318,11 @@ class EUtente {
 
     /**
      * @access public
-     * @param int $evento
      *
      * Rimuove un evento dai consigliati usando
      * FEvento::removeConsigliati
+     *
+     * @param int $evento
      */
     public function removeConsigliati($evento) {
         $ev = new FEvento();
@@ -322,12 +331,14 @@ class EUtente {
     }
 
     /**
-     * @acce publicss
-     * @param boolean $admin
-     * @param boolean $superuser
+     * @access public
      *
      * Carica il numero degli eventi creato dall'utente
      * e si preoccupa nel caso di bloccarlo, sempre a seconda dei permessi
+     *
+     * @param boolean $admin
+     * @param boolean $superuser
+     *
      */
     public function setNumEventi($admin=0, $superuser=0) {
 
@@ -348,11 +359,13 @@ class EUtente {
 
     /**
      *
-     * @param int $id
-     * @return int
+     * @access public
      *
      * Fornisce il numero degli eventi personali dell' utente
      * usando FEvento::getUserEventi
+     *
+     * @param int $id
+     * @return int
      */
     public function getEventi($id) {
 

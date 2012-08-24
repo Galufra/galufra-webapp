@@ -17,10 +17,13 @@ class FMessaggio extends FMysql {
 
     /**
      * @access public
+     *
+     * Carica tutti i messaggi. Non uso la load per accelerare i tempi
+     *
      * @param int $idEvento
      * @return array
      *
-     * Carica tutti i messaggi. Non uso la load per accelerare i tempi
+     * 
      */
     public function loadMessages($idEvento) {
         $query = "SELECT * FROM $this->_table
@@ -34,10 +37,13 @@ class FMessaggio extends FMysql {
 
      /**
      * @access public
+      *
+      * Salva un messaggio. Non uso la store per accelerare i tempi
+      *
      * @param EMessaggio $messaggio
      * @return array
      *
-     * Salva un messaggio. Non uso la store per accelerare i tempi
+     * 
      */
     public function storeMessaggio($messaggio) {
         $m = new EMessaggio();

@@ -36,9 +36,10 @@ class CRegistrazione {
 
     /**
      * @access public
-     * @return Boolean
      *
      * esegue il login e inizia una sessione utente
+     *
+     * @return Boolean
      */
     public function logIn() {
 
@@ -89,9 +90,10 @@ class CRegistrazione {
 
     /**
      * @access public
-     * @return array(2){Boolean,String}
      * 
      * Effettua la registrazione, inserendo il nuovo utente nel DB.
+     *
+     * @return array(2){Boolean,String}
      */
     public function regUtente() {
 
@@ -120,11 +122,12 @@ class CRegistrazione {
 
     /**
      * @access public
-     * @return String
      *
      * Fornisce un id univoco utilizzando l' orario. Prende i secondi
      * e i microsecondi e li usa come chiave per generare un numero random
      * di cui viene fatto l'md5
+     *
+     * @return String
      */
     public static function getUniqueId() {
 
@@ -135,12 +138,15 @@ class CRegistrazione {
 
     /**
      * @access public
+     *
+     * Invia l' email di conferma.
+     *
      * @param string $to
      * @param string $from
      * @param int $id
      * @return boolean
      *
-     * Invia l' email di conferma.
+     * 
      */
     public function sendConfirmationMail($to, $from, $id) {
 
@@ -153,9 +159,10 @@ class CRegistrazione {
 
     /**
      * @access public
-     * @return array(2){boolean,EUtente}
      *
      * Esegue l'update di un utente
+     *
+     * @return array(2){boolean,EUtente}
      */
     public function updateProfilo() {
         $db = new FUtente();

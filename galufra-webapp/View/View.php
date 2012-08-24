@@ -5,6 +5,7 @@ require_once '../includes/config.inc.php';
 
 
 /**
+ * @abstract
  * Classe astratta derivata da smarty, per il caricamento dei template.
  */
 abstract class View extends Smarty {
@@ -36,9 +37,12 @@ abstract class View extends Smarty {
 
     /**
      * @access public
-     * @param string $n
      *
      * Assegna il nome utente
+     *
+     * @param string $n
+     *
+     * 
      */
     public function showUser($n="anonimo") {
 
@@ -88,9 +92,11 @@ abstract class View extends Smarty {
 
     /**
      * @access public
-     * @param boolean $b
      *
      * Dice al tpl che l'utente in questione è autenticato
+     *
+     * @param boolean $b
+     *
      */
     public function isAutenticato($b) {
 

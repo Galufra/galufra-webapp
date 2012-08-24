@@ -21,13 +21,15 @@ class FEvento extends FMysql {
 
     /**
      * @access public
+     *
+     * Restituisce un array di eventi compresi tra oggi e il prossimo mese
+     * con coordinate comprese nel rettangolo ne-sw.
+     *
      * @param int $neLat
      * @param int $neLon
      * @param int $swLat
      * @param int $swLon
-     *
-     * Restituisce un array di eventi compresi tra oggi e il prossimo mese
-     * con coordinate comprese nel rettangolo ne-sw.
+
      */
     public function searchEventiMappa($neLat, $neLon, $swLat, $swLon) {
         $prossimomese = new DateTime();
@@ -42,10 +44,13 @@ class FEvento extends FMysql {
 
     /**
      * @access public
+     *
+     * ritorna il numero di eventi preferiti
+     *
      * @param int $idUtente
      * @return int
      *
-     * ritorna il numero di eventi preferiti
+     * 
      */
     public function getEventiPreferiti($idUtente) {
         $this->makeQuery("
@@ -62,10 +67,13 @@ class FEvento extends FMysql {
 
     /**
      * @access public
+     *
+     * salva un evento preferito da un utente
+     *
      * @param int $idUtente
      * @param int $idEvento
      *
-     * salva un evento preferito da un utente
+     * 
      */
     public function storePreferiti($idUtente, $idEvento) {
         $this->makeQuery("
@@ -75,10 +83,13 @@ class FEvento extends FMysql {
 
     /**
      * @access public
+     *
+     * rimuove evento preferito da un utente
+     *
      * @param int $idUtente
      * @param int $idEvento
      *
-     * rimuove evento preferito da un utente
+     * 
      */
     public function removePreferiti($idUtente, $idEvento) {
         $this->makeQuery("
@@ -90,12 +101,14 @@ class FEvento extends FMysql {
     /**
      *
      * @access public
+     *
+     * Pone/rimuove un evento come Consigliato
+     *
      * @param int $idUtente
      * @param int $idEvento
      * @param int $lat
      * @param $lon
      *
-     * Pone/rimuove un evento come Consigliato
      *
      */
     public function storeConsigliati($idUtente, $idEvento, $lat, $lon) {
@@ -120,15 +133,16 @@ class FEvento extends FMysql {
     /**
      *
      * @access public
+     *
+     * Fornisco gli eventi che sono stati più consigliati
+     * nel frangente di mappa
+     *
      * @param int $idUtente
      * @param int $neLat
      * @param int $neLon
      * @param int $swLat
      * @param int $swLon
      * @return array(EEvento)
-     *
-     * Fornisco gli eventi che sono stati più consigliati
-     * nel frangente di mappa
      *
      *
      */
@@ -147,11 +161,14 @@ class FEvento extends FMysql {
 
     /**
      * @access public
+     *
+     * Mi fornisce tutti gli eventi consigliati
+     *
      * @param int $idUtente
      * @param int $dellUtente
      * @return array(EEvento)
      *
-     * Mi fornisce tutti gli eventi consigliati
+     * 
      */
     public function getAllConsigliati($idUtente, $dellUtente) {
         $query = (
@@ -167,11 +184,14 @@ class FEvento extends FMysql {
     }
 
     /**
-     * @acess public
+     * @access public
+     *
+     * conta il numero degli eventi
+     *
      * @param int $id
      * @return int
      *
-     * conta il numero degli eventi
+     * 
      */
     public function userEventCounter($id) {
         $result = $this->makeQuery("SELECT COUNT(*) FROM $this->_table WHERE id_gestore = $id");
@@ -185,10 +205,12 @@ class FEvento extends FMysql {
 
     /**
      * @access public
+     *
+     * blocca un utente che ha superato il limite degli eventi da creare
+     *
      * @param int $id
      * @return boolean
      *
-     * blocca un utente che ha superato il limite degli eventi da creare
      */
     public function bloccaUtente($id) {
         $result = $this->makeQuery("UPDATE utente SET sbloccato = 0 WHERE id_utente = $id");
@@ -197,12 +219,13 @@ class FEvento extends FMysql {
 
     /**
      * @access public
-     * @param int $id
-     * @return array(EEvento)
-     *
      *
      * fornisce un array di eventi creati dall' utente con quel particolare "id".
      * Ritorna false in caso di errore
+     *
+     * @param int $id
+     * @return array(EEvento)
+     *
      */
     public function getUserEventi($id) {
 
@@ -216,10 +239,13 @@ class FEvento extends FMysql {
 
     /**
      * @access public
+     *
+     * Conta i partecipanti di un particolare evento
+     *
      * @param int $id
      * @return int
      *
-     * Conta i partecipanti di un particolare evento
+     * 
      */
     public function guestCounter($id) {
         $number = 0;

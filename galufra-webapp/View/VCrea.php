@@ -9,10 +9,11 @@ class VCrea extends View {
     
     /**
      * @access public
-     * @param FILE $tpl
-     * @param FILE $scripts
      *
      * permetto di cambiare il tpl per reindirizzare la pagina alla home page una volta costruito l'evento
+     *
+     * @param FILE $tpl
+     * @param FILE $scripts
      *
      */
     public function __construct($tpl = 'crea.tpl',$scripts = array ('anytime.c.js', 'CCrea.js')) {

@@ -1,0 +1,1672 @@
+<!DOCTYPE html><html xmlns:date="http://exslt.org/dates-and-times" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>phpDocumentor » \Smarty_Internal_Template</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">phpDocumentor</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Packages</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+<li><a href="../packages/Smarty.html"><i class="icon-folder-open"></i> Smarty</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">904</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul>
+<li>todo 
+                <span class="label label-info">4</span>
+</li>
+<li>fixme 
+                <span class="label label-info">7</span>
+</li>
+</ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">3</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods</li>
+<li class="method public inherited"><a href="#__call" title="__call :: Handle unknown class methods"><span class="description">Handle unknown class methods</span><pre>__call()</pre></a></li>
+<li class="method public "><a href="#__construct" title="__construct :: Create template data object"><span class="description">Create template data object</span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#__destruct" title="__destruct :: Template data object destrutor"><span class="description">Template data object destrutor</span><pre>__destruct()</pre></a></li>
+<li class="method public "><a href="#__get" title="__get :: get Smarty property in template context"><span class="description">get Smarty property in template context</span><pre>__get()</pre></a></li>
+<li class="method public "><a href="#__set" title="__set :: set Smarty property in template context"><span class="description">set Smarty property in template context</span><pre>__set()</pre></a></li>
+<li class="method public "><a href="#_count" title="_count :: [util function] counts an array, arrayaccess/traversable or PDOStatement object"><span class="description">[util function] counts an array, arrayaccess/traversable or PDOStatement object</span><pre>_count()</pre></a></li>
+<li class="method public inherited"><a href="#_get_filter_name" title="_get_filter_name :: Return internal filter name"><span class="description">Return internal filter name</span><pre>_get_filter_name()</pre></a></li>
+<li class="method public inherited"><a href="#append" title="append :: appends values to template variables"><span class="description">appends values to template variables</span><pre>append()</pre></a></li>
+<li class="method public inherited"><a href="#appendByRef" title="appendByRef :: appends values to template variables by reference"><span class="description">appends values to template variables by reference</span><pre>appendByRef()</pre></a></li>
+<li class="method public inherited"><a href="#assign" title="assign :: assigns a Smarty variable"><span class="description">assigns a Smarty variable</span><pre>assign()</pre></a></li>
+<li class="method public inherited"><a href="#assignByRef" title="assignByRef :: assigns values to template variables by reference"><span class="description">assigns values to template variables by reference</span><pre>assignByRef()</pre></a></li>
+<li class="method public inherited"><a href="#assignGlobal" title="assignGlobal :: assigns a global Smarty variable"><span class="description">assigns a global Smarty variable</span><pre>assignGlobal()</pre></a></li>
+<li class="method public "><a href="#capture_error" title="capture_error :: runtime error not matching capture tags"><span class="description">runtime error not matching capture tags</span><pre>capture_error()</pre></a></li>
+<li class="method public inherited"><a href="#clearAllAssign" title="clearAllAssign :: clear all the assigned template variables."><span class="description">clear all the assigned template variables.</span><pre>clearAllAssign()</pre></a></li>
+<li class="method public inherited"><a href="#clearAssign" title="clearAssign :: clear the given assigned template variable."><span class="description">clear the given assigned template variable.</span><pre>clearAssign()</pre></a></li>
+<li class="method public "><a href="#clearCache" title="clearCache :: Empty cache for this template"><span class="description">Empty cache for this template</span><pre>clearCache()</pre></a></li>
+<li class="method public inherited"><a href="#clearConfig" title="clearConfig :: Deassigns a single or all config variables"><span class="description">Deassigns a single or all config variables</span><pre>clearConfig()</pre></a></li>
+<li class="method public "><a href="#compileTemplateSource" title="compileTemplateSource :: Compiles the template"><span class="description">Compiles the template</span><pre>compileTemplateSource()</pre></a></li>
+<li class="method public inherited"><a href="#configLoad" title="configLoad :: load a config file, optionally load just selected sections"><span class="description">load a config file, optionally load just selected sections</span><pre>configLoad()</pre></a></li>
+<li class="method public inherited"><a href="#createData" title="createData :: creates a data object"><span class="description">creates a data object</span><pre>createData()</pre></a></li>
+<li class="method public "><a href="#createLocalArrayVariable" title="createLocalArrayVariable :: Template code runtime function to create a local Smarty variable for array assignments"><span class="description">Template code runtime function to create a local Smarty variable for array assignments</span><pre>createLocalArrayVariable()</pre></a></li>
+<li class="method public "><a href="#createTemplateCodeFrame" title="createTemplateCodeFrame :: Create code frame for compiled and cached templates"><span class="description">Create code frame for compiled and cached templates</span><pre>createTemplateCodeFrame()</pre></a></li>
+<li class="method public "><a href="#decodeProperties" title="decodeProperties :: This function is executed automatically when a compiled or cached template file is included"><span class="description">This function is executed automatically when a compiled or cached template file is included</span><pre>decodeProperties()</pre></a></li>
+<li class="method public inherited"><a href="#display" title="display :: displays a Smarty template"><span class="description">displays a Smarty template</span><pre>display()</pre></a></li>
+<li class="method public inherited"><a href="#fetch" title="fetch :: fetches a rendered Smarty template"><span class="description">fetches a rendered Smarty template</span><pre>fetch()</pre></a></li>
+<li class="method public inherited"><a href="#getConfigVariable" title="getConfigVariable :: gets  a config variable"><span class="description">gets  a config variable</span><pre>getConfigVariable()</pre></a></li>
+<li class="method public inherited"><a href="#getConfigVars" title="getConfigVars :: Returns a single or all config variables"><span class="description">Returns a single or all config variables</span><pre>getConfigVars()</pre></a></li>
+<li class="method public inherited"><a href="#getRegisteredObject" title="getRegisteredObject :: return a reference to a registered object"><span class="description">return a reference to a registered object</span><pre>getRegisteredObject()</pre></a></li>
+<li class="method public "><a href="#getScope" title="getScope :: Template code runtime function to get pointer to template variable array of requested scope"><span class="description">Template code runtime function to get pointer to template variable array of requested scope</span><pre>getScope()</pre></a></li>
+<li class="method public "><a href="#getScopePointer" title="getScopePointer :: Get parent or root of template parent chain"><span class="description">Get parent or root of template parent chain</span><pre>getScopePointer()</pre></a></li>
+<li class="method public inherited"><a href="#getStreamVariable" title="getStreamVariable :: gets  a stream variable"><span class="description">gets  a stream variable</span><pre>getStreamVariable()</pre></a></li>
+<li class="method public "><a href="#getSubTemplate" title="getSubTemplate :: Template code runtime function to get subtemplate content"><span class="description">Template code runtime function to get subtemplate content</span><pre>getSubTemplate()</pre></a></li>
+<li class="method public inherited"><a href="#getTemplateVars" title="getTemplateVars :: Returns a single or all template variables"><span class="description">Returns a single or all template variables</span><pre>getTemplateVars()</pre></a></li>
+<li class="method public inherited"><a href="#getVariable" title="getVariable :: gets the object of a Smarty variable"><span class="description">gets the object of a Smarty variable</span><pre>getVariable()</pre></a></li>
+<li class="method public inherited"><a href="#isCached" title="isCached :: test if cache is valid"><span class="description">test if cache is valid</span><pre>isCached()</pre></a></li>
+<li class="method public inherited"><a href="#loadFilter" title="loadFilter :: load a filter of specified type and name"><span class="description">load a filter of specified type and name</span><pre>loadFilter()</pre></a></li>
+<li class="method public "><a href="#mustCompile" title="mustCompile :: Returns if the current template must be compiled by the Smarty compiler"><span class="description">Returns if the current template must be compiled by the Smarty compiler</span><pre>mustCompile()</pre></a></li>
+<li class="method public inherited"><a href="#registerCacheResource" title="registerCacheResource :: Registers a cache resource to cache a template's output"><span class="description">Registers a cache resource to cache a template's output</span><pre>registerCacheResource()</pre></a></li>
+<li class="method public inherited"><a href="#registerClass" title="registerClass :: Registers static classes to be used in templates"><span class="description">Registers static classes to be used in templates</span><pre>registerClass()</pre></a></li>
+<li class="method public inherited"><a href="#registerDefaultConfigHandler" title="registerDefaultConfigHandler :: Registers a default template handler"><span class="description">Registers a default template handler</span><pre>registerDefaultConfigHandler()</pre></a></li>
+<li class="method public inherited"><a href="#registerDefaultPluginHandler" title="registerDefaultPluginHandler :: Registers a default plugin handler"><span class="description">Registers a default plugin handler</span><pre>registerDefaultPluginHandler()</pre></a></li>
+<li class="method public inherited"><a href="#registerDefaultTemplateHandler" title="registerDefaultTemplateHandler :: Registers a default template handler"><span class="description">Registers a default template handler</span><pre>registerDefaultTemplateHandler()</pre></a></li>
+<li class="method public inherited"><a href="#registerFilter" title="registerFilter :: Registers a filter function"><span class="description">Registers a filter function</span><pre>registerFilter()</pre></a></li>
+<li class="method public inherited"><a href="#registerObject" title="registerObject :: Registers object to be used in templates"><span class="description">Registers object to be used in templates</span><pre>registerObject()</pre></a></li>
+<li class="method public inherited"><a href="#registerPlugin" title="registerPlugin :: Registers plugin to be used in templates"><span class="description">Registers plugin to be used in templates</span><pre>registerPlugin()</pre></a></li>
+<li class="method public inherited"><a href="#registerResource" title="registerResource :: Registers a resource to fetch a template"><span class="description">Registers a resource to fetch a template</span><pre>registerResource()</pre></a></li>
+<li class="method public "><a href="#setupInlineSubTemplate" title="setupInlineSubTemplate :: Template code runtime function to set up an inline subtemplate"><span class="description">Template code runtime function to set up an inline subtemplate</span><pre>setupInlineSubTemplate()</pre></a></li>
+<li class="method public inherited"><a href="#unloadFilter" title="unloadFilter :: unload a filter of specified type and name"><span class="description">unload a filter of specified type and name</span><pre>unloadFilter()</pre></a></li>
+<li class="method public inherited"><a href="#unregisterCacheResource" title="unregisterCacheResource :: Unregisters a cache resource"><span class="description">Unregisters a cache resource</span><pre>unregisterCacheResource()</pre></a></li>
+<li class="method public inherited"><a href="#unregisterFilter" title="unregisterFilter :: Unregisters a filter function"><span class="description">Unregisters a filter function</span><pre>unregisterFilter()</pre></a></li>
+<li class="method public inherited"><a href="#unregisterObject" title="unregisterObject :: unregister an object"><span class="description">unregister an object</span><pre>unregisterObject()</pre></a></li>
+<li class="method public inherited"><a href="#unregisterPlugin" title="unregisterPlugin :: Unregister Plugin"><span class="description">Unregister Plugin</span><pre>unregisterPlugin()</pre></a></li>
+<li class="method public inherited"><a href="#unregisterResource" title="unregisterResource :: Unregisters a resource"><span class="description">Unregisters a resource</span><pre>unregisterResource()</pre></a></li>
+<li class="method public "><a href="#writeCachedContent" title="writeCachedContent :: Writes the cached template output"><span class="description">Writes the cached template output</span><pre>writeCachedContent()</pre></a></li>
+<li class="nav-header private">» Private</li>
+<li class="method private inherited"><a href="#replaceCamelcase" title="replaceCamelcase :: preg_replace callback to convert camelcase getter/setter to underscore property names"><span class="description">preg_replace callback to convert camelcase getter/setter to underscore property names</span><pre>replaceCamelcase()</pre></a></li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties</li>
+<li class="property public "><a href="#%24_capture_stack" title="$_capture_stack :: internal capture runtime stack"><span class="description">internal capture runtime stack</span><pre>$_capture_stack</pre></a></li>
+<li class="property public "><a href="#%24allow_relative_path" title="$allow_relative_path :: internal flag to allow relative path in child template blocks"><span class="description">internal flag to allow relative path in child template blocks</span><pre>$allow_relative_path</pre></a></li>
+<li class="property public "><a href="#%24block_data" title="$block_data :: blocks for template inheritance"><span class="description">blocks for template inheritance</span><pre>$block_data</pre></a></li>
+<li class="property public "><a href="#%24cache_id" title="$cache_id :: cache_id"><span class="description">cache_id</span><pre>$cache_id</pre></a></li>
+<li class="property public "><a href="#%24cache_lifetime" title="$cache_lifetime :: cache lifetime in seconds"><span class="description">cache lifetime in seconds</span><pre>$cache_lifetime</pre></a></li>
+<li class="property public "><a href="#%24cached" title="$cached :: "><span class="description">$cached</span><pre>$cached</pre></a></li>
+<li class="property public "><a href="#%24caching" title="$caching :: caching enabled"><span class="description">caching enabled</span><pre>$caching</pre></a></li>
+<li class="property public "><a href="#%24compile_id" title="$compile_id :: $compile_id"><span class="description">$compile_id</span><pre>$compile_id</pre></a></li>
+<li class="property public "><a href="#%24compiled" title="$compiled :: "><span class="description">$compiled</span><pre>$compiled</pre></a></li>
+<li class="property public inherited"><a href="#%24config_vars" title="$config_vars :: configuration settings"><span class="description">configuration settings</span><pre>$config_vars</pre></a></li>
+<li class="property public "><a href="#%24has_nocache_code" title="$has_nocache_code :: flag if template does contain nocache code sections"><span class="description">flag if template does contain nocache code sections</span><pre>$has_nocache_code</pre></a></li>
+<li class="property public "><a href="#%24mustCompile" title="$mustCompile :: flag if compiled template is invalid and must be (re)compiled"><span class="description">flag if compiled template is invalid and must be (re)compiled</span><pre>$mustCompile</pre></a></li>
+<li class="property public inherited"><a href="#%24parent" title="$parent :: parent template (if any)"><span class="description">parent template (if any)</span><pre>$parent</pre></a></li>
+<li class="property public "><a href="#%24properties" title="$properties :: special compiled and cached template properties"><span class="description">special compiled and cached template properties</span><pre>$properties</pre></a></li>
+<li class="property public "><a href="#%24required_plugins" title="$required_plugins :: required plugins"><span class="description">required plugins</span><pre>$required_plugins</pre></a></li>
+<li class="property public "><a href="#%24smarty" title="$smarty :: Global smarty instance"><span class="description">Global smarty instance</span><pre>$smarty</pre></a></li>
+<li class="property public "><a href="#%24source" title="$source :: "><span class="description">$source</span><pre>$source</pre></a></li>
+<li class="property public inherited"><a href="#%24template_class" title="$template_class :: name of class used for templates"><span class="description">name of class used for templates</span><pre>$template_class</pre></a></li>
+<li class="property public "><a href="#%24template_resource" title="$template_resource :: Template resource"><span class="description">Template resource</span><pre>$template_resource</pre></a></li>
+<li class="property public inherited"><a href="#%24tpl_vars" title="$tpl_vars :: template variables"><span class="description">template variables</span><pre>$tpl_vars</pre></a></li>
+<li class="property public "><a href="#%24used_tags" title="$used_tags :: optional log of tag/attributes"><span class="description">optional log of tag/attributes</span><pre>$used_tags</pre></a></li>
+<li class="property public "><a href="#%24variable_filters" title="$variable_filters :: variable filters"><span class="description">variable filters</span><pre>$variable_filters</pre></a></li>
+</ul>
+</div>
+<div class="span8">
+<a name="%5CSmarty_Internal_Template" id="\Smarty_Internal_Template"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/global.html">global</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/Smarty_Internal_Template.html">Smarty_Internal_Template</a>
+</li>
+</ul>
+<div href="../classes/Smarty_Internal_Template.html" class="element class">
+<p class="short_description">Main class with template data structures and methods</p>
+<div class="details">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>package</th>
+<td><a href="../packages/Smarty.Template.html">Smarty</a></td>
+</tr>
+<tr>
+<th>subpackage</th>
+<td>Template</td>
+</tr>
+</table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a name="__call" id="__call"></a><div class="element clickable method public __call" data-toggle="collapse" data-target=".__call .collapse">
+<h2>Handle unknown class methods</h2>
+<pre>__call(string $name, array $args) </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_TemplateBase::__call()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>string</code><p>unknown method-name</p>
+</div>
+<div class="subelement argument">
+<h4>$args</h4>
+<code>array</code><p>argument array</p></div>
+</div></div>
+</div>
+<a name="__construct" id="__construct"></a><div class="element clickable method public __construct" data-toggle="collapse" data-target=".__construct .collapse">
+<h2>Create template data object</h2>
+<pre>__construct(string $template_resource, <a href="../classes/Smarty.html">\Smarty</a> $smarty, <a href="../classes/Smarty_Internal_Template.html">\Smarty_Internal_Template</a> $_parent, mixed $_cache_id, mixed $_compile_id, bool $_caching, int $_cache_lifetime) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>Some of the global Smarty settings copied to template scope
+It load the required template resources and cacher plugins</p></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$template_resource</h4>
+<code>string</code><p>template resource string</p></div>
+<div class="subelement argument">
+<h4>$smarty</h4>
+<code><a href="../classes/Smarty.html">\Smarty</a></code><p>Smarty instance</p></div>
+<div class="subelement argument">
+<h4>$_parent</h4>
+<code><a href="../classes/Smarty_Internal_Template.html">\Smarty_Internal_Template</a></code><p>back pointer to parent object with variables or null</p></div>
+<div class="subelement argument">
+<h4>$_cache_id</h4>
+<code>mixed</code><p>cache id or null</p></div>
+<div class="subelement argument">
+<h4>$_compile_id</h4>
+<code>mixed</code><p>compile id or null</p></div>
+<div class="subelement argument">
+<h4>$_caching</h4>
+<code>bool</code><p>use caching?</p>
+</div>
+<div class="subelement argument">
+<h4>$_cache_lifetime</h4>
+<code>int</code><p>cache life-time in seconds</p>
+</div>
+</div></div>
+</div>
+<a name="__destruct" id="__destruct"></a><div class="element clickable method public __destruct" data-toggle="collapse" data-target=".__destruct .collapse">
+<h2>Template data object destrutor</h2>
+<pre>__destruct() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="__get" id="__get"></a><div class="element clickable method public __get" data-toggle="collapse" data-target=".__get .collapse">
+<h2>get Smarty property in template context</h2>
+<pre>__get(string $property_name) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$property_name</h4>
+<code>string</code><p>property name</p></div>
+</div></div>
+</div>
+<a name="__set" id="__set"></a><div class="element clickable method public __set" data-toggle="collapse" data-target=".__set .collapse">
+<h2>set Smarty property in template context</h2>
+<pre>__set(string $property_name, mixed $value) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$property_name</h4>
+<code>string</code><p>property name</p></div>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>mixed</code><p>value</p></div>
+</div></div>
+</div>
+<a name="_count" id="_count"></a><div class="element clickable method public _count" data-toggle="collapse" data-target="._count .collapse">
+<h2>[util function] counts an array, arrayaccess/traversable or PDOStatement object</h2>
+<pre>_count(mixed $value) : int</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>mixed</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>int</code>the count for arrays and objects that implement countable, 1 for other objects that don't, and 0 for empty elements</div>
+</div></div>
+</div>
+<a name="_get_filter_name" id="_get_filter_name"></a><div class="element clickable method public _get_filter_name" data-toggle="collapse" data-target="._get_filter_name .collapse">
+<h2>Return internal filter name</h2>
+<pre>_get_filter_name(callback $function_name) : string</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_TemplateBase::_get_filter_name()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$function_name</h4>
+<code>callback</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>internal filter name</div>
+</div></div>
+</div>
+<a name="append" id="append"></a><div class="element clickable method public append" data-toggle="collapse" data-target=".append .collapse">
+<h2>appends values to template variables</h2>
+<pre>append(array | string $tpl_var, mixed $value, boolean $merge, boolean $nocache) : <a href="../classes/Smarty_Internal_Data.html">\Smarty_Internal_Data</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_Data::append()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_TemplateBase::append()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$tpl_var</h4>
+<code>array</code><code>string</code><p>the template variable name(s)</p>
+</div>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>mixed</code><p>the value to append</p></div>
+<div class="subelement argument">
+<h4>$merge</h4>
+<code>boolean</code><p>flag if array elements shall be merged</p></div>
+<div class="subelement argument">
+<h4>$nocache</h4>
+<code>boolean</code><p>if true any output of this variable will be not cached</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/Smarty_Internal_Data.html">\Smarty_Internal_Data</a></code>current Smarty_Internal_Data (or Smarty or Smarty_Internal_Template) instance for chaining</div>
+</div></div>
+</div>
+<a name="appendByRef" id="appendByRef"></a><div class="element clickable method public appendByRef" data-toggle="collapse" data-target=".appendByRef .collapse">
+<h2>appends values to template variables by reference</h2>
+<pre>appendByRef(string $tpl_var, mixed $value, boolean $merge) : <a href="../classes/Smarty_Internal_Data.html">\Smarty_Internal_Data</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_Data::appendByRef()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_TemplateBase::appendByRef()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$tpl_var</h4>
+<code>string</code><p>the template variable name</p></div>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>mixed</code><p>&$value the referenced value to append</p>
+</div>
+<div class="subelement argument">
+<h4>$merge</h4>
+<code>boolean</code><p>flag if array elements shall be merged</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/Smarty_Internal_Data.html">\Smarty_Internal_Data</a></code>current Smarty_Internal_Data (or Smarty or Smarty_Internal_Template) instance for chaining</div>
+</div></div>
+</div>
+<a name="assign" id="assign"></a><div class="element clickable method public assign" data-toggle="collapse" data-target=".assign .collapse">
+<h2>assigns a Smarty variable</h2>
+<pre>assign(array | string $tpl_var, mixed $value, boolean $nocache) : <a href="../classes/Smarty_Internal_Data.html">\Smarty_Internal_Data</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_Data::assign()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_TemplateBase::assign()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$tpl_var</h4>
+<code>array</code><code>string</code><p>the template variable name(s)</p>
+</div>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>mixed</code><p>the value to assign</p></div>
+<div class="subelement argument">
+<h4>$nocache</h4>
+<code>boolean</code><p>if true any output of this variable will be not cached</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/Smarty_Internal_Data.html">\Smarty_Internal_Data</a></code>current Smarty_Internal_Data (or Smarty or Smarty_Internal_Template) instance for chaining</div>
+</div></div>
+</div>
+<a name="assignByRef" id="assignByRef"></a><div class="element clickable method public assignByRef" data-toggle="collapse" data-target=".assignByRef .collapse">
+<h2>assigns values to template variables by reference</h2>
+<pre>assignByRef(string $tpl_var, $value, boolean $nocache) : <a href="../classes/Smarty_Internal_Data.html">\Smarty_Internal_Data</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_Data::assignByRef()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_TemplateBase::assignByRef()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$tpl_var</h4>
+<code>string</code><p>the template variable name</p></div>
+<div class="subelement argument"><h4>$value</h4></div>
+<div class="subelement argument">
+<h4>$nocache</h4>
+<code>boolean</code><p>if true any output of this variable will be not cached</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/Smarty_Internal_Data.html">\Smarty_Internal_Data</a></code>current Smarty_Internal_Data (or Smarty or Smarty_Internal_Template) instance for chaining</div>
+</div></div>
+</div>
+<a name="assignGlobal" id="assignGlobal"></a><div class="element clickable method public assignGlobal" data-toggle="collapse" data-target=".assignGlobal .collapse">
+<h2>assigns a global Smarty variable</h2>
+<pre>assignGlobal(string $varname, mixed $value, boolean $nocache) : <a href="../classes/Smarty_Internal_Data.html">\Smarty_Internal_Data</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_Data::assignGlobal()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_TemplateBase::assignGlobal()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$varname</h4>
+<code>string</code><p>the global variable name</p></div>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>mixed</code><p>the value to assign</p></div>
+<div class="subelement argument">
+<h4>$nocache</h4>
+<code>boolean</code><p>if true any output of this variable will be not cached</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/Smarty_Internal_Data.html">\Smarty_Internal_Data</a></code>current Smarty_Internal_Data (or Smarty or Smarty_Internal_Template) instance for chaining</div>
+</div></div>
+</div>
+<a name="capture_error" id="capture_error"></a><div class="element clickable method public capture_error" data-toggle="collapse" data-target=".capture_error .collapse">
+<h2>runtime error not matching capture tags</h2>
+<pre>capture_error() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="clearAllAssign" id="clearAllAssign"></a><div class="element clickable method public clearAllAssign" data-toggle="collapse" data-target=".clearAllAssign .collapse">
+<h2>clear all the assigned template variables.</h2>
+<pre>clearAllAssign() : <a href="../classes/Smarty_Internal_Data.html">\Smarty_Internal_Data</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_Data::clearAllAssign()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_TemplateBase::clearAllAssign()</td>
+</tr>
+</table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/Smarty_Internal_Data.html">\Smarty_Internal_Data</a></code>current Smarty_Internal_Data (or Smarty or Smarty_Internal_Template) instance for chaining</div>
+</div></div>
+</div>
+<a name="clearAssign" id="clearAssign"></a><div class="element clickable method public clearAssign" data-toggle="collapse" data-target=".clearAssign .collapse">
+<h2>clear the given assigned template variable.</h2>
+<pre>clearAssign(string | array $tpl_var) : <a href="../classes/Smarty_Internal_Data.html">\Smarty_Internal_Data</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_Data::clearAssign()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_TemplateBase::clearAssign()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$tpl_var</h4>
+<code>string</code><code>array</code><p>the template variable(s) to clear</p>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/Smarty_Internal_Data.html">\Smarty_Internal_Data</a></code>current Smarty_Internal_Data (or Smarty or Smarty_Internal_Template) instance for chaining</div>
+</div></div>
+</div>
+<a name="clearCache" id="clearCache"></a><div class="element clickable method public clearCache" data-toggle="collapse" data-target=".clearCache .collapse">
+<h2>Empty cache for this template</h2>
+<pre>clearCache(integer $exp_time) : integer</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$exp_time</h4>
+<code>integer</code><p>expiration time</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>integer</code>number of cache files deleted</div>
+</div></div>
+</div>
+<a name="clearConfig" id="clearConfig"></a><div class="element clickable method public clearConfig" data-toggle="collapse" data-target=".clearConfig .collapse">
+<h2>Deassigns a single or all config variables</h2>
+<pre>clearConfig(string $varname) : <a href="../classes/Smarty_Internal_Data.html">\Smarty_Internal_Data</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_Data::clearConfig()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_TemplateBase::clearConfig()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$varname</h4>
+<code>string</code><p>variable name or null</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/Smarty_Internal_Data.html">\Smarty_Internal_Data</a></code>current Smarty_Internal_Data (or Smarty or Smarty_Internal_Template) instance for chaining</div>
+</div></div>
+</div>
+<a name="compileTemplateSource" id="compileTemplateSource"></a><div class="element clickable method public compileTemplateSource" data-toggle="collapse" data-target=".compileTemplateSource .collapse">
+<h2>Compiles the template</h2>
+<pre>compileTemplateSource() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"><p>If the template is not evaluated the compiled template is saved on disk</p></p></div></div>
+</div>
+<a name="configLoad" id="configLoad"></a><div class="element clickable method public configLoad" data-toggle="collapse" data-target=".configLoad .collapse">
+<h2>load a config file, optionally load just selected sections</h2>
+<pre>configLoad(string $config_file, mixed $sections) : <a href="../classes/Smarty_Internal_Data.html">\Smarty_Internal_Data</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_Data::configLoad()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_TemplateBase::configLoad()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$config_file</h4>
+<code>string</code><p>filename</p></div>
+<div class="subelement argument">
+<h4>$sections</h4>
+<code>mixed</code><p>array of section names, single section or null</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/Smarty_Internal_Data.html">\Smarty_Internal_Data</a></code>current Smarty_Internal_Data (or Smarty or Smarty_Internal_Template) instance for chaining</div>
+</div></div>
+</div>
+<a name="createData" id="createData"></a><div class="element clickable method public createData" data-toggle="collapse" data-target=".createData .collapse">
+<h2>creates a data object</h2>
+<pre>createData(object $parent) </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>returns</th>
+<td>Smarty_Data data object</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_TemplateBase::createData()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$parent</h4>
+<code>object</code><p>next higher level of Smarty variables</p></div>
+</div></div>
+</div>
+<a name="createLocalArrayVariable" id="createLocalArrayVariable"></a><div class="element clickable method public createLocalArrayVariable" data-toggle="collapse" data-target=".createLocalArrayVariable .collapse">
+<h2>Template code runtime function to create a local Smarty variable for array assignments</h2>
+<pre>createLocalArrayVariable(string $tpl_var, bool $nocache, int $scope) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$tpl_var</h4>
+<code>string</code><p>tempate variable name</p></div>
+<div class="subelement argument">
+<h4>$nocache</h4>
+<code>bool</code><p>cache mode of variable</p></div>
+<div class="subelement argument">
+<h4>$scope</h4>
+<code>int</code><p>scope of variable</p></div>
+</div></div>
+</div>
+<a name="createTemplateCodeFrame" id="createTemplateCodeFrame"></a><div class="element clickable method public createTemplateCodeFrame" data-toggle="collapse" data-target=".createTemplateCodeFrame .collapse">
+<h2>Create code frame for compiled and cached templates</h2>
+<pre>createTemplateCodeFrame(string $content, bool $cache) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$content</h4>
+<code>string</code><p>optional template content</p></div>
+<div class="subelement argument">
+<h4>$cache</h4>
+<code>bool</code><p>flag for cache file</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a name="decodeProperties" id="decodeProperties"></a><div class="element clickable method public decodeProperties" data-toggle="collapse" data-target=".decodeProperties .collapse">
+<h2>This function is executed automatically when a compiled or cached template file is included</h2>
+<pre>decodeProperties(array $properties, bool $cache) : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><ul>
+<li>Decode saved properties from compiled template and cache files</li>
+<li>Check if compiled or cache file is valid</li>
+</ul></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$properties</h4>
+<code>array</code><p>special template properties</p></div>
+<div class="subelement argument">
+<h4>$cache</h4>
+<code>bool</code><p>flag if called from cache file</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>bool</code>flag if compiled or cache file is valid</div>
+</div></div>
+</div>
+<a name="display" id="display"></a><div class="element clickable method public display" data-toggle="collapse" data-target=".display .collapse">
+<h2>displays a Smarty template</h2>
+<pre>display(string $template, mixed $cache_id, mixed $compile_id, object $parent) </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_TemplateBase::display()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$template</h4>
+<code>string</code><p>the resource handle of the template file or template object</p></div>
+<div class="subelement argument">
+<h4>$cache_id</h4>
+<code>mixed</code><p>cache id to be used with this template</p></div>
+<div class="subelement argument">
+<h4>$compile_id</h4>
+<code>mixed</code><p>compile id to be used with this template</p></div>
+<div class="subelement argument">
+<h4>$parent</h4>
+<code>object</code><p>next higher level of Smarty variables</p></div>
+</div></div>
+</div>
+<a name="fetch" id="fetch"></a><div class="element clickable method public fetch" data-toggle="collapse" data-target=".fetch .collapse">
+<h2>fetches a rendered Smarty template</h2>
+<pre>fetch(string $template, mixed $cache_id, mixed $compile_id, object $parent, bool $display, bool $merge_tpl_vars, bool $no_output_filter) : string</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_TemplateBase::fetch()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$template</h4>
+<code>string</code><p>the resource handle of the template file or template object</p></div>
+<div class="subelement argument">
+<h4>$cache_id</h4>
+<code>mixed</code><p>cache id to be used with this template</p></div>
+<div class="subelement argument">
+<h4>$compile_id</h4>
+<code>mixed</code><p>compile id to be used with this template</p></div>
+<div class="subelement argument">
+<h4>$parent</h4>
+<code>object</code><p>next higher level of Smarty variables</p></div>
+<div class="subelement argument">
+<h4>$display</h4>
+<code>bool</code><p>true: display, false: fetch</p></div>
+<div class="subelement argument">
+<h4>$merge_tpl_vars</h4>
+<code>bool</code><p>if true parent template variables merged in to local scope</p></div>
+<div class="subelement argument">
+<h4>$no_output_filter</h4>
+<code>bool</code><p>if true do not run output filter</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>rendered template output</div>
+</div></div>
+</div>
+<a name="getConfigVariable" id="getConfigVariable"></a><div class="element clickable method public getConfigVariable" data-toggle="collapse" data-target=".getConfigVariable .collapse">
+<h2>gets  a config variable</h2>
+<pre>getConfigVariable(string $variable, $error_enable) : mixed</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_Data::getConfigVariable()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_TemplateBase::getConfigVariable()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$variable</h4>
+<code>string</code><p>the name of the config variable</p></div>
+<div class="subelement argument"><h4>$error_enable</h4></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>mixed</code>the value of the config variable</div>
+</div></div>
+</div>
+<a name="getConfigVars" id="getConfigVars"></a><div class="element clickable method public getConfigVars" data-toggle="collapse" data-target=".getConfigVars .collapse">
+<h2>Returns a single or all config variables</h2>
+<pre>getConfigVars(string $varname, $search_parents) : string</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_Data::getConfigVars()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_TemplateBase::getConfigVars()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$varname</h4>
+<code>string</code><p>variable name or null</p></div>
+<div class="subelement argument"><h4>$search_parents</h4></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>variable value or or array of variables</div>
+</div></div>
+</div>
+<a name="getRegisteredObject" id="getRegisteredObject"></a><div class="element clickable method public getRegisteredObject" data-toggle="collapse" data-target=".getRegisteredObject .collapse">
+<h2>return a reference to a registered object</h2>
+<pre>getRegisteredObject(string $name) : object</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_TemplateBase::getRegisteredObject()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>string</code><p>object name</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="../classes/SmartyException.html">\SmartyException</a></code></th>
+<td>if no such object is found</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>object</code></div>
+</div></div>
+</div>
+<a name="getScope" id="getScope"></a><div class="element clickable method public getScope" data-toggle="collapse" data-target=".getScope .collapse">
+<h2>Template code runtime function to get pointer to template variable array of requested scope</h2>
+<pre>getScope(int $scope) : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$scope</h4>
+<code>int</code><p>requested variable scope</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>array of template variables</div>
+</div></div>
+</div>
+<a name="getScopePointer" id="getScopePointer"></a><div class="element clickable method public getScopePointer" data-toggle="collapse" data-target=".getScopePointer .collapse">
+<h2>Get parent or root of template parent chain</h2>
+<pre>getScopePointer(int $scope) : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$scope</h4>
+<code>int</code><p>pqrent or root scope</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>mixed</code>object</div>
+</div></div>
+</div>
+<a name="getStreamVariable" id="getStreamVariable"></a><div class="element clickable method public getStreamVariable" data-toggle="collapse" data-target=".getStreamVariable .collapse">
+<h2>gets  a stream variable</h2>
+<pre>getStreamVariable(string $variable) : mixed</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_Data::getStreamVariable()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_TemplateBase::getStreamVariable()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$variable</h4>
+<code>string</code><p>the stream of the variable</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>mixed</code>the value of the stream variable</div>
+</div></div>
+</div>
+<a name="getSubTemplate" id="getSubTemplate"></a><div class="element clickable method public getSubTemplate" data-toggle="collapse" data-target=".getSubTemplate .collapse">
+<h2>Template code runtime function to get subtemplate content</h2>
+<pre>getSubTemplate(string $template, mixed $cache_id, mixed $compile_id, integer $caching, integer $cache_lifetime, $data, int $parent_scope) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>returns</th>
+<td>string template content</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$template</h4>
+<code>string</code><p>the resource handle of the template file</p></div>
+<div class="subelement argument">
+<h4>$cache_id</h4>
+<code>mixed</code><p>cache id to be used with this template</p></div>
+<div class="subelement argument">
+<h4>$compile_id</h4>
+<code>mixed</code><p>compile id to be used with this template</p></div>
+<div class="subelement argument">
+<h4>$caching</h4>
+<code>integer</code><p>cache mode</p></div>
+<div class="subelement argument">
+<h4>$cache_lifetime</h4>
+<code>integer</code><p>life time of cache data</p></div>
+<div class="subelement argument"><h4>$data</h4></div>
+<div class="subelement argument">
+<h4>$parent_scope</h4>
+<code>int</code><p>scope in which {include} should execute</p>
+</div>
+</div></div>
+</div>
+<a name="getTemplateVars" id="getTemplateVars"></a><div class="element clickable method public getTemplateVars" data-toggle="collapse" data-target=".getTemplateVars .collapse">
+<h2>Returns a single or all template variables</h2>
+<pre>getTemplateVars(string $varname, string $_ptr, boolean $search_parents) : string</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_Data::getTemplateVars()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_TemplateBase::getTemplateVars()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$varname</h4>
+<code>string</code><p>variable name or null</p></div>
+<div class="subelement argument">
+<h4>$_ptr</h4>
+<code>string</code><p>optional pointer to data object</p></div>
+<div class="subelement argument">
+<h4>$search_parents</h4>
+<code>boolean</code><p>include parent templates?</p>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>variable value or or array of variables</div>
+</div></div>
+</div>
+<a name="getVariable" id="getVariable"></a><div class="element clickable method public getVariable" data-toggle="collapse" data-target=".getVariable .collapse">
+<h2>gets the object of a Smarty variable</h2>
+<pre>getVariable(string $variable, object $_ptr, boolean $search_parents, $error_enable) : object</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_Data::getVariable()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_TemplateBase::getVariable()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$variable</h4>
+<code>string</code><p>the name of the Smarty variable</p></div>
+<div class="subelement argument">
+<h4>$_ptr</h4>
+<code>object</code><p>optional pointer to data object</p></div>
+<div class="subelement argument">
+<h4>$search_parents</h4>
+<code>boolean</code><p>search also in parent data</p></div>
+<div class="subelement argument"><h4>$error_enable</h4></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>object</code>the object of the variable</div>
+</div></div>
+</div>
+<a name="isCached" id="isCached"></a><div class="element clickable method public isCached" data-toggle="collapse" data-target=".isCached .collapse">
+<h2>test if cache is valid</h2>
+<pre>isCached(string | object $template, mixed $cache_id, mixed $compile_id, object $parent) : boolean</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_TemplateBase::isCached()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$template</h4>
+<code>string</code><code>object</code><p>the resource handle of the template file or template object</p></div>
+<div class="subelement argument">
+<h4>$cache_id</h4>
+<code>mixed</code><p>cache id to be used with this template</p></div>
+<div class="subelement argument">
+<h4>$compile_id</h4>
+<code>mixed</code><p>compile id to be used with this template</p></div>
+<div class="subelement argument">
+<h4>$parent</h4>
+<code>object</code><p>next higher level of Smarty variables</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>cache status</div>
+</div></div>
+</div>
+<a name="loadFilter" id="loadFilter"></a><div class="element clickable method public loadFilter" data-toggle="collapse" data-target=".loadFilter .collapse">
+<h2>load a filter of specified type and name</h2>
+<pre>loadFilter(string $type, string $name) </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_TemplateBase::loadFilter()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$type</h4>
+<code>string</code><p>filter type</p></div>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>string</code><p>filter name</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="../classes/SmartyException.html">\SmartyException</a></code></th>
+<td>if filter could not be loaded</td>
+</tr></table>
+</div></div>
+</div>
+<a name="mustCompile" id="mustCompile"></a><div class="element clickable method public mustCompile" data-toggle="collapse" data-target=".mustCompile .collapse">
+<h2>Returns if the current template must be compiled by the Smarty compiler</h2>
+<pre>mustCompile() : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>It does compare the timestamps of template source and the compiled templates and checks the force compile configuration</p></p>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>true if the template must be compiled</div>
+</div></div>
+</div>
+<a name="registerCacheResource" id="registerCacheResource"></a><div class="element clickable method public registerCacheResource" data-toggle="collapse" data-target=".registerCacheResource .collapse">
+<h2>Registers a cache resource to cache a template's output</h2>
+<pre>registerCacheResource(string $type, \Smarty_CacheResource $callback) : \Smarty_Internal_Templatebase</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_TemplateBase::registerCacheResource()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$type</h4>
+<code>string</code><p>name of cache resource type</p></div>
+<div class="subelement argument">
+<h4>$callback</h4>
+<code><a href="../classes/Smarty_CacheResource.html">\Smarty_CacheResource</a></code><p>instance of Smarty_CacheResource to handle output caching</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>\Smarty_Internal_Templatebase</code>current Smarty_Internal_Templatebase (or Smarty or Smarty_Internal_Template) instance for chaining</div>
+</div></div>
+</div>
+<a name="registerClass" id="registerClass"></a><div class="element clickable method public registerClass" data-toggle="collapse" data-target=".registerClass .collapse">
+<h2>Registers static classes to be used in templates</h2>
+<pre>registerClass($class_name, string $class_impl) : \Smarty_Internal_Templatebase</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_TemplateBase::registerClass()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$class_name</h4></div>
+<div class="subelement argument">
+<h4>$class_impl</h4>
+<code>string</code><p>the referenced PHP class to register</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="../classes/SmartyException.html">\SmartyException</a></code></th>
+<td>if $class_impl does not refer to an existing class</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>\Smarty_Internal_Templatebase</code>current Smarty_Internal_Templatebase (or Smarty or Smarty_Internal_Template) instance for chaining</div>
+</div></div>
+</div>
+<a name="registerDefaultConfigHandler" id="registerDefaultConfigHandler"></a><div class="element clickable method public registerDefaultConfigHandler" data-toggle="collapse" data-target=".registerDefaultConfigHandler .collapse">
+<h2>Registers a default template handler</h2>
+<pre>registerDefaultConfigHandler(\callable $callback) : \Smarty_Internal_Templatebase</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_TemplateBase::registerDefaultConfigHandler()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$callback</h4>
+<code>\callable</code><p>class/method name</p>
+</div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="../classes/SmartyException.html">\SmartyException</a></code></th>
+<td>if $callback is not callable</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>\Smarty_Internal_Templatebase</code>current Smarty_Internal_Templatebase (or Smarty or Smarty_Internal_Template) instance for chaining</div>
+</div></div>
+</div>
+<a name="registerDefaultPluginHandler" id="registerDefaultPluginHandler"></a><div class="element clickable method public registerDefaultPluginHandler" data-toggle="collapse" data-target=".registerDefaultPluginHandler .collapse">
+<h2>Registers a default plugin handler</h2>
+<pre>registerDefaultPluginHandler(\callable $callback) : \Smarty_Internal_Templatebase</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_TemplateBase::registerDefaultPluginHandler()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$callback</h4>
+<code>\callable</code><p>class/method name</p>
+</div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="../classes/SmartyException.html">\SmartyException</a></code></th>
+<td>if $callback is not callable</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>\Smarty_Internal_Templatebase</code>current Smarty_Internal_Templatebase (or Smarty or Smarty_Internal_Template) instance for chaining</div>
+</div></div>
+</div>
+<a name="registerDefaultTemplateHandler" id="registerDefaultTemplateHandler"></a><div class="element clickable method public registerDefaultTemplateHandler" data-toggle="collapse" data-target=".registerDefaultTemplateHandler .collapse">
+<h2>Registers a default template handler</h2>
+<pre>registerDefaultTemplateHandler(\callable $callback) : \Smarty_Internal_Templatebase</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_TemplateBase::registerDefaultTemplateHandler()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$callback</h4>
+<code>\callable</code><p>class/method name</p>
+</div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="../classes/SmartyException.html">\SmartyException</a></code></th>
+<td>if $callback is not callable</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>\Smarty_Internal_Templatebase</code>current Smarty_Internal_Templatebase (or Smarty or Smarty_Internal_Template) instance for chaining</div>
+</div></div>
+</div>
+<a name="registerFilter" id="registerFilter"></a><div class="element clickable method public registerFilter" data-toggle="collapse" data-target=".registerFilter .collapse">
+<h2>Registers a filter function</h2>
+<pre>registerFilter(string $type, callback $callback) : \Smarty_Internal_Templatebase</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_TemplateBase::registerFilter()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$type</h4>
+<code>string</code><p>filter type</p></div>
+<div class="subelement argument">
+<h4>$callback</h4>
+<code>callback</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>\Smarty_Internal_Templatebase</code>current Smarty_Internal_Templatebase (or Smarty or Smarty_Internal_Template) instance for chaining</div>
+</div></div>
+</div>
+<a name="registerObject" id="registerObject"></a><div class="element clickable method public registerObject" data-toggle="collapse" data-target=".registerObject .collapse">
+<h2>Registers object to be used in templates</h2>
+<pre>registerObject($object_name, object $object_impl, array $allowed, boolean $smarty_args, array $block_methods) : \Smarty_Internal_Templatebase</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_TemplateBase::registerObject()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$object_name</h4></div>
+<div class="subelement argument">
+<h4>$object_impl</h4>
+<code>object</code><p>the referenced PHP object to register</p></div>
+<div class="subelement argument">
+<h4>$allowed</h4>
+<code>array</code><p>list of allowed methods (empty = all)</p>
+</div>
+<div class="subelement argument">
+<h4>$smarty_args</h4>
+<code>boolean</code><p>smarty argument format, else traditional</p></div>
+<div class="subelement argument">
+<h4>$block_methods</h4>
+<code>array</code><p>list of block-methods</p>
+</div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="../classes/SmartyException.html">\SmartyException</a></code></th>
+<td>if any of the methods in $allowed or $block_methods are invalid</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>\Smarty_Internal_Templatebase</code>current Smarty_Internal_Templatebase (or Smarty or Smarty_Internal_Template) instance for chaining</div>
+</div></div>
+</div>
+<a name="registerPlugin" id="registerPlugin"></a><div class="element clickable method public registerPlugin" data-toggle="collapse" data-target=".registerPlugin .collapse">
+<h2>Registers plugin to be used in templates</h2>
+<pre>registerPlugin(string $type, string $tag, callback $callback, boolean $cacheable, array $cache_attr) : \Smarty_Internal_Templatebase</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_TemplateBase::registerPlugin()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$type</h4>
+<code>string</code><p>plugin type</p></div>
+<div class="subelement argument">
+<h4>$tag</h4>
+<code>string</code><p>name of template tag</p></div>
+<div class="subelement argument">
+<h4>$callback</h4>
+<code>callback</code><p>PHP callback to register</p></div>
+<div class="subelement argument">
+<h4>$cacheable</h4>
+<code>boolean</code><p>if true (default) this fuction is cachable</p>
+</div>
+<div class="subelement argument">
+<h4>$cache_attr</h4>
+<code>array</code><p>caching attributes if any</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="../classes/SmartyException.html">\SmartyException</a></code></th>
+<td>when the plugin tag is invalid</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>\Smarty_Internal_Templatebase</code>current Smarty_Internal_Templatebase (or Smarty or Smarty_Internal_Template) instance for chaining</div>
+</div></div>
+</div>
+<a name="registerResource" id="registerResource"></a><div class="element clickable method public registerResource" data-toggle="collapse" data-target=".registerResource .collapse">
+<h2>Registers a resource to fetch a template</h2>
+<pre>registerResource(string $type, <a href="../classes/Smarty_Resource.html">\Smarty_Resource</a> | array $callback) : \Smarty_Internal_Templatebase</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_TemplateBase::registerResource()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$type</h4>
+<code>string</code><p>name of resource type</p></div>
+<div class="subelement argument">
+<h4>$callback</h4>
+<code><a href="../classes/Smarty_Resource.html">\Smarty_Resource</a></code><code>array</code><p>or instance of Smarty_Resource, or array of callbacks to handle resource (deprecated)</p>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>\Smarty_Internal_Templatebase</code>current Smarty_Internal_Templatebase (or Smarty or Smarty_Internal_Template) instance for chaining</div>
+</div></div>
+</div>
+<a name="setupInlineSubTemplate" id="setupInlineSubTemplate"></a><div class="element clickable method public setupInlineSubTemplate" data-toggle="collapse" data-target=".setupInlineSubTemplate .collapse">
+<h2>Template code runtime function to set up an inline subtemplate</h2>
+<pre>setupInlineSubTemplate(string $template, mixed $cache_id, mixed $compile_id, integer $caching, integer $cache_lifetime, $data, int $parent_scope, string $hash) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>returns</th>
+<td>string template content</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$template</h4>
+<code>string</code><p>the resource handle of the template file</p></div>
+<div class="subelement argument">
+<h4>$cache_id</h4>
+<code>mixed</code><p>cache id to be used with this template</p></div>
+<div class="subelement argument">
+<h4>$compile_id</h4>
+<code>mixed</code><p>compile id to be used with this template</p></div>
+<div class="subelement argument">
+<h4>$caching</h4>
+<code>integer</code><p>cache mode</p></div>
+<div class="subelement argument">
+<h4>$cache_lifetime</h4>
+<code>integer</code><p>life time of cache data</p></div>
+<div class="subelement argument"><h4>$data</h4></div>
+<div class="subelement argument">
+<h4>$parent_scope</h4>
+<code>int</code><p>scope in which {include} should execute</p>
+</div>
+<div class="subelement argument">
+<h4>$hash</h4>
+<code>string</code><p>nocache hash code</p></div>
+</div></div>
+</div>
+<a name="unloadFilter" id="unloadFilter"></a><div class="element clickable method public unloadFilter" data-toggle="collapse" data-target=".unloadFilter .collapse">
+<h2>unload a filter of specified type and name</h2>
+<pre>unloadFilter(string $type, string $name) : \Smarty_Internal_Templatebase</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_TemplateBase::unloadFilter()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$type</h4>
+<code>string</code><p>filter type</p></div>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>string</code><p>filter name</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>\Smarty_Internal_Templatebase</code>current Smarty_Internal_Templatebase (or Smarty or Smarty_Internal_Template) instance for chaining</div>
+</div></div>
+</div>
+<a name="unregisterCacheResource" id="unregisterCacheResource"></a><div class="element clickable method public unregisterCacheResource" data-toggle="collapse" data-target=".unregisterCacheResource .collapse">
+<h2>Unregisters a cache resource</h2>
+<pre>unregisterCacheResource(string $type) : \Smarty_Internal_Templatebase</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_TemplateBase::unregisterCacheResource()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$type</h4>
+<code>string</code><p>name of cache resource type</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>\Smarty_Internal_Templatebase</code>current Smarty_Internal_Templatebase (or Smarty or Smarty_Internal_Template) instance for chaining</div>
+</div></div>
+</div>
+<a name="unregisterFilter" id="unregisterFilter"></a><div class="element clickable method public unregisterFilter" data-toggle="collapse" data-target=".unregisterFilter .collapse">
+<h2>Unregisters a filter function</h2>
+<pre>unregisterFilter(string $type, callback $callback) : \Smarty_Internal_Templatebase</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_TemplateBase::unregisterFilter()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$type</h4>
+<code>string</code><p>filter type</p></div>
+<div class="subelement argument">
+<h4>$callback</h4>
+<code>callback</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>\Smarty_Internal_Templatebase</code>current Smarty_Internal_Templatebase (or Smarty or Smarty_Internal_Template) instance for chaining</div>
+</div></div>
+</div>
+<a name="unregisterObject" id="unregisterObject"></a><div class="element clickable method public unregisterObject" data-toggle="collapse" data-target=".unregisterObject .collapse">
+<h2>unregister an object</h2>
+<pre>unregisterObject(string $name) : \Smarty_Internal_Templatebase</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_TemplateBase::unregisterObject()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>string</code><p>object name</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>\Smarty_Internal_Templatebase</code>current Smarty_Internal_Templatebase (or Smarty or Smarty_Internal_Template) instance for chaining</div>
+</div></div>
+</div>
+<a name="unregisterPlugin" id="unregisterPlugin"></a><div class="element clickable method public unregisterPlugin" data-toggle="collapse" data-target=".unregisterPlugin .collapse">
+<h2>Unregister Plugin</h2>
+<pre>unregisterPlugin(string $type, string $tag) : \Smarty_Internal_Templatebase</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_TemplateBase::unregisterPlugin()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$type</h4>
+<code>string</code><p>of plugin</p></div>
+<div class="subelement argument">
+<h4>$tag</h4>
+<code>string</code><p>name of plugin</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>\Smarty_Internal_Templatebase</code>current Smarty_Internal_Templatebase (or Smarty or Smarty_Internal_Template) instance for chaining</div>
+</div></div>
+</div>
+<a name="unregisterResource" id="unregisterResource"></a><div class="element clickable method public unregisterResource" data-toggle="collapse" data-target=".unregisterResource .collapse">
+<h2>Unregisters a resource</h2>
+<pre>unregisterResource(string $type) : \Smarty_Internal_Templatebase</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_TemplateBase::unregisterResource()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$type</h4>
+<code>string</code><p>name of resource type</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>\Smarty_Internal_Templatebase</code>current Smarty_Internal_Templatebase (or Smarty or Smarty_Internal_Template) instance for chaining</div>
+</div></div>
+</div>
+<a name="writeCachedContent" id="writeCachedContent"></a><div class="element clickable method public writeCachedContent" data-toggle="collapse" data-target=".writeCachedContent .collapse">
+<h2>Writes the cached template output</h2>
+<pre>writeCachedContent($content) : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$content</h4></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>bool</code></div>
+</div></div>
+</div>
+<a name="replaceCamelcase" id="replaceCamelcase"></a><div class="element clickable method private replaceCamelcase" data-toggle="collapse" data-target=".replaceCamelcase .collapse">
+<h2>preg_replace callback to convert camelcase getter/setter to underscore property names</h2>
+<pre>replaceCamelcase(string $match) : string</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_TemplateBase::replaceCamelcase()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$match</h4>
+<code>string</code><p>match string</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>replacemant</div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a name="%24_capture_stack" id="$_capture_stack"> </a><div class="element clickable property public $_capture_stack" data-toggle="collapse" data-target=".$_capture_stack .collapse">
+<h2>internal capture runtime stack</h2>
+<pre>$_capture_stack : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24allow_relative_path" id="$allow_relative_path"> </a><div class="element clickable property public $allow_relative_path" data-toggle="collapse" data-target=".$allow_relative_path .collapse">
+<h2>internal flag to allow relative path in child template blocks</h2>
+<pre>$allow_relative_path : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24block_data" id="$block_data"> </a><div class="element clickable property public $block_data" data-toggle="collapse" data-target=".$block_data .collapse">
+<h2>blocks for template inheritance</h2>
+<pre>$block_data : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24cache_id" id="$cache_id"> </a><div class="element clickable property public $cache_id" data-toggle="collapse" data-target=".$cache_id .collapse">
+<h2>cache_id</h2>
+<pre>$cache_id : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24cache_lifetime" id="$cache_lifetime"> </a><div class="element clickable property public $cache_lifetime" data-toggle="collapse" data-target=".$cache_lifetime .collapse">
+<h2>cache lifetime in seconds</h2>
+<pre>$cache_lifetime : integer</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24cached" id="$cached"> </a><div class="element clickable property public $cached" data-toggle="collapse" data-target=".$cached .collapse">
+<h2>$cached</h2>
+<pre>$cached : <a href="../classes/Smarty_Template_Cached.html">\Smarty_Template_Cached</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>magic</th>
+<td></td>
+</tr>
+<tr>
+<th>property</th>
+<td></td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="%24caching" id="$caching"> </a><div class="element clickable property public $caching" data-toggle="collapse" data-target=".$caching .collapse">
+<h2>caching enabled</h2>
+<pre>$caching : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24compile_id" id="$compile_id"> </a><div class="element clickable property public $compile_id" data-toggle="collapse" data-target=".$compile_id .collapse">
+<h2>$compile_id</h2>
+<pre>$compile_id : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24compiled" id="$compiled"> </a><div class="element clickable property public $compiled" data-toggle="collapse" data-target=".$compiled .collapse">
+<h2>$compiled</h2>
+<pre>$compiled : <a href="../classes/Smarty_Template_Compiled.html">\Smarty_Template_Compiled</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>magic</th>
+<td></td>
+</tr>
+<tr>
+<th>property</th>
+<td></td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="%24config_vars" id="$config_vars"> </a><div class="element clickable property public $config_vars" data-toggle="collapse" data-target=".$config_vars .collapse">
+<h2>configuration settings</h2>
+<pre>$config_vars : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_Data::$$config_vars</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_TemplateBase::$$config_vars</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="%24has_nocache_code" id="$has_nocache_code"> </a><div class="element clickable property public $has_nocache_code" data-toggle="collapse" data-target=".$has_nocache_code .collapse">
+<h2>flag if template does contain nocache code sections</h2>
+<pre>$has_nocache_code : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24mustCompile" id="$mustCompile"> </a><div class="element clickable property public $mustCompile" data-toggle="collapse" data-target=".$mustCompile .collapse">
+<h2>flag if compiled template is invalid and must be (re)compiled</h2>
+<pre>$mustCompile : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24parent" id="$parent"> </a><div class="element clickable property public $parent" data-toggle="collapse" data-target=".$parent .collapse">
+<h2>parent template (if any)</h2>
+<pre>$parent : <a href="../classes/Smarty_Internal_Template.html">\Smarty_Internal_Template</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_Data::$$parent</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_TemplateBase::$$parent</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="%24properties" id="$properties"> </a><div class="element clickable property public $properties" data-toggle="collapse" data-target=".$properties .collapse">
+<h2>special compiled and cached template properties</h2>
+<pre>$properties : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24required_plugins" id="$required_plugins"> </a><div class="element clickable property public $required_plugins" data-toggle="collapse" data-target=".$required_plugins .collapse">
+<h2>required plugins</h2>
+<pre>$required_plugins : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24smarty" id="$smarty"> </a><div class="element clickable property public $smarty" data-toggle="collapse" data-target=".$smarty .collapse">
+<h2>Global smarty instance</h2>
+<pre>$smarty : <a href="../classes/Smarty.html">\Smarty</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24source" id="$source"> </a><div class="element clickable property public $source" data-toggle="collapse" data-target=".$source .collapse">
+<h2>$source</h2>
+<pre>$source : <a href="../classes/Smarty_Template_Source.html">\Smarty_Template_Source</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>magic</th>
+<td></td>
+</tr>
+<tr>
+<th>property</th>
+<td></td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="%24template_class" id="$template_class"> </a><div class="element clickable property public $template_class" data-toggle="collapse" data-target=".$template_class .collapse">
+<h2>name of class used for templates</h2>
+<pre>$template_class : string</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_Data::$$template_class</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_TemplateBase::$$template_class</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="%24template_resource" id="$template_resource"> </a><div class="element clickable property public $template_resource" data-toggle="collapse" data-target=".$template_resource .collapse">
+<h2>Template resource</h2>
+<pre>$template_resource : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24tpl_vars" id="$tpl_vars"> </a><div class="element clickable property public $tpl_vars" data-toggle="collapse" data-target=".$tpl_vars .collapse">
+<h2>template variables</h2>
+<pre>$tpl_vars : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_Data::$$tpl_vars</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Smarty_Internal_TemplateBase::$$tpl_vars</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="%24used_tags" id="$used_tags"> </a><div class="element clickable property public $used_tags" data-toggle="collapse" data-target=".$used_tags .collapse">
+<h2>optional log of tag/attributes</h2>
+<pre>$used_tags : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24variable_filters" id="$variable_filters"> </a><div class="element clickable property public $variable_filters" data-toggle="collapse" data-target=".$variable_filters .collapse">
+<h2>variable filters</h2>
+<pre>$variable_filters : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a9</a> and<br>
+            generated on 2012-08-24T19:38:32+02:00.<br></footer></div>
+</div>
+</body>
+</html>

@@ -16,13 +16,12 @@ html,body{margin:0;padding:0}
     url("images/img02.gif") no-repeat scroll 0 0 transparent;
 }
 
-
 .button{  
     color: #2582A4;
     width: 50px;
     height: 23px;
     background: #BECF74 url(images/img01.gif) repeat-x;
-    border-style:solid;
+    border-style: solid;
 
 }
 

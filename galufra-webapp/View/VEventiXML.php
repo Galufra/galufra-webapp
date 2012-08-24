@@ -4,11 +4,12 @@ class VEventiXML {
 
     /**
      * @access public
-     * @param array $ev_array
      *
      * Crea un XML con gli eventi che vogliamo stampare.
      *
      * L'utilizzo di Json è risultato più veloce e semplice
+     *
+     * @param array $ev_array
      *
      */
     public function __construct($ev_array) {

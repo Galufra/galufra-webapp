@@ -1,27 +1,25 @@
 <?php
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 require_once '../Foundation/FUtente.php';
 require_once '../Foundation/FEvento.php';
 require_once '../Entity/EUtente.php';
 require_once '../View/VConferma.php';
 require_once '../View/VHome.php';
 
-  /**
-     * @access public
-     *
-     *
-   * una volta controllati i dati di sessione attraverso uno switch,
-   * smista le azioni del controller, in questo caso una sola:
-   * la conferma della registrazione
- **/
+
 class CConferma {
 
     private $utente = null;
-
+	
+	/** 
+	 * @access public
+	 *
+	 *
+	 * una volta controllati i dati di sessione attraverso uno switch,
+	 * smista le azioni del controller, in questo caso una sola:
+	 * la conferma della registrazione
+	 */
     public function __construct() {
 
         $u = new FUtente();
@@ -86,13 +84,13 @@ class CConferma {
         }
     }
 
-  /**
+    /**
      * @access public
      *
      * @return boolean
-   *
-   * conferma la registrazione dell' utente
-   **/
+     *
+     * conferma la registrazione dell' utente
+     **/
     public function confermaReg() {
 
         if (isset($_GET['id'])) {

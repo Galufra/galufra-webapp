@@ -7,22 +7,20 @@ require_once '../Foundation/FEvento.php';
 require_once '../Entity/EUtente.php';
 require_once '../Entity/EEvento.php';
 
+
+/**
+ * Controller per la creazione di un nuovo evento. 
+ */
 class CCrea {
 
     private $utente = null;
 
     /**
      * @access public
-     *
-     *
-     *
      * Una volta controllati i dati di sessione,
      * gestisce la creazione dell' evento da parte dell'utente
      * */
     public function __construct() {
-        /* In futuro dovremo controllare che l'utente sia loggato
-         * e sia un Gestore. Per ora carico il mio utente
-         */
         $u = new Futente();
         $u->connect();
         if (isset($_SESSION['username']) && $_SESSION['username'] != null) {

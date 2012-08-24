@@ -8,6 +8,10 @@ require_once '../Entity/EUtente.php';
 require_once '../Entity/EEvento.php';
 require_once '../Controller/CRegistrazione.php';
 
+
+/**
+ * Controller della pagina del profilo.
+ */
 class CProfilo {
 
     private $utente = null;
@@ -128,11 +132,10 @@ class CProfilo {
     /**
      * @access public
      *
-     * ritorna un json che ci dice se l' update è andato a buon fine.
+     * ritorna un json che ci dice se l'update è andato a buon fine.
      * Faccio inoltre tutti i controlli necessari per evitare errori indesiderati
-     *
-     *
-     * */
+     * 
+     */
     public function updateUtente() {
 
         $pwd = '';
@@ -182,11 +185,10 @@ class CProfilo {
     /**
      * @access public
      *
-     * ritorna un json che ci dice se l' eliminazione dell'utente è andata a buon fine.
+     * ritorna un json che ci dice se l'eliminazione dell'utente è andata a buon fine.
      * Faccio inoltre tutti i controlli necessari per evitare errori indesiderati
      *
-     *
-     * */
+     */
     public function deleteUtente() {
         $out = null;
         if (isset($_POST['name']) && $this->utente->isAdmin()) {
@@ -204,11 +206,10 @@ class CProfilo {
     /**
      * @access public
      *
-     * ritorna un json che ci dice se l' update dei permessi è andato a buon fine.
+     * ritorna un json che ci dice se l'update dei permessi è andato a buon fine.
      * Faccio inoltre tutti i controlli necessari per evitare errori indesiderati
      *
-     *
-     * */
+     */
     public function addSuperuser() {
         $out = null;
         if ((isset($_POST['user']) && $_POST['user'] != null) && $this->utente->isAdmin()) {
@@ -242,11 +243,9 @@ class CProfilo {
     /**
      * @access public
      *
-     * ritorna un json che ci dice se l' update dei permessi è andato a buon fine.
+     * ritorna un json che ci dice se l'update dei permessi è andato a buon fine.
      * Faccio inoltre tutti i controlli necessari per evitare errori indesiderati
-     *
-     *
-     * */
+     */
     public function addAdmin() {
         $out = null;
 

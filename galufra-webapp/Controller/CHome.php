@@ -8,6 +8,10 @@ require_once('../Entity/EEvento.php');
 require_once '../View/VHome.php';
 require_once 'CRegistrazione.php';
 
+
+/** 
+ * Controller della home page.
+ */
 class CHome {
 
     private $utente = null;
@@ -238,7 +242,7 @@ class CHome {
         echo json_encode($out);
     }
 
-    /*
+    /**
      *
      * @access public
      * @param int $neLat
@@ -258,7 +262,7 @@ class CHome {
         exit;
     }
 
-    /*
+    /**
      *
      * @access public
      * @param int $neLat
@@ -284,7 +288,7 @@ class CHome {
         exit;
     }
 
-    /*
+    /**
      *
      * @access public
      *
@@ -305,7 +309,7 @@ class CHome {
         exit;
     }
 
-    /*
+    /**
      *
      * @access public
      * @param Boolean $fornisciTutti
@@ -326,12 +330,12 @@ class CHome {
         exit;
     }
 
-    /*
+    /**
      *
      * @access public
      * @param EEvento $eventi
      *
-     * Crea un JSON contenente gli eventi personali dell' utente
+     * Crea un JSON contenente gli eventi personali dell'utente
      *
      */
 
@@ -345,12 +349,12 @@ class CHome {
         exit;
     }
 
-    /*
+    /**
      *
      * @access public
      *
-     * invia una nuova password all' utente. La funzione mail verrà
-     * scommentata una volta che facciamo il deploy dell'applicazione
+     * invia una nuova password all'utente. La funzione mail verrà
+     * decommentata una volta che facciamo il deploy dell'applicazione
      *
      */
 

@@ -3,6 +3,10 @@
 require_once '../libs/Smarty.class.php';
 require_once '../includes/config.inc.php';
 
+
+/**
+ * Classe astratta derivata da smarty, per il caricamento dei template.
+ */
 abstract class View extends Smarty {
 
     public $content = null;

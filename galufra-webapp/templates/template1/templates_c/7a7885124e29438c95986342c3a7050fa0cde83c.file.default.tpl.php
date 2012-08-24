@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.10, created on 2012-08-23 15:22:17
+<?php /* Smarty version Smarty-3.1.10, created on 2012-08-24 18:51:56
          compiled from "../templates/template1/template/default.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:209803574150351b4c3b7b22-39851856%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7a7885124e29438c95986342c3a7050fa0cde83c' => 
     array (
       0 => '../templates/template1/template/default.tpl',
-      1 => 1345728136,
+      1 => 1345824997,
       2 => 'file',
     ),
   ),
@@ -42,7 +42,7 @@ Released for free under a Creative Commons Attribution 2.5 License
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Galufra_WebApp 1.0</title>
+        <title>Galufra_WebApp</title>
         <meta name="Keywords" content="" />
         <meta name="Description" content="" />
         <link href="../templates/template1/template/default.css" rel="stylesheet" type="text/css" />
@@ -63,7 +63,7 @@ $_smarty_tpl->tpl_vars['s']->_loop = true;
     <body>
         <div id="header">
             <ul id="menu">
-                <li><a href="CHome.php" accesskey="1" title="">Home</a></li>
+                <li><a href="CHome.php" accesskey="1" title=""><img alt="2"  src="../templates/template1/template/images/logo-galufra.png"></img></a></li>
                 <?php if ($_smarty_tpl->tpl_vars['autenticato']->value){?>
                 <li><a href="CProfilo.php" accesskey="2" title="">Profilo</a></li>
                 <?php if ($_smarty_tpl->tpl_vars['sbloccato']->value){?>

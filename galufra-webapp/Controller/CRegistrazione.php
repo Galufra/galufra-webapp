@@ -1,12 +1,11 @@
 <?php
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Classe per la registrazione di un nuovo utente e per la gestione delle sessioni.
  */
 
 class CRegistrazione {
-
+	
     private $username = null;
     private $password = null;
     private $citta = null;
@@ -91,6 +90,8 @@ class CRegistrazione {
     /**
      * @access public
      * @return array(2){Boolean,String}
+     * 
+     * Effettua la registrazione, inserendo il nuovo utente nel DB.
      */
     public function regUtente() {
 
@@ -139,7 +140,7 @@ class CRegistrazione {
      * @param int $id
      * @return boolean
      *
-     * invia l' email di conferma
+     * Invia l' email di conferma.
      */
     public function sendConfirmationMail($to, $from, $id) {
 

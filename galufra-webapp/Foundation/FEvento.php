@@ -2,6 +2,11 @@
 
 require_once('FMysql.php');
 
+
+/**
+ * Classe Foundation per leggere/scrivere eventi sul DB. 
+ * 
+ */
 class FEvento extends FMysql {
 
     /**
@@ -21,7 +26,7 @@ class FEvento extends FMysql {
      * @param int $swLat
      * @param int $swLon
      *
-     * Restituisce un array di eventi futuri (data >= oggi)
+     * Restituisce un array di eventi compresi tra oggi e il prossimo mese
      * con coordinate comprese nel rettangolo ne-sw.
      */
     public function searchEventiMappa($neLat, $neLon, $swLat, $swLon) {
@@ -82,12 +87,6 @@ class FEvento extends FMysql {
             AND evento = '$idEvento'");
     }
 
-    //(non utilizzato) scrive sulla tabella gestisce chi ha creato un particolare evento
-    public function storeGestione($idUtente, $idEvento) {
-
-        $this->makeQuery("INSERT INTO gestisce VALUES ($idUtente, $idEvento)");
-    }
-
     /**
      *
      * @access public
@@ -136,9 +135,10 @@ class FEvento extends FMysql {
     public function getEventiConsigliati($idUtente, $neLat, $neLon, $swLat, $swLon) {
 
         $this->makeQuery("SELECT * FROM evento WHERE data >= NOW() AND id_evento IN (
-                SELECT evento FROM consiglia as c
-                WHERE c.lat BETWEEN $swLat AND $neLat AND
-                c.lon BETWEEN $swLon AND $neLon AND
+
+                select evento FROM consiglia as c INNER JOIN evento as e ON c.evento = e.id_evento
+                WHERE e.lat BETWEEN $swLat AND $neLat AND
+                e.lon BETWEEN $swLon AND $neLon AND
                 c.utente != $idUtente
                 GROUP BY evento ORDER BY COUNT(*) DESC) LIMIT 3"
         );

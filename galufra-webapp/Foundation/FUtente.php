@@ -55,7 +55,6 @@ class FUtente extends FMysql {
     }
 
 
-
     /**
      * @access public
      *

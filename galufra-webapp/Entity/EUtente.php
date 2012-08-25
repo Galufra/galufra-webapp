@@ -381,7 +381,6 @@ class EUtente {
         $ev->connect();
         return $ev->getUserEventi($id);
     }
-
 }
 
 ?>

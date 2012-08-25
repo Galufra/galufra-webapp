@@ -1,0 +1,830 @@
+<!DOCTYPE html><html xmlns:date="http://exslt.org/dates-and-times" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>phpDocumentor » Smarty\PluginsFunction</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">phpDocumentor</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Packages</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+<li><a href="../packages/Smarty.html"><i class="icon-folder-open"></i> Smarty</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">830</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul>
+<li>todo 
+                <span class="label label-info">4</span>
+</li>
+<li>fixme 
+                <span class="label label-info">7</span>
+</li>
+</ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">3</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-map-marker"></i> Packages</li>
+<li>
+<a href="../packages/Smarty.PluginsFunction.html" title="PluginsFunction"><i class="icon-folder-open"></i>PluginsFunction</a><ul class="nav nav-list nav-packages"></ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-function"></i> Functions</li>
+<li class="function  "><a href="#smarty_function_counter" title="smarty_function_counter :: Smarty {counter} function plugin"><span class="description">Smarty {counter} function plugin</span><pre>smarty_function_counter</pre></a></li>
+<li class="function  "><a href="#smarty_function_cycle" title="smarty_function_cycle :: Smarty {cycle} function plugin"><span class="description">Smarty {cycle} function plugin</span><pre>smarty_function_cycle</pre></a></li>
+<li class="function  "><a href="#smarty_function_fetch" title="smarty_function_fetch :: Smarty {fetch} plugin"><span class="description">Smarty {fetch} plugin</span><pre>smarty_function_fetch</pre></a></li>
+<li class="function  "><a href="#smarty_function_html_checkboxes" title="smarty_function_html_checkboxes :: Smarty {html_checkboxes} function plugin"><span class="description">Smarty {html_checkboxes} function plugin</span><pre>smarty_function_html_checkboxes</pre></a></li>
+<li class="function  "><a href="#smarty_function_html_checkboxes_output" title="smarty_function_html_checkboxes_output :: "><span class="description">smarty_function_html_checkboxes_output()
+        </span><pre>smarty_function_html_checkboxes_output</pre></a></li>
+<li class="function  "><a href="#smarty_function_html_image" title="smarty_function_html_image :: Smarty {html_image} function plugin"><span class="description">Smarty {html_image} function plugin</span><pre>smarty_function_html_image</pre></a></li>
+<li class="function  "><a href="#smarty_function_html_options" title="smarty_function_html_options :: Smarty {html_options} function plugin"><span class="description">Smarty {html_options} function plugin</span><pre>smarty_function_html_options</pre></a></li>
+<li class="function  "><a href="#smarty_function_html_options_optgroup" title="smarty_function_html_options_optgroup :: "><span class="description">smarty_function_html_options_optgroup()
+        </span><pre>smarty_function_html_options_optgroup</pre></a></li>
+<li class="function  "><a href="#smarty_function_html_options_optoutput" title="smarty_function_html_options_optoutput :: "><span class="description">smarty_function_html_options_optoutput()
+        </span><pre>smarty_function_html_options_optoutput</pre></a></li>
+<li class="function  "><a href="#smarty_function_html_radios" title="smarty_function_html_radios :: Smarty {html_radios} function plugin"><span class="description">Smarty {html_radios} function plugin</span><pre>smarty_function_html_radios</pre></a></li>
+<li class="function  "><a href="#smarty_function_html_radios_output" title="smarty_function_html_radios_output :: "><span class="description">smarty_function_html_radios_output()
+        </span><pre>smarty_function_html_radios_output</pre></a></li>
+<li class="function  "><a href="#smarty_function_html_select_date" title="smarty_function_html_select_date :: Smarty {html_select_date} plugin"><span class="description">Smarty {html_select_date} plugin</span><pre>smarty_function_html_select_date</pre></a></li>
+<li class="function  "><a href="#smarty_function_html_select_time" title="smarty_function_html_select_time :: Smarty {html_select_time} function plugin"><span class="description">Smarty {html_select_time} function plugin</span><pre>smarty_function_html_select_time</pre></a></li>
+<li class="function  "><a href="#smarty_function_html_table" title="smarty_function_html_table :: Smarty {html_table} function plugin"><span class="description">Smarty {html_table} function plugin</span><pre>smarty_function_html_table</pre></a></li>
+<li class="function  "><a href="#smarty_function_html_table_cycle" title="smarty_function_html_table_cycle :: "><span class="description">smarty_function_html_table_cycle()
+        </span><pre>smarty_function_html_table_cycle</pre></a></li>
+<li class="function  "><a href="#smarty_function_mailto" title="smarty_function_mailto :: Smarty {mailto} function plugin"><span class="description">Smarty {mailto} function plugin</span><pre>smarty_function_mailto</pre></a></li>
+<li class="function  "><a href="#smarty_function_math" title="smarty_function_math :: Smarty {math} function plugin"><span class="description">Smarty {math} function plugin</span><pre>smarty_function_math</pre></a></li>
+</ul>
+</div>
+<div class="span8 package-contents">
+<ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-folder-open"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../packages/Smarty.html">Smarty</a></li>
+<span class="divider">\</span><li class="active"><a href="../packages/Smarty.PluginsFunction.html">PluginsFunction</a></li>
+</ul>
+<div class="package-indent">
+<h3>
+<i class="icon-custom icon-function"></i> Functions</h3>
+<a name="smarty_function_counter" id="smarty_function_counter"></a><div class="element clickable function  smarty_function_counter" data-toggle="collapse" data-target=".smarty_function_counter .collapse">
+<h2>Smarty {counter} function plugin</h2>
+<pre>smarty_function_counter(array $params, <a href="../classes/Smarty_Internal_Template.html">\Smarty_Internal_Template</a> $template) : string | null</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>Type:     function<br>
+Name:     counter<br>
+Purpose:  print out a counter value</p></p>
+<table class="table table-bordered">
+<tr>
+<th>author</th>
+<td><a href="">Monte Ohrt &lt;monte at ohrt dot com&gt;</a></td>
+</tr>
+<tr>
+<th>link</th>
+<td><a href="http://www.smarty.net/manual/en/language.function.counter.php">{counter}
+(Smarty online manual)</a></td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$params</h4>
+<code>array</code><p>parameters</p></div>
+<div class="subelement argument">
+<h4>$template</h4>
+<code><a href="../classes/Smarty_Internal_Template.html">\Smarty_Internal_Template</a></code><p>template object</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code><code>null</code>
+</div>
+</div></div>
+</div>
+<a name="smarty_function_cycle" id="smarty_function_cycle"></a><div class="element clickable function  smarty_function_cycle" data-toggle="collapse" data-target=".smarty_function_cycle .collapse">
+<h2>Smarty {cycle} function plugin</h2>
+<pre>smarty_function_cycle(array $params, <a href="../classes/Smarty_Internal_Template.html">\Smarty_Internal_Template</a> $template) : string | null</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>Type:     function<br>
+Name:     cycle<br>
+Date:     May 3, 2002<br>
+Purpose:  cycle through given values<br>
+Params:</p>
+
+<pre>
+- name      - name of cycle (optional)
+- values    - comma separated list of values to cycle, or an array of values to cycle
+              (this can be left out for subsequent calls)
+- reset     - boolean - resets given var to true
+- print     - boolean - print var or not. default is true
+- advance   - boolean - whether or not to advance the cycle
+- delimiter - the value delimiter, default is ","
+- assign    - boolean, assigns to template var instead of printed.
+</pre>
+
+<p>Examples:<br></p>
+
+<pre>
+{cycle values="#eeeeee,#d0d0d0d"}
+{cycle name=row values="one,two,three" reset=true}
+{cycle name=row}
+</pre></p>
+<table class="table table-bordered">
+<tr>
+<th>link</th>
+<td><a href="http://www.smarty.net/manual/en/language.function.cycle.php">{cycle}
+(Smarty online manual)</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="">Monte Ohrt &lt;monte at ohrt dot com&gt;</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="mailto:mpriatel@rogers.com">credit to Mark Priatel</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="mailto:gerard@interfold.com">credit to Gerard</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="mailto:jsweat_php@yahoo.com">credit to Jason Sweat</a></td>
+</tr>
+<tr>
+<th>version</th>
+<td>1.3</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$params</h4>
+<code>array</code><p>parameters</p></div>
+<div class="subelement argument">
+<h4>$template</h4>
+<code><a href="../classes/Smarty_Internal_Template.html">\Smarty_Internal_Template</a></code><p>template object</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code><code>null</code>
+</div>
+</div></div>
+</div>
+<a name="smarty_function_fetch" id="smarty_function_fetch"></a><div class="element clickable function  smarty_function_fetch" data-toggle="collapse" data-target=".smarty_function_fetch .collapse">
+<h2>Smarty {fetch} plugin</h2>
+<pre>smarty_function_fetch(array $params, <a href="../classes/Smarty_Internal_Template.html">\Smarty_Internal_Template</a> $template) : string | null</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>Type:     function<br>
+Name:     fetch<br>
+Purpose:  fetch file, web or ftp data and display results</p></p>
+<table class="table table-bordered">
+<tr>
+<th>link</th>
+<td><a href="http://www.smarty.net/manual/en/language.function.fetch.php">{fetch}
+(Smarty online manual)</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="">Monte Ohrt &lt;monte at ohrt dot com&gt;</a></td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$params</h4>
+<code>array</code><p>parameters</p></div>
+<div class="subelement argument">
+<h4>$template</h4>
+<code><a href="../classes/Smarty_Internal_Template.html">\Smarty_Internal_Template</a></code><p>template object</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code><code>null</code>if the assign parameter is passed, Smarty assigns the result to a template variable</div>
+</div></div>
+</div>
+<a name="smarty_function_html_checkboxes" id="smarty_function_html_checkboxes"></a><div class="element clickable function  smarty_function_html_checkboxes" data-toggle="collapse" data-target=".smarty_function_html_checkboxes .collapse">
+<h2>Smarty {html_checkboxes} function plugin</h2>
+<pre>smarty_function_html_checkboxes(array $params, object $template) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>File:       function.html_checkboxes.php<br>
+Type:       function<br>
+Name:       html_checkboxes<br>
+Date:       24.Feb.2003<br>
+Purpose:    Prints out a list of checkbox input types<br>
+Examples:</p>
+
+<pre>
+{html_checkboxes values=$ids output=$names}
+{html_checkboxes values=$ids name='box' separator='<br>' output=$names}
+{html_checkboxes values=$ids checked=$checked separator='<br>' output=$names}
+</pre>
+
+<p>Params:</p>
+
+<pre>
+- name       (optional) - string default "checkbox"
+- values     (required) - array
+- options    (optional) - associative array
+- checked    (optional) - array default not set
+- separator  (optional) - ie <br> or &nbsp;
+- output     (optional) - the output next to each checkbox
+- assign     (optional) - assign the output as an array to this variable
+- escape     (optional) - escape the content (not value), defaults to true
+</pre></p>
+<table class="table table-bordered">
+<tr>
+<th>link</th>
+<td><a href="http://www.smarty.net/manual/en/language.function.html.checkboxes.php">{html_checkboxes}
+(Smarty online manual)</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="mailto:christopher.kvarme@flashjab.com">Christopher Kvarme</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="">credits to Monte Ohrt &lt;monte at ohrt dot com&gt;</a></td>
+</tr>
+<tr>
+<th>version</th>
+<td>1.0</td>
+</tr>
+<tr>
+<th>uses</th>
+<td>\global\smarty_function_escape_special_chars()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$params</h4>
+<code>array</code><p>parameters</p></div>
+<div class="subelement argument">
+<h4>$template</h4>
+<code>object</code><p>template object</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a name="smarty_function_html_checkboxes_output" id="smarty_function_html_checkboxes_output"></a><div class="element clickable function  smarty_function_html_checkboxes_output" data-toggle="collapse" data-target=".smarty_function_html_checkboxes_output .collapse">
+<h2>smarty_function_html_checkboxes_output()
+        </h2>
+<pre>smarty_function_html_checkboxes_output($name, $value, $output, $selected, $extra, $separator, $labels, $label_ids, $escape) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$name</h4></div>
+<div class="subelement argument"><h4>$value</h4></div>
+<div class="subelement argument"><h4>$output</h4></div>
+<div class="subelement argument"><h4>$selected</h4></div>
+<div class="subelement argument"><h4>$extra</h4></div>
+<div class="subelement argument"><h4>$separator</h4></div>
+<div class="subelement argument"><h4>$labels</h4></div>
+<div class="subelement argument"><h4>$label_ids</h4></div>
+<div class="subelement argument"><h4>$escape</h4></div>
+</div></div>
+</div>
+<a name="smarty_function_html_image" id="smarty_function_html_image"></a><div class="element clickable function  smarty_function_html_image" data-toggle="collapse" data-target=".smarty_function_html_image .collapse">
+<h2>Smarty {html_image} function plugin</h2>
+<pre>smarty_function_html_image(array $params, <a href="../classes/Smarty_Internal_Template.html">\Smarty_Internal_Template</a> $template) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>Type:     function<br>
+Name:     html_image<br>
+Date:     Feb 24, 2003<br>
+Purpose:  format HTML tags for the image<br>
+Examples: {html_image file="/images/masthead.gif"}<br>
+Output:   <img src="/images/masthead.gif" width=400 height=23><br>
+Params:</p>
+
+<pre>
+- file        - (required) - file (and path) of image
+- height      - (optional) - image height (default actual height)
+- width       - (optional) - image width (default actual width)
+- basedir     - (optional) - base directory for absolute paths, default is environment variable DOCUMENT_ROOT
+- path_prefix - prefix for path output (optional, default empty)
+</pre></p>
+<table class="table table-bordered">
+<tr>
+<th>link</th>
+<td><a href="http://www.smarty.net/manual/en/language.function.html.image.php">{html_image}
+(Smarty online manual)</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="">Monte Ohrt &lt;monte at ohrt dot com&gt;</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="mailto:duda@big.hu">credits to Duda</a></td>
+</tr>
+<tr>
+<th>version</th>
+<td>1.0</td>
+</tr>
+<tr>
+<th>uses</th>
+<td>\global\smarty_function_escape_special_chars()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$params</h4>
+<code>array</code><p>parameters</p></div>
+<div class="subelement argument">
+<h4>$template</h4>
+<code><a href="../classes/Smarty_Internal_Template.html">\Smarty_Internal_Template</a></code><p>template object</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a name="smarty_function_html_options" id="smarty_function_html_options"></a><div class="element clickable function  smarty_function_html_options" data-toggle="collapse" data-target=".smarty_function_html_options .collapse">
+<h2>Smarty {html_options} function plugin</h2>
+<pre>smarty_function_html_options(array $params, <a href="../classes/Smarty_Internal_Template.html">\Smarty_Internal_Template</a> $template) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>Type:     function<br>
+Name:     html_options<br>
+Purpose:  Prints the list of <option> tags generated from
+          the passed parameters<br>
+Params:</p>
+
+<pre>
+- name       (optional) - string default "select"
+- values     (required) - if no options supplied) - array
+- options    (required) - if no values supplied) - associative array
+- selected   (optional) - string default not set
+- output     (required) - if not options supplied) - array
+- id         (optional) - string default not set
+- class      (optional) - string default not set
+</pre></p>
+<table class="table table-bordered">
+<tr>
+<th>link</th>
+<td><a href="http://www.smarty.net/manual/en/language.function.html.options.php">{html_image}
+(Smarty online manual)</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="">Monte Ohrt &lt;monte at ohrt dot com&gt;</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="">Ralf Strehle (minor optimization) &lt;ralf dot strehle at yahoo dot de&gt;</a></td>
+</tr>
+<tr>
+<th>uses</th>
+<td>\global\smarty_function_escape_special_chars()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$params</h4>
+<code>array</code><p>parameters</p></div>
+<div class="subelement argument">
+<h4>$template</h4>
+<code><a href="../classes/Smarty_Internal_Template.html">\Smarty_Internal_Template</a></code><p>template object</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a name="smarty_function_html_options_optgroup" id="smarty_function_html_options_optgroup"></a><div class="element clickable function  smarty_function_html_options_optgroup" data-toggle="collapse" data-target=".smarty_function_html_options_optgroup .collapse">
+<h2>smarty_function_html_options_optgroup()
+        </h2>
+<pre>smarty_function_html_options_optgroup($key, $values, $selected, $id, $class, $idx) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$key</h4></div>
+<div class="subelement argument"><h4>$values</h4></div>
+<div class="subelement argument"><h4>$selected</h4></div>
+<div class="subelement argument"><h4>$id</h4></div>
+<div class="subelement argument"><h4>$class</h4></div>
+<div class="subelement argument"><h4>$idx</h4></div>
+</div></div>
+</div>
+<a name="smarty_function_html_options_optoutput" id="smarty_function_html_options_optoutput"></a><div class="element clickable function  smarty_function_html_options_optoutput" data-toggle="collapse" data-target=".smarty_function_html_options_optoutput .collapse">
+<h2>smarty_function_html_options_optoutput()
+        </h2>
+<pre>smarty_function_html_options_optoutput($key, $value, $selected, $id, $class, $idx) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$key</h4></div>
+<div class="subelement argument"><h4>$value</h4></div>
+<div class="subelement argument"><h4>$selected</h4></div>
+<div class="subelement argument"><h4>$id</h4></div>
+<div class="subelement argument"><h4>$class</h4></div>
+<div class="subelement argument"><h4>$idx</h4></div>
+</div></div>
+</div>
+<a name="smarty_function_html_radios" id="smarty_function_html_radios"></a><div class="element clickable function  smarty_function_html_radios" data-toggle="collapse" data-target=".smarty_function_html_radios .collapse">
+<h2>Smarty {html_radios} function plugin</h2>
+<pre>smarty_function_html_radios(array $params, <a href="../classes/Smarty_Internal_Template.html">\Smarty_Internal_Template</a> $template) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>File:       function.html_radios.php<br>
+Type:       function<br>
+Name:       html_radios<br>
+Date:       24.Feb.2003<br>
+Purpose:    Prints out a list of radio input types<br>
+Params:</p>
+
+<pre>
+- name       (optional) - string default "radio"
+- values     (required) - array
+- options    (required) - associative array
+- checked    (optional) - array default not set
+- separator  (optional) - ie <br> or &nbsp;
+- output     (optional) - the output next to each radio button
+- assign     (optional) - assign the output as an array to this variable
+- escape     (optional) - escape the content (not value), defaults to true
+</pre>
+
+<p>Examples:</p>
+
+<pre>
+{html_radios values=$ids output=$names}
+{html_radios values=$ids name='box' separator='<br>' output=$names}
+{html_radios values=$ids checked=$checked separator='<br>' output=$names}
+</pre></p>
+<table class="table table-bordered">
+<tr>
+<th>link</th>
+<td><a href="http://smarty.php.net/manual/en/language.function.html.radios.php">{html_radios}
+(Smarty online manual)</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="mailto:christopher.kvarme@flashjab.com">Christopher Kvarme</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="">credits to Monte Ohrt &lt;monte at ohrt dot com&gt;</a></td>
+</tr>
+<tr>
+<th>version</th>
+<td>1.0</td>
+</tr>
+<tr>
+<th>uses</th>
+<td>\global\smarty_function_escape_special_chars()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$params</h4>
+<code>array</code><p>parameters</p></div>
+<div class="subelement argument">
+<h4>$template</h4>
+<code><a href="../classes/Smarty_Internal_Template.html">\Smarty_Internal_Template</a></code><p>template object</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a name="smarty_function_html_radios_output" id="smarty_function_html_radios_output"></a><div class="element clickable function  smarty_function_html_radios_output" data-toggle="collapse" data-target=".smarty_function_html_radios_output .collapse">
+<h2>smarty_function_html_radios_output()
+        </h2>
+<pre>smarty_function_html_radios_output($name, $value, $output, $selected, $extra, $separator, $labels, $label_ids, $escape) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$name</h4></div>
+<div class="subelement argument"><h4>$value</h4></div>
+<div class="subelement argument"><h4>$output</h4></div>
+<div class="subelement argument"><h4>$selected</h4></div>
+<div class="subelement argument"><h4>$extra</h4></div>
+<div class="subelement argument"><h4>$separator</h4></div>
+<div class="subelement argument"><h4>$labels</h4></div>
+<div class="subelement argument"><h4>$label_ids</h4></div>
+<div class="subelement argument"><h4>$escape</h4></div>
+</div></div>
+</div>
+<a name="smarty_function_html_select_date" id="smarty_function_html_select_date"></a><div class="element clickable function  smarty_function_html_select_date" data-toggle="collapse" data-target=".smarty_function_html_select_date .collapse">
+<h2>Smarty {html_select_date} plugin</h2>
+<pre>smarty_function_html_select_date(array $params, <a href="../classes/Smarty_Internal_Template.html">\Smarty_Internal_Template</a> $template) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>Type:     function<br>
+Name:     html_select_date<br>
+Purpose:  Prints the dropdowns for date selection.</p>
+
+<p>ChangeLog:</p>
+
+<pre>
+           - 1.0 initial release
+           - 1.1 added support for +/- N syntax for begin
+             and end year values. (Monte)
+           - 1.2 added support for yyyy-mm-dd syntax for
+             time value. (Jan Rosier)
+           - 1.3 added support for choosing format for
+             month values (Gary Loescher)
+           - 1.3.1 added support for choosing format for
+             day values (Marcus Bointon)
+           - 1.3.2 support negative timestamps, force year
+             dropdown to include given date unless explicitly set (Monte)
+           - 1.3.4 fix behaviour of 0000-00-00 00:00:00 dates to match that
+             of 0000-00-00 dates (cybot, boots)
+           - 2.0 complete rewrite for performance,
+             added attributes month_names, *_id
+</pre></p>
+<table class="table table-bordered">
+<tr>
+<th>link</th>
+<td><a href="http://www.smarty.net/manual/en/language.function.html.select.date.php">{html_select_date}
+(Smarty online manual)</a></td>
+</tr>
+<tr>
+<th>version</th>
+<td>2.0</td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="">Andrei Zmievski</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="">Monte Ohrt &lt;monte at ohrt dot com&gt;</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="">Rodney Rehm</a></td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$params</h4>
+<code>array</code><p>parameters</p></div>
+<div class="subelement argument">
+<h4>$template</h4>
+<code><a href="../classes/Smarty_Internal_Template.html">\Smarty_Internal_Template</a></code><p>template object</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a name="smarty_function_html_select_time" id="smarty_function_html_select_time"></a><div class="element clickable function  smarty_function_html_select_time" data-toggle="collapse" data-target=".smarty_function_html_select_time .collapse">
+<h2>Smarty {html_select_time} function plugin</h2>
+<pre>smarty_function_html_select_time(array $params, <a href="../classes/Smarty_Internal_Template.html">\Smarty_Internal_Template</a> $template) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>Type:     function<br>
+Name:     html_select_time<br>
+Purpose:  Prints the dropdowns for time selection</p></p>
+<table class="table table-bordered">
+<tr>
+<th>link</th>
+<td><a href="http://www.smarty.net/manual/en/language.function.html.select.time.php">{html_select_time}
+(Smarty online manual)</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="mailto:roberto@berto.net">Roberto Berto</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="">Monte Ohrt &lt;monte AT ohrt DOT com&gt;</a></td>
+</tr>
+<tr>
+<th>uses</th>
+<td>\global\smarty_make_timestamp()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$params</h4>
+<code>array</code><p>parameters</p></div>
+<div class="subelement argument">
+<h4>$template</h4>
+<code><a href="../classes/Smarty_Internal_Template.html">\Smarty_Internal_Template</a></code><p>template object</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a name="smarty_function_html_table" id="smarty_function_html_table"></a><div class="element clickable function  smarty_function_html_table" data-toggle="collapse" data-target=".smarty_function_html_table .collapse">
+<h2>Smarty {html_table} function plugin</h2>
+<pre>smarty_function_html_table(array $params, <a href="../classes/Smarty_Internal_Template.html">\Smarty_Internal_Template</a> $template) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>Type:     function<br>
+Name:     html_table<br>
+Date:     Feb 17, 2003<br>
+Purpose:  make an html table from an array of data<br>
+Params:</p>
+
+<pre>
+- loop       - array to loop through
+- cols       - number of columns, comma separated list of column names
+               or array of column names
+- rows       - number of rows
+- table_attr - table attributes
+- th_attr    - table heading attributes (arrays are cycled)
+- tr_attr    - table row attributes (arrays are cycled)
+- td_attr    - table cell attributes (arrays are cycled)
+- trailpad   - value to pad trailing cells with
+- caption    - text for caption element
+- vdir       - vertical direction (default: "down", means top-to-bottom)
+- hdir       - horizontal direction (default: "right", means left-to-right)
+- inner      - inner loop (default "cols": print $loop line by line,
+               $loop will be printed column by column otherwise)
+</pre>
+
+<p>Examples:</p>
+
+<pre>
+{table loop=$data}
+{table loop=$data cols=4 tr_attr='"bgcolor=red"'}
+{table loop=$data cols="first,second,third" tr_attr=$colors}
+</pre></p>
+<table class="table table-bordered">
+<tr>
+<th>author</th>
+<td><a href="">Monte Ohrt &lt;monte at ohrt dot com&gt;</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="">credit to Messju Mohr &lt;messju at lammfellpuschen dot de&gt;</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="">credit to boots &lt;boots dot smarty at yahoo dot com&gt;</a></td>
+</tr>
+<tr>
+<th>version</th>
+<td>1.1</td>
+</tr>
+<tr>
+<th>link</th>
+<td><a href="http://www.smarty.net/manual/en/language.function.html.table.php">{html_table}
+(Smarty online manual)</a></td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$params</h4>
+<code>array</code><p>parameters</p></div>
+<div class="subelement argument">
+<h4>$template</h4>
+<code><a href="../classes/Smarty_Internal_Template.html">\Smarty_Internal_Template</a></code><p>template object</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a name="smarty_function_html_table_cycle" id="smarty_function_html_table_cycle"></a><div class="element clickable function  smarty_function_html_table_cycle" data-toggle="collapse" data-target=".smarty_function_html_table_cycle .collapse">
+<h2>smarty_function_html_table_cycle()
+        </h2>
+<pre>smarty_function_html_table_cycle($name, $var, $no) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$name</h4></div>
+<div class="subelement argument"><h4>$var</h4></div>
+<div class="subelement argument"><h4>$no</h4></div>
+</div></div>
+</div>
+<a name="smarty_function_mailto" id="smarty_function_mailto"></a><div class="element clickable function  smarty_function_mailto" data-toggle="collapse" data-target=".smarty_function_mailto .collapse">
+<h2>Smarty {mailto} function plugin</h2>
+<pre>smarty_function_mailto(array $params, <a href="../classes/Smarty_Internal_Template.html">\Smarty_Internal_Template</a> $template) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>Type:     function<br>
+Name:     mailto<br>
+Date:     May 21, 2002
+Purpose:  automate mailto address link creation, and optionally encode them.<br>
+Params:</p>
+
+<pre>
+- address    - (required) - e-mail address
+- text       - (optional) - text to display, default is address
+- encode     - (optional) - can be one of:
+                            * none : no encoding (default)
+                            * javascript : encode with javascript
+                            * javascript_charcode : encode with javascript charcode
+                            * hex : encode with hexidecimal (no javascript)
+- cc         - (optional) - address(es) to carbon copy
+- bcc        - (optional) - address(es) to blind carbon copy
+- subject    - (optional) - e-mail subject
+- newsgroups - (optional) - newsgroup(s) to post to
+- followupto - (optional) - address(es) to follow up to
+- extra      - (optional) - extra tags for the href link
+</pre>
+
+<p>Examples:</p>
+
+<pre>
+{mailto address="me@domain.com"}
+{mailto address="me@domain.com" encode="javascript"}
+{mailto address="me@domain.com" encode="hex"}
+{mailto address="me@domain.com" subject="Hello to you!"}
+{mailto address="me@domain.com" cc="you@domain.com,they@domain.com"}
+{mailto address="me@domain.com" extra='class="mailto"'}
+</pre></p>
+<table class="table table-bordered">
+<tr>
+<th>link</th>
+<td><a href="http://www.smarty.net/manual/en/language.function.mailto.php">{mailto}
+(Smarty online manual)</a></td>
+</tr>
+<tr>
+<th>version</th>
+<td>1.2</td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="">Monte Ohrt &lt;monte at ohrt dot com&gt;</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="">credits to Jason Sweat (added cc, bcc and subject functionality)</a></td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$params</h4>
+<code>array</code><p>parameters</p></div>
+<div class="subelement argument">
+<h4>$template</h4>
+<code><a href="../classes/Smarty_Internal_Template.html">\Smarty_Internal_Template</a></code><p>template object</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a name="smarty_function_math" id="smarty_function_math"></a><div class="element clickable function  smarty_function_math" data-toggle="collapse" data-target=".smarty_function_math .collapse">
+<h2>Smarty {math} function plugin</h2>
+<pre>smarty_function_math(array $params, <a href="../classes/Smarty_Internal_Template.html">\Smarty_Internal_Template</a> $template) : string | null</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>Type:     function<br>
+Name:     math<br>
+Purpose:  handle math computations in template</p></p>
+<table class="table table-bordered">
+<tr>
+<th>link</th>
+<td><a href="http://www.smarty.net/manual/en/language.function.math.php">{math}
+(Smarty online manual)</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="">Monte Ohrt &lt;monte at ohrt dot com&gt;</a></td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$params</h4>
+<code>array</code><p>parameters</p></div>
+<div class="subelement argument">
+<h4>$template</h4>
+<code><a href="../classes/Smarty_Internal_Template.html">\Smarty_Internal_Template</a></code><p>template object</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code><code>null</code>
+</div>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a9</a> and<br>
+            generated on 2012-08-25T11:31:20+02:00.<br></footer></div>
+</div>
+</body>
+</html>

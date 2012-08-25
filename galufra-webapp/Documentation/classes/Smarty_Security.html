@@ -1,0 +1,488 @@
+<!DOCTYPE html><html xmlns:date="http://exslt.org/dates-and-times" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>phpDocumentor » \Smarty_Security</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">phpDocumentor</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Packages</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+<li><a href="../packages/Smarty.html"><i class="icon-folder-open"></i> Smarty</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">830</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul>
+<li>todo 
+                <span class="label label-info">4</span>
+</li>
+<li>fixme 
+                <span class="label label-info">7</span>
+</li>
+</ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">3</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods</li>
+<li class="method public "><a href="#__construct" title="__construct :: "><span class="description">__construct()
+        </span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#isTrustedModifier" title="isTrustedModifier :: Check if modifier plugin is trusted."><span class="description">Check if modifier plugin is trusted.</span><pre>isTrustedModifier()</pre></a></li>
+<li class="method public "><a href="#isTrustedPHPDir" title="isTrustedPHPDir :: Check if directory of file resource is trusted."><span class="description">Check if directory of file resource is trusted.</span><pre>isTrustedPHPDir()</pre></a></li>
+<li class="method public "><a href="#isTrustedPhpFunction" title="isTrustedPhpFunction :: Check if PHP function is trusted."><span class="description">Check if PHP function is trusted.</span><pre>isTrustedPhpFunction()</pre></a></li>
+<li class="method public "><a href="#isTrustedPhpModifier" title="isTrustedPhpModifier :: Check if PHP modifier is trusted."><span class="description">Check if PHP modifier is trusted.</span><pre>isTrustedPhpModifier()</pre></a></li>
+<li class="method public "><a href="#isTrustedResourceDir" title="isTrustedResourceDir :: Check if directory of file resource is trusted."><span class="description">Check if directory of file resource is trusted.</span><pre>isTrustedResourceDir()</pre></a></li>
+<li class="method public "><a href="#isTrustedStaticClass" title="isTrustedStaticClass :: Check if static class is trusted."><span class="description">Check if static class is trusted.</span><pre>isTrustedStaticClass()</pre></a></li>
+<li class="method public "><a href="#isTrustedStream" title="isTrustedStream :: Check if stream is trusted."><span class="description">Check if stream is trusted.</span><pre>isTrustedStream()</pre></a></li>
+<li class="method public "><a href="#isTrustedTag" title="isTrustedTag :: Check if tag is trusted."><span class="description">Check if tag is trusted.</span><pre>isTrustedTag()</pre></a></li>
+<li class="method public "><a href="#isTrustedUri" title="isTrustedUri :: Check if URI (e.g."><span class="description">Check if URI (e.g.</span><pre>isTrustedUri()</pre></a></li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties</li>
+<li class="property public "><a href="#%24allow_constants" title="$allow_constants :: + flag if constants can be accessed from template"><span class="description">+ flag if constants can be accessed from template</span><pre>$allow_constants</pre></a></li>
+<li class="property public "><a href="#%24allow_super_globals" title="$allow_super_globals :: + flag if super globals can be accessed from template"><span class="description">+ flag if super globals can be accessed from template</span><pre>$allow_super_globals</pre></a></li>
+<li class="property public "><a href="#%24allowed_modifiers" title="$allowed_modifiers :: This is an array of allowed modifier plugins."><span class="description">This is an array of allowed modifier plugins.</span><pre>$allowed_modifiers</pre></a></li>
+<li class="property public "><a href="#%24allowed_tags" title="$allowed_tags :: This is an array of allowed tags."><span class="description">This is an array of allowed tags.</span><pre>$allowed_tags</pre></a></li>
+<li class="property public "><a href="#%24disabled_modifiers" title="$disabled_modifiers :: This is an array of disabled modifier plugins."><span class="description">This is an array of disabled modifier plugins.</span><pre>$disabled_modifiers</pre></a></li>
+<li class="property public "><a href="#%24disabled_tags" title="$disabled_tags :: This is an array of disabled tags."><span class="description">This is an array of disabled tags.</span><pre>$disabled_tags</pre></a></li>
+<li class="property public "><a href="#%24php_functions" title="$php_functions :: This is an array of trusted PHP functions."><span class="description">This is an array of trusted PHP functions.</span><pre>$php_functions</pre></a></li>
+<li class="property public "><a href="#%24php_handling" title='$php_handling :: This determines how Smarty handles "&lt;?php .'><span class="description">This determines how Smarty handles "&lt;?php .</span><pre>$php_handling</pre></a></li>
+<li class="property public "><a href="#%24php_modifiers" title="$php_modifiers :: This is an array of trusted PHP modifers."><span class="description">This is an array of trusted PHP modifers.</span><pre>$php_modifiers</pre></a></li>
+<li class="property public "><a href="#%24secure_dir" title="$secure_dir :: This is the list of template directories that are considered secure."><span class="description">This is the list of template directories that are considered secure.</span><pre>$secure_dir</pre></a></li>
+<li class="property public "><a href="#%24static_classes" title="$static_classes :: This is an array of trusted static classes."><span class="description">This is an array of trusted static classes.</span><pre>$static_classes</pre></a></li>
+<li class="property public "><a href="#%24streams" title="$streams :: This is an array of trusted streams."><span class="description">This is an array of trusted streams.</span><pre>$streams</pre></a></li>
+<li class="property public "><a href="#%24trusted_dir" title="$trusted_dir :: This is an array of directories where trusted php scripts reside."><span class="description">This is an array of directories where trusted php scripts reside.</span><pre>$trusted_dir</pre></a></li>
+<li class="property public "><a href="#%24trusted_uri" title="$trusted_uri :: List of regular expressions (PCRE) that include trusted URIs"><span class="description">List of regular expressions (PCRE) that include trusted URIs</span><pre>$trusted_uri</pre></a></li>
+<li class="nav-header protected">» Protected</li>
+<li class="property protected "><a href="#%24_config_dir" title="$_config_dir :: Cache for $config_dir lookups"><span class="description">Cache for $config_dir lookups</span><pre>$_config_dir</pre></a></li>
+<li class="property protected "><a href="#%24_php_resource_dir" title="$_php_resource_dir :: Cache for $php_resource_dir lookups"><span class="description">Cache for $php_resource_dir lookups</span><pre>$_php_resource_dir</pre></a></li>
+<li class="property protected "><a href="#%24_resource_dir" title="$_resource_dir :: Cache for $resource_dir lookups"><span class="description">Cache for $resource_dir lookups</span><pre>$_resource_dir</pre></a></li>
+<li class="property protected "><a href="#%24_secure_dir" title="$_secure_dir :: Cache for $secure_dir lookups"><span class="description">Cache for $secure_dir lookups</span><pre>$_secure_dir</pre></a></li>
+<li class="property protected "><a href="#%24_template_dir" title="$_template_dir :: Cache for $template_dir lookups"><span class="description">Cache for $template_dir lookups</span><pre>$_template_dir</pre></a></li>
+<li class="property protected "><a href="#%24_trusted_dir" title="$_trusted_dir :: Cache for $trusted_dir lookups"><span class="description">Cache for $trusted_dir lookups</span><pre>$_trusted_dir</pre></a></li>
+</ul>
+</div>
+<div class="span8">
+<a name="%5CSmarty_Security" id="\Smarty_Security"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/global.html">global</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/Smarty_Security.html">Smarty_Security</a>
+</li>
+</ul>
+<div href="../classes/Smarty_Security.html" class="element class">
+<p class="short_description">This class does contain the security settings</p>
+<div class="details">
+<p class="long_description"></p>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a name="__construct" id="__construct"></a><div class="element clickable method public __construct" data-toggle="collapse" data-target=".__construct .collapse">
+<h2>__construct()
+        </h2>
+<pre>__construct(<a href="../classes/Smarty.html">\Smarty</a> $smarty) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$smarty</h4>
+<code><a href="../classes/Smarty.html">\Smarty</a></code>
+</div>
+</div></div>
+</div>
+<a name="isTrustedModifier" id="isTrustedModifier"></a><div class="element clickable method public isTrustedModifier" data-toggle="collapse" data-target=".isTrustedModifier .collapse">
+<h2>Check if modifier plugin is trusted.</h2>
+<pre>isTrustedModifier(string $modifier_name, object $compiler) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$modifier_name</h4>
+<code>string</code>
+</div>
+<div class="subelement argument">
+<h4>$compiler</h4>
+<code>object</code><p>compiler object</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="../classes/SmartyCompilerException.html">\SmartyCompilerException</a></code></th>
+<td>if modifier is not trusted</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>true if tag is trusted</div>
+</div></div>
+</div>
+<a name="isTrustedPHPDir" id="isTrustedPHPDir"></a><div class="element clickable method public isTrustedPHPDir" data-toggle="collapse" data-target=".isTrustedPHPDir .collapse">
+<h2>Check if directory of file resource is trusted.</h2>
+<pre>isTrustedPHPDir(string $filepath) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$filepath</h4>
+<code>string</code>
+</div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="../classes/SmartyException.html">\SmartyException</a></code></th>
+<td>if PHP directory is not trusted</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>true if directory is trusted</div>
+</div></div>
+</div>
+<a name="isTrustedPhpFunction" id="isTrustedPhpFunction"></a><div class="element clickable method public isTrustedPhpFunction" data-toggle="collapse" data-target=".isTrustedPhpFunction .collapse">
+<h2>Check if PHP function is trusted.</h2>
+<pre>isTrustedPhpFunction(string $function_name, object $compiler) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$function_name</h4>
+<code>string</code>
+</div>
+<div class="subelement argument">
+<h4>$compiler</h4>
+<code>object</code><p>compiler object</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="../classes/SmartyCompilerException.html">\SmartyCompilerException</a></code></th>
+<td>if php function is not trusted</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>true if function is trusted</div>
+</div></div>
+</div>
+<a name="isTrustedPhpModifier" id="isTrustedPhpModifier"></a><div class="element clickable method public isTrustedPhpModifier" data-toggle="collapse" data-target=".isTrustedPhpModifier .collapse">
+<h2>Check if PHP modifier is trusted.</h2>
+<pre>isTrustedPhpModifier(string $modifier_name, object $compiler) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$modifier_name</h4>
+<code>string</code>
+</div>
+<div class="subelement argument">
+<h4>$compiler</h4>
+<code>object</code><p>compiler object</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="../classes/SmartyCompilerException.html">\SmartyCompilerException</a></code></th>
+<td>if modifier is not trusted</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>true if modifier is trusted</div>
+</div></div>
+</div>
+<a name="isTrustedResourceDir" id="isTrustedResourceDir"></a><div class="element clickable method public isTrustedResourceDir" data-toggle="collapse" data-target=".isTrustedResourceDir .collapse">
+<h2>Check if directory of file resource is trusted.</h2>
+<pre>isTrustedResourceDir(string $filepath) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$filepath</h4>
+<code>string</code>
+</div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="../classes/SmartyException.html">\SmartyException</a></code></th>
+<td>if directory is not trusted</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>true if directory is trusted</div>
+</div></div>
+</div>
+<a name="isTrustedStaticClass" id="isTrustedStaticClass"></a><div class="element clickable method public isTrustedStaticClass" data-toggle="collapse" data-target=".isTrustedStaticClass .collapse">
+<h2>Check if static class is trusted.</h2>
+<pre>isTrustedStaticClass(string $class_name, object $compiler) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$class_name</h4>
+<code>string</code>
+</div>
+<div class="subelement argument">
+<h4>$compiler</h4>
+<code>object</code><p>compiler object</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="../classes/SmartyCompilerException.html">\SmartyCompilerException</a></code></th>
+<td>if static class is not trusted</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>true if class is trusted</div>
+</div></div>
+</div>
+<a name="isTrustedStream" id="isTrustedStream"></a><div class="element clickable method public isTrustedStream" data-toggle="collapse" data-target=".isTrustedStream .collapse">
+<h2>Check if stream is trusted.</h2>
+<pre>isTrustedStream(string $stream_name) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$stream_name</h4>
+<code>string</code>
+</div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="../classes/SmartyException.html">\SmartyException</a></code></th>
+<td>if stream is not trusted</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>true if stream is trusted</div>
+</div></div>
+</div>
+<a name="isTrustedTag" id="isTrustedTag"></a><div class="element clickable method public isTrustedTag" data-toggle="collapse" data-target=".isTrustedTag .collapse">
+<h2>Check if tag is trusted.</h2>
+<pre>isTrustedTag(string $tag_name, object $compiler) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$tag_name</h4>
+<code>string</code>
+</div>
+<div class="subelement argument">
+<h4>$compiler</h4>
+<code>object</code><p>compiler object</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="../classes/SmartyCompilerException.html">\SmartyCompilerException</a></code></th>
+<td>if modifier is not trusted</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>true if tag is trusted</div>
+</div></div>
+</div>
+<a name="isTrustedUri" id="isTrustedUri"></a><div class="element clickable method public isTrustedUri" data-toggle="collapse" data-target=".isTrustedUri .collapse">
+<h2>Check if URI (e.g.</h2>
+<pre>isTrustedUri(string $uri) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>{fetch} or {html_image}) is trusted</p>
+
+<p>To simplify things, isTrustedUri() resolves all input to "{$PROTOCOL}://{$HOSTNAME}".
+So "http://username:password@hello.world.example.org:8080/some-path?some=query-string"
+is reduced to "http://hello.world.example.org" prior to applying the patters from <a href="$trusted_uri">$trusted_uri</a>.</p></p>
+<table class="table table-bordered"><tr>
+<th>uses</th>
+<td>\global\$trusted_uri</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$uri</h4>
+<code>string</code>
+</div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="../classes/SmartyException.html">\SmartyException</a></code></th>
+<td>if URI is not trusted</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>true if URI is trusted</div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a name="%24allow_constants" id="$allow_constants"> </a><div class="element clickable property public $allow_constants" data-toggle="collapse" data-target=".$allow_constants .collapse">
+<h2>+ flag if constants can be accessed from template</h2>
+<pre>$allow_constants : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24allow_super_globals" id="$allow_super_globals"> </a><div class="element clickable property public $allow_super_globals" data-toggle="collapse" data-target=".$allow_super_globals .collapse">
+<h2>+ flag if super globals can be accessed from template</h2>
+<pre>$allow_super_globals : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24allowed_modifiers" id="$allowed_modifiers"> </a><div class="element clickable property public $allowed_modifiers" data-toggle="collapse" data-target=".$allowed_modifiers .collapse">
+<h2>This is an array of allowed modifier plugins.</h2>
+<pre>$allowed_modifiers : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"><p>If empty no restriction by allowed_modifiers.</p></p></div></div>
+</div>
+<a name="%24allowed_tags" id="$allowed_tags"> </a><div class="element clickable property public $allowed_tags" data-toggle="collapse" data-target=".$allowed_tags .collapse">
+<h2>This is an array of allowed tags.</h2>
+<pre>$allowed_tags : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"><p>If empty no restriction by allowed_tags.</p></p></div></div>
+</div>
+<a name="%24disabled_modifiers" id="$disabled_modifiers"> </a><div class="element clickable property public $disabled_modifiers" data-toggle="collapse" data-target=".$disabled_modifiers .collapse">
+<h2>This is an array of disabled modifier plugins.</h2>
+<pre>$disabled_modifiers : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"><p>If empty no restriction by disabled_modifiers.</p></p></div></div>
+</div>
+<a name="%24disabled_tags" id="$disabled_tags"> </a><div class="element clickable property public $disabled_tags" data-toggle="collapse" data-target=".$disabled_tags .collapse">
+<h2>This is an array of disabled tags.</h2>
+<pre>$disabled_tags : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"><p>If empty no restriction by disabled_tags.</p></p></div></div>
+</div>
+<a name="%24php_functions" id="$php_functions"> </a><div class="element clickable property public $php_functions" data-toggle="collapse" data-target=".$php_functions .collapse">
+<h2>This is an array of trusted PHP functions.</h2>
+<pre>$php_functions : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"><p>If empty all functions are allowed.
+To disable all PHP functions set $php_functions = null.</p></p></div></div>
+</div>
+<a name="%24php_handling" id="$php_handling"> </a><div class="element clickable property public $php_handling" data-toggle="collapse" data-target=".$php_handling .collapse">
+<h2>This determines how Smarty handles "&lt;?php .</h2>
+<pre>$php_handling : integer</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"><p>.. ?>" tags in templates.
+possible values:</p>
+
+<ul>
+  <li>Smarty::PHP_PASSTHRU -> echo PHP tags as they are</li>
+  <li>Smarty::PHP_QUOTE    -> escape tags as entities</li>
+  <li>Smarty::PHP_REMOVE   -> remove php tags</li>
+  <li>Smarty::PHP_ALLOW    -> execute php tags</li>
+</ul></p></div></div>
+</div>
+<a name="%24php_modifiers" id="$php_modifiers"> </a><div class="element clickable property public $php_modifiers" data-toggle="collapse" data-target=".$php_modifiers .collapse">
+<h2>This is an array of trusted PHP modifers.</h2>
+<pre>$php_modifiers : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"><p>If empty all modifiers are allowed.
+To disable all modifier set $modifiers = null.</p></p></div></div>
+</div>
+<a name="%24secure_dir" id="$secure_dir"> </a><div class="element clickable property public $secure_dir" data-toggle="collapse" data-target=".$secure_dir .collapse">
+<h2>This is the list of template directories that are considered secure.</h2>
+<pre>$secure_dir : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"><p>$template_dir is in this list implicitly.</p></p></div></div>
+</div>
+<a name="%24static_classes" id="$static_classes"> </a><div class="element clickable property public $static_classes" data-toggle="collapse" data-target=".$static_classes .collapse">
+<h2>This is an array of trusted static classes.</h2>
+<pre>$static_classes : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"><p>If empty access to all static classes is allowed.
+If set to 'none' none is allowed.</p></p></div></div>
+</div>
+<a name="%24streams" id="$streams"> </a><div class="element clickable property public $streams" data-toggle="collapse" data-target=".$streams .collapse">
+<h2>This is an array of trusted streams.</h2>
+<pre>$streams : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"><p>If empty all streams are allowed.
+To disable all streams set $streams = null.</p></p></div></div>
+</div>
+<a name="%24trusted_dir" id="$trusted_dir"> </a><div class="element clickable property public $trusted_dir" data-toggle="collapse" data-target=".$trusted_dir .collapse">
+<h2>This is an array of directories where trusted php scripts reside.</h2>
+<pre>$trusted_dir : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"><p><a href="$security">$security</a> is disabled during their inclusion/execution.</p></p></div></div>
+</div>
+<a name="%24trusted_uri" id="$trusted_uri"> </a><div class="element clickable property public $trusted_uri" data-toggle="collapse" data-target=".$trusted_uri .collapse">
+<h2>List of regular expressions (PCRE) that include trusted URIs</h2>
+<pre>$trusted_uri : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24_config_dir" id="$_config_dir"> </a><div class="element clickable property protected $_config_dir" data-toggle="collapse" data-target=".$_config_dir .collapse">
+<h2>Cache for $config_dir lookups</h2>
+<pre>$_config_dir : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24_php_resource_dir" id="$_php_resource_dir"> </a><div class="element clickable property protected $_php_resource_dir" data-toggle="collapse" data-target=".$_php_resource_dir .collapse">
+<h2>Cache for $php_resource_dir lookups</h2>
+<pre>$_php_resource_dir : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24_resource_dir" id="$_resource_dir"> </a><div class="element clickable property protected $_resource_dir" data-toggle="collapse" data-target=".$_resource_dir .collapse">
+<h2>Cache for $resource_dir lookups</h2>
+<pre>$_resource_dir : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24_secure_dir" id="$_secure_dir"> </a><div class="element clickable property protected $_secure_dir" data-toggle="collapse" data-target=".$_secure_dir .collapse">
+<h2>Cache for $secure_dir lookups</h2>
+<pre>$_secure_dir : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24_template_dir" id="$_template_dir"> </a><div class="element clickable property protected $_template_dir" data-toggle="collapse" data-target=".$_template_dir .collapse">
+<h2>Cache for $template_dir lookups</h2>
+<pre>$_template_dir : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24_trusted_dir" id="$_trusted_dir"> </a><div class="element clickable property protected $_trusted_dir" data-toggle="collapse" data-target=".$_trusted_dir .collapse">
+<h2>Cache for $trusted_dir lookups</h2>
+<pre>$_trusted_dir : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a9</a> and<br>
+            generated on 2012-08-25T11:31:22+02:00.<br></footer></div>
+</div>
+</body>
+</html>

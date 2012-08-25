@@ -1,0 +1,665 @@
+<!DOCTYPE html><html xmlns:date="http://exslt.org/dates-and-times" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>phpDocumentor » \Smarty_Internal_Configfilelexer</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">phpDocumentor</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Packages</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+<li><a href="../packages/Smarty.html"><i class="icon-folder-open"></i> Smarty</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">830</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul>
+<li>todo 
+                <span class="label label-info">4</span>
+</li>
+<li>fixme 
+                <span class="label label-info">7</span>
+</li>
+</ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">3</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods</li>
+<li class="method public "><a href="#__construct" title="__construct :: "><span class="description">__construct()
+        </span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#instance" title="instance :: "><span class="description">instance()
+        </span><pre>instance()</pre></a></li>
+<li class="method public "><a href="#yy_r1_1" title="yy_r1_1 :: "><span class="description">yy_r1_1()
+        </span><pre>yy_r1_1()</pre></a></li>
+<li class="method public "><a href="#yy_r1_2" title="yy_r1_2 :: "><span class="description">yy_r1_2()
+        </span><pre>yy_r1_2()</pre></a></li>
+<li class="method public "><a href="#yy_r1_3" title="yy_r1_3 :: "><span class="description">yy_r1_3()
+        </span><pre>yy_r1_3()</pre></a></li>
+<li class="method public "><a href="#yy_r1_4" title="yy_r1_4 :: "><span class="description">yy_r1_4()
+        </span><pre>yy_r1_4()</pre></a></li>
+<li class="method public "><a href="#yy_r1_5" title="yy_r1_5 :: "><span class="description">yy_r1_5()
+        </span><pre>yy_r1_5()</pre></a></li>
+<li class="method public "><a href="#yy_r1_6" title="yy_r1_6 :: "><span class="description">yy_r1_6()
+        </span><pre>yy_r1_6()</pre></a></li>
+<li class="method public "><a href="#yy_r1_7" title="yy_r1_7 :: "><span class="description">yy_r1_7()
+        </span><pre>yy_r1_7()</pre></a></li>
+<li class="method public "><a href="#yy_r1_8" title="yy_r1_8 :: "><span class="description">yy_r1_8()
+        </span><pre>yy_r1_8()</pre></a></li>
+<li class="method public "><a href="#yy_r2_1" title="yy_r2_1 :: "><span class="description">yy_r2_1()
+        </span><pre>yy_r2_1()</pre></a></li>
+<li class="method public "><a href="#yy_r2_2" title="yy_r2_2 :: "><span class="description">yy_r2_2()
+        </span><pre>yy_r2_2()</pre></a></li>
+<li class="method public "><a href="#yy_r2_3" title="yy_r2_3 :: "><span class="description">yy_r2_3()
+        </span><pre>yy_r2_3()</pre></a></li>
+<li class="method public "><a href="#yy_r2_4" title="yy_r2_4 :: "><span class="description">yy_r2_4()
+        </span><pre>yy_r2_4()</pre></a></li>
+<li class="method public "><a href="#yy_r2_5" title="yy_r2_5 :: "><span class="description">yy_r2_5()
+        </span><pre>yy_r2_5()</pre></a></li>
+<li class="method public "><a href="#yy_r2_6" title="yy_r2_6 :: "><span class="description">yy_r2_6()
+        </span><pre>yy_r2_6()</pre></a></li>
+<li class="method public "><a href="#yy_r2_7" title="yy_r2_7 :: "><span class="description">yy_r2_7()
+        </span><pre>yy_r2_7()</pre></a></li>
+<li class="method public "><a href="#yy_r2_8" title="yy_r2_8 :: "><span class="description">yy_r2_8()
+        </span><pre>yy_r2_8()</pre></a></li>
+<li class="method public "><a href="#yy_r2_9" title="yy_r2_9 :: "><span class="description">yy_r2_9()
+        </span><pre>yy_r2_9()</pre></a></li>
+<li class="method public "><a href="#yy_r3_1" title="yy_r3_1 :: "><span class="description">yy_r3_1()
+        </span><pre>yy_r3_1()</pre></a></li>
+<li class="method public "><a href="#yy_r4_1" title="yy_r4_1 :: "><span class="description">yy_r4_1()
+        </span><pre>yy_r4_1()</pre></a></li>
+<li class="method public "><a href="#yy_r4_2" title="yy_r4_2 :: "><span class="description">yy_r4_2()
+        </span><pre>yy_r4_2()</pre></a></li>
+<li class="method public "><a href="#yy_r4_3" title="yy_r4_3 :: "><span class="description">yy_r4_3()
+        </span><pre>yy_r4_3()</pre></a></li>
+<li class="method public "><a href="#yy_r5_1" title="yy_r5_1 :: "><span class="description">yy_r5_1()
+        </span><pre>yy_r5_1()</pre></a></li>
+<li class="method public "><a href="#yy_r5_2" title="yy_r5_2 :: "><span class="description">yy_r5_2()
+        </span><pre>yy_r5_2()</pre></a></li>
+<li class="method public "><a href="#yy_r6_1" title="yy_r6_1 :: "><span class="description">yy_r6_1()
+        </span><pre>yy_r6_1()</pre></a></li>
+<li class="method public "><a href="#yy_r6_2" title="yy_r6_2 :: "><span class="description">yy_r6_2()
+        </span><pre>yy_r6_2()</pre></a></li>
+<li class="method public "><a href="#yybegin" title="yybegin :: "><span class="description">yybegin()
+        </span><pre>yybegin()</pre></a></li>
+<li class="method public "><a href="#yylex" title="yylex :: "><span class="description">yylex()
+        </span><pre>yylex()</pre></a></li>
+<li class="method public "><a href="#yylex1" title="yylex1 :: "><span class="description">yylex1()
+        </span><pre>yylex1()</pre></a></li>
+<li class="method public "><a href="#yylex2" title="yylex2 :: "><span class="description">yylex2()
+        </span><pre>yylex2()</pre></a></li>
+<li class="method public "><a href="#yylex3" title="yylex3 :: "><span class="description">yylex3()
+        </span><pre>yylex3()</pre></a></li>
+<li class="method public "><a href="#yylex4" title="yylex4 :: "><span class="description">yylex4()
+        </span><pre>yylex4()</pre></a></li>
+<li class="method public "><a href="#yylex5" title="yylex5 :: "><span class="description">yylex5()
+        </span><pre>yylex5()</pre></a></li>
+<li class="method public "><a href="#yylex6" title="yylex6 :: "><span class="description">yylex6()
+        </span><pre>yylex6()</pre></a></li>
+<li class="method public "><a href="#yypopstate" title="yypopstate :: "><span class="description">yypopstate()
+        </span><pre>yypopstate()</pre></a></li>
+<li class="method public "><a href="#yypushstate" title="yypushstate :: "><span class="description">yypushstate()
+        </span><pre>yypushstate()</pre></a></li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties</li>
+<li class="property public "><a href="#%24counter" title="$counter :: "><span class="description">$counter</span><pre>$counter</pre></a></li>
+<li class="property public "><a href="#%24data" title="$data :: "><span class="description">$data</span><pre>$data</pre></a></li>
+<li class="property public "><a href="#%24line" title="$line :: "><span class="description">$line</span><pre>$line</pre></a></li>
+<li class="property public "><a href="#%24node" title="$node :: "><span class="description">$node</span><pre>$node</pre></a></li>
+<li class="property public "><a href="#%24smarty_token_names" title="$smarty_token_names :: "><span class="description">$smarty_token_names</span><pre>$smarty_token_names</pre></a></li>
+<li class="property public "><a href="#%24token" title="$token :: "><span class="description">$token</span><pre>$token</pre></a></li>
+<li class="property public "><a href="#%24value" title="$value :: "><span class="description">$value</span><pre>$value</pre></a></li>
+<li class="nav-header private">» Private</li>
+<li class="property private "><a href="#%24_yy_stack" title="$_yy_stack :: "><span class="description">$_yy_stack</span><pre>$_yy_stack</pre></a></li>
+<li class="property private "><a href="#%24_yy_state" title="$_yy_state :: "><span class="description">$_yy_state</span><pre>$_yy_state</pre></a></li>
+<li class="property private "><a href="#%24state" title="$state :: "><span class="description">$state</span><pre>$state</pre></a></li>
+<li class="nav-header">
+<i class="icon-custom icon-constant"></i> Constants</li>
+<li class="constant  "><a href="#COMMENT" title="COMMENT :: "><span class="description">COMMENT</span><pre>COMMENT</pre></a></li>
+<li class="constant  "><a href="#NAKED_STRING_VALUE" title="NAKED_STRING_VALUE :: "><span class="description">NAKED_STRING_VALUE</span><pre>NAKED_STRING_VALUE</pre></a></li>
+<li class="constant  "><a href="#SECTION" title="SECTION :: "><span class="description">SECTION</span><pre>SECTION</pre></a></li>
+<li class="constant  "><a href="#START" title="START :: "><span class="description">START</span><pre>START</pre></a></li>
+<li class="constant  "><a href="#TRIPPLE" title="TRIPPLE :: "><span class="description">TRIPPLE</span><pre>TRIPPLE</pre></a></li>
+<li class="constant  "><a href="#VALUE" title="VALUE :: "><span class="description">VALUE</span><pre>VALUE</pre></a></li>
+</ul>
+</div>
+<div class="span8">
+<a name="%5CSmarty_Internal_Configfilelexer" id="\Smarty_Internal_Configfilelexer"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/global.html">global</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/Smarty_Internal_Configfilelexer.html">Smarty_Internal_Configfilelexer</a>
+</li>
+</ul>
+<div href="../classes/Smarty_Internal_Configfilelexer.html" class="element class">
+<p class="short_description">Smarty Internal Plugin Configfilelexer</p>
+<div class="details">
+<p class="long_description"></p>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a name="__construct" id="__construct"></a><div class="element clickable method public __construct" data-toggle="collapse" data-target=".__construct .collapse">
+<h2>__construct()
+        </h2>
+<pre>__construct($data, $smarty) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$data</h4></div>
+<div class="subelement argument"><h4>$smarty</h4></div>
+</div></div>
+</div>
+<a name="instance" id="instance"></a><div class="element clickable method public instance" data-toggle="collapse" data-target=".instance .collapse">
+<h2>instance()
+        </h2>
+<pre>instance($new_instance) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$new_instance</h4></div>
+</div></div>
+</div>
+<a name="yy_r1_1" id="yy_r1_1"></a><div class="element clickable method public yy_r1_1" data-toggle="collapse" data-target=".yy_r1_1 .collapse">
+<h2>yy_r1_1()
+        </h2>
+<pre>yy_r1_1($yy_subpatterns) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$yy_subpatterns</h4></div>
+</div></div>
+</div>
+<a name="yy_r1_2" id="yy_r1_2"></a><div class="element clickable method public yy_r1_2" data-toggle="collapse" data-target=".yy_r1_2 .collapse">
+<h2>yy_r1_2()
+        </h2>
+<pre>yy_r1_2($yy_subpatterns) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$yy_subpatterns</h4></div>
+</div></div>
+</div>
+<a name="yy_r1_3" id="yy_r1_3"></a><div class="element clickable method public yy_r1_3" data-toggle="collapse" data-target=".yy_r1_3 .collapse">
+<h2>yy_r1_3()
+        </h2>
+<pre>yy_r1_3($yy_subpatterns) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$yy_subpatterns</h4></div>
+</div></div>
+</div>
+<a name="yy_r1_4" id="yy_r1_4"></a><div class="element clickable method public yy_r1_4" data-toggle="collapse" data-target=".yy_r1_4 .collapse">
+<h2>yy_r1_4()
+        </h2>
+<pre>yy_r1_4($yy_subpatterns) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$yy_subpatterns</h4></div>
+</div></div>
+</div>
+<a name="yy_r1_5" id="yy_r1_5"></a><div class="element clickable method public yy_r1_5" data-toggle="collapse" data-target=".yy_r1_5 .collapse">
+<h2>yy_r1_5()
+        </h2>
+<pre>yy_r1_5($yy_subpatterns) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$yy_subpatterns</h4></div>
+</div></div>
+</div>
+<a name="yy_r1_6" id="yy_r1_6"></a><div class="element clickable method public yy_r1_6" data-toggle="collapse" data-target=".yy_r1_6 .collapse">
+<h2>yy_r1_6()
+        </h2>
+<pre>yy_r1_6($yy_subpatterns) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$yy_subpatterns</h4></div>
+</div></div>
+</div>
+<a name="yy_r1_7" id="yy_r1_7"></a><div class="element clickable method public yy_r1_7" data-toggle="collapse" data-target=".yy_r1_7 .collapse">
+<h2>yy_r1_7()
+        </h2>
+<pre>yy_r1_7($yy_subpatterns) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$yy_subpatterns</h4></div>
+</div></div>
+</div>
+<a name="yy_r1_8" id="yy_r1_8"></a><div class="element clickable method public yy_r1_8" data-toggle="collapse" data-target=".yy_r1_8 .collapse">
+<h2>yy_r1_8()
+        </h2>
+<pre>yy_r1_8($yy_subpatterns) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$yy_subpatterns</h4></div>
+</div></div>
+</div>
+<a name="yy_r2_1" id="yy_r2_1"></a><div class="element clickable method public yy_r2_1" data-toggle="collapse" data-target=".yy_r2_1 .collapse">
+<h2>yy_r2_1()
+        </h2>
+<pre>yy_r2_1($yy_subpatterns) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$yy_subpatterns</h4></div>
+</div></div>
+</div>
+<a name="yy_r2_2" id="yy_r2_2"></a><div class="element clickable method public yy_r2_2" data-toggle="collapse" data-target=".yy_r2_2 .collapse">
+<h2>yy_r2_2()
+        </h2>
+<pre>yy_r2_2($yy_subpatterns) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$yy_subpatterns</h4></div>
+</div></div>
+</div>
+<a name="yy_r2_3" id="yy_r2_3"></a><div class="element clickable method public yy_r2_3" data-toggle="collapse" data-target=".yy_r2_3 .collapse">
+<h2>yy_r2_3()
+        </h2>
+<pre>yy_r2_3($yy_subpatterns) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$yy_subpatterns</h4></div>
+</div></div>
+</div>
+<a name="yy_r2_4" id="yy_r2_4"></a><div class="element clickable method public yy_r2_4" data-toggle="collapse" data-target=".yy_r2_4 .collapse">
+<h2>yy_r2_4()
+        </h2>
+<pre>yy_r2_4($yy_subpatterns) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$yy_subpatterns</h4></div>
+</div></div>
+</div>
+<a name="yy_r2_5" id="yy_r2_5"></a><div class="element clickable method public yy_r2_5" data-toggle="collapse" data-target=".yy_r2_5 .collapse">
+<h2>yy_r2_5()
+        </h2>
+<pre>yy_r2_5($yy_subpatterns) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$yy_subpatterns</h4></div>
+</div></div>
+</div>
+<a name="yy_r2_6" id="yy_r2_6"></a><div class="element clickable method public yy_r2_6" data-toggle="collapse" data-target=".yy_r2_6 .collapse">
+<h2>yy_r2_6()
+        </h2>
+<pre>yy_r2_6($yy_subpatterns) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$yy_subpatterns</h4></div>
+</div></div>
+</div>
+<a name="yy_r2_7" id="yy_r2_7"></a><div class="element clickable method public yy_r2_7" data-toggle="collapse" data-target=".yy_r2_7 .collapse">
+<h2>yy_r2_7()
+        </h2>
+<pre>yy_r2_7($yy_subpatterns) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$yy_subpatterns</h4></div>
+</div></div>
+</div>
+<a name="yy_r2_8" id="yy_r2_8"></a><div class="element clickable method public yy_r2_8" data-toggle="collapse" data-target=".yy_r2_8 .collapse">
+<h2>yy_r2_8()
+        </h2>
+<pre>yy_r2_8($yy_subpatterns) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$yy_subpatterns</h4></div>
+</div></div>
+</div>
+<a name="yy_r2_9" id="yy_r2_9"></a><div class="element clickable method public yy_r2_9" data-toggle="collapse" data-target=".yy_r2_9 .collapse">
+<h2>yy_r2_9()
+        </h2>
+<pre>yy_r2_9($yy_subpatterns) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$yy_subpatterns</h4></div>
+</div></div>
+</div>
+<a name="yy_r3_1" id="yy_r3_1"></a><div class="element clickable method public yy_r3_1" data-toggle="collapse" data-target=".yy_r3_1 .collapse">
+<h2>yy_r3_1()
+        </h2>
+<pre>yy_r3_1($yy_subpatterns) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$yy_subpatterns</h4></div>
+</div></div>
+</div>
+<a name="yy_r4_1" id="yy_r4_1"></a><div class="element clickable method public yy_r4_1" data-toggle="collapse" data-target=".yy_r4_1 .collapse">
+<h2>yy_r4_1()
+        </h2>
+<pre>yy_r4_1($yy_subpatterns) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$yy_subpatterns</h4></div>
+</div></div>
+</div>
+<a name="yy_r4_2" id="yy_r4_2"></a><div class="element clickable method public yy_r4_2" data-toggle="collapse" data-target=".yy_r4_2 .collapse">
+<h2>yy_r4_2()
+        </h2>
+<pre>yy_r4_2($yy_subpatterns) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$yy_subpatterns</h4></div>
+</div></div>
+</div>
+<a name="yy_r4_3" id="yy_r4_3"></a><div class="element clickable method public yy_r4_3" data-toggle="collapse" data-target=".yy_r4_3 .collapse">
+<h2>yy_r4_3()
+        </h2>
+<pre>yy_r4_3($yy_subpatterns) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$yy_subpatterns</h4></div>
+</div></div>
+</div>
+<a name="yy_r5_1" id="yy_r5_1"></a><div class="element clickable method public yy_r5_1" data-toggle="collapse" data-target=".yy_r5_1 .collapse">
+<h2>yy_r5_1()
+        </h2>
+<pre>yy_r5_1($yy_subpatterns) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$yy_subpatterns</h4></div>
+</div></div>
+</div>
+<a name="yy_r5_2" id="yy_r5_2"></a><div class="element clickable method public yy_r5_2" data-toggle="collapse" data-target=".yy_r5_2 .collapse">
+<h2>yy_r5_2()
+        </h2>
+<pre>yy_r5_2($yy_subpatterns) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$yy_subpatterns</h4></div>
+</div></div>
+</div>
+<a name="yy_r6_1" id="yy_r6_1"></a><div class="element clickable method public yy_r6_1" data-toggle="collapse" data-target=".yy_r6_1 .collapse">
+<h2>yy_r6_1()
+        </h2>
+<pre>yy_r6_1($yy_subpatterns) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$yy_subpatterns</h4></div>
+</div></div>
+</div>
+<a name="yy_r6_2" id="yy_r6_2"></a><div class="element clickable method public yy_r6_2" data-toggle="collapse" data-target=".yy_r6_2 .collapse">
+<h2>yy_r6_2()
+        </h2>
+<pre>yy_r6_2($yy_subpatterns) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$yy_subpatterns</h4></div>
+</div></div>
+</div>
+<a name="yybegin" id="yybegin"></a><div class="element clickable method public yybegin" data-toggle="collapse" data-target=".yybegin .collapse">
+<h2>yybegin()
+        </h2>
+<pre>yybegin($state) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$state</h4></div>
+</div></div>
+</div>
+<a name="yylex" id="yylex"></a><div class="element clickable method public yylex" data-toggle="collapse" data-target=".yylex .collapse">
+<h2>yylex()
+        </h2>
+<pre>yylex() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="yylex1" id="yylex1"></a><div class="element clickable method public yylex1" data-toggle="collapse" data-target=".yylex1 .collapse">
+<h2>yylex1()
+        </h2>
+<pre>yylex1() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="yylex2" id="yylex2"></a><div class="element clickable method public yylex2" data-toggle="collapse" data-target=".yylex2 .collapse">
+<h2>yylex2()
+        </h2>
+<pre>yylex2() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="yylex3" id="yylex3"></a><div class="element clickable method public yylex3" data-toggle="collapse" data-target=".yylex3 .collapse">
+<h2>yylex3()
+        </h2>
+<pre>yylex3() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="yylex4" id="yylex4"></a><div class="element clickable method public yylex4" data-toggle="collapse" data-target=".yylex4 .collapse">
+<h2>yylex4()
+        </h2>
+<pre>yylex4() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="yylex5" id="yylex5"></a><div class="element clickable method public yylex5" data-toggle="collapse" data-target=".yylex5 .collapse">
+<h2>yylex5()
+        </h2>
+<pre>yylex5() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="yylex6" id="yylex6"></a><div class="element clickable method public yylex6" data-toggle="collapse" data-target=".yylex6 .collapse">
+<h2>yylex6()
+        </h2>
+<pre>yylex6() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="yypopstate" id="yypopstate"></a><div class="element clickable method public yypopstate" data-toggle="collapse" data-target=".yypopstate .collapse">
+<h2>yypopstate()
+        </h2>
+<pre>yypopstate() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="yypushstate" id="yypushstate"></a><div class="element clickable method public yypushstate" data-toggle="collapse" data-target=".yypushstate .collapse">
+<h2>yypushstate()
+        </h2>
+<pre>yypushstate($state) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$state</h4></div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a name="%24counter" id="$counter"> </a><div class="element clickable property public $counter" data-toggle="collapse" data-target=".$counter .collapse">
+<h2>$counter</h2>
+<pre>$counter </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24data" id="$data"> </a><div class="element clickable property public $data" data-toggle="collapse" data-target=".$data .collapse">
+<h2>$data</h2>
+<pre>$data </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24line" id="$line"> </a><div class="element clickable property public $line" data-toggle="collapse" data-target=".$line .collapse">
+<h2>$line</h2>
+<pre>$line </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24node" id="$node"> </a><div class="element clickable property public $node" data-toggle="collapse" data-target=".$node .collapse">
+<h2>$node</h2>
+<pre>$node </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24smarty_token_names" id="$smarty_token_names"> </a><div class="element clickable property public $smarty_token_names" data-toggle="collapse" data-target=".$smarty_token_names .collapse">
+<h2>$smarty_token_names</h2>
+<pre>$smarty_token_names </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24token" id="$token"> </a><div class="element clickable property public $token" data-toggle="collapse" data-target=".$token .collapse">
+<h2>$token</h2>
+<pre>$token </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24value" id="$value"> </a><div class="element clickable property public $value" data-toggle="collapse" data-target=".$value .collapse">
+<h2>$value</h2>
+<pre>$value </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24_yy_stack" id="$_yy_stack"> </a><div class="element clickable property private $_yy_stack" data-toggle="collapse" data-target=".$_yy_stack .collapse">
+<h2>$_yy_stack</h2>
+<pre>$_yy_stack </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24_yy_state" id="$_yy_state"> </a><div class="element clickable property private $_yy_state" data-toggle="collapse" data-target=".$_yy_state .collapse">
+<h2>$_yy_state</h2>
+<pre>$_yy_state </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24state" id="$state"> </a><div class="element clickable property private $state" data-toggle="collapse" data-target=".$state .collapse">
+<h2>$state</h2>
+<pre>$state </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<h3>
+<i class="icon-custom icon-constant"></i> Constants</h3>
+<a name="COMMENT" id="COMMENT"> </a><div class="element clickable constant  COMMENT" data-toggle="collapse" data-target=".COMMENT .collapse">
+<h2>COMMENT</h2>
+<pre>COMMENT </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="NAKED_STRING_VALUE" id="NAKED_STRING_VALUE"> </a><div class="element clickable constant  NAKED_STRING_VALUE" data-toggle="collapse" data-target=".NAKED_STRING_VALUE .collapse">
+<h2>NAKED_STRING_VALUE</h2>
+<pre>NAKED_STRING_VALUE </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="SECTION" id="SECTION"> </a><div class="element clickable constant  SECTION" data-toggle="collapse" data-target=".SECTION .collapse">
+<h2>SECTION</h2>
+<pre>SECTION </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="START" id="START"> </a><div class="element clickable constant  START" data-toggle="collapse" data-target=".START .collapse">
+<h2>START</h2>
+<pre>START </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="TRIPPLE" id="TRIPPLE"> </a><div class="element clickable constant  TRIPPLE" data-toggle="collapse" data-target=".TRIPPLE .collapse">
+<h2>TRIPPLE</h2>
+<pre>TRIPPLE </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="VALUE" id="VALUE"> </a><div class="element clickable constant  VALUE" data-toggle="collapse" data-target=".VALUE .collapse">
+<h2>VALUE</h2>
+<pre>VALUE </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a9</a> and<br>
+            generated on 2012-08-25T11:31:21+02:00.<br></footer></div>
+</div>
+</body>
+</html>

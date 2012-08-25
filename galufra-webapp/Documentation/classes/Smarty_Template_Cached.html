@@ -1,0 +1,228 @@
+<!DOCTYPE html><html xmlns:date="http://exslt.org/dates-and-times" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>phpDocumentor » \Smarty_Template_Cached</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">phpDocumentor</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Packages</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+<li><a href="../packages/Smarty.html"><i class="icon-folder-open"></i> Smarty</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">830</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul>
+<li>todo 
+                <span class="label label-info">4</span>
+</li>
+<li>fixme 
+                <span class="label label-info">7</span>
+</li>
+</ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">3</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods</li>
+<li class="method public "><a href="#__construct" title="__construct :: create Cached Object container"><span class="description">create Cached Object container</span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#write" title="write :: Write this cache object to handler"><span class="description">Write this cache object to handler</span><pre>write()</pre></a></li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties</li>
+<li class="property public "><a href="#%24cache_id" title="$cache_id :: Template Cache Id (Smarty_Internal_Template::$cache_id)"><span class="description">Template Cache Id (Smarty_Internal_Template::$cache_id)</span><pre>$cache_id</pre></a></li>
+<li class="property public "><a href="#%24compile_id" title="$compile_id :: Template Compile Id (Smarty_Internal_Template::$compile_id)"><span class="description">Template Compile Id (Smarty_Internal_Template::$compile_id)</span><pre>$compile_id</pre></a></li>
+<li class="property public "><a href="#%24content" title="$content :: Source Content"><span class="description">Source Content</span><pre>$content</pre></a></li>
+<li class="property public "><a href="#%24exists" title="$exists :: Source Existance"><span class="description">Source Existance</span><pre>$exists</pre></a></li>
+<li class="property public "><a href="#%24filepath" title="$filepath :: Source Filepath"><span class="description">Source Filepath</span><pre>$filepath</pre></a></li>
+<li class="property public "><a href="#%24handler" title="$handler :: CacheResource Handler"><span class="description">CacheResource Handler</span><pre>$handler</pre></a></li>
+<li class="property public "><a href="#%24is_locked" title="$is_locked :: flag that cache is locked by this instance"><span class="description">flag that cache is locked by this instance</span><pre>$is_locked</pre></a></li>
+<li class="property public "><a href="#%24lock_id" title="$lock_id :: Id for cache locking"><span class="description">Id for cache locking</span><pre>$lock_id</pre></a></li>
+<li class="property public "><a href="#%24processed" title="$processed :: Cache was processed"><span class="description">Cache was processed</span><pre>$processed</pre></a></li>
+<li class="property public "><a href="#%24source" title="$source :: Source Object"><span class="description">Source Object</span><pre>$source</pre></a></li>
+<li class="property public "><a href="#%24timestamp" title="$timestamp :: Source Timestamp"><span class="description">Source Timestamp</span><pre>$timestamp</pre></a></li>
+<li class="property public "><a href="#%24valid" title="$valid :: Cache Is Valid"><span class="description">Cache Is Valid</span><pre>$valid</pre></a></li>
+</ul>
+</div>
+<div class="span8">
+<a name="%5CSmarty_Template_Cached" id="\Smarty_Template_Cached"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/global.html">global</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/Smarty_Template_Cached.html">Smarty_Template_Cached</a>
+</li>
+</ul>
+<div href="../classes/Smarty_Template_Cached.html" class="element class">
+<p class="short_description">Smarty Resource Data Object</p>
+<div class="details">
+<p class="long_description"><p>Cache Data Container for Template Files</p></p>
+<table class="table table-bordered">
+<tr>
+<th>package</th>
+<td><a href="../packages/Smarty.TemplateResources.html">Smarty</a></td>
+</tr>
+<tr>
+<th>subpackage</th>
+<td>TemplateResources</td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="">Rodney Rehm</a></td>
+</tr>
+</table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a name="__construct" id="__construct"></a><div class="element clickable method public __construct" data-toggle="collapse" data-target=".__construct .collapse">
+<h2>create Cached Object container</h2>
+<pre>__construct(\Smarty_Internal_Template $_template) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$_template</h4>
+<code><a href="../classes/Smarty_Internal_Template.html">\Smarty_Internal_Template</a></code><p>template object</p></div>
+</div></div>
+</div>
+<a name="write" id="write"></a><div class="element clickable method public write" data-toggle="collapse" data-target=".write .collapse">
+<h2>Write this cache object to handler</h2>
+<pre>write(\Smarty_Internal_Template $_template, string $content) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$_template</h4>
+<code><a href="../classes/Smarty_Internal_Template.html">\Smarty_Internal_Template</a></code><p>template object</p></div>
+<div class="subelement argument">
+<h4>$content</h4>
+<code>string</code><p>content to cache</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>success</div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a name="%24cache_id" id="$cache_id"> </a><div class="element clickable property public $cache_id" data-toggle="collapse" data-target=".$cache_id .collapse">
+<h2>Template Cache Id (Smarty_Internal_Template::$cache_id)</h2>
+<pre>$cache_id : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24compile_id" id="$compile_id"> </a><div class="element clickable property public $compile_id" data-toggle="collapse" data-target=".$compile_id .collapse">
+<h2>Template Compile Id (Smarty_Internal_Template::$compile_id)</h2>
+<pre>$compile_id : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24content" id="$content"> </a><div class="element clickable property public $content" data-toggle="collapse" data-target=".$content .collapse">
+<h2>Source Content</h2>
+<pre>$content : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24exists" id="$exists"> </a><div class="element clickable property public $exists" data-toggle="collapse" data-target=".$exists .collapse">
+<h2>Source Existance</h2>
+<pre>$exists : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24filepath" id="$filepath"> </a><div class="element clickable property public $filepath" data-toggle="collapse" data-target=".$filepath .collapse">
+<h2>Source Filepath</h2>
+<pre>$filepath : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24handler" id="$handler"> </a><div class="element clickable property public $handler" data-toggle="collapse" data-target=".$handler .collapse">
+<h2>CacheResource Handler</h2>
+<pre>$handler : <a href="../classes/Smarty_CacheResource.html">\Smarty_CacheResource</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24is_locked" id="$is_locked"> </a><div class="element clickable property public $is_locked" data-toggle="collapse" data-target=".$is_locked .collapse">
+<h2>flag that cache is locked by this instance</h2>
+<pre>$is_locked : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24lock_id" id="$lock_id"> </a><div class="element clickable property public $lock_id" data-toggle="collapse" data-target=".$lock_id .collapse">
+<h2>Id for cache locking</h2>
+<pre>$lock_id : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24processed" id="$processed"> </a><div class="element clickable property public $processed" data-toggle="collapse" data-target=".$processed .collapse">
+<h2>Cache was processed</h2>
+<pre>$processed : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24source" id="$source"> </a><div class="element clickable property public $source" data-toggle="collapse" data-target=".$source .collapse">
+<h2>Source Object</h2>
+<pre>$source : <a href="../classes/Smarty_Template_Source.html">\Smarty_Template_Source</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24timestamp" id="$timestamp"> </a><div class="element clickable property public $timestamp" data-toggle="collapse" data-target=".$timestamp .collapse">
+<h2>Source Timestamp</h2>
+<pre>$timestamp : integer</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24valid" id="$valid"> </a><div class="element clickable property public $valid" data-toggle="collapse" data-target=".$valid .collapse">
+<h2>Cache Is Valid</h2>
+<pre>$valid : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a9</a> and<br>
+            generated on 2012-08-25T11:31:21+02:00.<br></footer></div>
+</div>
+</body>
+</html>

@@ -149,7 +149,7 @@ Released for free under a Creative Commons Attribution 2.5 License
                             {else}
                                 <a href="CHome.php?action=">
                                     <script>
-                                        showMessage("Limite eventi superato. Diventa SUPERUSER!");
+                                        showMessage("Diventa SUPERUSER per creare eventi!");
                                     </script>
                              {/if}
                                     Crea Evento
@@ -219,7 +219,7 @@ Released for free under a Creative Commons Attribution 2.5 License
 
             {if !$regConfirmed}
             <script>
-            showMessage("Hai 1 Giorno per confermare la registrazione!");
+            showMessage("Conferma la registrazione in 1 giorno!");
             </script>
             {/if}
 
@@ -245,7 +245,6 @@ Released for free under a Creative Commons Attribution 2.5 License
                 });
 
             </script>
-
 
 
         </div>

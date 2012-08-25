@@ -102,12 +102,10 @@ class FEvento extends FMysql {
      *
      * @access public
      *
-     * Pone/rimuove un evento come Consigliato
+     * Pone un evento come Consigliato
      *
      * @param int $idUtente
      * @param int $idEvento
-     * @param int $lat
-     * @param $lon
      *
      *
      */
@@ -115,11 +113,14 @@ class FEvento extends FMysql {
 
 
         $this->makeQuery("INSERT INTO consiglia VALUES ($idUtente, $idEvento)");
-        //$this->makeQuery("UPDATE $this->_table SET consigliato = 1 WHERE id_evento = $idEvento");
+        
     }
 
     /**
      * @access public
+     *
+     * Rimuove un evento tra i consigliati
+     *
      * @param in $idUtente
      * @param int $idEvento
      */

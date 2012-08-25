@@ -293,8 +293,6 @@ class EUtente {
      * usando FEvento::addConsigliati
      *
      * @param int $evento
-     * @param int $lat
-     * @param int $lon
      *
      */
     public function addConsigliati($evento) {

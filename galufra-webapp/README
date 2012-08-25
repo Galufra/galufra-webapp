@@ -97,6 +97,12 @@ Per quanto riguarda la divisione dei compiti il lavoro è stato così suddiviso:
 L'applicazione a seguito di vari test sembra sicura,veloce e affidabile. 
 Sicuramente sarà soggetta a miglioramenti che speriamo possano essere messi in atto in futuro.
 
+NOTE:
+-Per il testing locale le funzioni mail() sono commentate. E' possibile confermare l'utente manualmente o
+ scommentando il relativo codice
+-Per l'installazione eseguire il file installer.class.php
+
+
 Autori:
 Francesco Miscia
 Luca Di Stefano

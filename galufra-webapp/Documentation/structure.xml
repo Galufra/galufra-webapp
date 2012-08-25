@@ -551,51 +551,6 @@ la maggior parte di variabili smarty</p>]]></long-description>
       <critical line="2" code="50008">No short description for file exception/dbException.php</critical>
     </parse_markers>
   </file>
-  <file path="templates/template1/templates_c/2d256592c9b7f12c67f1e6607af61a7f2ab676a5.file.home.tpl.php" hash="471bf04debf36a7c7caae47d75af566b" package="Default">
-    <function namespace="global" line="22" package="Default">
-      <name>content_503897b5ec24e2_77229130</name>
-      <full_name>\content_503897b5ec24e2_77229130</full_name>
-      <argument line="22">
-        <name>$_smarty_tpl</name>
-        <default><![CDATA[]]></default>
-        <type/>
-      </argument>
-    </function>
-    <parse_markers>
-      <error line="0" code="50007">No page-level DocBlock was found in file templates/template1/templates_c/2d256592c9b7f12c67f1e6607af61a7f2ab676a5.file.home.tpl.php</error>
-      <error line="22" code="50009">No DocBlock was found for function \content_503897b5ec24e2_77229130()</error>
-    </parse_markers>
-  </file>
-  <file path="templates/template1/templates_c/cb4e03ccf46714f72500eeb2f7ac4dd3381d2c36.file.profilo.tpl.php" hash="d7ec9e3b26a2476a01bc9b320b0a4c03" package="Default">
-    <function namespace="global" line="28" package="Default">
-      <name>content_503897bf4fe366_38656417</name>
-      <full_name>\content_503897bf4fe366_38656417</full_name>
-      <argument line="28">
-        <name>$_smarty_tpl</name>
-        <default><![CDATA[]]></default>
-        <type/>
-      </argument>
-    </function>
-    <parse_markers>
-      <error line="0" code="50007">No page-level DocBlock was found in file templates/template1/templates_c/cb4e03ccf46714f72500eeb2f7ac4dd3381d2c36.file.profilo.tpl.php</error>
-      <error line="28" code="50009">No DocBlock was found for function \content_503897bf4fe366_38656417()</error>
-    </parse_markers>
-  </file>
-  <file path="templates/template1/templates_c/7a7885124e29438c95986342c3a7050fa0cde83c.file.default.tpl.php" hash="88beaae9ed522cb6cd4524fee17229b9" package="Default">
-    <function namespace="global" line="36" package="Default">
-      <name>content_503897b5ebd6b4_06987471</name>
-      <full_name>\content_503897b5ebd6b4_06987471</full_name>
-      <argument line="36">
-        <name>$_smarty_tpl</name>
-        <default><![CDATA[]]></default>
-        <type/>
-      </argument>
-    </function>
-    <parse_markers>
-      <error line="0" code="50007">No page-level DocBlock was found in file templates/template1/templates_c/7a7885124e29438c95986342c3a7050fa0cde83c.file.default.tpl.php</error>
-      <error line="36" code="50009">No DocBlock was found for function \content_503897b5ebd6b4_06987471()</error>
-    </parse_markers>
-  </file>
   <file path="libs/SmartyBC.class.php" hash="5734f7d205e8217c6c53c96fea2a8be3" package="Smarty">
     <docblock line="2">
       <description><![CDATA[Project:     Smarty: the PHP compiling template engine

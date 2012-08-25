@@ -36,7 +36,7 @@ class FUtente extends FMysql {
         $u = new EUtente();
         $u = $user;
         $query =
-                "INSERT INTO " . $this->_table . " (username,password,email,citta,date,confirm_id, confirmed)
+           "INSERT INTO " . $this->_table . " (username,password,email,citta,date,confirm_id, confirmed)
             VALUES ('" . $u->getUsername() . "','" . $u->getPassword() . "','" . $u->getEmail() . "','" . $u->getCitta() . "','" . time() . "','" . $uid . "', ". $u->isConfirmed().")";
         $this->connect();
         $result = $this->makeQuery($query);

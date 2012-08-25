@@ -1,4 +1,8 @@
 <?php
+/**
+ * @package Galufra
+ */
+
 
 include '../Foundation/FEvento.php';
 include '../Foundation/FUtente.php';
@@ -7,6 +11,9 @@ include '../Entity/EUtente.php';
 include '../View/VEvento.php';
 include '../View/VHome.php';
 
+/**
+ * Controller per la gestione degli eventi
+ */
 class CEvento {
 
     private $evento;

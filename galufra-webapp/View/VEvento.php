@@ -1,5 +1,15 @@
 <?php
+/**
+ * @package Galufra
+ *
+ */
+
+
 require_once 'View.php';
+
+/**
+ * View per la gestione degli eventi
+ */
 class VEvento extends View {
     public $content = 'evento.tpl';
     public $scripts = array('CEvento.js');

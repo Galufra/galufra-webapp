@@ -1,5 +1,12 @@
 <?php
+/**
+ * @package Galufra
+ */
 
+/**
+ * View inutilizzata. Gestisce l'invio di eventi in formato XML.
+ * È stata adottata la tecnologia Json in sostituzione di questa.
+ */
 class VEventiXML {
 
     /**

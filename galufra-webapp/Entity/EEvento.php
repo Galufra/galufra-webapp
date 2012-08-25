@@ -1,5 +1,12 @@
 <?php
+/**
+ * @package Galufra
+ */
 
+
+/**
+ * Entità Evento
+ */
 class EEvento {
 
     public $id_evento = null;

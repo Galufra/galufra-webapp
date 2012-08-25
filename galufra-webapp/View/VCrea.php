@@ -1,7 +1,15 @@
 <?php
+/**
+ * @package Galufra
+ */
+
 
 require_once 'View.php';
 
+
+/**
+ * View per la gestione della pagina per la creazione di un evento
+ */
 class VCrea extends View {
 
     public $scripts = null;

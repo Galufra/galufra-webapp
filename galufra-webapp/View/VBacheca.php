@@ -1,7 +1,15 @@
 <?php
+/**
+ * @package Galufra
+ */
+
 
 require_once 'View.php';
 require_once '../Entity/EEvento.php';
+
+/**
+ * View per la gestione della pagina della bacheca evento
+ */
 
 class VBacheca extends View {
 

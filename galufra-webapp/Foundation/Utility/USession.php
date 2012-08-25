@@ -1,5 +1,13 @@
 <?php
+/**
+ * @package Galufra
+ */
 
+/**
+ * Classe che gestisce le sessioni. Viene utilizzata solo nel login e nella
+ * registrazione, negli altri casi vengono utilizzate le funzioni fornite di
+ * base dal php
+ */
 class USession {
     public function __construct() {
         session_start();

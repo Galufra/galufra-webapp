@@ -1,9 +1,12 @@
 <?php
-
 /**
- * Classe per la registrazione di un nuovo utente e per la gestione delle sessioni.
+ * @package Galufra
  */
 
+
+/**
+ * Controller per la registrazione utente e per la gestione delle sessioni.
+ */
 class CRegistrazione {
 	
     private $username = null;

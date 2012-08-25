@@ -1,6 +1,13 @@
 <?php
+/**
+ * @package Galufra
+ */
+
 require_once 'View.php';
 
+/**
+ * View che gestisce le liste di eventi consigliati,preferiti e personali
+ */
 class VListaEventi extends View {
 
     public $scripts = null;

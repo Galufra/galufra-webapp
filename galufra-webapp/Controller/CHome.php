@@ -1,4 +1,8 @@
 <?php
+/**
+ * @package Galufra
+ */
+
 
 require_once '../Foundation/FUtente.php';
 require_once('../Foundation/FEvento.php');
@@ -10,7 +14,9 @@ require_once 'CRegistrazione.php';
 
 
 /** 
- * Controller della home page.
+ * Controller della home page. Gestisce tutte le funzionalità più
+ * importanti dell'applicazione
+ *
  */
 class CHome {
 

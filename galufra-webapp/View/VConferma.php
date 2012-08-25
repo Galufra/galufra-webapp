@@ -1,7 +1,15 @@
 <?php
+/**
+ * @package galufra
+ */
+
 
 require_once 'View.php';
 
+
+/**
+ * View per la gestione della pagina di conferma della registrazione
+ */
 class VConferma extends View {
 
     public $content = 'confermaRegistrazione.tpl';

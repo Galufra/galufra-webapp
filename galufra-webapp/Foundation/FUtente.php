@@ -1,7 +1,14 @@
 <?php
+/**
+ * @package Galufra
+ */
 
 require_once('FMysql.php');
 
+
+/**
+ * Foundation per la gestione di un utente sul db
+ */
 class FUtente extends FMysql {
 
     /**

@@ -1,4 +1,8 @@
 <?php
+/**
+ * @package Galufra
+ */
+
 
 require_once '../libs/Smarty.class.php';
 require_once '../includes/config.inc.php';
@@ -7,6 +11,7 @@ require_once '../includes/config.inc.php';
 /**
  * @abstract
  * Classe astratta derivata da smarty, per il caricamento dei template.
+ * Gestisce tutte le più importanti variabili smarty
  */
 abstract class View extends Smarty {
 

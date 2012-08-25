@@ -1,4 +1,10 @@
 <?php
+/**
+ *
+ * @package Galufra
+ *
+ */
+
 
 require_once '../Foundation/FUtente.php';
 require_once '../Foundation/FEvento.php';
@@ -9,6 +15,9 @@ require_once '../Entity/EEvento.php';
 require_once '../View/VBacheca.php';
 require_once '../View/VHome.php';
 
+/**
+ * Controller per la gestione della bacheca messaggi dell'evento
+ */
 class Cbacheca {
 
     private $utente;

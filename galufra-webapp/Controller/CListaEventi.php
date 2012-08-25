@@ -1,4 +1,8 @@
 <?php
+/**
+ * @package Galufra
+ */
+
 
 require_once '../Foundation/FUtente.php';
 require_once '../Foundation/FEvento.php';
@@ -7,6 +11,12 @@ require_once '../Entity/EEvento.php';
 require_once '../View/VListaEventi.php';
 require_once '../View/VHome.php';
 
+/**
+ * Controller che gestisce 3 tipi di liste generali:
+ * -lista eventi preferiti
+ * -lista eventi personali
+ * -lista eventi consigliati
+ */
 class CListaEventi {
 
     private $utente;

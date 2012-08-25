@@ -1,11 +1,17 @@
 <?php
-
+/**
+ * @package Galufra
+ */
 
 
 require_once '../exception/dbException.php';
 require_once 'FDb.php';
 require_once '../includes/config.inc.php';
 
+/**
+ * Foundation che gestisce le funzionalità più importanti per
+ * l'interazione con il db
+ */
 class FMysql implements FDb {
 
     private $up; //boolean

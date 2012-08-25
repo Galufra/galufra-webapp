@@ -1,5 +1,15 @@
 <?php
+/**
+ * @package Galufra
+ */
 
+
+/**
+ * Entità Utente. Un utente può essere:
+ * -normale
+ * -superuser
+ * -admin
+ */
 class EUtente {
 
     private $id_utente = null;

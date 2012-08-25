@@ -1,10 +1,14 @@
 <?php
+/**
+ * @package Galufra
+ */
+
 
 require_once('FMysql.php');
 
 
 /**
- * Classe Foundation per leggere/scrivere eventi sul DB. 
+ * Foundation per leggere/scrivere eventi sul DB. 
  * 
  */
 class FEvento extends FMysql {

@@ -1,7 +1,13 @@
 <?php
+/**
+ * @package Galufra
+ */
 
 require_once 'View.php';
 
+/**
+ * View che gestisce la pagina di profilo
+ */
 class VProfilo extends View {
 
     public $scripts = null;

@@ -1,6 +1,16 @@
 <?php
 
-/*inutilizzato*/
+/**
+ * @package Galufra
+ * 
+ */
+
+
+/**
+ * 
+ * Foundation inutilizzata. Per ora non si prevedono locali
+ *
+ */
 require_once('FMysql.php');
 
 class Flocale extends FMysql {

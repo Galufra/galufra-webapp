@@ -1,4 +1,7 @@
 <?php
+/**
+ * @package Galufra
+ */
 
 require_once '../Foundation/FUtente.php';
 require_once '../View/VSuperuser.php';
@@ -6,6 +9,12 @@ require_once '../Entity/EUtente.php';
 require_once '../Foundation/FEvento.php';
 require_once '../View/VHome.php';
 
+/**
+ *
+ * Controller per la gestione di un superuser. Per ora è minimale,
+ * gestisce solo una semplice pagina
+ *
+ */
 class CSuperuser {
 
     private $utente = null;

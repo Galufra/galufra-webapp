@@ -1,5 +1,13 @@
 <?php
+/**
+ * @package Galufra
+ */
 
+/**
+ *
+ * Entità Messaggio
+ *
+ */
 class EMessaggio {
 
     public $id_mess = null;

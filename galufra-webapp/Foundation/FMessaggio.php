@@ -1,8 +1,16 @@
 <?php
+/**
+ * @package Galufra
+ */
+
 
 require_once('FMysql.php');
 require_once '../Entity/EMessaggio.php';
 
+
+/**
+ * Foundation per la gestione dei messaggi sul db
+ */
 class FMessaggio extends FMysql {
 
     /**

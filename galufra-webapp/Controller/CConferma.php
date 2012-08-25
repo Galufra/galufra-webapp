@@ -1,5 +1,9 @@
 <?php
-
+/**
+ *
+ * @package Galufra
+ *
+ */
 
 require_once '../Foundation/FUtente.php';
 require_once '../Foundation/FEvento.php';
@@ -7,7 +11,9 @@ require_once '../Entity/EUtente.php';
 require_once '../View/VConferma.php';
 require_once '../View/VHome.php';
 
-
+/**
+ * Controller per la gestione della conferma della registrazione
+ */
 class CConferma {
 
     private $utente = null;

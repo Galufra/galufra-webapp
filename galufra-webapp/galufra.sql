@@ -209,8 +209,7 @@ INSERT INTO `utente` (`id_utente`, `username`, `password`, `nome`, `cognome`, `e
 (12, 'luca', '594f803b380a41396ed63dca39503542', 'luca', 'Di Stefano', 'fra.miscia@gmail.com', 'l''aquila', 1, '1334824341', '0', 1, 0, 0),
 (67, 'teo', 'e827aa1ed78e96a113182dce12143f9f', 'Teodoro', 'Aloisi', 'teo@teo.it', 'l''Aquila', 1, '03/08/2012 - 17:41', 'e68b8f2dde309bb4d10ecbdc862ebab3', 0, 1, 1),
 (68, 'simo', '1fe00ab7d8c361b801f7e1fc9d730048', '/', '/', 'simo@simo.com', 'L''Aquila', 1, '13/08/2012 - 12:42', '72ab5ccd2d12f6132d6ff6d2e582c026', 0, 1, 1),
-(77, 'luke', 'ff377aff39a9345a9cca803fb5c5c081', 'Luca', 'Marchisi', 'luke@luke.com', 'pescara', 1, '1345141426', '66006486fc55692ff9e07e7a87cf0dea', 1, 0, 0),
-(78, 'francesco', '0581938f0767a65b373cea80e905c25f', '', '', '', 'L''Aquila', 1, '2012-08-23 18:22:49', '0', 1, 1, 1);
+(77, 'luke', 'ff377aff39a9345a9cca803fb5c5c081', 'Luca', 'Marchisi', 'luke@luke.com', 'pescara', 1, '1345141426', '66006486fc55692ff9e07e7a87cf0dea', 1, 0, 0);
 
 --
 -- Limiti per le tabelle scaricate

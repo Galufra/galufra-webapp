@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.10, created on 2012-08-24 20:18:11
+<?php /* Smarty version Smarty-3.1.10, created on 2012-08-25 10:01:07
          compiled from "../templates/template1/template/superuser.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:19656159695037c563689195-95584092%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1611328269503886437c8ac9-67339617%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,15 +11,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '19656159695037c563689195-95584092',
+  'nocache_hash' => '1611328269503886437c8ac9-67339617',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.10',
-  'unifunc' => 'content_5037c5636b15f6_92290887',
+  'unifunc' => 'content_5038864380d2d0_94825942',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5037c5636b15f6_92290887')) {function content_5037c5636b15f6_92290887($_smarty_tpl) {?><div>
+<?php if ($_valid && !is_callable('content_5038864380d2d0_94825942')) {function content_5038864380d2d0_94825942($_smarty_tpl) {?><div>
 <h1> Come Divento Superuser? </h1>
 
 <h3> Diventare <b>Superuser</b> è molto seplice. Basta inviare la modica cifra di 2 euro sul conto paypal Galugra@paypal.com

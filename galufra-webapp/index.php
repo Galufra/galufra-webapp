@@ -5,7 +5,7 @@
 
 
 /**
- * Effettuo il redirect a main/index.php
+ * Effettuo il redirect a CHome.php
  */
 
 header("location: Controller/CHome.php");

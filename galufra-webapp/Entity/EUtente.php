@@ -19,9 +19,8 @@ class EUtente {
     public $cognome = null;
     public $email = null;
     public $citta = null;
-    private $confirmed = 0;
+    public $confirmed = 0;
     private $date = null;
-    private $permessi = null;
     private $num_eventi = 0;
     public $sbloccato = 1;
     public $admin = 0;

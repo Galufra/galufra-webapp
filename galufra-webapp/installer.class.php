@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * Classe che gestisce l'installazione dell'applicazione
+ */
 class Installer {
 	private $step = 0;
 	private $sql = 'galufra.sql';

@@ -1,5 +1,5 @@
 <?php
-/*
+/**
  * Effettuo il redirect a main/index.php
  */
 

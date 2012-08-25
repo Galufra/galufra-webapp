@@ -5,12 +5,11 @@
 
 
 
-/*
+/**
  * pattern per creare foundation a seconda della tecnologia
  * che si vuole utilizzare
  *
  */
-
 interface FDb {
 
     public function connect();

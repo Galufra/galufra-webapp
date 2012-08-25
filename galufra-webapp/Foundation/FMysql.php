@@ -3,7 +3,8 @@
  * @package Galufra
  */
 
-
+if(!strpos(getcwd(),'Foundation'))
+	chdir('./Foundation');
 require_once '../exception/dbException.php';
 require_once 'FDb.php';
 require_once '../includes/config.inc.php';

@@ -83,13 +83,21 @@ class Installer {
 					mysql_query('CREATE DATABASE IF NOT  EXISTS galufra');
 					mysql_select_db('galufra');
 					$this->importa_sql($this->sql);
-					// Creazione dell'utente admin
-					mysql_query('INSERT INTO utente (username,password,date,confirmed,confirm_id,sbloccato,admin,superuser)
-						VALUES ("'. mysql_real_escape_string($_POST['admin']) . '", "'
-						. md5($_POST['adminpassword']) .'", '
-						. '"'. date('Y-m-d H:i:s') . '"'
-						.',1, 0, 1, 1, 1)
-					');
+					// Creazione del nuovo utente admin
+					require_once 'Foundation/FUtente.php';
+					require_once 'Entity/EUtente.php';
+					$admin = new EUtente();
+					$admin->setUsername($_POST['admin']);
+					$admin->setPassword($_POST['adminpassword']);
+					$admin->setEmail($_POST['adminmail']);
+					$admin->sblocca();
+					$admin->administrate();
+					$admin->setSuperuser();
+					$admin->setConfirmed(1);
+					// Il nuovo utente viene aggiunto al db
+					$store = new FUtente();
+					$store->connect();
+					$store->storeUtente($admin, 0);
 					echo'<h3>Installazione completata!</h3>
 					<p>Ricordati di eliminare questo file e galufra.sql!</p><br>
 					<a href="./index.php">Vai all\'applicazione</a>';
@@ -127,6 +135,7 @@ class Installer {
 		potrai usare queste credenziali per accedere all\'applicazione ed amministrarla.</p>
 			<form method="POST" action="installer.class.php">
 			<label>Username:</label><input type="text" name="admin"/><br />
+			<label>E-Mail:</label><input type="text" name="adminmail"/><br />
 			<label>Password:</label><input type="password" name="adminpassword"/> <br />
 			<label>Conferma password:</label><input type="password" name="adminpasswordconfirm"/> <br />
 			<button type="submit">Invia</button>

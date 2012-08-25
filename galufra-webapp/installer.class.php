@@ -98,6 +98,7 @@ class Installer {
 					$store = new FUtente();
 					$store->connect();
 					$store->storeUtente($admin, 0);
+					$store->update($admin);
 					echo'<h3>Installazione completata!</h3>
 					<p>Ricordati di eliminare questo file e galufra.sql!</p><br>
 					<a href="./index.php">Vai all\'applicazione</a>';

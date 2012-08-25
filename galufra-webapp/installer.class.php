@@ -1,5 +1,9 @@
 <?php
 /**
+ * @package Galufra
+ */
+
+/**
  * Classe che gestisce l'installazione dell'applicazione
  */
 class Installer {

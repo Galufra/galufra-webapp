@@ -1,5 +1,10 @@
 <?php
 /**
+ * @package Galufra
+ */
+
+
+/**
  * Effettuo il redirect a main/index.php
  */
 

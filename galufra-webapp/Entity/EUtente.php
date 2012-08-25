@@ -19,7 +19,7 @@ class EUtente {
     public $cognome = null;
     public $email = null;
     public $citta = null;
-    private $confirmed = null;
+    private $confirmed = 0;
     private $date = null;
     private $permessi = null;
     private $num_eventi = 0;

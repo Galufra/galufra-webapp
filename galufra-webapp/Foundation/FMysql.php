@@ -3,7 +3,8 @@
  * @package Galufra
  */
 
-
+if(!strpos(getcwd(),'Controller'))
+	chdir('./Controller');
 require_once '../exception/dbException.php';
 require_once 'FDb.php';
 require_once '../includes/config.inc.php';
@@ -85,7 +86,7 @@ class FMysql implements FDb {
 
             if ($this->_query == NULL) {
 
-                throw new dbException(mysql_errno(), false);
+                throw new dbException(mysql_errno(). ': '. mysql_error(), false);
 
             } else {
 

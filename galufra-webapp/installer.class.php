@@ -61,6 +61,7 @@ class Installer {
 	);
 ?>
 ';
+<<<<<<< HEAD
                 fwrite($file, $config);
                 fclose($file);
 
@@ -95,6 +96,49 @@ class Installer {
 					<p>Ricordati di eliminare questo file e galufra.sql!</p>
                                         <p>Ricorda inoltre di inserire una email valida e una città dal tuo profilo</p>
                                         <p>La città di Default  Pescara, Abruzzo</p><br />
+=======
+				fwrite($file, $config);
+				fclose($file);
+					
+				echo'<h3>File di configurazione pronto</h3>
+				<p>Assicurati che il proprietario di includes/config.inc.php sia '. get_current_user()
+				.' e imposta i permessi di includes/ e dei file in essa contenuti a 755 prima di proseguire.</p>' ;
+				$this->getAdminInfo();
+			break;
+			//Step 2: popolamento del DB
+			case 2:
+				if ( $_POST['adminpassword'] != $_POST['adminpasswordconfirm'] ){
+					echo 'Le password non corrispondono.';
+					exit();
+				}
+				// Recuperiamo i dati forniti dall'admin poco fa
+				require_once 'includes/config.inc.php';
+				// Connessione al dbms e creazione del nuovo database
+				mysql_connect($config['mysql']['host'],
+					$config['mysql']['username'],
+					$config['mysql']['password']);
+				try {
+					mysql_query('CREATE DATABASE IF NOT  EXISTS galufra');
+					mysql_select_db('galufra');
+					$this->importa_sql($this->sql);
+					// Creazione del nuovo utente admin
+					require_once 'Foundation/FUtente.php';
+					require_once 'Entity/EUtente.php';
+					$admin = new EUtente();
+					$admin->setUsername($_POST['admin']);
+					$admin->setPassword($_POST['adminpassword']);
+					$admin->setEmail($_POST['adminmail']);
+					$admin->sblocca();
+					$admin->administrate();
+					$admin->setSuperuser();
+					$admin->setConfirmed(1);
+					// Il nuovo utente viene aggiunto al db
+					$store = new FUtente();
+					$store->connect();
+					$store->storeUtente($admin, 0);
+					echo'<h3>Installazione completata!</h3>
+					<p>Ricordati di eliminare questo file e galufra.sql!</p><br>
+>>>>>>> ec218807cdf36eb421591e74ebd09deb710eb3ac
 					<a href="./index.php">Vai all\'applicazione</a>';
                 } catch (Exception $e) {
                     echo'<h3>Errore nella creazione del DB</h3>';
@@ -139,6 +183,7 @@ class Installer {
 		potrai usare queste credenziali per accedere all\'applicazione ed amministrarla.</p>
                 <table>
 			<form method="POST" action="installer.class.php">
+<<<<<<< HEAD
                         <tr>
 			<td><label>Username:</label><input type="text" name="admin"/><br /></td>
                         </tr>
@@ -179,6 +224,38 @@ class Installer {
         }
     }
 
+=======
+			<label>Username:</label><input type="text" name="admin"/><br />
+			<label>E-Mail:</label><input type="text" name="adminmail"/><br />
+			<label>Password:</label><input type="password" name="adminpassword"/> <br />
+			<label>Conferma password:</label><input type="password" name="adminpasswordconfirm"/> <br />
+			<button type="submit">Invia</button>
+		</form>';
+	}
+
+	/* Legge un file .sql ed esegue le istruzioni che esso contiene
+	 */
+	public function importa_sql($sqlfile) {
+		// estraggo il contenuto del file
+		$queries = file_get_contents($sqlfile);
+		// Rimuovo eventuali commenti
+		$queries = preg_replace(array('/\/\*.*(\n)*.*(\*\/)?/', '/\s*--.*\n/', '/\s*#.*\n/'), "\n", $queries);
+		// recupero le singole istruzioni
+		$statements = explode(";\n", $queries);
+		$statements = preg_replace("/\s/", ' ', $statements);
+		// ciclo le istruzioni
+		foreach ($statements as $query) {
+			$query = trim($query);
+			if ($query) {
+				// eseguo la singola istruzione
+				$result = mysql_query($query);
+				// e stampo eventuali errori
+				if (!$result)
+					throw new Exception('Impossibile eseguire la query ' . $query . ': ' . mysql_error());
+			}
+		}
+	}
+>>>>>>> ec218807cdf36eb421591e74ebd09deb710eb3ac
 }
 
 $installer = New Installer();

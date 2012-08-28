@@ -45,6 +45,12 @@ class FEvento extends FMysql {
             array('data', '<=', $prossimomese->format("Y-m-d"))
         ));
     }
+    
+    public function searchEventiNome($nome) {
+        return $this->search(array(
+            array('nome', 'LIKE', "%$nome%")
+        ));
+    }
 
     /**
      * @access public

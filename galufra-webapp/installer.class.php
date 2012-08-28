@@ -100,7 +100,7 @@ class Installer {
 					$store->storeUtente($admin, 0);
 					$store->update($admin);
 					echo'<h3>Installazione completata!</h3>
-					<p>Ricordati di eliminare questo file e galufra.sql!</p><br>
+					<p>Ricordati di <b>ELIMINARE QUESTO FILE E GALUFRA.SQL!</b></p><br>
 					<a href="./index.php">Vai all\'applicazione</a>';
 				}
 				catch (Exception $e){

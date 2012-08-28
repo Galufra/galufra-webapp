@@ -7,7 +7,7 @@
 require_once 'View.php';
 require_once '../Entity/EUtente.php';
 /**
- * View per la gestione della pagina della bacheca evento
+ * View per la gestione della pagina della ricerca evento
  */
 
 class VCerca extends View {
@@ -15,7 +15,7 @@ class VCerca extends View {
     public $content = 'cerca.tpl';
     public $eventi;
     public $utente;
-    public $scripts = array();
+    public $scripts = array('CCerca.js');
 
     /**
      * @access public

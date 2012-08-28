@@ -8,8 +8,8 @@ require_once('FMysql.php');
 
 
 /**
- * Foundation per leggere/scrivere eventi sul DB. 
- * 
+ * Foundation per leggere/scrivere eventi sul DB.
+ *
  */
 class FEvento extends FMysql {
 
@@ -45,7 +45,7 @@ class FEvento extends FMysql {
             array('data', '<=', $prossimomese->format("Y-m-d"))
         ));
     }
-    
+
     /**
      * @access public
      * Restituisce un array di eventi il cui nome contiene $nome.
@@ -70,7 +70,7 @@ class FEvento extends FMysql {
      * @param int $idUtente
      * @return int
      *
-     * 
+     *
      */
     public function getEventiPreferiti($idUtente) {
         $this->makeQuery("
@@ -93,7 +93,7 @@ class FEvento extends FMysql {
      * @param int $idUtente
      * @param int $idEvento
      *
-     * 
+     *
      */
     public function storePreferiti($idUtente, $idEvento) {
         $this->makeQuery("
@@ -109,7 +109,7 @@ class FEvento extends FMysql {
      * @param int $idUtente
      * @param int $idEvento
      *
-     * 
+     *
      */
     public function removePreferiti($idUtente, $idEvento) {
         $this->makeQuery("
@@ -133,7 +133,7 @@ class FEvento extends FMysql {
 
 
         $this->makeQuery("INSERT INTO consiglia VALUES ($idUtente, $idEvento)");
-        
+
     }
 
     /**
@@ -189,7 +189,7 @@ class FEvento extends FMysql {
      * @param int $dellUtente
      * @return array(EEvento)
      *
-     * 
+     *
      */
     public function getAllConsigliati($idUtente, $dellUtente) {
         $query = (
@@ -212,7 +212,7 @@ class FEvento extends FMysql {
      * @param int $id
      * @return int
      *
-     * 
+     *
      */
     public function userEventCounter($id) {
         $result = $this->makeQuery("SELECT COUNT(*) FROM $this->_table WHERE id_gestore = $id");
@@ -266,7 +266,7 @@ class FEvento extends FMysql {
      * @param int $id
      * @return int
      *
-     * 
+     *
      */
     public function guestCounter($id) {
         $number = 0;

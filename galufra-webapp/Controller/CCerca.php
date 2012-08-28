@@ -40,6 +40,12 @@ class CCerca {
             $view->mostraPagina();
             exit;
         }
+        if(isset($_GET['value']) && $_GET['value']!=null){
+            $ev = new FEvento();
+            $ev->connect();
+            $eventi = $ev->searchEventiNome($_GET['value']);
+            echo json_encode($eventi);
+        }
         /* Se non vengono passati i dati, visualizza la schermata di ricerca
          */
         if (!isset($_GET['nome'])) {

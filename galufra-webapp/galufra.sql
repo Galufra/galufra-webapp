@@ -69,11 +69,11 @@ CREATE TABLE IF NOT EXISTS `evento` (
 
 INSERT INTO `evento` (`id_evento`, `nome`, `descrizione`, `data`, `n_visite`, `n_iscritti`, `lat`, `lon`, `id_gestore`, `consigliato`, `annuncio`) VALUES
 (3, 'prova1', 'Prova :)\r\nQuesto evento si svolge a piazza Palazzo, 67100 L''Aquila.\r\nLorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '2012-11-29 00:00:00', 0, 0, 42.3508415222168, 13.398554801940918, 1, 1, 'ghg2\n'),
-(172, 'festa', 'kjljpoj!!!! tutti quiii!!!', '2012-08-25 00:00:00', 0, 0, 42.4199096, 14.290051800000015, 63, 0, NULL),
+(172, 'festa', 'Festa in maschera! ingresso libero', '2012-08-25 00:00:00', 0, 0, 42.4199096, 14.290051800000015, 63, 0, NULL),
 (224, 'prova 2', 'Arrosticini,Musica,Birra e tanto divertimento!!!!!', '2012-08-31 00:00:00', 0, 0, 42.3525448, 13.402602099999967, 67, 0, 'venite in tanti!!!'),
 (228, 'prova 3', 'serata latino americano. ingresso gratuito!', '2012-08-27 00:00:00', 0, 0, 42.3527354, 13.401868899999954, 67, 0, ''''''''''''''''''''''''''),
-(229, 'prova 4', 'cena sociale. Società Regatti! 10 euro/persona', '2012-08-27 00:00:00', 0, 0, 42.3527354, 13.401868899999954, 67, 0, 'L''evento'),
-(230, 'febrwnbwy', 'nnoinnpnnpn', '2012-08-27 00:00:00', 0, 0, 42.3525448, 13.402602099999967, 68, 0, ''),
+(229, 'prova 4', 'cena sociale. Azienda Regatti! 10 euro/persona', '2012-08-27 00:00:00', 0, 0, 42.3527354, 13.401868899999954, 67, 0, 'L''evento'),
+(230, 'Mostra di arte contemporanea', 'ingresso 5 euro', '2012-08-27 00:00:00', 0, 0, 42.3525448, 13.402602099999967, 68, 0, ''),
 (231, 'Evento di prova', 'Ecco un altro evento', '2012-08-27 00:00:00', 0, 0, 42.4617902, 14.216089799999963, 68, 0, 'Annuncio'),
 (234, 'festa ', 'tutti in strada!!! ', '2012-08-27 00:00:00', 0, 0, 42.46780220000001, 14.215347400000041, 69, 0, 'Nessun Costo D''ingresso'),
 (235, 'prova 5', 'Serata al più spettacolare grattacielo di NYC. Contattare teo@teo.com', '2012-08-30 00:00:00', 0, 0, 40.7484395, -73.9856709, 67, 0, ''),
@@ -206,10 +206,10 @@ CREATE TABLE IF NOT EXISTS `utente` (
 
 INSERT INTO `utente` (`id_utente`, `username`, `password`, `nome`, `cognome`, `email`, `citta`, `confirmed`, `date`, `confirm_id`, `sbloccato`, `admin`, `superuser`) VALUES
 (1, 'dir31', 'f89c18242ab927d20216837b65935006', 'francesco', 'miscia', 'fra@fra.com', 'l''Aquila', 1, '0000-00-00 00:00:00', '0', 0, 0, 0),
-(12, 'luca', '594f803b380a41396ed63dca39503542', 'luca', 'Di Stefano', 'fra.miscia@gmail.com', 'l''aquila', 1, '1334824341', '0', 1, 0, 0),
+(12, 'luca', 'ff377aff39a9345a9cca803fb5c5c081', 'luca', 'Di Stefano', 'fra.miscia@gmail.com', 'l''aquila', 1, '1334824341', '0', 1, 0, 0),
 (67, 'teo', 'e827aa1ed78e96a113182dce12143f9f', 'Teodoro', 'Aloisi', 'teo@teo.it', 'l''Aquila', 1, '03/08/2012 - 17:41', 'e68b8f2dde309bb4d10ecbdc862ebab3', 0, 1, 1),
-(68, 'simo', '1fe00ab7d8c361b801f7e1fc9d730048', '/', '/', 'simo@simo.com', 'L''Aquila', 1, '13/08/2012 - 12:42', '72ab5ccd2d12f6132d6ff6d2e582c026', 0, 1, 1),
-(77, 'luke', 'ff377aff39a9345a9cca803fb5c5c081', 'Luca', 'Marchisi', 'luke@luke.com', 'pescara', 1, '1345141426', '66006486fc55692ff9e07e7a87cf0dea', 1, 0, 0);
+(68, 'simo', '43bd48ade3219a1931115a1dabbe1a7f', '', '', 'simo@simo.com', 'L''Aquila', 1, '13/08/2012 - 12:42', '72ab5ccd2d12f6132d6ff6d2e582c026', 0, 1, 1),
+(77, 'luke', '46ecbec5ec7951ce102670dbd0b2def5', 'Luca', 'Marchisi', 'luke@luke.com', 'pescara', 1, '1345141426', '66006486fc55692ff9e07e7a87cf0dea', 1, 0, 0);
 
 --
 -- Limiti per le tabelle scaricate
@@ -239,4 +239,5 @@ ALTER TABLE `preferisce`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
 

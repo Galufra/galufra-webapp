@@ -32,7 +32,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">824</span></a></li>
+                <span class="label label-info">891</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul>
 <li>todo 
@@ -70,6 +70,7 @@
 <i class="icon-custom icon-interface"></i> Interfaces</li>
 <li><a href="#FDb" title="pattern per creare foundation a seconda della tecnologia
 che si vuole utilizzare">FDb</a></li>
+<li><a href="#dbController" title="">dbController</a></li>
 <li class="nav-header">
 <i class="icon-custom icon-class"></i> Classes</li>
 <li><a href="#VConferma" title="View per la gestione della pagina di conferma della registrazione">VConferma</a></li>
@@ -79,6 +80,7 @@ che si vuole utilizzare">FDb</a></li>
 <li><a href="#View" title="This is the main Smarty class">View</a></li>
 <li><a href="#VEventiXML" title="View inutilizzata.">VEventiXML</a></li>
 <li><a href="#VSuperuser" title='View che gestisce la pagina "Diventa Superuser'>VSuperuser</a></li>
+<li><a href="#VCerca" title="View per la gestione della pagina della ricerca evento">VCerca</a></li>
 <li><a href="#VProfilo" title="View che gestisce la pagina di profilo">VProfilo</a></li>
 <li><a href="#VCrea" title="View per la gestione della pagina per la creazione di un evento">VCrea</a></li>
 <li><a href="#VEvento" title="View per la gestione degli eventi">VEvento</a></li>
@@ -108,12 +110,28 @@ l'interazione con il db">FMysql</a></li>
 -lista eventi personali
 -lista eventi consigliati">CListaEventi</a></li>
 <li><a href="#CConferma" title="Controller per la gestione della conferma della registrazione">CConferma</a></li>
+<li><a href="#CCerca" title="">CCerca</a></li>
 <li><a href="#CProfilo" title="Controller della pagina del profilo.">CProfilo</a></li>
 <li><a href="#CHome" title="Controller della home page.">CHome</a></li>
 <li><a href="#Cbacheca" title="Controller per la gestione della bacheca messaggi dell'evento">Cbacheca</a></li>
 <li><a href="#CEvento" title="Controller per la gestione degli eventi">CEvento</a></li>
 <li><a href="#CSuperuser" title="Controller per la gestione di un superuser.">CSuperuser</a></li>
 <li><a href="#CRegistrazione" title="Controller per la registrazione utente e per la gestione delle sessioni.">CRegistrazione</a></li>
+<li><a href="#regController" title="">regController</a></li>
+<li><a href="#Authorization" title="">Authorization</a></li>
+<li><a href="#permissionController" title="">permissionController</a></li>
+<li><a href="#mysqlController" title="">mysqlController</a></li>
+<li><a href="#dbException" title="">dbException</a></li>
+<li class="nav-header">
+<i class="icon-custom icon-constant"></i> Constants</li>
+<li class="constant  "><a href="#AUTH_FAILED" title="AUTH_FAILED :: "><span class="description">AUTH_FAILED</span><pre>AUTH_FAILED</pre></a></li>
+<li class="constant  "><a href="#AUTH_INVALID_PARAMS" title="AUTH_INVALID_PARAMS :: "><span class="description">AUTH_INVALID_PARAMS</span><pre>AUTH_INVALID_PARAMS</pre></a></li>
+<li class="constant  "><a href="#AUTH_LOGEDD_IN" title="AUTH_LOGEDD_IN :: "><span class="description">AUTH_LOGEDD_IN</span><pre>AUTH_LOGEDD_IN</pre></a></li>
+<li class="constant  "><a href="#AUTH_LOGGED" title="AUTH_LOGGED :: "><span class="description">AUTH_LOGGED</span><pre>AUTH_LOGGED</pre></a></li>
+<li class="constant  "><a href="#AUTH_NOT_LOGGED" title="AUTH_NOT_LOGGED :: "><span class="description">AUTH_NOT_LOGGED</span><pre>AUTH_NOT_LOGGED</pre></a></li>
+<li class="constant  "><a href="#REG_ERRORS" title="REG_ERRORS :: "><span class="description">REG_ERRORS</span><pre>REG_ERRORS</pre></a></li>
+<li class="constant  "><a href="#REG_FAILED" title="REG_FAILED :: "><span class="description">REG_FAILED</span><pre>REG_FAILED</pre></a></li>
+<li class="constant  "><a href="#REG_SUCCESS" title="REG_SUCCESS :: "><span class="description">REG_SUCCESS</span><pre>REG_SUCCESS</pre></a></li>
 </ul>
 </div>
 <div class="span8 package-contents">
@@ -133,6 +151,27 @@ l'interazione con il db">FMysql</a></li>
 che si vuole utilizzare</p>
 <div class="details collapse"></div>
 <a href="../classes/FDb.html" class="more">« More »</a>
+</div>
+<a name="dbController" id="dbController"></a><div class="element ajax clickable interface" href="../classes/dbController.html">
+<h1>dbController<a href="../classes/dbController.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/dbController.html" class="more">« More »</a>
+</div>
+<a name="Authorization" id="Authorization"></a><div class="element ajax clickable class" href="../classes/Authorization.html">
+<h1>Authorization<a href="../classes/Authorization.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/Authorization.html" class="more">« More »</a>
+</div>
+<a name="CCerca" id="CCerca"></a><div class="element ajax clickable class" href="../classes/CCerca.html">
+<h1>CCerca<a href="../classes/CCerca.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/CCerca.html" class="more">« More »</a>
 </div>
 <a name="CConferma" id="CConferma"></a><div class="element ajax clickable class" href="../classes/CConferma.html">
 <h1>CConferma<a href="../classes/CConferma.html">¶</a>
@@ -328,6 +367,13 @@ l'interazione con il db</p>
 <div class="details collapse"></div>
 <a href="../classes/VBacheca.html" class="more">« More »</a>
 </div>
+<a name="VCerca" id="VCerca"></a><div class="element ajax clickable class" href="../classes/VCerca.html">
+<h1>VCerca<a href="../classes/VCerca.html">¶</a>
+</h1>
+<p class="short_description">View per la gestione della pagina della ricerca evento</p>
+<div class="details collapse"></div>
+<a href="../classes/VCerca.html" class="more">« More »</a>
+</div>
 <a name="VConferma" id="VConferma"></a><div class="element ajax clickable class" href="../classes/VConferma.html">
 <h1>VConferma<a href="../classes/VConferma.html">¶</a>
 </h1>
@@ -398,13 +444,91 @@ l'interazione con il db</p>
 <div class="details collapse"></div>
 <a href="../classes/dbException.html" class="more">« More »</a>
 </div>
+<a name="dbException" id="dbException"></a><div class="element ajax clickable class" href="../classes/dbException.html">
+<h1>dbException<a href="../classes/dbException.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/dbException.html" class="more">« More »</a>
+</div>
+<a name="mysqlController" id="mysqlController"></a><div class="element ajax clickable class" href="../classes/mysqlController.html">
+<h1>mysqlController<a href="../classes/mysqlController.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/mysqlController.html" class="more">« More »</a>
+</div>
+<a name="permissionController" id="permissionController"></a><div class="element ajax clickable class" href="../classes/permissionController.html">
+<h1>permissionController<a href="../classes/permissionController.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/permissionController.html" class="more">« More »</a>
+</div>
+<a name="regController" id="regController"></a><div class="element ajax clickable class" href="../classes/regController.html">
+<h1>regController<a href="../classes/regController.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/regController.html" class="more">« More »</a>
+</div>
+<h3>
+<i class="icon-custom icon-constant"></i> Constants</h3>
+<a name="AUTH_FAILED" id="AUTH_FAILED"> </a><div class="element clickable constant  AUTH_FAILED" data-toggle="collapse" data-target=".AUTH_FAILED .collapse">
+<h2>AUTH_FAILED</h2>
+<pre>AUTH_FAILED </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="AUTH_INVALID_PARAMS" id="AUTH_INVALID_PARAMS"> </a><div class="element clickable constant  AUTH_INVALID_PARAMS" data-toggle="collapse" data-target=".AUTH_INVALID_PARAMS .collapse">
+<h2>AUTH_INVALID_PARAMS</h2>
+<pre>AUTH_INVALID_PARAMS </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="AUTH_LOGEDD_IN" id="AUTH_LOGEDD_IN"> </a><div class="element clickable constant  AUTH_LOGEDD_IN" data-toggle="collapse" data-target=".AUTH_LOGEDD_IN .collapse">
+<h2>AUTH_LOGEDD_IN</h2>
+<pre>AUTH_LOGEDD_IN </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="AUTH_LOGGED" id="AUTH_LOGGED"> </a><div class="element clickable constant  AUTH_LOGGED" data-toggle="collapse" data-target=".AUTH_LOGGED .collapse">
+<h2>AUTH_LOGGED</h2>
+<pre>AUTH_LOGGED </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="AUTH_NOT_LOGGED" id="AUTH_NOT_LOGGED"> </a><div class="element clickable constant  AUTH_NOT_LOGGED" data-toggle="collapse" data-target=".AUTH_NOT_LOGGED .collapse">
+<h2>AUTH_NOT_LOGGED</h2>
+<pre>AUTH_NOT_LOGGED </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="REG_ERRORS" id="REG_ERRORS"> </a><div class="element clickable constant  REG_ERRORS" data-toggle="collapse" data-target=".REG_ERRORS .collapse">
+<h2>REG_ERRORS</h2>
+<pre>REG_ERRORS </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="REG_FAILED" id="REG_FAILED"> </a><div class="element clickable constant  REG_FAILED" data-toggle="collapse" data-target=".REG_FAILED .collapse">
+<h2>REG_FAILED</h2>
+<pre>REG_FAILED </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="REG_SUCCESS" id="REG_SUCCESS"> </a><div class="element clickable constant  REG_SUCCESS" data-toggle="collapse" data-target=".REG_SUCCESS .collapse">
+<h2>REG_SUCCESS</h2>
+<pre>REG_SUCCESS </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
 </div>
 </div>
 </div>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a9</a> and<br>
-            generated on 2012-08-25T11:49:25+02:00.<br></footer></div>
+            generated on 2012-08-28T16:36:36+02:00.<br></footer></div>
 </div>
 </body>
 </html>

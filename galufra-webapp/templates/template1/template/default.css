@@ -393,3 +393,9 @@ form#creaEvento input, textarea{
 #backHome b{
     color: #2582A4;
 }
+
+.selected {
+
+    color:#2582A4;
+    background-color:#A4B74C;
+}

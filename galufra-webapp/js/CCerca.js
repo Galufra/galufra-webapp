@@ -13,4 +13,8 @@ $(document).ready(function(){
         a = $('#nome').autocomplete(options);
     });
 
+    $('.selected').live("click", function(){
+         $("form").submit();
+
+    });
 })

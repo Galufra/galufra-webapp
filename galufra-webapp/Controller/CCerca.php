@@ -42,49 +42,72 @@ class CCerca {
         }
         /* Se non vengono passati i dati, visualizza la schermata di ricerca
          */
-        if (!isset($_GET['nome'])) {
-             $this->view = new VCerca($this->utente);
-             if ($this->utente) {
-                $this->view->isAutenticato(true);
-                $this->view->showUser($this->utente->getUsername());
-                if (!$this->utente->isSbloccato())
-                    $this->view->blocca();
-                //blocco il messaggio di conferma registrazione
-                if ($this->utente->isConfirmed())
-                    $this->view->regConfermata();
-                //tolgo il link "diventa supersuser"
-                if ($this->utente->isSuperuser())
-                    $this->view->isSuperuser();
-            }else {
-                //blocco il messaggio di conferma registrazione
-                $this->view->regConfermata();
-            }
-            $this->view->mostraPagina();
+        if(!isset($_GET['action'])){
+            if(!isset($_GET['nome']))
+                $_GET['action'] = '';
+            else
+                $_GET['action'] = 'cerca';
         }
-        /* Risultati di ricerca
-         */ else {
-            $e = new FEvento();
-            $e->connect();
-            $eventi = $e->searchEventiNome($_GET['nome']);
-            $this->view = new VCerca($this->utente, $eventi);
-            if ($this->utente) {
-                $this->view->isAutenticato(true);
-                $this->view->showUser($this->utente->getUsername());
-                if (!$this->utente->isSbloccato())
-                    $this->view->blocca();
-                //blocco il messaggio di conferma registrazione
-                if ($this->utente->isConfirmed())
+        switch($_GET['action']){
+            default:
+                 $this->view = new VCerca($this->utente);
+                 if ($this->utente) {
+                    $this->view->isAutenticato(true);
+                    $this->view->showUser($this->utente->getUsername());
+                    if (!$this->utente->isSbloccato())
+                        $this->view->blocca();
+                    //blocco il messaggio di conferma registrazione
+                    if ($this->utente->isConfirmed())
+                        $this->view->regConfermata();
+                    //tolgo il link "diventa supersuser"
+                    if ($this->utente->isSuperuser())
+                        $this->view->isSuperuser();
+                }else {
+                    //blocco il messaggio di conferma registrazione
                     $this->view->regConfermata();
-                //tolgo il link "diventa supersuser"
-                if ($this->utente->isSuperuser())
-                    $this->view->isSuperuser();
-            }else {
-                //blocco il messaggio di conferma registrazione
-                $this->view->regConfermata();
-            }
-            if (!$eventi)
-                $this->view->assign('noresult', true);
-            $this->view->mostraPagina();
+                }
+                $this->view->mostraPagina();
+            break;
+            /* Autocompletamento
+             */
+            case 'suggest':
+                $suggestions = array();
+                $e = new FEvento();
+                $e->connect();
+                $ev_array = $e->searchEventiNome($_GET['query'], false);
+                foreach ($ev_array as $i)
+                    $suggestions[] = $i->nome;
+                echo json_encode(array(
+                'suggestions' => $suggestions,
+                'query' => $_GET['query']
+                ));
+            break;
+            /* Risultati di ricerca
+             */
+            case 'cerca':
+                $e = new FEvento();
+                $e->connect();
+                $eventi = $e->searchEventiNome($_GET['nome']);
+                $this->view = new VCerca($this->utente, $eventi);
+                if ($this->utente) {
+                    $this->view->isAutenticato(true);
+                    $this->view->showUser($this->utente->getUsername());
+                    if (!$this->utente->isSbloccato())
+                        $this->view->blocca();
+                    //blocco il messaggio di conferma registrazione
+                    if ($this->utente->isConfirmed())
+                        $this->view->regConfermata();
+                    //tolgo il link "diventa supersuser"
+                    if ($this->utente->isSuperuser())
+                        $this->view->isSuperuser();
+                }else {
+                    //blocco il messaggio di conferma registrazione
+                    $this->view->regConfermata();
+                }
+                if (!$eventi)
+                    $this->view->assign('noresult', true);
+                $this->view->mostraPagina();
+            break;
         }
     }
 

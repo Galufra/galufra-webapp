@@ -15,7 +15,7 @@ class VCerca extends View {
     public $content = 'cerca.tpl';
     public $eventi;
     public $utente;
-    public $scripts = array('CCerca.js');
+    public $scripts = array('jquery.autocomplete.js','CCerca.js');
 
     /**
      * @access public

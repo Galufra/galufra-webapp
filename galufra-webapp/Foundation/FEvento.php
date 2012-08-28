@@ -46,9 +46,19 @@ class FEvento extends FMysql {
         ));
     }
     
-    public function searchEventiNome($nome) {
+    /**
+     * @access public
+     * Restituisce un array di eventi il cui nome contiene $nome.
+     * Se $fulltext è false, cerca solo eventi che *cominciano*
+     * con $nome.
+     */
+    public function searchEventiNome($nome, $fulltext = true) {
+        if($fulltext)
+            $val = "%$nome%";
+        else
+            $val = "$nome%";
         return $this->search(array(
-            array('nome', 'LIKE', "%$nome%")
+            array('nome', 'LIKE', $val)
         ));
     }
 

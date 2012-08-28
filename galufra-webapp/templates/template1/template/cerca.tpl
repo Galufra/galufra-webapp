@@ -13,7 +13,7 @@
     {if !isset($noresult)}
         <h3>Ricerca</h3>
         <form action='CCerca.php' method='GET'>
-            Nome dell'evento: <input type='text' name='nome'>
+            Nome dell'evento: <input type='text' name='nome' id='nome'>
         </form>
     {else}
         <h3>Risultati della ricerca</h3>

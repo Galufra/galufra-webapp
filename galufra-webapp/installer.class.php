@@ -120,7 +120,7 @@ class Installer {
 	public function getDBInfo(){
 		echo '<h2>Credenziali di accesso al database</h2>
 		<p>Inserisci lo username e la password che verranno usati per la connessione al database.</p>
-		<p>Assicurati che la directory includes/ abbia permessi impostati a 777.</p>
+		<p>Assicurati che la directory includes/ e la directory template/template1/templates abbiano i permessi impostati a 777.</p>
 			<form method="POST" action="installer.class.php">
 			<label>Username:</label><input type="text" name="dbuser"/><br />
 			<label>Password:</label><input type="password" name="dbpassword"/> <br />

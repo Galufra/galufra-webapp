@@ -1,16 +1,14 @@
 <?php
+
 /**
  * @package Galufra
  */
-
-
 require_once '../View/VCrea.php';
 require_once '../View/VHome.php';
 require_once '../Foundation/FUtente.php';
 require_once '../Foundation/FEvento.php';
 require_once '../Entity/EUtente.php';
 require_once '../Entity/EEvento.php';
-
 
 /**
  * Controller per la creazione di un nuovo evento. 
@@ -107,7 +105,9 @@ class CCrea {
                         $view->regConfermata();
                     if ($this->utente->isSuperuser())
                         $view->isSuperuser();
+
                     $view->mostraPagina();
+                   
                 }
                 //altrimenti stampo la pagina di creazione evento
                 else if ($this->utente) {

@@ -10,6 +10,7 @@ Released for free under a Creative Commons Attribution 2.5 License
         <title>Galufra_WebApp</title>
         <meta name="Keywords" content="" />
         <meta name="Description" content="" />
+	<link rel="shortcut icon" href="../templates/template1/template/images/logo-galufra-favicon.ico" >
         <link href="../templates/template1/template/default.css" rel="stylesheet" type="text/css" />
         <link href="../js/anytime.c.css" rel="stylesheet" type="text/css" />
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>

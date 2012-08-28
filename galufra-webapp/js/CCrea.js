@@ -41,12 +41,14 @@ $(document).ready(function(){
                 }
             }).done(function(data){
                 response = jQuery.parseJSON(data);
-                showMessage(response.message);
-                updatePersonali();
-                $('#map_canvas').hide('slow');
-                $('#creaEvento :input').each(function(){
-                    $(this).val('');
-                });
+                if(response){
+                    showMessage(response.message);
+                    updatePersonali();
+                    $('#map_canvas').hide('slow');
+                    $('#creaEvento :input').each(function(){
+                        $(this).val('');
+                    });
+                }else showMessage("Errore!!")
             });
                 
             

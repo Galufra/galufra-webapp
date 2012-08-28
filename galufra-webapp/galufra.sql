@@ -73,12 +73,14 @@ INSERT INTO `evento` (`id_evento`, `nome`, `descrizione`, `data`, `n_visite`, `n
 (224, 'prova 2', 'Arrosticini,Musica,Birra e tanto divertimento!!!!!', '2012-08-31 00:00:00', 0, 0, 42.3525448, 13.402602099999967, 67, 0, 'venite in tanti!!!'),
 (228, 'prova 3', 'serata latino americano. ingresso gratuito!', '2012-08-27 00:00:00', 0, 0, 42.3527354, 13.401868899999954, 67, 0, ''''''''''''''''''''''''''),
 (229, 'prova 4', 'cena sociale. Azienda Regatti! 10 euro/persona', '2012-08-27 00:00:00', 0, 0, 42.3527354, 13.401868899999954, 67, 0, 'L''evento'),
-(230, 'Mostra di arte contemporanea', 'ingresso 5 euro', '2012-08-27 00:00:00', 0, 0, 42.3525448, 13.402602099999967, 68, 0, ''),
+(230, 'Mostra: arte contemporanea', 'ingresso 5 euro', '2012-08-27 00:00:00', 0, 0, 42.3525448, 13.402602099999967, 68, 0, ''),
 (231, 'Evento di prova', 'Ecco un altro evento', '2012-08-27 00:00:00', 0, 0, 42.4617902, 14.216089799999963, 68, 0, 'Annuncio'),
 (234, 'festa ', 'tutti in strada!!! ', '2012-08-27 00:00:00', 0, 0, 42.46780220000001, 14.215347400000041, 69, 0, 'Nessun Costo D''ingresso'),
 (235, 'prova 5', 'Serata al più spettacolare grattacielo di NYC. Contattare teo@teo.com', '2012-08-30 00:00:00', 0, 0, 40.7484395, -73.9856709, 67, 0, ''),
 (236, 'prova 6', '\nprova ', '2012-08-30 00:00:00', 0, 0, 42.3487451, 13.401908700000035, 67, 0, ''),
-(254, 'Ciao L''''Aquila', 'una prova per vedere la data', '2012-12-22 20:44:00', 0, 0, 42.5074019, 14.161013599999933, 67, 0, '');
+(254, 'Ciao L''''Aquila', 'una prova per vedere la data', '2012-12-22 20:44:00', 0, 0, 42.5074019, 14.161013599999933, 67, 0, ''),
+(257, 'programmazione web', 'Presentazione e discussione progetto galufra web-app', '2012-09-14 10:00:00', 0, 0, 42.35219, 13.39671999999996, 67, 0, ''),
+(260, 'Party di fine estate', 'Festa di fine estate, organizziamo hall di musica di vario genere. Ingresso gratuito!', '2012-09-17 22:00:00', 0, 0, 42.354581, 13.391628399999945, 106, 0, '');
 
 -- --------------------------------------------------------
 

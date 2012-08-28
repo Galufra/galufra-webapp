@@ -14,7 +14,8 @@ $(document).ready(function(){
     });
 
     $('.selected').live("click", function(){
-         $("form").submit();
+        $("form").submit();
 
     });
+    
 })

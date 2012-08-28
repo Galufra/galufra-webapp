@@ -1,11 +1,21 @@
 <?php
+/**
+ *
+ * @package Galufra
+ *
+ */
 
 require_once '../Foundation/FUtente.php';
 require_once '../Entity/EUtente.php';
 require_once '../Foundation/FEvento.php';
 require_once '../Entity/EEvento.php';
 require_once '../View/VCerca.php';
+require_once '../View/VHome.php';
 
+
+/**
+ * Controller per la ricerca degli eventi
+ */
 class CCerca {
 
     private $utente = null;
@@ -40,6 +50,8 @@ class CCerca {
             $view->mostraPagina();
             exit;
         }
+
+
         /* Se non vengono passati i dati, visualizza la schermata di ricerca
          */
         if(!isset($_GET['action'])){
@@ -48,6 +60,10 @@ class CCerca {
             else
                 $_GET['action'] = 'cerca';
         }
+
+        /*
+         * Gestisco le action
+         */
         switch($_GET['action']){
             default:
                  $this->view = new VCerca($this->utente);

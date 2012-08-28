@@ -52,7 +52,7 @@ class CCrea {
             exit;
         }
 
-        /* Se "action" non è impostato, o l' utente non esiste oppure ha esaurito il num di eventi, eseguiremo il comportamento
+        /* Se "action" non è impostato, o l'utente non esiste oppure ha esaurito il num di eventi, eseguiremo il comportamento
          * di default nello switch successivo, ignorando anche i dati mandati via get.
          */
         if (!isset($_POST['action']) || !$this->utente || !$this->utente->isSbloccato()) {

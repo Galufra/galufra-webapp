@@ -24,7 +24,7 @@ class CListaEventi {
     /**
      * @access public
      *
-     * uno volta controllati i dati di sessione fornisce attraverso uno switch che prende come
+     * una volta controllati i dati di sessione fornisce attraverso uno switch che prende come
      * parametro un dato passato via get la lista completa dobbiamo stampare:
      * preferiti
      * consigliati

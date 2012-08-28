@@ -8,7 +8,7 @@
  * Controller per la registrazione utente e per la gestione delle sessioni.
  */
 class CRegistrazione {
-	
+    
     private $username = null;
     private $password = null;
     private $citta = null;
@@ -154,7 +154,7 @@ class CRegistrazione {
     public function sendConfirmationMail($to, $from, $id) {
 
         $msg = "Ciao! Per confermare la tua registrazione clicca qui:
-	http://localhost/galufra-webapp/Controller/CConferma.php?action=conferma&id=" . $id . "";
+    http://localhost/galufra-webapp/Controller/CConferma.php?action=conferma&id=" . $id . "";
         //$status = mail($to, "Conferma la registrazione", $msg, "From: " . $from) ? true : false;
         $status=true;
         return $status;

@@ -165,7 +165,9 @@ Released for free under a Creative Commons Attribution 2.5 License
                         <h4><a href="CSuperuser.php">Diventa Superuser</a></h4>
                     </div>
                     {/if}
-
+                    <div class='profilo'>
+                        <h4><a href="CCerca.php">Ricerca Eventi</a></h4>
+                    </div>
                     <div class="profilo">
                         <h4><a href="CHome.php?action=logout">Logout</a></h4>
                     </div>

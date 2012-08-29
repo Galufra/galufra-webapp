@@ -225,21 +225,21 @@ class Cbacheca {
         if (isset($_GET['idMex'])) {
             $mex = mysql_escape_string($_GET['idMex']);
             $messaggio = $m->load($mex);
-            if ($messaggio && $this->utente->isAdmin() || ($this->utente->getId() == $this->evento->getGestore())) {
+            if ($messaggio && ($this->utente->isAdmin() || ($this->utente->getId() == $this->evento->getGestore()))) {
                 //if ($messaggio->getUtente()->getId() == $utente->getId()) {
                 $m->delete($messaggio);
                 $out = array(
-                    'messaggio' => "Messaggio eliminato con successo"
+                    'message' => "Messaggio eliminato con successo"
                 );
                 //}
             } else {
                 $out = array(
-                    'messaggio' => "Non hai i permessi per questa azione"
+                    'message' => "Non hai i permessi per questa azione"
                 );
             }
         } else {
             $out = array(
-                'messaggio' => "Nessun messaggio valido selezionato"
+                'message' => "Nessun messaggio valido selezionato"
             );
         }
 

@@ -35,7 +35,7 @@ $(document).ready(function(){
                 'action': "creaMessaggio",
                 'messaggio': $('#messaggio').val()
             }).success(function(data){
-                response = jQuery.parseJSON(data);
+                var response = jQuery.parseJSON(data);
                 showMessage(response.message);
                 $('#messaggio').val('');
                 updateBacheca(true);
@@ -73,14 +73,14 @@ $(document).ready(function(){
 
 
     //elimina un messaggio
-    $('#del').live("click", function(){
+    $('#del').live("click", function(event){
 
         $.get("CBacheca.php",
         {
             'action': "eliminaMessaggio",
-            'idMex': $('#del').attr("value")
+            'idMex': $(this).attr("value")
         }).success(function(data){
-            response = jQuery.parseJSON(data);
+            var response = jQuery.parseJSON(data);
             showMessage(response.message);
             updateBacheca(true);
         });

@@ -101,7 +101,7 @@ class Installer {
 					$store->update($admin);
 					echo'<h3>Installazione completata!</h3>
 					<p>Ricordati di <b>ELIMINARE QUESTO FILE E GALUFRA.SQL!</b></p><br>
-					<a href="./index.php">Vai all\'applicazione</a>';
+					<a href="./Controller/CHome.php">Vai all\'applicazione</a>';
 				}
 				catch (Exception $e){
 					echo'<h3>Errore nella creazione del DB</h3>';

@@ -55,7 +55,7 @@ class FEvento extends FMysql {
     public function searchEventiNome($nome, $fulltext = true) {
         $nome = mysql_real_escape_string($nome);
         if($fulltext)
-            $val = "%m$nome%";
+            $val = "%$nome%";
         else
             $val = "$nome%";
         return $this->search(array(

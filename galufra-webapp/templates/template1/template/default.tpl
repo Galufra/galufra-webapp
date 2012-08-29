@@ -10,14 +10,14 @@ Released for free under a Creative Commons Attribution 2.5 License
         <title>Galufra_WebApp</title>
         <meta name="Keywords" content="" />
         <meta name="Description" content="" />
-	<link rel="shortcut icon" href="../templates/template1/template/images/logo-galufra-favicon.ico" >
-        <link href="../templates/template1/template/default.css" rel="stylesheet" type="text/css" />
-        <link href="../js/anytime.c.css" rel="stylesheet" type="text/css" />
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
-        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAO2zXC0wh-S8SjMgPRZfoTUGZMGHBIzZ0&sensor=false"></script>
-        <script type="text/javascript" src='../js/functions.js'></script>
+        <link rel="shortcut icon" href="../templates/template1/template/images/logo-galufra-favicon.ico" >
+            <link href="../templates/template1/template/default.css" rel="stylesheet" type="text/css" />
+            <link href="../js/anytime.c.css" rel="stylesheet" type="text/css" />
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+            <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAO2zXC0wh-S8SjMgPRZfoTUGZMGHBIzZ0&sensor=false"></script>
+            <script type="text/javascript" src='../js/functions.js'></script>
 {foreach $scripts as $s}
-        <script type="text/javascript" src='../js/{$s}'></script>
+            <script type="text/javascript" src='../js/{$s}'></script>
 {/foreach}
 
     </head>
@@ -27,15 +27,7 @@ Released for free under a Creative Commons Attribution 2.5 License
                 <li><a href="CHome.php" accesskey="1" title=""><img alt=""  src="../templates/template1/template/images/logo-galufra.png"></img></a></li>
                 {if $autenticato}
                 <li><a href="CProfilo.php" accesskey="2" title="">Profilo</a></li>
-                {if $sbloccato}
-                <li><a href="CCrea.php?action=">
-                {else}
-                        <a href="CHome.php?action=">
-                            <script>
-                            showMessage("Diventa SUPERUSER per creare eventi!");
-                            </script>
-                {/if}
-                            Crea Evento</a></li>
+                <li><a href="CHome.php?action=logout">Logout</a></li>
                 {/if}
                 <li id='messagebox'></li>
             </ul>
@@ -89,7 +81,7 @@ Released for free under a Creative Commons Attribution 2.5 License
                         <table>
 
                             <tr><h1>Registrazione</h1></tr>
-                            
+
                             <tr>
                                 <td><label class="label">username:</label></td>
                                 <td><input type="text" id="user" name="username" class="input4 " size="13"/></td>
@@ -140,7 +132,11 @@ Released for free under a Creative Commons Attribution 2.5 License
                 <div id="logo3">
                     {if $name != null}
                     <h3>
-                        <div align=left>Benvenuto {$name}!</div>
+                        <div align=left>
+
+                            Benvenuto {$name}!
+                        </div>
+
                     </h3>
                     {/if}
                     <div id="crea" class="profilo">
@@ -160,17 +156,18 @@ Released for free under a Creative Commons Attribution 2.5 License
                     <div class="profilo">
                         <h4><a href="CProfilo.php">Profilo</a></h4>
                     </div>
+                    <div class='profilo'>
+                        <h4><a href="CCerca.php">Ricerca Eventi</a></h4>
+                    </div>
                     {if $autenticato && !$superuser}
                     <div class="profilo">
                         <h4><a href="CSuperuser.php">Diventa Superuser</a></h4>
                     </div>
-                    {/if}
-                    <div class='profilo'>
-                        <h4><a href="CCerca.php">Ricerca Eventi</a></h4>
-                    </div>
+                    {else}
                     <div class="profilo">
                         <h4><a href="CHome.php?action=logout">Logout</a></h4>
                     </div>
+                    {/if}
                 </div>
 
 

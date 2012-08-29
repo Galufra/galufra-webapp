@@ -192,7 +192,7 @@ function checkPreferito(id){
         }
     })
     .done(function(data){
-        response = jQuery.parseJSON(data);
+        var response = jQuery.parseJSON(data);
         out = response;
     });
     return out;
@@ -210,7 +210,7 @@ function checkConsigliato(id){
         }
     })
     .done(function(data){
-        response = jQuery.parseJSON(data);
+        var response = jQuery.parseJSON(data);
         out = response;
     });
     return out;

@@ -25,7 +25,7 @@ $(document).ready(function(){
                 'name': $('#eliminaUtente').attr("value")
             }
         }).done(function(data){
-            response = jQuery.parseJSON(data);
+            var response = jQuery.parseJSON(data);
             showMessage(response.message);
 
         });
@@ -117,7 +117,7 @@ $(document).ready(function(){
                 'email': $('#posta').val(),
                 'citta': $('#city').val()
             }).done(function(data){
-                response = jQuery.parseJSON(data);
+                var response = jQuery.parseJSON(data);
                 showMessage(response.message);
 
             });

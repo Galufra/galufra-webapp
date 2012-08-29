@@ -22,7 +22,7 @@ $(document).ready(function(){
         }
     })
     .done(function(data){
-        response = jQuery.parseJSON(data);
+        var response = jQuery.parseJSON(data);
         logged = response.logged;
         if (response.logged){
             geocoder.geocode(
@@ -190,7 +190,7 @@ $(document).ready(function(){
                 
             }).success(function(data){
 
-                response = jQuery.parseJSON(data);
+                var response = jQuery.parseJSON(data);
 
                 if(response.inviata){
                     showMessage("Email inviata con successo!");

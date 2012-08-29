@@ -40,7 +40,7 @@ $(document).ready(function(){
                     'lon': coord.lng()
                 }
             }).done(function(data){
-                response = jQuery.parseJSON(data);
+                var response = jQuery.parseJSON(data);
                 if(response){
                     showMessage(response.message);
                     updatePersonali();

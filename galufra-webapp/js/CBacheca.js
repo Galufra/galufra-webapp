@@ -73,7 +73,7 @@ $(document).ready(function(){
 
 
     //elimina un messaggio
-    $('#del').live("click", function(event){
+    $('#del').live("click", function(){
 
         $.get("CBacheca.php",
         {

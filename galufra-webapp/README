@@ -50,7 +50,9 @@ Un amministratore del sistema potrà:
 - Moderare completamente la mappa (ogni tipo di evento)
 - Gestire gli utenti
 
-Le tecnologie lato client saranno:
+--------TECNOLOGIE UTILIZZATE
+
+Le tecnologie lato client utilizzate sono state:
 - ajax
 - jquery
 - api di google maps
@@ -111,18 +113,51 @@ proprio profilo personale.
 Per i dettagli tecnici su ogni funzionalità dell'applicazione si consiglia comunque la visione della Documentazione 
 e/o la lettura del codice con i relativi commenti, si spera, esaustivi.
 
-Per quanto riguarda la divisione dei compiti il lavoro è stato così suddiviso: 
--Francesco Miscia: Controller,Foundation,Entity,View,Javascript,Templating 
--Luca Di Stefano: Controller,Foundation,Entity,View,Javascript,Templating
--Gabriele Cianetti: View,Templating,Database,Testing
+--------LAVORO IN GRUPPO
 
-L'applicazione a seguito di vari test sembra sicura,veloce e affidabile. 
-Sicuramente sarà soggetta a miglioramenti che speriamo vengano effettivamente messi in atto in futuro.
+Per quanto riguarda la divisione dei compiti e le modalità di progettazione e sviluppo, il lavoro è stato così suddiviso: 
+
+--PROGETTAZIONE
+
+In circa 3 sedute di guppo si è discusso insieme circa l'obiettivo e le funzionalità dell'applicazione, selezionando 
+i casi d'uso che si sarebbero dovuti implementare per quanto riguarda la prova d'esame. Successivamente in 
+altre 2/3 sedute si è discusso e messo su carta un semplice schema relazionale per capire che impronta dare al 
+database in base alle funzionalità dell'applicazione discusse e selezionate. Successivamente si è deciso di partire
+con lo sviluppo impegnandoci a vederci ogni 2 settimane per discutere su quanto fatto. 
+
+--SVILUPPO E TEMPISTICA
+
+Lo sviluppo vero e proprio dell'applicazione è iniziato a metà di Aprile 2012.
+I compiti sono stati suddivisi come segue:
+	-Francesco Miscia: Controller,Foundation,Entity,View,Javascript,Templating 
+	-Luca Di Stefano: Controller,Foundation,Entity,View,Javascript,Templating
+	-Gabriele Cianetti: View,Templating,Database,Testing
+Poichè il core dell'applicazione sarebbe stato gestire gli eventi su mappa utilizzando le api di google-map, nelle 
+prime 4 settimane ne è stata sviluppata la prima parte (inizialmente con css e html fatti a mano,
+utilizzati per testing) che permetteva di caricare su mappa eventi reperibili da un database (caricati
+a mano). Ovviamente, poichè l'idea di questa tipologia di applicazione era nota da tempo, la fase di studio 
+preliminare delle api di google-map è stata fatta singolarmente da ognuno di noi prima di iniziare il lavoro vero e 
+proprio. Nelle 4 settimane successive si è passati alla scelta di un template grafico gratuito, all'installazione di smarty
+ e si è iniziato a lavorare pesantemente con javascript per gestire e migliorare il caricamento di eventi su mappa.
+Nel mese successivo (metà Giugno - meta Luglio) abbiamo optato per una pausa per svolgere gli esami.
+Da metà Luglio abbiamo iniziato con lo sviluppo di tutte le funzionalità selezionate per l'applicazione, avendo ormai 
+consolidato come gestire gli eventi. Dalla metà di Agosto e iniziata la fase di debugging e testing, montando
+l'applicazione su un server online per analizzare il carico di lavoro del database e la velocità dell'app in generale.
+A questo riguardo, al giorno d'oggi (4 Settembre 2012), l'applicazione, a seguito dei citati test sembra sicura,
+veloce e affidabile. Sicuramente sarà soggetta a miglioramenti che speriamo vengano effettivamente messi in atto 
+in futuro.
 
 NOTE:
--Per il testing locale le funzioni mail() sono commentate. E' possibile confermare l'utente manualmente o
- scommentando il relativo codice
+-Per il testing locale le funzioni mail() sono commentate. E' possibile confermare la registrazione dell'utente manualmente o
+ scommentando il relativo codice, cosa analoga per il sistema di recupero password.
 -Per l'installazione eseguire il file installer.class.php
+-Il codice sorgente si trova online all'indirizzo https://github.com/Galufra/galufra-webapp/
+-L'applicazione è in esecuzione online su un server di "phpfog" che fornisce hosting gratuito per testing di applicazioni 
+ e può essere rintracciato all'indirizzo http://galufra.phpfogapp.com/
+
+BROWSER SUPPORTATI:
+L'applicazione è stata testata correttamente su Chrome,Firefox,Safari e Safari mobile (ipad2). Per una migliore 
+visualizzazione dei contenuti grafici si consiglia comunque l'utilizzo di Google Chrome.
 
 Autori:
 Francesco Miscia

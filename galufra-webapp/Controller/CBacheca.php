@@ -223,7 +223,7 @@ class Cbacheca {
         $m = new FMessaggio();
         $m->connect();
         if (isset($_GET['idMex'])) {
-            $mex = mysql_escape_string($_GET['idMex']);
+            $mex = mysql_real_escape_string($_GET['idMex']);
             $messaggio = $m->load($mex);
             if ($messaggio && ($this->utente->isAdmin() || ($this->utente->getId() == $this->evento->getGestore()))) {
                 //if ($messaggio->getUtente()->getId() == $utente->getId()) {

@@ -32,6 +32,9 @@ class CListaEventi {
      */
     public function __construct() {
 
+
+        session_start();
+
         $u = new Futente();
         $u->connect();
 
@@ -169,7 +172,6 @@ class CListaEventi {
 
 }
 
-session_start();
 
 $listaEventi = new CListaEventi();
 ?>

@@ -28,6 +28,8 @@ class CSuperuser {
      */
     public function __construct() {
 
+        session_start();
+
         $u = new FUtente();
         $u->connect();
 
@@ -73,6 +75,5 @@ class CSuperuser {
 
 }
 
-session_start();
 $conferma = new CSuperuser();
 ?>

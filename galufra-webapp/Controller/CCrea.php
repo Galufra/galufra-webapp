@@ -23,6 +23,9 @@ class CCrea {
      * gestisce la creazione dell' evento da parte dell'utente
      * */
     public function __construct() {
+
+        session_start();
+
         $u = new Futente();
         $u->connect();
         if (isset($_SESSION['username']) && $_SESSION['username'] != null) {
@@ -133,6 +136,6 @@ class CCrea {
 
 }
 
-session_start();
+
 $crea = new CCrea();
 ?>

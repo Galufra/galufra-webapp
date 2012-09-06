@@ -36,6 +36,8 @@ class Cbacheca {
      * */
     public function __construct($id) {
 
+        session_start();
+
         $u = new Futente();
         $u->connect();
 
@@ -276,7 +278,7 @@ class Cbacheca {
 
 }
 
-session_start();
+
 
 if (!isset($_GET['id']))
     $_GET['id'] = null;

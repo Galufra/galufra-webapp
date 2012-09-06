@@ -28,6 +28,8 @@ class CConferma {
 	 */
     public function __construct() {
 
+        session_start();
+
         $u = new FUtente();
         $u->connect();
 
@@ -111,6 +113,5 @@ class CConferma {
 
 }
 
-session_start();
 $conferma = new CConferma();
 ?>

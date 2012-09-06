@@ -29,6 +29,9 @@ class CHome {
      * parametro un dato passato via get.
      */
     public function __construct() {
+
+        session_start();
+
         /* Caricamento dell'utente.
          */
         $u = new Futente();
@@ -394,6 +397,6 @@ class CHome {
 
 }
 
-session_start();
+
 $home = new CHome();
 ?>

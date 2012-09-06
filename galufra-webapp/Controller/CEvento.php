@@ -31,6 +31,8 @@ class CEvento {
      */
     public function __construct($id = null) {
 
+        session_start();
+
         $u = new Futente();
         $u->connect();
         if (isset($_SESSION['username'])) {
@@ -153,6 +155,5 @@ class CEvento {
 if (!isset($_GET['id']))
     $_GET['id'] = null;
 
-session_start();
 $CEvento = new CEvento(htmlspecialchars($_GET['id']));
 ?>

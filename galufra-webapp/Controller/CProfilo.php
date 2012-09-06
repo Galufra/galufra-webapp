@@ -36,6 +36,8 @@ class CProfilo {
      * */
     public function __construct($name) {
 
+        session_start();
+
         $u = new FUtente();
         $u->connect();
         if (isset($_SESSION['username'])) {
@@ -285,7 +287,6 @@ class CProfilo {
 
 }
 
-session_start();
 
 if (!isset($_GET["name"]))
     $_GET["name"] = "";

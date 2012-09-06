@@ -27,9 +27,7 @@ class CProfilo {
      *
      *
      * Una volta controllati i dati di sessione controlla se un utente sta visualizzando il proprio
-     * profilo, e quindi può modificarlo, altrimenti può solo leggerlo
-     * La variabile di sessione 'enable' permette di tornare al nostro profilo se non inseriamo un
-     * username come parametro del costruttore.
+     * profilo, e quindi modificarlo, altrimenti potrà solo leggerlo
      * Permette inoltre di aggiornare,eliminare,rendere superuser o admin un particolare utente
      *
      * @param string $name
@@ -47,18 +45,18 @@ class CProfilo {
 
             if ($name && $this->utente->getUsername() == $name) {
                 $this->action = "modifica_profilo";
-                $_SESSION['enable'] = true;
+                
             } else if ($name && $this->utente->getUsername() != $name) {
                 $this->action = "visualizza_profilo";
-                $_SESSION['enable'] = false;
+                
             } else if (!$name && $this->utente) {
                 $this->action = "modifica_profilo";
-                $_SESSION['enable'] = true;
+                
             } else
                 $this->action = null;
 
 
-            if (isset($_POST["action"]) && $_POST["action"] == "update" && isset($_SESSION['enable']) && $_SESSION['enable']) {
+            if (isset($_POST["action"]) && $_POST["action"] == "update") {
                 $this->updateUtente();
                 $this->action = null;
             }

@@ -119,6 +119,8 @@ class Installer {
 	 */
 	public function getDBInfo(){
 		echo '<h2>Credenziali di accesso al database</h2>
+                <p>Se hai precedentemente eseguito questa procedura vuol dire che hai dimenticato di <b>ELIMINARE</b> questo file e il file galufra.sql:
+                eliminali e ritorna alla pagina index.html per avviare l\'applicazione correttamente</p>
 		<p>Inserisci lo username e la password che verranno usati per la connessione al database.</p>
 		<p>Assicurati che la directory includes/ e la directory template/template1/templates_c abbiano i permessi impostati a 777.</p>
 			<form method="POST" action="installer.class.php">

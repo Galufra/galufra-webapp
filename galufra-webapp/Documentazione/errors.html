@@ -1,0 +1,2036 @@
+<!DOCTYPE html><html xmlns:date="http://exslt.org/dates-and-times" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>phpDocumentor</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="css/template.css" rel="stylesheet" media="all">
+<script src="js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="js/bootstrap.js" type="text/javascript"></script><script src="js/template.js" type="text/javascript"></script><script src="js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="img/favicon.ico">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="index.html">phpDocumentor</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Packages</a></li>
+<li><a href="packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">294</span></a></li>
+<li><a href="markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4"><ul class="side-nav nav nav-list">
+<li class="nav-header">Filter type</li>
+<li><div class="btn-group type-filter" data-toggle="buttons-checkbox">
+<button class="btn critical">Critical</button><button class="btn error">Error</button><button class="btn notice">Notice</button>
+</div></li>
+<li class="nav-header">Navigation</li>
+<li><a href="#View/VConferma.php"><i class="icon-file"></i>View/VConferma.php</a></li>
+<li><a href="#View/VHome.php"><i class="icon-file"></i>View/VHome.php</a></li>
+<li><a href="#View/VBacheca.php"><i class="icon-file"></i>View/VBacheca.php</a></li>
+<li><a href="#View/VListaEventi.php"><i class="icon-file"></i>View/VListaEventi.php</a></li>
+<li><a href="#View/View.php"><i class="icon-file"></i>View/View.php</a></li>
+<li><a href="#View/VEventiXML.php"><i class="icon-file"></i>View/VEventiXML.php</a></li>
+<li><a href="#View/VSuperuser.php"><i class="icon-file"></i>View/VSuperuser.php</a></li>
+<li><a href="#View/VCerca.php"><i class="icon-file"></i>View/VCerca.php</a></li>
+<li><a href="#View/VProfilo.php"><i class="icon-file"></i>View/VProfilo.php</a></li>
+<li><a href="#View/VCrea.php"><i class="icon-file"></i>View/VCrea.php</a></li>
+<li><a href="#View/VEvento.php"><i class="icon-file"></i>View/VEvento.php</a></li>
+<li><a href="#installer.class.php"><i class="icon-file"></i>installer.class.php</a></li>
+<li><a href="#exception/dbException.php"><i class="icon-file"></i>exception/dbException.php</a></li>
+<li><a href="#Entity/EUtente.php"><i class="icon-file"></i>Entity/EUtente.php</a></li>
+<li><a href="#Entity/EMessaggio.php"><i class="icon-file"></i>Entity/EMessaggio.php</a></li>
+<li><a href="#Entity/EEvento.php"><i class="icon-file"></i>Entity/EEvento.php</a></li>
+<li><a href="#Foundation/FDb.php"><i class="icon-file"></i>Foundation/FDb.php</a></li>
+<li><a href="#Foundation/FEvento.php"><i class="icon-file"></i>Foundation/FEvento.php</a></li>
+<li><a href="#Foundation/FMessaggio.php"><i class="icon-file"></i>Foundation/FMessaggio.php</a></li>
+<li><a href="#Foundation/FUtente.php"><i class="icon-file"></i>Foundation/FUtente.php</a></li>
+<li><a href="#Foundation/FLocale.php"><i class="icon-file"></i>Foundation/FLocale.php</a></li>
+<li><a href="#Foundation/Utility/USession.php"><i class="icon-file"></i>Foundation/Utility/USession.php</a></li>
+<li><a href="#Foundation/FMysql.php"><i class="icon-file"></i>Foundation/FMysql.php</a></li>
+<li><a href="#Controller/CCrea.php"><i class="icon-file"></i>Controller/CCrea.php</a></li>
+<li><a href="#Controller/CListaEventi.php"><i class="icon-file"></i>Controller/CListaEventi.php</a></li>
+<li><a href="#Controller/CConferma.php"><i class="icon-file"></i>Controller/CConferma.php</a></li>
+<li><a href="#Controller/CCerca.php"><i class="icon-file"></i>Controller/CCerca.php</a></li>
+<li><a href="#Controller/CProfilo.php"><i class="icon-file"></i>Controller/CProfilo.php</a></li>
+<li><a href="#Controller/CHome.php"><i class="icon-file"></i>Controller/CHome.php</a></li>
+<li><a href="#Controller/CBacheca.php"><i class="icon-file"></i>Controller/CBacheca.php</a></li>
+<li><a href="#Controller/CEvento.php"><i class="icon-file"></i>Controller/CEvento.php</a></li>
+<li><a href="#Controller/CSuperuser.php"><i class="icon-file"></i>Controller/CSuperuser.php</a></li>
+<li><a href="#Controller/CRegistrazione.php"><i class="icon-file"></i>Controller/CRegistrazione.php</a></li>
+</ul></div>
+<div class="span8">
+<ul class="breadcrumb">
+<li>
+<a href=""><i class="icon-remove-sign"></i></a><span class="divider">\</span>
+</li>
+<li>Compilation Errors</li>
+</ul>
+<div class="package-contents">
+<a name="View/VConferma.php" id="View/VConferma.php"></a><h3>
+<i class="icon-file"></i>View/VConferma.php<small style="float: right;padding-right: 10px;">4</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="critical">
+<td>critical</td>
+<td>2</td>
+<td>No short description for file View/VConferma.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>15</td>
+<td>No DocBlock was found for property $content</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>16</td>
+<td>No DocBlock was found for property $scripts</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>18</td>
+<td>No short description for method __construct()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="View/VHome.php" id="View/VHome.php"></a><h3>
+<i class="icon-file"></i>View/VHome.php<small style="float: right;padding-right: 10px;">4</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="critical">
+<td>critical</td>
+<td>2</td>
+<td>No short description for file View/VHome.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>14</td>
+<td>No DocBlock was found for property $content</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>15</td>
+<td>No DocBlock was found for property $scripts</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>17</td>
+<td>No DocBlock was found for method __construct()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="View/VBacheca.php" id="View/VBacheca.php"></a><h3>
+<i class="icon-file"></i>View/VBacheca.php<small style="float: right;padding-right: 10px;">6</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="critical">
+<td>critical</td>
+<td>2</td>
+<td>No short description for file View/VBacheca.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>16</td>
+<td>No DocBlock was found for property $content</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>17</td>
+<td>No DocBlock was found for property $scripts</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>18</td>
+<td>No DocBlock was found for property $evento</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>19</td>
+<td>No DocBlock was found for property $utente</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>21</td>
+<td>No short description for method __construct()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="View/VListaEventi.php" id="View/VListaEventi.php"></a><h3>
+<i class="icon-file"></i>View/VListaEventi.php<small style="float: right;padding-right: 10px;">6</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="critical">
+<td>critical</td>
+<td>2</td>
+<td>No short description for file View/VListaEventi.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>13</td>
+<td>No DocBlock was found for property $scripts</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>14</td>
+<td>No DocBlock was found for property $content</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>16</td>
+<td>No short description for method __construct()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>16</td>
+<td>Name of argument $scripts does not match with the DocBlock's name $script in __construct()</td>
+</tr>
+<tr class="notice">
+<td>notice</td>
+<td>16</td>
+<td>Parameter $script could not be found in __construct()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="View/View.php" id="View/View.php"></a><h3>
+<i class="icon-file"></i>View/View.php<small style="float: right;padding-right: 10px;">21</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="critical">
+<td>critical</td>
+<td>2</td>
+<td>No short description for file View/View.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>11</td>
+<td>No short description for class \View</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>18</td>
+<td>No DocBlock was found for property $content</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>19</td>
+<td>No DocBlock was found for property $scripts</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>20</td>
+<td>No DocBlock was found for property $autenticato</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>21</td>
+<td>No DocBlock was found for property $user</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>22</td>
+<td>No DocBlock was found for property $sbloccato</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>23</td>
+<td>No DocBlock was found for property $confirmed</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>24</td>
+<td>No DocBlock was found for property $errore_loggato</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>25</td>
+<td>No DocBlock was found for property $errore_registrazione</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>26</td>
+<td>No DocBlock was found for property $superuser</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for property $pulsante_cerca</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>29</td>
+<td>No short description for method __construct()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>43</td>
+<td>No short description for method showUser()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>57</td>
+<td>No short description for method errorLogin()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>67</td>
+<td>No short description for method errorRegistrazione()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>77</td>
+<td>No short description for method regConfermata()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>88</td>
+<td>No short description for method isSuperuser()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>98</td>
+<td>No short description for method isAutenticato()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>111</td>
+<td>No short description for method blocca()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>122</td>
+<td>No short description for method mostraPagina()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="View/VEventiXML.php" id="View/VEventiXML.php"></a><h3>
+<i class="icon-file"></i>View/VEventiXML.php<small style="float: right;padding-right: 10px;">2</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="critical">
+<td>critical</td>
+<td>2</td>
+<td>No short description for file View/VEventiXML.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>12</td>
+<td>No short description for method __construct()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="View/VSuperuser.php" id="View/VSuperuser.php"></a><h3>
+<i class="icon-file"></i>View/VSuperuser.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="critical">
+<td>critical</td>
+<td>3</td>
+<td>No short description for file View/VSuperuser.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>14</td>
+<td>No DocBlock was found for property $scripts</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>15</td>
+<td>No DocBlock was found for property $content</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="View/VCerca.php" id="View/VCerca.php"></a><h3>
+<i class="icon-file"></i>View/VCerca.php<small style="float: right;padding-right: 10px;">8</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="critical">
+<td>critical</td>
+<td>2</td>
+<td>No short description for file View/VCerca.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>15</td>
+<td>No DocBlock was found for property $content</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>16</td>
+<td>No DocBlock was found for property $eventi</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>17</td>
+<td>No DocBlock was found for property $utente</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>18</td>
+<td>No DocBlock was found for property $scripts</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>20</td>
+<td>No short description for method __construct()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>20</td>
+<td>Name of argument $ut does not match with the DocBlock's name $ev_array in __construct()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>20</td>
+<td>Name of argument $ev_array does not match with the DocBlock's name $ut in __construct()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="View/VProfilo.php" id="View/VProfilo.php"></a><h3>
+<i class="icon-file"></i>View/VProfilo.php<small style="float: right;padding-right: 10px;">4</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="critical">
+<td>critical</td>
+<td>2</td>
+<td>No short description for file View/VProfilo.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>13</td>
+<td>No DocBlock was found for property $scripts</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>14</td>
+<td>No DocBlock was found for property $content</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>16</td>
+<td>No short description for method __construct()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="View/VCrea.php" id="View/VCrea.php"></a><h3>
+<i class="icon-file"></i>View/VCrea.php<small style="float: right;padding-right: 10px;">4</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="critical">
+<td>critical</td>
+<td>2</td>
+<td>No short description for file View/VCrea.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>15</td>
+<td>No DocBlock was found for property $scripts</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>16</td>
+<td>No DocBlock was found for property $content</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>18</td>
+<td>No short description for method __construct()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="View/VEvento.php" id="View/VEvento.php"></a><h3>
+<i class="icon-file"></i>View/VEvento.php<small style="float: right;padding-right: 10px;">4</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="critical">
+<td>critical</td>
+<td>2</td>
+<td>No short description for file View/VEvento.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>14</td>
+<td>No DocBlock was found for property $content</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>15</td>
+<td>No DocBlock was found for property $scripts</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>17</td>
+<td>No short description for method __construct()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="installer.class.php" id="installer.class.php"></a><h3>
+<i class="icon-file"></i>installer.class.php<small style="float: right;padding-right: 10px;">7</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="critical">
+<td>critical</td>
+<td>2</td>
+<td>No short description for file installer.class.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>10</td>
+<td>No DocBlock was found for property $step</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>11</td>
+<td>No DocBlock was found for property $sql</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>13</td>
+<td>No DocBlock was found for method __construct()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>120</td>
+<td>No DocBlock was found for method getDBInfo()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>133</td>
+<td>No DocBlock was found for method getAdminInfo()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>148</td>
+<td>No DocBlock was found for method importa_sql()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="exception/dbException.php" id="exception/dbException.php"></a><h3>
+<i class="icon-file"></i>exception/dbException.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="critical">
+<td>critical</td>
+<td>2</td>
+<td>No short description for file exception/dbException.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Entity/EUtente.php" id="Entity/EUtente.php"></a><h3>
+<i class="icon-file"></i>Entity/EUtente.php<small style="float: right;padding-right: 10px;">45</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="critical">
+<td>critical</td>
+<td>2</td>
+<td>No short description for file Entity/EUtente.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>15</td>
+<td>No DocBlock was found for property $id_utente</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>16</td>
+<td>No DocBlock was found for property $username</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>17</td>
+<td>No DocBlock was found for property $password</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>18</td>
+<td>No DocBlock was found for property $nome</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>19</td>
+<td>No DocBlock was found for property $cognome</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>20</td>
+<td>No DocBlock was found for property $email</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>21</td>
+<td>No DocBlock was found for property $citta</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>22</td>
+<td>No DocBlock was found for property $confirmed</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>23</td>
+<td>No DocBlock was found for property $date</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>24</td>
+<td>No DocBlock was found for property $num_eventi</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>25</td>
+<td>No DocBlock was found for property $sbloccato</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>26</td>
+<td>No DocBlock was found for property $admin</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for property $superuser</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>29</td>
+<td>No short description for method getId()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>37</td>
+<td>No short description for method getUsername()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>45</td>
+<td>No short description for method setUsername()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>53</td>
+<td>No short description for method getPassword()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>61</td>
+<td>No short description for method administrate()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>69</td>
+<td>No short description for method setSuperuser()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>77</td>
+<td>No short description for method setPassword()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>89</td>
+<td>No short description for method getNome()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>97</td>
+<td>No short description for method setNome()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>105</td>
+<td>No short description for method getCognome()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>113</td>
+<td>No short description for method setCognome()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>121</td>
+<td>No short description for method getEmail()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>129</td>
+<td>No short description for method getNumEventi()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>138</td>
+<td>No short description for method sblocca()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>148</td>
+<td>No short description for method blocca()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>163</td>
+<td>No short description for method setEmail()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>183</td>
+<td>No short description for method getCitta()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>192</td>
+<td>No short description for method setCitta()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>200</td>
+<td>No short description for method isConfirmed()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>211</td>
+<td>No short description for method setConfirmed()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>222</td>
+<td>No short description for method getDate()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>239</td>
+<td>No short description for method incrementaNumEventi()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>260</td>
+<td>No short description for method isSbloccato()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>269</td>
+<td>No short description for method isAdmin()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>277</td>
+<td>No short description for method isSuperuser()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>285</td>
+<td>No short description for method addPreferiti()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>299</td>
+<td>No short description for method addConsigliati()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>313</td>
+<td>No short description for method removePreferiti()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>326</td>
+<td>No short description for method removeConsigliati()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>340</td>
+<td>No short description for method setNumEventi()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>367</td>
+<td>No short description for method getEventi()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Entity/EMessaggio.php" id="Entity/EMessaggio.php"></a><h3>
+<i class="icon-file"></i>Entity/EMessaggio.php<small style="float: right;padding-right: 10px;">15</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="critical">
+<td>critical</td>
+<td>2</td>
+<td>No short description for file Entity/EMessaggio.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>13</td>
+<td>No DocBlock was found for property $id_mess</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>14</td>
+<td>No DocBlock was found for property $testo</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>15</td>
+<td>No DocBlock was found for property $data</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>16</td>
+<td>No DocBlock was found for property $evento</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>17</td>
+<td>No DocBlock was found for property $utente</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>19</td>
+<td>No short description for method getId()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No short description for method getData()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>35</td>
+<td>No short description for method getTesto()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>43</td>
+<td>No short description for method getEvento()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>51</td>
+<td>No short description for method getUtente()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>59</td>
+<td>No short description for method setData()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>67</td>
+<td>No short description for method setTesto()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>75</td>
+<td>No short description for method setEvento()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>83</td>
+<td>No short description for method setUtente()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Entity/EEvento.php" id="Entity/EEvento.php"></a><h3>
+<i class="icon-file"></i>Entity/EEvento.php<small style="float: right;padding-right: 10px;">31</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="critical">
+<td>critical</td>
+<td>2</td>
+<td>No short description for file Entity/EEvento.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>12</td>
+<td>No DocBlock was found for property $id_evento</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>13</td>
+<td>No DocBlock was found for property $nome</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>14</td>
+<td>No DocBlock was found for property $descrizione</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>15</td>
+<td>No DocBlock was found for property $data</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>16</td>
+<td>No DocBlock was found for property $n_visite</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>17</td>
+<td>No DocBlock was found for property $n_iscritti</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>18</td>
+<td>No DocBlock was found for property $annuncio</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>20</td>
+<td>No DocBlock was found for property $lat</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>21</td>
+<td>No DocBlock was found for property $lon</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>22</td>
+<td>No DocBlock was found for property $id_gestore</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>24</td>
+<td>No short description for method getIdEvento()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>33</td>
+<td>No short description for method setIdEvento()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>42</td>
+<td>No short description for method getNome()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>50</td>
+<td>No short description for method setNome()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>58</td>
+<td>No short description for method getDescrizione()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>66</td>
+<td>No short description for method setDescrizione()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>74</td>
+<td>No short description for method getData()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>82</td>
+<td>No short description for method setAnnuncio()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>90</td>
+<td>No short description for method getAnnuncio()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>98</td>
+<td>No short description for method setData()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>106</td>
+<td>No short description for method getNVisite()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>114</td>
+<td>No short description for method setNVisite()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>122</td>
+<td>No short description for method getNIscritti()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>130</td>
+<td>No short description for method setNIscritti()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>138</td>
+<td>No short description for method getGestore()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>146</td>
+<td>No short description for method setGestore()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>163</td>
+<td>No short description for method getLat()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>171</td>
+<td>No short description for method setLat()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>179</td>
+<td>No short description for method getLon()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>187</td>
+<td>No short description for method setLon()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Foundation/FDb.php" id="Foundation/FDb.php"></a><h3>
+<i class="icon-file"></i>Foundation/FDb.php<small style="float: right;padding-right: 10px;">4</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="critical">
+<td>critical</td>
+<td>2</td>
+<td>No short description for file Foundation/FDb.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>15</td>
+<td>No DocBlock was found for method connect()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>16</td>
+<td>No DocBlock was found for method makeQuery()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>17</td>
+<td>No DocBlock was found for method close()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Foundation/FEvento.php" id="Foundation/FEvento.php"></a><h3>
+<i class="icon-file"></i>Foundation/FEvento.php<small style="float: right;padding-right: 10px;">18</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="critical">
+<td>critical</td>
+<td>2</td>
+<td>No short description for file Foundation/FEvento.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>16</td>
+<td>No short description for method __construct()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>26</td>
+<td>No short description for method searchEventiMappa()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>49</td>
+<td>No short description for method searchEventiNome()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>49</td>
+<td>Argument $nome is missing from the Docblock of searchEventiNome()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>49</td>
+<td>Argument $fulltext is missing from the Docblock of searchEventiNome()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>66</td>
+<td>No short description for method getEventiPreferiti()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>89</td>
+<td>No short description for method storePreferiti()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>105</td>
+<td>No short description for method removePreferiti()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>122</td>
+<td>No short description for method storeConsigliati()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>140</td>
+<td>No short description for method removeConsigliati()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>155</td>
+<td>No short description for method getEventiConsigliati()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>184</td>
+<td>No short description for method getAllConsigliati()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>208</td>
+<td>No short description for method userEventCounter()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>228</td>
+<td>No short description for method bloccaUtente()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>242</td>
+<td>No short description for method getUserEventi()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>262</td>
+<td>No short description for method guestCounter()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>282</td>
+<td>No short description for method cleanExpiredEvent()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Foundation/FMessaggio.php" id="Foundation/FMessaggio.php"></a><h3>
+<i class="icon-file"></i>Foundation/FMessaggio.php<small style="float: right;padding-right: 10px;">4</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="critical">
+<td>critical</td>
+<td>2</td>
+<td>No short description for file Foundation/FMessaggio.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>16</td>
+<td>No short description for method __construct()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>26</td>
+<td>No short description for method loadMessages()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>46</td>
+<td>No short description for method storeMessaggio()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Foundation/FUtente.php" id="Foundation/FUtente.php"></a><h3>
+<i class="icon-file"></i>Foundation/FUtente.php<small style="float: right;padding-right: 10px;">5</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="critical">
+<td>critical</td>
+<td>2</td>
+<td>No short description for file Foundation/FUtente.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>14</td>
+<td>No short description for method __construct()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>24</td>
+<td>No short description for method storeUtente()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>46</td>
+<td>No short description for method cleanExpired()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>58</td>
+<td>No short description for method userConfirmation()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Foundation/FLocale.php" id="Foundation/FLocale.php"></a><h3>
+<i class="icon-file"></i>Foundation/FLocale.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="critical">
+<td>critical</td>
+<td>3</td>
+<td>No short description for file Foundation/FLocale.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>16</td>
+<td>No DocBlock was found for \Flocale</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>18</td>
+<td>No DocBlock was found for method __construct()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Foundation/Utility/USession.php" id="Foundation/Utility/USession.php"></a><h3>
+<i class="icon-file"></i>Foundation/Utility/USession.php<small style="float: right;padding-right: 10px;">5</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="critical">
+<td>critical</td>
+<td>2</td>
+<td>No short description for file Foundation/Utility/USession.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>12</td>
+<td>No DocBlock was found for method __construct()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>16</td>
+<td>No DocBlock was found for method imposta_valore()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>19</td>
+<td>No DocBlock was found for method cancella_valore()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>22</td>
+<td>No DocBlock was found for method leggi_valore()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Foundation/FMysql.php" id="Foundation/FMysql.php"></a><h3>
+<i class="icon-file"></i>Foundation/FMysql.php<small style="float: right;padding-right: 10px;">21</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="critical">
+<td>critical</td>
+<td>2</td>
+<td>No short description for file Foundation/FMysql.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>18</td>
+<td>No DocBlock was found for property $up</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>19</td>
+<td>No DocBlock was found for property $_connection</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>20</td>
+<td>No DocBlock was found for property $_query</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>21</td>
+<td>No DocBlock was found for property $_table</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>22</td>
+<td>No DocBlock was found for property $_key</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>23</td>
+<td>No DocBlock was found for property $_class</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>24</td>
+<td>No DocBlock was found for property $_is_an_autoincrement_key</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>26</td>
+<td>No short description for method __construct()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>33</td>
+<td>No short description for method connect()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>73</td>
+<td>No short description for method makeQuery()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>101</td>
+<td>No short description for method getResult()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>122</td>
+<td>No short description for method getObject()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>145</td>
+<td>No short description for method getObjectArray()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>169</td>
+<td>No short description for method store()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>205</td>
+<td>No short description for method load()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>227</td>
+<td>No short description for method delete()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>247</td>
+<td>No short description for method update()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>275</td>
+<td>No short description for method search()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>307</td>
+<td>No short description for method close()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>334</td>
+<td>No short description for function \utf8_encode_array()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Controller/CCrea.php" id="Controller/CCrea.php"></a><h3>
+<i class="icon-file"></i>Controller/CCrea.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="critical">
+<td>critical</td>
+<td>3</td>
+<td>No short description for file Controller/CCrea.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>18</td>
+<td>No DocBlock was found for property $utente</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>20</td>
+<td>No short description for method __construct()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Controller/CListaEventi.php" id="Controller/CListaEventi.php"></a><h3>
+<i class="icon-file"></i>Controller/CListaEventi.php<small style="float: right;padding-right: 10px;">6</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="critical">
+<td>critical</td>
+<td>2</td>
+<td>No short description for file Controller/CListaEventi.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>22</td>
+<td>No DocBlock was found for property $utente</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>24</td>
+<td>No short description for method __construct()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>119</td>
+<td>No short description for method getPreferiti()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>137</td>
+<td>No short description for method getConsigliati()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>155</td>
+<td>No short description for method getPersonali()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Controller/CConferma.php" id="Controller/CConferma.php"></a><h3>
+<i class="icon-file"></i>Controller/CConferma.php<small style="float: right;padding-right: 10px;">4</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="critical">
+<td>critical</td>
+<td>2</td>
+<td>No short description for file Controller/CConferma.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>19</td>
+<td>No DocBlock was found for property $utente</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>21</td>
+<td>No short description for method __construct()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>95</td>
+<td>No short description for method confermaReg()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Controller/CCerca.php" id="Controller/CCerca.php"></a><h3>
+<i class="icon-file"></i>Controller/CCerca.php<small style="float: right;padding-right: 10px;">4</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="critical">
+<td>critical</td>
+<td>2</td>
+<td>No short description for file Controller/CCerca.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>21</td>
+<td>No DocBlock was found for property $utente</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>22</td>
+<td>No DocBlock was found for property $view</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>24</td>
+<td>No DocBlock was found for method __construct()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Controller/CProfilo.php" id="Controller/CProfilo.php"></a><h3>
+<i class="icon-file"></i>Controller/CProfilo.php<small style="float: right;padding-right: 10px;">9</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="critical">
+<td>critical</td>
+<td>2</td>
+<td>No short description for file Controller/CProfilo.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>21</td>
+<td>No DocBlock was found for property $utente</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>22</td>
+<td>No DocBlock was found for property $utenteDaVis</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>23</td>
+<td>No DocBlock was found for property $action</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>25</td>
+<td>No short description for method __construct()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>137</td>
+<td>No short description for method updateUtente()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>190</td>
+<td>No short description for method deleteUtente()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>211</td>
+<td>No short description for method addSuperuser()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>248</td>
+<td>No short description for method addAdmin()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Controller/CHome.php" id="Controller/CHome.php"></a><h3>
+<i class="icon-file"></i>Controller/CHome.php<small style="float: right;padding-right: 10px;">6</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="critical">
+<td>critical</td>
+<td>2</td>
+<td>No short description for file Controller/CHome.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>23</td>
+<td>No DocBlock was found for property $utente</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>25</td>
+<td>No short description for method __construct()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>237</td>
+<td>No short description for method getUtente()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>254</td>
+<td>No short description for method getEventiMappa()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>276</td>
+<td>No short description for method getEventiConsigliatiMappa()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Controller/CBacheca.php" id="Controller/CBacheca.php"></a><h3>
+<i class="icon-file"></i>Controller/CBacheca.php<small style="float: right;padding-right: 10px;">12</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="critical">
+<td>critical</td>
+<td>2</td>
+<td>No short description for file Controller/CBacheca.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>23</td>
+<td>No DocBlock was found for property $utente</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>24</td>
+<td>No DocBlock was found for property $evento</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>25</td>
+<td>No DocBlock was found for property $message</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>26</td>
+<td>No DocBlock was found for property $numPartecipanti</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>28</td>
+<td>No short description for method __construct()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>131</td>
+<td>No short description for method getMessages()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>160</td>
+<td>No short description for method insertMessage()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>160</td>
+<td>Argument $mess is missing from the Docblock of insertMessage()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>189</td>
+<td>No short description for method insertAnnuncio()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>217</td>
+<td>No short description for method deleteMessage()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>250</td>
+<td>No short description for method eliminaEvento()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Controller/CEvento.php" id="Controller/CEvento.php"></a><h3>
+<i class="icon-file"></i>Controller/CEvento.php<small style="float: right;padding-right: 10px;">4</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="critical">
+<td>critical</td>
+<td>2</td>
+<td>No short description for file Controller/CEvento.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>19</td>
+<td>No DocBlock was found for property $evento</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>20</td>
+<td>No DocBlock was found for property $utente</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>22</td>
+<td>No short description for method __construct()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Controller/CSuperuser.php" id="Controller/CSuperuser.php"></a><h3>
+<i class="icon-file"></i>Controller/CSuperuser.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="critical">
+<td>critical</td>
+<td>2</td>
+<td>No short description for file Controller/CSuperuser.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>20</td>
+<td>No DocBlock was found for property $utente</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>22</td>
+<td>No short description for method __construct()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Controller/CRegistrazione.php" id="Controller/CRegistrazione.php"></a><h3>
+<i class="icon-file"></i>Controller/CRegistrazione.php<small style="float: right;padding-right: 10px;">18</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="critical">
+<td>critical</td>
+<td>2</td>
+<td>No short description for file Controller/CRegistrazione.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>12</td>
+<td>No DocBlock was found for property $username</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>13</td>
+<td>No DocBlock was found for property $password</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>14</td>
+<td>No DocBlock was found for property $citta</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>15</td>
+<td>No DocBlock was found for property $mail</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>16</td>
+<td>No DocBlock was found for property $nome</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>17</td>
+<td>No DocBlock was found for property $cognome</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>18</td>
+<td>No DocBlock was found for property $autenticato</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>19</td>
+<td>No DocBlock was found for property $errore</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>21</td>
+<td>No short description for method __construct()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>21</td>
+<td>Argument $uid is missing from the Docblock of __construct()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>40</td>
+<td>No short description for method logIn()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>72</td>
+<td>No short description for method initSession()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>83</td>
+<td>No short description for method isLogged()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>94</td>
+<td>No short description for method regUtente()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>126</td>
+<td>No short description for method getUniqueId()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>142</td>
+<td>No short description for method sendConfirmationMail()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>163</td>
+<td>No short description for method updateProfilo()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a9</a> and<br>
+            generated on 2012-09-06T15:19:57+02:00.<br></footer></div>
+</div>
+</body>
+</html>

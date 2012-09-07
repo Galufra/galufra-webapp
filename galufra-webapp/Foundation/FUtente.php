@@ -1,10 +1,9 @@
 <?php
+
 /**
  * @package Galufra
  */
-
 require_once('FMysql.php');
-
 
 /**
  * Foundation per la gestione di un utente sul db
@@ -36,8 +35,8 @@ class FUtente extends FMysql {
         $u = new EUtente();
         $u = $user;
         $query =
-           "INSERT INTO " . $this->_table . " (username,password,email,citta,date,confirm_id, confirmed)
-            VALUES ('" . $u->getUsername() . "','" . $u->getPassword() . "','" . $u->getEmail() . "','" . $u->getCitta() . "','" . time() . "','" . $uid . "', ". $u->isConfirmed().")";
+                "INSERT INTO " . $this->_table . " (username,password,email,citta,date,confirm_id, confirmed)
+            VALUES ('" . $u->getUsername() . "','" . $u->getPassword() . "','" . $u->getEmail() . "','" . $u->getCitta() . "','" . time() . "','" . $uid . "', " . $u->isConfirmed() . ")";
         $this->connect();
         $result = $this->makeQuery($query);
         return $result;
@@ -54,7 +53,6 @@ class FUtente extends FMysql {
         $this->makeQuery($query);
     }
 
-
     /**
      * @access public
      *
@@ -65,7 +63,7 @@ class FUtente extends FMysql {
      *
      */
     public function userConfirmation($uid) {
-        $this->connect();
+
         $query = "UPDATE $this->_table SET confirmed = 1 WHERE confirm_id = '" . $uid . "'";
 
         $result = $this->makeQuery($query);
@@ -73,6 +71,24 @@ class FUtente extends FMysql {
             return array(true, "Utente confermato");
         else
             return array(false, "Utente non confermato");
+    }
+
+    /**
+     * Indica se un dato username è gia utilizzato oppure no.
+     * @access public
+     * @param String $user
+     * @return Boolean
+     */
+    public function isUnique($user) {
+        $query = "SELECT COUNT(*) FROM $this->_table WHERE username = '" . $user . "'";
+        $result = $this->makeQuery($query);
+        if ($result[0]) {
+            $result = $this->getResult();
+            if ($result[1]["COUNT(*)"] == 0)
+                return true;
+        }
+
+        return false;
     }
 
 }

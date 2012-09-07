@@ -1,9 +1,8 @@
 <?php
+
 /**
  * @package Galufra
  */
-
-
 require_once '../Foundation/FUtente.php';
 require_once('../Foundation/FEvento.php');
 require_once('../Foundation/Utility/USession.php');
@@ -12,8 +11,7 @@ require_once('../Entity/EEvento.php');
 require_once '../View/VHome.php';
 require_once 'CRegistrazione.php';
 
-
-/** 
+/**
  * Controller della home page. Gestisce tutte le funzionalità più
  * importanti dell'applicazione
  *
@@ -47,7 +45,7 @@ class CHome {
             if ($this->utente)
                 $this->utente->setNumEventi($this->utente->isAdmin(), $this->utente->isSuperuser());
         }
-        
+
         $view = new VHome();
 
 
@@ -167,6 +165,10 @@ class CHome {
                 $this->recuperaPwd();
                 break;
 
+            case('uniqueUname'):
+                $this->isUniqueUname();
+                break;
+
             case('reg'):
                 //Gestisco la registrazione
                 if (!$this->utente
@@ -176,17 +178,23 @@ class CHome {
                         && (isset($_POST["mail"]) && $_POST["mail"] != null)) {
 
                     $uname = mysql_real_escape_string(htmlspecialchars($_POST['username']));
-                    $pwd = mysql_real_escape_string(htmlspecialchars($_POST['password']));
-                    $pwd1 = mysql_real_escape_string(htmlspecialchars($_POST['password1']));
-                    $citta = mysql_real_escape_string(htmlspecialchars($_POST['citta']));
-                    $mail = mysql_real_escape_string(htmlspecialchars($_POST['mail']));
-                    if ($pwd == $pwd1) {
-                        $registra = new CRegistrazione($uname, $pwd, $citta, $mail);
-                        session_destroy();
-                        $result = $registra->regUtente();
-                        if ($result[0]) {
-                            $this->utente = $result[1];
-                            //$this->utente->setNumEventi();
+                    //è unico l'username?
+                    if ($u->isUnique($uname)) {
+
+
+                        $pwd = mysql_real_escape_string(htmlspecialchars($_POST['password']));
+                        $pwd1 = mysql_real_escape_string(htmlspecialchars($_POST['password1']));
+                        $citta = mysql_real_escape_string(htmlspecialchars($_POST['citta']));
+                        $mail = mysql_real_escape_string(htmlspecialchars($_POST['mail']));
+                        if ($pwd == $pwd1) {
+                            $registra = new CRegistrazione($uname, $pwd, $citta, $mail);
+                            session_destroy();
+                            $result = $registra->regUtente();
+                            if ($result[0]) {
+                                $this->utente = $result[1];
+                                //$this->utente->setNumEventi();
+
+                            }
                         }
                     }
                 }
@@ -264,7 +272,6 @@ class CHome {
      * @param int $swLon
      *
      */
-
     public function getEventiMappa($neLat, $neLon, $swLat, $swLon) {
         $ev = new FEvento();
         $ev->connect();
@@ -286,7 +293,6 @@ class CHome {
      *
      *
      */
-
     public function getEventiConsigliatiMappa($neLat, $neLon, $swLat, $swLon) {
         $ev = new FEvento();
         $ev->connect();
@@ -300,13 +306,12 @@ class CHome {
     }
 
     /**
-     *Crea un JSON contenente gli eventi restituiti da
+     * Crea un JSON contenente gli eventi restituiti da
      * FEvento::getAllConsigliati() utilizzando le coordinate della mappa.
      *
      * @access public
      *
      */
-
     public function getMaxConsigliati() {
 
         $ev = new FEvento();
@@ -330,7 +335,6 @@ class CHome {
      *
      * 
      */
-
     public function getEventiPreferiti($fornisciTutti=false) {
         $ev = new FEvento();
         $ev->connect();
@@ -344,14 +348,13 @@ class CHome {
     }
 
     /**
-     *Crea un JSON contenente gli eventi personali dell'utente
+     * Crea un JSON contenente gli eventi personali dell'utente
      *
      * @access public
      * @param EEvento $eventi
      *
      *
      */
-
     public function inviaEventiPersonali($eventi) {
 
         $out = array(
@@ -370,7 +373,6 @@ class CHome {
      *
      *
      */
-
     public function recuperaPwd() {
         $status = false;
         if (!$this->utente && (isset($_GET['username']) && $_GET['username'] != null)) {
@@ -383,7 +385,7 @@ class CHome {
                 /* $status = mail($user->getEmail(), "Recupero password Galufra",
                   "Ciao ".$user->getUsername()."!!. La tua nuova password è $pwd .
                   Fai di nuovo il login e cambiala secondo le tue preferenze!","From: galufra@galufra.com");
-                if($status)
+                  if($status)
                   $u->update($user); */
                 $status = true;
             }
@@ -395,8 +397,27 @@ class CHome {
         exit;
     }
 
-}
+    /**
+     * Controlla se l'username è unico. Utilizzato lato client per controlli via javascript
+     * Utilizza il metodo FUtente::isUnique($user)
+     * 
+     * @access public
+     */
+    public function isUniqueUname() {
+        $result = true;
+        if (isset($_GET['uname']) && $_GET['uname'] != null) {
+            $u = new FUtente();
+            $u->connect();
+            $result = $u->isUnique(mysql_real_escape_string($_GET['uname']));
+        }
+        $out = array(
+            'unique' => "$result"
+        );
+        echo json_encode($out);
+        exit;
+    }
 
+}
 
 $home = new CHome();
 ?>

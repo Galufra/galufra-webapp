@@ -143,12 +143,72 @@ $(document).ready(function(){
         return true;
     });
 
+
+    //controllo se l'username è unico
+    $('#user').focusout(function(){
+
+        $.get("CHome.php",{
+
+            'action' : "uniqueUname",
+            'uname' : $('#user').val()
+
+        }).done(function(data){
+
+            var response = jQuery.parseJSON(data);
+            if(!response.unique){
+
+                showMessage("Username già in uso");
+                $('#user').css("color","red");
+                usernameValidate = false;
+
+            }else{
+                $('#user').css("color","black");
+                usernameValidate = true;
+            }
+
+
+        });
+
+        return true;
+    });
+
+    //riporto il colore del testo del campo username a nero
+    $('#user').focus(function(){
+        $('#user').css("color","black");
+        return true;
+    });
+
+    
+
+    //controllo se l'email è valida
+    $('#email').focusout(function(){
+        var reg = /^[\w\.\-]+@([\w\-]+\.)+[a-zA-Z]/;
+        var email = $('#email').val();
+        if( (email == '') || (reg.test(email)==false)){
+
+            showMessage("Email Non valida");
+            $('#email').css("color","red");
+            emailValidate = false;
+
+        }else{
+
+            emailValidate = true
+        }
+
+        return true;
+    });
+
+    //riporto il colore del testo del campo email a nero
+    $('#email').focus(function(){
+        $('#email').css("color","black");
+        return true
+    });
+
     //Viene fatto il controllo della registrazione
     //utilizzando delle espressioni regolari per validare
     //i campi. Se c'è qualcosa che non va la richiesta di registrazione
     //viene bloccata
     $("#regbutton").click(function(data){
-        var reg2= /^[\w\.\-]+@([\w\-]+\.)+[a-zA-Z]/;
         var reg1=/\w/;
         var user = $('#user').val();
         var pass = $('#password').val();
@@ -160,7 +220,8 @@ $(document).ready(function(){
             ((pass == '') || (reg1.test(pass)==false)) ||
             ((pass1 == '') || (reg1.test(pass1)==false))||
             ((citta == '') || (reg1.test(citta)==false))||
-            ((email == '') || (reg2.test(email)==false)) )
+            (emailValidate == false) ||
+            (usernameValidate == false) )
             {
 
 
@@ -209,9 +270,9 @@ $(document).ready(function(){
     //si allaccia al bottone "cerca" non appena si preme invio
     $("#cercaInputBox").keypress(function (event){
 
-       if(event.which == 13){
-           $('#cerca').trigger('click');
-       }
+        if(event.which == 13){
+            $('#cerca').trigger('click');
+        }
 
     });
 
@@ -235,9 +296,9 @@ $(document).ready(function(){
 
                 if(status == 'OK'){
                     
-                        google.maps.event.trigger(map, 'resize');
-                        coord = results[0].geometry.location;
-                        map.setCenter(coord);
+                    google.maps.event.trigger(map, 'resize');
+                    coord = results[0].geometry.location;
+                    map.setCenter(coord);
                                            
                 }
                 else {
@@ -254,7 +315,7 @@ $(document).ready(function(){
      * Visualizza sulla mappa gli eventi contenuti in
      * bounds (oggetto LatLngBounds di Google Maps)
      */
-     function getEventiMappa(){
+    function getEventiMappa(){
         
         bounds = map.getBounds();
         $.get("CHome.php",
@@ -285,54 +346,54 @@ $(document).ready(function(){
              */
             var response = jQuery.parseJSON(data);
             if(response){
-            $.each(response, function(i){
-                var pos = new google.maps.LatLng(
-                    parseFloat(response[i].lat),
-                    parseFloat(response[i].lon)
-                    );
-                var marker = new google.maps.Marker({
-                    'position':pos,
-                    'map':map
+                $.each(response, function(i){
+                    var pos = new google.maps.LatLng(
+                        parseFloat(response[i].lat),
+                        parseFloat(response[i].lon)
+                        );
+                    var marker = new google.maps.Marker({
+                        'position':pos,
+                        'map':map
+                    });
+                    //Settiamo i parametri del marker
+                    marker.id = parseInt(response[i].id_evento);
+                    marker.title = response[i].nome;
+                    marker.descrizione = response[i].descrizione;
+                    marker.data = response[i].data;
+                    //se sono loggato richiamo la funzione checkPreferito
+                    if(logged)
+                        marker.preferito = checkPreferito(marker.id);
+                    //assegno una info
+                    marker.infoHTML = infoHTML;
+                    //inserisco in mappa
+                    markers.push(marker);
                 });
-                //Settiamo i parametri del marker
-                marker.id = parseInt(response[i].id_evento);
-                marker.title = response[i].nome;
-                marker.descrizione = response[i].descrizione;
-                marker.data = response[i].data;
-                //se sono loggato richiamo la funzione checkPreferito
-                if(logged)
-                    marker.preferito = checkPreferito(marker.id);
-                //assegno una info
-                marker.infoHTML = infoHTML;
-                //inserisco in mappa
-                markers.push(marker);
-            });
 
 
-            if (markers)
-                for(i=0; i<markers.length; ++i){
-                    var marker = markers[i];
-                    google.maps.event.addListener(marker, 'click', function(){
-                        google.maps.event.clearListeners(map, 'idle');
-                        google.maps.event.addListener(map, 'idle', mapWait);
-                        /*
+                if (markers)
+                    for(i=0; i<markers.length; ++i){
+                        var marker = markers[i];
+                        google.maps.event.addListener(marker, 'click', function(){
+                            google.maps.event.clearListeners(map, 'idle');
+                            google.maps.event.addListener(map, 'idle', mapWait);
+                            /*
                          * Se la infowindow era chiusa o era posizionata
                          * su un altro marker, la posizioniamo su this
                          * e carichiamo le informazioni relative.
                          */
-                        if (infowindow.marker != this.id){
-                            infowindow.marker = this.id;
-                            infowindow.setContent(this.infoHTML());
-                            infowindow.open(map, this);
-                        }
-                        /* Altrimenti chiudiamo la infowindow.
+                            if (infowindow.marker != this.id){
+                                infowindow.marker = this.id;
+                                infowindow.setContent(this.infoHTML());
+                                infowindow.open(map, this);
+                            }
+                            /* Altrimenti chiudiamo la infowindow.
                          */
-                        else {
-                            infowindow.close();
-                            infowindow.marker = null;
-                        }
-                    });
-                }
+                            else {
+                                infowindow.close();
+                                infowindow.marker = null;
+                            }
+                        });
+                    }
             }
         });
 

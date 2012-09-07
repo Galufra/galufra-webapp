@@ -27,7 +27,7 @@ class VProfilo extends View {
      * @param FILE $tpl
      * @param FILE $scripts
      */
-    public function __construct($utente = null,$utenteV=null,$reader = true,$tpl = 'profilo.tpl',$scripts = array ('anytime.c.js','CProfilo.js')) {
+    public function __construct($utente = null,$utenteV=null,$reader = true,$tpl = 'profilo.tpl',$scripts = array ('anytime.c.js','CProfilo.js','jquery.autocomplete.js')) {
         $this->content = $tpl;
         $this->scripts = $scripts;
         $this->assignByRef("utente", $utente);

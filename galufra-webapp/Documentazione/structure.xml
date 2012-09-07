@@ -416,7 +416,7 @@ la maggior parte di variabili smarty</p>]]></long-description>
       <error line="20" code="50014">Name of argument $ev_array does not match with the DocBlock's name $ut in __construct()</error>
     </parse_markers>
   </file>
-  <file path="View/VProfilo.php" hash="791348edc561629f7366de2513ab52ca" package="Galufra">
+  <file path="View/VProfilo.php" hash="595b26aa7b55b42405089ed37fc90421" package="Galufra">
     <docblock line="2">
       <description><![CDATA[]]></description>
       <long-description><![CDATA[]]></long-description>
@@ -530,69 +530,6 @@ la maggior parte di variabili smarty</p>]]></long-description>
       <error line="14" code="50018">No DocBlock was found for property $content</error>
       <error line="15" code="50018">No DocBlock was found for property $scripts</error>
       <error line="17" code="50012">No short description for method __construct()</error>
-    </parse_markers>
-  </file>
-  <file path="installer.class.php" hash="25e79cb81739befdd62233dc6d71e6af" package="Galufra">
-    <docblock line="2">
-      <description><![CDATA[]]></description>
-      <long-description><![CDATA[]]></long-description>
-      <tag line="2" name="package" description="Galufra"/>
-    </docblock>
-    <include line="77" type="Require Once" package="Default">
-      <name>includes/config.inc.php</name>
-    </include>
-    <include line="87" type="Require Once" package="Default">
-      <name>Foundation/FUtente.php</name>
-    </include>
-    <include line="88" type="Require Once" package="Default">
-      <name>Entity/EUtente.php</name>
-    </include>
-    <class final="false" abstract="false" namespace="global" line="9" package="Default">
-      <extends/>
-      <name>Installer</name>
-      <full_name>\Installer</full_name>
-      <docblock line="6">
-        <description><![CDATA[Classe che gestisce l'installazione dell'applicazione]]></description>
-        <long-description><![CDATA[]]></long-description>
-      </docblock>
-      <property final="false" static="false" visibility="private" line="10" namespace="global" package="Default">
-        <name>$step</name>
-        <default><![CDATA[0]]></default>
-      </property>
-      <property final="false" static="false" visibility="private" line="11" namespace="global" package="Default">
-        <name>$sql</name>
-        <default><![CDATA['galufra.sql']]></default>
-      </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="13" package="Default">
-        <name>__construct</name>
-        <full_name>__construct</full_name>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="120" package="Default">
-        <name>getDBInfo</name>
-        <full_name>getDBInfo</full_name>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="133" package="Default">
-        <name>getAdminInfo</name>
-        <full_name>getAdminInfo</full_name>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="148" package="Default">
-        <name>importa_sql</name>
-        <full_name>importa_sql</full_name>
-        <argument line="148">
-          <name>$sqlfile</name>
-          <default><![CDATA[]]></default>
-          <type/>
-        </argument>
-      </method>
-    </class>
-    <parse_markers>
-      <critical line="2" code="50008">No short description for file installer.class.php</critical>
-      <error line="10" code="50018">No DocBlock was found for property $step</error>
-      <error line="11" code="50018">No DocBlock was found for property $sql</error>
-      <error line="13" code="50010">No DocBlock was found for method __construct()</error>
-      <error line="120" code="50010">No DocBlock was found for method getDBInfo()</error>
-      <error line="133" code="50010">No DocBlock was found for method getAdminInfo()</error>
-      <error line="148" code="50010">No DocBlock was found for method importa_sql()</error>
     </parse_markers>
   </file>
   <file path="exception/dbException.php" hash="5e4e22027d94d9c7b45785bc901c6222" package="Galufra">
@@ -1628,39 +1565,80 @@ che si vuole utilizzare]]></description>
       <error line="46" code="50012">No short description for method storeMessaggio()</error>
     </parse_markers>
   </file>
-  <file path="Foundation/FUtente.php" hash="4fc608ed3b0215e3ef4b6746671a7931" package="Galufra">
-    <docblock line="2">
+  <file path="Foundation/FUtente.php" hash="24e74654981d40a70e67b5abc42fb5e8" package="Galufra">
+    <docblock line="3">
       <description><![CDATA[]]></description>
       <long-description><![CDATA[]]></long-description>
-      <tag line="2" name="package" description="Galufra"/>
+      <tag line="3" name="package" description="Galufra"/>
     </docblock>
     <include line="6" type="Require Once" package="Default">
       <name>FMysql.php</name>
     </include>
-    <class final="false" abstract="false" namespace="global" line="12" package="Default">
+    <class final="false" abstract="false" namespace="global" line="11" package="Default">
       <extends>\FMysql</extends>
       <name>FUtente</name>
       <full_name>\FUtente</full_name>
-      <docblock line="9">
+      <docblock line="8">
         <description><![CDATA[Foundation per la gestione di un utente sul db]]></description>
         <long-description><![CDATA[]]></long-description>
       </docblock>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="17" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="16" package="Default">
         <name>__construct</name>
         <full_name>__construct</full_name>
-        <docblock line="14">
+        <docblock line="13">
           <description><![CDATA[]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="14" name="access" description="public"/>
+          <tag line="13" name="access" description="public"/>
         </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="82" package="Default">
+        <name>isUnique</name>
+        <full_name>isUnique</full_name>
+        <docblock line="76">
+          <description><![CDATA[Indica se un dato username è gia utilizzato oppure no.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="76" name="access" description="public"/>
+          <tag line="76" name="param" description="" type="String" variable="$user">
+            <type by_reference="false">String</type>
+          </tag>
+          <tag line="76" name="return" description="" type="Boolean">
+            <type by_reference="false">Boolean</type>
+          </tag>
+        </docblock>
+        <argument line="82">
+          <name>$user</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="100" package="Default">
+        <name>searchUtentiNome</name>
+        <full_name>searchUtentiNome</full_name>
+        <docblock line="93">
+          <description><![CDATA[Restituisce gli utenti il cui nome inizia con $nome.]]></description>
+          <long-description><![CDATA[<p>Utilizzato per
+l'autocompletamento.</p>]]></long-description>
+          <tag line="93" name="access" description="public"/>
+          <tag line="93" name="param" description="" type="String" variable="$nome">
+            <type by_reference="false">String</type>
+          </tag>
+          <tag line="93" name="return" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="100">
+          <name>$nome</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
       </method>
     </class>
     <parse_markers>
-      <critical line="2" code="50008">No short description for file Foundation/FUtente.php</critical>
-      <error line="14" code="50012">No short description for method __construct()</error>
-      <error line="24" code="50012">No short description for method storeUtente()</error>
-      <error line="46" code="50012">No short description for method cleanExpired()</error>
-      <error line="58" code="50012">No short description for method userConfirmation()</error>
+      <critical line="3" code="50008">No short description for file Foundation/FUtente.php</critical>
+      <error line="13" code="50012">No short description for method __construct()</error>
+      <error line="23" code="50012">No short description for method storeUtente()</error>
+      <error line="45" code="50012">No short description for method cleanExpired()</error>
+      <error line="56" code="50012">No short description for method userConfirmation()</error>
     </parse_markers>
   </file>
   <file path="Foundation/FLocale.php" hash="bfbc27c6f4695d23e65d27d583c5bfed" package="Galufra">
@@ -2024,211 +2002,238 @@ l'interazione con il db]]></description>
       <error line="24" code="50010">No DocBlock was found for method __construct()</error>
     </parse_markers>
   </file>
-  <file path="Controller/CProfilo.php" hash="460879d5913c04ea06e33a18863e14f1" package="Galufra">
-    <docblock line="2">
+  <file path="Controller/CProfilo.php" hash="d7710a1201b03e5528dd4e6d22a55753" package="Galufra">
+    <docblock line="3">
       <description><![CDATA[]]></description>
       <long-description><![CDATA[]]></long-description>
-      <tag line="2" name="package" description="Galufra"/>
+      <tag line="3" name="package" description="Galufra"/>
     </docblock>
-    <include line="7" type="Require Once" package="Default">
+    <include line="6" type="Require Once" package="Default">
       <name>../View/VProfilo.php</name>
     </include>
-    <include line="8" type="Require Once" package="Default">
+    <include line="7" type="Require Once" package="Default">
       <name>../View/VHome.php</name>
     </include>
-    <include line="9" type="Require Once" package="Default">
+    <include line="8" type="Require Once" package="Default">
       <name>../Foundation/FUtente.php</name>
     </include>
-    <include line="10" type="Require Once" package="Default">
+    <include line="9" type="Require Once" package="Default">
       <name>../Foundation/FEvento.php</name>
     </include>
-    <include line="11" type="Require Once" package="Default">
+    <include line="10" type="Require Once" package="Default">
       <name>../Entity/EUtente.php</name>
     </include>
-    <include line="12" type="Require Once" package="Default">
+    <include line="11" type="Require Once" package="Default">
       <name>../Entity/EEvento.php</name>
     </include>
-    <include line="13" type="Require Once" package="Default">
+    <include line="12" type="Require Once" package="Default">
       <name>../Controller/CRegistrazione.php</name>
     </include>
-    <class final="false" abstract="false" namespace="global" line="19" package="Default">
+    <class final="false" abstract="false" namespace="global" line="17" package="Default">
       <extends/>
       <name>CProfilo</name>
       <full_name>\CProfilo</full_name>
-      <docblock line="16">
+      <docblock line="14">
         <description><![CDATA[Controller della pagina del profilo.]]></description>
         <long-description><![CDATA[]]></long-description>
+      </docblock>
+      <property final="false" static="false" visibility="private" line="19" namespace="global" package="Default">
+        <name>$utente</name>
+        <default><![CDATA[null]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="20" namespace="global" package="Default">
+        <name>$utenteDaVis</name>
+        <default><![CDATA[null]]></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="21" namespace="global" package="Default">
+        <name>$action</name>
+        <default><![CDATA[""]]></default>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="290" package="Default">
+        <name>suggest</name>
+        <full_name>suggest</full_name>
+        <docblock line="284">
+          <description><![CDATA[Restituisce un array di utenti il cui nome inizia con $query.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="284" name="access" description="public"/>
+          <tag line="284" name="param" description="" type="String" variable="$query">
+            <type by_reference="false">String</type>
+          </tag>
+        </docblock>
+        <argument line="290">
+          <name>$query</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <critical line="3" code="50008">No short description for file Controller/CProfilo.php</critical>
+      <error line="19" code="50018">No DocBlock was found for property $utente</error>
+      <error line="20" code="50018">No DocBlock was found for property $utenteDaVis</error>
+      <error line="21" code="50018">No DocBlock was found for property $action</error>
+      <error line="23" code="50012">No short description for method __construct()</error>
+      <error line="136" code="50012">No short description for method updateUtente()</error>
+      <error line="189" code="50012">No short description for method deleteUtente()</error>
+      <error line="210" code="50012">No short description for method addSuperuser()</error>
+      <error line="247" code="50012">No short description for method addAdmin()</error>
+    </parse_markers>
+  </file>
+  <file path="Controller/CHome.php" hash="10055ce8a60a148613723602d77fb44d" package="Galufra">
+    <docblock line="3">
+      <description><![CDATA[]]></description>
+      <long-description><![CDATA[]]></long-description>
+      <tag line="3" name="package" description="Galufra"/>
+    </docblock>
+    <include line="6" type="Require Once" package="Default">
+      <name>../Foundation/FUtente.php</name>
+    </include>
+    <include line="7" type="Require Once" package="Default">
+      <name>../Foundation/FEvento.php</name>
+    </include>
+    <include line="8" type="Require Once" package="Default">
+      <name>../Foundation/Utility/USession.php</name>
+    </include>
+    <include line="9" type="Require Once" package="Default">
+      <name>../Entity/EUtente.php</name>
+    </include>
+    <include line="10" type="Require Once" package="Default">
+      <name>../Entity/EEvento.php</name>
+    </include>
+    <include line="11" type="Require Once" package="Default">
+      <name>../View/VHome.php</name>
+    </include>
+    <include line="12" type="Require Once" package="Default">
+      <name>CRegistrazione.php</name>
+    </include>
+    <class final="false" abstract="false" namespace="global" line="19" package="Default">
+      <extends/>
+      <name>CHome</name>
+      <full_name>\CHome</full_name>
+      <docblock line="14">
+        <description><![CDATA[Controller della home page.]]></description>
+        <long-description><![CDATA[<p>Gestisce tutte le funzionalità più
+importanti dell'applicazione</p>]]></long-description>
       </docblock>
       <property final="false" static="false" visibility="private" line="21" namespace="global" package="Default">
         <name>$utente</name>
         <default><![CDATA[null]]></default>
       </property>
-      <property final="false" static="false" visibility="private" line="22" namespace="global" package="Default">
-        <name>$utenteDaVis</name>
-        <default><![CDATA[null]]></default>
-      </property>
-      <property final="false" static="false" visibility="private" line="23" namespace="global" package="Default">
-        <name>$action</name>
-        <default><![CDATA[""]]></default>
-      </property>
-    </class>
-    <parse_markers>
-      <critical line="2" code="50008">No short description for file Controller/CProfilo.php</critical>
-      <error line="21" code="50018">No DocBlock was found for property $utente</error>
-      <error line="22" code="50018">No DocBlock was found for property $utenteDaVis</error>
-      <error line="23" code="50018">No DocBlock was found for property $action</error>
-      <error line="25" code="50012">No short description for method __construct()</error>
-      <error line="137" code="50012">No short description for method updateUtente()</error>
-      <error line="190" code="50012">No short description for method deleteUtente()</error>
-      <error line="211" code="50012">No short description for method addSuperuser()</error>
-      <error line="248" code="50012">No short description for method addAdmin()</error>
-    </parse_markers>
-  </file>
-  <file path="Controller/CHome.php" hash="52149c3595a12dbb602d6ab2937a6855" package="Galufra">
-    <docblock line="2">
-      <description><![CDATA[]]></description>
-      <long-description><![CDATA[]]></long-description>
-      <tag line="2" name="package" description="Galufra"/>
-    </docblock>
-    <include line="7" type="Require Once" package="Default">
-      <name>../Foundation/FUtente.php</name>
-    </include>
-    <include line="8" type="Require Once" package="Default">
-      <name>../Foundation/FEvento.php</name>
-    </include>
-    <include line="9" type="Require Once" package="Default">
-      <name>../Foundation/Utility/USession.php</name>
-    </include>
-    <include line="10" type="Require Once" package="Default">
-      <name>../Entity/EUtente.php</name>
-    </include>
-    <include line="11" type="Require Once" package="Default">
-      <name>../Entity/EEvento.php</name>
-    </include>
-    <include line="12" type="Require Once" package="Default">
-      <name>../View/VHome.php</name>
-    </include>
-    <include line="13" type="Require Once" package="Default">
-      <name>CRegistrazione.php</name>
-    </include>
-    <class final="false" abstract="false" namespace="global" line="21" package="Default">
-      <extends/>
-      <name>CHome</name>
-      <full_name>\CHome</full_name>
-      <docblock line="16">
-        <description><![CDATA[Controller della home page.]]></description>
-        <long-description><![CDATA[<p>Gestisce tutte le funzionalità più
-importanti dell'applicazione</p>]]></long-description>
-      </docblock>
-      <property final="false" static="false" visibility="private" line="23" namespace="global" package="Default">
-        <name>$utente</name>
-        <default><![CDATA[null]]></default>
-      </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="290" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="296" package="Default">
         <name>getEventiConsigliatiMappa</name>
         <full_name>getEventiConsigliatiMappa</full_name>
-        <docblock line="276">
+        <docblock line="283">
           <description><![CDATA[]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="276" name="Crea" description="un JSON contenente gli eventi restituiti da&#10;FEvento::getEventiConsigliati() utilizzando le coordinate della mappa."/>
-          <tag line="276" name="access" description="public"/>
-          <tag line="276" name="param" description="" type="int" variable="$neLat">
+          <tag line="283" name="Crea" description="un JSON contenente gli eventi restituiti da&#10;FEvento::getEventiConsigliati() utilizzando le coordinate della mappa."/>
+          <tag line="283" name="access" description="public"/>
+          <tag line="283" name="param" description="" type="int" variable="$neLat">
             <type by_reference="false">int</type>
           </tag>
-          <tag line="276" name="param" description="" type="int" variable="$neLon">
+          <tag line="283" name="param" description="" type="int" variable="$neLon">
             <type by_reference="false">int</type>
           </tag>
-          <tag line="276" name="param" description="" type="int" variable="$swLat">
+          <tag line="283" name="param" description="" type="int" variable="$swLat">
             <type by_reference="false">int</type>
           </tag>
-          <tag line="276" name="param" description="" type="int" variable="$swLon">
+          <tag line="283" name="param" description="" type="int" variable="$swLon">
             <type by_reference="false">int</type>
           </tag>
         </docblock>
-        <argument line="290">
+        <argument line="296">
           <name>$neLat</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="290">
+        <argument line="296">
           <name>$neLon</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="290">
+        <argument line="296">
           <name>$swLat</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="290">
+        <argument line="296">
           <name>$swLon</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="310" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="315" package="Default">
         <name>getMaxConsigliati</name>
         <full_name>getMaxConsigliati</full_name>
-        <docblock line="302">
+        <docblock line="308">
           <description><![CDATA[Crea un JSON contenente gli eventi restituiti da
 FEvento::getAllConsigliati() utilizzando le coordinate della mappa.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="302" name="access" description="public"/>
+          <tag line="308" name="access" description="public"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="334" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="338" package="Default">
         <name>getEventiPreferiti</name>
         <full_name>getEventiPreferiti</full_name>
-        <docblock line="323">
+        <docblock line="328">
           <description><![CDATA[Crea un JSON contenente gli eventi restituiti da
 FEvento::getEventiPreferiti() utilizzando le coordinate della mappa]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="323" name="access" description="public"/>
-          <tag line="323" name="param" description="" type="Boolean" variable="$fornisciTutti">
+          <tag line="328" name="access" description="public"/>
+          <tag line="328" name="param" description="" type="Boolean" variable="$fornisciTutti">
             <type by_reference="false">Boolean</type>
           </tag>
         </docblock>
-        <argument line="334">
+        <argument line="338">
           <name>$fornisciTutti</name>
           <default><![CDATA[false]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="355" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="358" package="Default">
         <name>inviaEventiPersonali</name>
         <full_name>inviaEventiPersonali</full_name>
-        <docblock line="346">
+        <docblock line="350">
           <description><![CDATA[Crea un JSON contenente gli eventi personali dell'utente]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="346" name="access" description="public"/>
-          <tag line="346" name="param" description="" type="\EEvento" variable="$eventi">
+          <tag line="350" name="access" description="public"/>
+          <tag line="350" name="param" description="" type="\EEvento" variable="$eventi">
             <type by_reference="false">\EEvento</type>
           </tag>
         </docblock>
-        <argument line="355">
+        <argument line="358">
           <name>$eventi</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="374" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="376" package="Default">
         <name>recuperaPwd</name>
         <full_name>recuperaPwd</full_name>
-        <docblock line="365">
+        <docblock line="368">
           <description><![CDATA[invia una nuova password all'utente.]]></description>
           <long-description><![CDATA[<p>La funzione mail verrà
 decommentata una volta che facciamo il deploy dell'applicazione</p>]]></long-description>
-          <tag line="365" name="access" description="public"/>
+          <tag line="368" name="access" description="public"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="406" package="Default">
+        <name>isUniqueUname</name>
+        <full_name>isUniqueUname</full_name>
+        <docblock line="400">
+          <description><![CDATA[Controlla se l'username è unico.]]></description>
+          <long-description><![CDATA[<p>Utilizzato lato client per controlli via javascript
+Utilizza il metodo FUtente::isUnique($user)</p>]]></long-description>
+          <tag line="400" name="access" description="public"/>
         </docblock>
       </method>
     </class>
     <parse_markers>
-      <critical line="2" code="50008">No short description for file Controller/CHome.php</critical>
-      <error line="23" code="50018">No DocBlock was found for property $utente</error>
-      <error line="25" code="50012">No short description for method __construct()</error>
-      <error line="237" code="50012">No short description for method getUtente()</error>
-      <error line="254" code="50012">No short description for method getEventiMappa()</error>
-      <error line="276" code="50012">No short description for method getEventiConsigliatiMappa()</error>
+      <critical line="3" code="50008">No short description for file Controller/CHome.php</critical>
+      <error line="21" code="50018">No DocBlock was found for property $utente</error>
+      <error line="23" code="50012">No short description for method __construct()</error>
+      <error line="245" code="50012">No short description for method getUtente()</error>
+      <error line="262" code="50012">No short description for method getEventiMappa()</error>
+      <error line="283" code="50012">No short description for method getEventiConsigliatiMappa()</error>
     </parse_markers>
   </file>
   <file path="Controller/CBacheca.php" hash="13dbbeb61ce5ad05d5f31b94829c9c85" package="Galufra">

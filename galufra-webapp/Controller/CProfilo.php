@@ -1,9 +1,8 @@
 <?php
+
 /**
  * @package Galufra
  */
-
-
 require_once '../View/VProfilo.php';
 require_once '../View/VHome.php';
 require_once '../Foundation/FUtente.php';
@@ -11,7 +10,6 @@ require_once '../Foundation/FEvento.php';
 require_once '../Entity/EUtente.php';
 require_once '../Entity/EEvento.php';
 require_once '../Controller/CRegistrazione.php';
-
 
 /**
  * Controller della pagina del profilo.
@@ -43,15 +41,16 @@ class CProfilo {
             $this->utente = $u->load($_SESSION['username']);
             $this->utente->setNumEventi();
 
+            if (isset($_GET['action']) && $_GET['action'] == 'suggest') {
+                $this->suggest($_GET['query']);
+                exit;
+            }
             if ($name && $this->utente->getUsername() == $name) {
                 $this->action = "modifica_profilo";
-                
             } else if ($name && $this->utente->getUsername() != $name) {
                 $this->action = "visualizza_profilo";
-                
             } else if (!$name && $this->utente) {
                 $this->action = "modifica_profilo";
-                
             } else
                 $this->action = null;
 
@@ -145,7 +144,7 @@ class CProfilo {
 
         $pwd = '';
         $pwd1 = '';
-        if ((isset($_POST['password']) && $_POST['password']!=null) && (isset($_POST['password1']) && $_POST['password']!=null )) {
+        if ((isset($_POST['password']) && $_POST['password'] != null) && (isset($_POST['password1']) && $_POST['password'] != null )) {
             $pwd = $_POST['password'];
             $pwd1 = $_POST['password1'];
         }
@@ -282,9 +281,30 @@ class CProfilo {
         echo json_encode($out);
         exit;
     }
+    /**
+     * Restituisce un array di utenti il cui nome inizia con $query.
+     * @access public
+     * @param String $query
+     * 
+     */
+    public function suggest($query) {
+        if ($this->utente->isAdmin()) {
+            $suggestions = array();
+            $u = new FUtente();
+            $u->connect();
+            $user_array = $u->searchUtentiNome($query, false);
+            foreach ($user_array as $i)
+                $suggestions[] = $i->username;
+            echo json_encode(array(
+                'suggestions' => $suggestions,
+                'query' => $_GET['query']
+            ));
+        }
+        else
+            echo json_encode(array());
+    }
 
 }
-
 
 if (!isset($_GET["name"]))
     $_GET["name"] = "";

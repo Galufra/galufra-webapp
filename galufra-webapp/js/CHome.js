@@ -276,6 +276,7 @@ $(document).ready(function(){
 
     });
 
+
     //Centra la mappa nella posizione desiderata.
     $("#cerca").click(function(data){
 
@@ -377,17 +378,17 @@ $(document).ready(function(){
                             google.maps.event.clearListeners(map, 'idle');
                             google.maps.event.addListener(map, 'idle', mapWait);
                             /*
-                         * Se la infowindow era chiusa o era posizionata
-                         * su un altro marker, la posizioniamo su this
-                         * e carichiamo le informazioni relative.
-                         */
+                             * Se la infowindow era chiusa o era posizionata
+                             * su un altro marker, la posizioniamo su this
+                             * e carichiamo le informazioni relative.
+                             */
                             if (infowindow.marker != this.id){
                                 infowindow.marker = this.id;
                                 infowindow.setContent(this.infoHTML());
                                 infowindow.open(map, this);
                             }
                             /* Altrimenti chiudiamo la infowindow.
-                         */
+                             */
                             else {
                                 infowindow.close();
                                 infowindow.marker = null;

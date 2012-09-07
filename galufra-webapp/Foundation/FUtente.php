@@ -90,7 +90,19 @@ class FUtente extends FMysql {
 
         return false;
     }
-
+    /**
+     * Restituisce gli utenti il cui nome inizia con $nome. Utilizzato per
+     * l'autocompletamento.
+     * @access public
+     * @param String $nome
+     * @return array 
+     */
+    public function searchUtentiNome($nome) {
+        $nome = mysql_real_escape_string($nome);
+        $val = "$nome%";
+        return $this->search(array(
+            array('username', 'LIKE', $val)
+        ));
+    }
 }
-
 ?>

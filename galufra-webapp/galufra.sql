@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generato il: Ago 24, 2012 alle 19:53
+-- Generato il: Set 06, 2012 alle 15:44
 -- Versione del server: 5.5.16
 -- Versione PHP: 5.3.8
 
@@ -38,7 +38,18 @@ CREATE TABLE IF NOT EXISTS `consiglia` (
 --
 
 INSERT INTO `consiglia` (`utente`, `evento`) VALUES
-(67, 3);
+(68, 229),
+(12, 230),
+(68, 230),
+(12, 235),
+(67, 235),
+(68, 235),
+(12, 236),
+(67, 236),
+(68, 236),
+(12, 257),
+(67, 257),
+(68, 257);
 
 -- --------------------------------------------------------
 
@@ -61,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `evento` (
   PRIMARY KEY (`id_evento`),
   UNIQUE KEY `nome` (`nome`,`data`),
   KEY `id_gestore` (`id_gestore`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=255 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=261 ;
 
 --
 -- Dump dei dati per la tabella `evento`
@@ -69,15 +80,14 @@ CREATE TABLE IF NOT EXISTS `evento` (
 
 INSERT INTO `evento` (`id_evento`, `nome`, `descrizione`, `data`, `n_visite`, `n_iscritti`, `lat`, `lon`, `id_gestore`, `consigliato`, `annuncio`) VALUES
 (3, 'prova1', 'Prova :)\r\nQuesto evento si svolge a piazza Palazzo, 67100 L''Aquila.\r\nLorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '2012-11-29 00:00:00', 0, 0, 42.3508415222168, 13.398554801940918, 1, 1, 'ghg2\n'),
-(172, 'festa', 'Festa in maschera! ingresso libero', '2012-08-25 00:00:00', 0, 0, 42.4199096, 14.290051800000015, 63, 0, NULL),
-(224, 'prova 2', 'Arrosticini,Musica,Birra e tanto divertimento!!!!!', '2012-08-31 00:00:00', 0, 0, 42.3525448, 13.402602099999967, 67, 0, 'venite in tanti!!!'),
-(228, 'prova 3', 'serata latino americano. ingresso gratuito!', '2012-08-27 00:00:00', 0, 0, 42.3527354, 13.401868899999954, 67, 0, ''''''''''''''''''''''''''),
-(229, 'prova 4', 'cena sociale. Azienda Regatti! 10 euro/persona', '2012-08-27 00:00:00', 0, 0, 42.3527354, 13.401868899999954, 67, 0, 'L''evento'),
-(230, 'Mostra: arte contemporanea', 'ingresso 5 euro', '2012-08-27 00:00:00', 0, 0, 42.3525448, 13.402602099999967, 68, 0, ''),
-(231, 'Evento di prova', 'Ecco un altro evento', '2012-08-27 00:00:00', 0, 0, 42.4617902, 14.216089799999963, 68, 0, 'Annuncio'),
-(234, 'festa ', 'tutti in strada!!! ', '2012-08-27 00:00:00', 0, 0, 42.46780220000001, 14.215347400000041, 69, 0, 'Nessun Costo D''ingresso'),
-(235, 'prova 5', 'Serata al più spettacolare grattacielo di NYC. Contattare teo@teo.com', '2012-08-30 00:00:00', 0, 0, 40.7484395, -73.9856709, 67, 0, ''),
-(236, 'prova 6', '\nprova ', '2012-08-30 00:00:00', 0, 0, 42.3487451, 13.401908700000035, 67, 0, ''),
+(172, 'festa', 'Festa in maschera! ingresso libero', '2012-09-25 00:00:00', 0, 0, 42.4199096, 14.290051800000015, 63, 0, NULL),
+(228, 'prova 3', 'serata latino americano. ingresso gratuito!', '2012-09-27 00:00:00', 0, 0, 42.3527354, 13.401868899999954, 67, 0, ''''''''''''''''''''''''''),
+(229, 'prova 4', 'cena sociale. Azienda Regatti! 10 euro/persona', '2012-09-16 00:00:00', 0, 0, 42.3527354, 13.401868899999954, 67, 0, 'L''evento'),
+(230, 'Arte contemporanea', 'ingresso 5 euro', '2012-09-27 00:00:00', 0, 0, 42.3525448, 13.402602099999967, 68, 0, ''),
+(231, 'Evento di prova', 'Ecco un altro evento', '2012-09-28 00:00:00', 0, 0, 42.4617902, 14.216089799999963, 68, 0, 'Annuncio'),
+(234, 'festa ', 'tutti in strada!!! ', '2012-09-17 00:00:00', 0, 0, 42.46780220000001, 14.215347400000041, 69, 0, 'Nessun Costo D''ingresso'),
+(235, 'prova 5', 'Serata allo spettacolare grattacielo di NYC. Contattare teo@teo.com', '2012-09-30 00:00:00', 0, 0, 40.7484395, -73.9856709, 67, 0, ''),
+(236, 'prova 6', 'prova ', '2012-09-30 00:00:00', 0, 0, 42.3487451, 13.401908700000035, 67, 0, ''),
 (254, 'Ciao L''''Aquila', 'una prova per vedere la data', '2012-12-22 20:44:00', 0, 0, 42.5074019, 14.161013599999933, 67, 0, ''),
 (257, 'programmazione web', 'Presentazione e discussione progetto galufra web-app', '2012-09-14 10:00:00', 0, 0, 42.35219, 13.39671999999996, 67, 0, ''),
 (260, 'Party di fine estate', 'Festa di fine estate, organizziamo hall di musica di vario genere. Ingresso gratuito!', '2012-09-17 22:00:00', 0, 0, 42.354581, 13.391628399999945, 106, 0, '');
@@ -104,10 +114,10 @@ CREATE TABLE IF NOT EXISTS `messaggio` (
 --
 
 INSERT INTO `messaggio` (`id_mess`, `testo`, `data`, `evento`, `utente`) VALUES
-(33, 'È finita la pacchia', '2012-08-09 00:00:00', 3, 'teo'),
+(33, 'Ãˆ finita la pacchia', '2012-08-09 00:00:00', 3, 'teo'),
 (68, '45t34g3', '2012-08-12 00:00:00', 234, 'teo'),
 (69, 'thgtwh', '2012-08-12 00:00:00', 234, 'teo'),
-(70, 'E cosa si farà ??', '2012-08-13 00:00:00', 234, 'teo'),
+(70, 'E cosa si farÃ Â ??', '2012-08-13 00:00:00', 234, 'teo'),
 (71, 'eh si', '2012-08-13 00:00:00', 3, 'simo'),
 (72, 'l''amico', '2012-08-16 00:00:00', 229, 'teo'),
 (73, '''''''''''''', '2012-08-17 00:00:00', 228, 'teo'),
@@ -133,11 +143,11 @@ INSERT INTO `messaggio` (`id_mess`, `testo`, `data`, `evento`, `utente`) VALUES
 (93, '''''''', '2012-08-22 17:57:45', 3, 'teo'),
 (94, '''''', '2012-08-22 17:57:47', 3, 'teo'),
 (95, '''', '2012-08-22 17:57:49', 3, 'teo'),
-(96, 'ààà', '2012-08-22 18:03:47', 3, 'teo'),
+(96, 'Ã Ã Ã ', '2012-08-22 18:03:47', 3, 'teo'),
 (100, '''''', '2012-08-22 18:53:18', 236, 'teo'),
 (102, '''''''''', '2012-08-22 19:32:41', 236, 'teo'),
 (106, 'l''aia', '2012-08-22 20:47:32', 254, 'teo'),
-(107, 'Questo è un commento di prova', '2012-08-24 19:37:15', 234, 'luke');
+(107, 'Questo Ã¨ un commento di prova', '2012-08-24 19:37:15', 234, 'luke');
 
 -- --------------------------------------------------------
 
@@ -162,20 +172,9 @@ INSERT INTO `preferisce` (`utente`, `evento`) VALUES
 (68, 3),
 (67, 229),
 (67, 230),
-(77, 231);
-
--- --------------------------------------------------------
-
---
--- Struttura della tabella `session`
---
-
-CREATE TABLE IF NOT EXISTS `session` (
-  `uid` varchar(32) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `creation_date` int(11) NOT NULL,
-  KEY `user_id` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+(77, 231),
+(12, 257),
+(77, 257);
 
 -- --------------------------------------------------------
 
@@ -200,7 +199,7 @@ CREATE TABLE IF NOT EXISTS `utente` (
   PRIMARY KEY (`id_utente`),
   UNIQUE KEY `username` (`username`),
   UNIQUE KEY `mail` (`email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=79 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=80 ;
 
 --
 -- Dump dei dati per la tabella `utente`
@@ -241,5 +240,3 @@ ALTER TABLE `preferisce`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-

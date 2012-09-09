@@ -109,6 +109,7 @@ class CCrea {
                     if ($this->utente->isSuperuser())
                         $view->isSuperuser();
 
+                    $view->pulsante_cerca = true;
                     $view->mostraPagina();
                    
                 }

@@ -13,10 +13,9 @@ lon = {$evento->getLon()};
     </div>
     <h3>Data: {$data}</h3>
 
-    <h4>Partecipanti: {$partecipanti}</h4>
+    <h4 id='partecipanti'>Partecipanti: {$partecipanti}</h4>
 
     <p id='descrizione'>{$evento->getDescrizione()}</p>
-
 
     <div id='map_canvas' style='height: 300px'></div>
 

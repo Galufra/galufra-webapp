@@ -180,8 +180,9 @@ $(document).ready(function(){
 
     
 
-    //controllo se l'email è valida
+    //controllo se l'email è valida e unica
     $('#email').focusout(function(){
+        emailValidate = true;
         var reg = /^[\w\.\-]+@([\w\-]+\.)+[a-zA-Z]/;
         var email = $('#email').val();
         if( (email == '') || (reg.test(email)==false)){
@@ -192,11 +193,33 @@ $(document).ready(function(){
 
         }else{
 
-            emailValidate = true
+            $.get("CHome.php",{
+
+                'action' : "uniqueEmail",
+                'email' : $('#email').val()
+
+            }).done(function(data){
+
+                var response = jQuery.parseJSON(data);
+                if(!response.unique){
+
+                    showMessage("Email già in uso");
+                    $('#email').css("color","red");
+                    emailValidate = false;
+
+                }else{
+                    $('#email').css("color","black");
+                    emailValidate = true;
+                }
+
+
+
+            });
         }
 
         return true;
     });
+
 
     //riporto il colore del testo del campo email a nero
     $('#email').focus(function(){

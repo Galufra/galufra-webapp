@@ -90,6 +90,25 @@ class FUtente extends FMysql {
 
         return false;
     }
+
+    /**
+     * Indica se una data email è gia utilizzata oppure no.
+     * @access public
+     * @param String $email
+     * @return Boolean
+     */
+    public function isEmailUnique($email) {
+        $query = "SELECT COUNT(*) FROM $this->_table WHERE email = '" . $email . "'";
+        $result = $this->makeQuery($query);
+        if ($result[0]) {
+            $result = $this->getResult();
+            if ($result[1]["COUNT(*)"] == 0)
+                return true;
+        }
+
+        return false;
+    }
+
     /**
      * Restituisce gli utenti il cui nome inizia con $nome. Utilizzato per
      * l'autocompletamento.
@@ -104,5 +123,7 @@ class FUtente extends FMysql {
             array('username', 'LIKE', $val)
         ));
     }
+
 }
+
 ?>

@@ -169,6 +169,10 @@ class CHome {
                 $this->isUniqueUname();
                 break;
 
+            case('uniqueEmail'):
+                $this->isUniqueEmail();
+                break;
+
             case('reg'):
                 //Gestisco la registrazione
                 if (!$this->utente
@@ -417,6 +421,25 @@ class CHome {
         exit;
     }
 
+    /**
+     * Controlla se l'email è unica. Utilizzato lato client per controlli via javascript
+     * Utilizza il metodo FUtente::isEmailUnique($email)
+     *
+     * @access public
+     */
+    public function isUniqueEmail() {
+        $result = true;
+        if (isset($_GET['email']) && $_GET['email'] != null) {
+            $u = new FUtente();
+            $u->connect();
+            $result = $u->isEmailUnique(mysql_real_escape_string($_GET['email']));
+        }
+        $out = array(
+            'unique' => "$result"
+        );
+        echo json_encode($out);
+        exit;
+    }
 }
 
 $home = new CHome();

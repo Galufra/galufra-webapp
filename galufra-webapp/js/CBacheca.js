@@ -2,22 +2,25 @@ $(document).ready(function(){
     updatePreferiti();
     updatePersonali();
     updateBacheca(false);
+    
 
-
-	var map = initializeMap();
-	var coord = new google.maps.LatLng(
-		parseFloat(lat),
+    var map = initializeMap();
+    var coord = new google.maps.LatLng(
+        parseFloat(lat),
         parseFloat(lon)
-    );
-	map.setCenter(coord);
-	marker = new google.maps.Marker({
-		'position':coord,
+        );
+    map.setCenter(coord);
+    marker = new google.maps.Marker({
+        'position':coord,
         'map':map
-	});
+    });
     //poichè non si visualizza una mappa non mostro eventi consigliati nella
     //parte di mappa che dovrebbe esserci
     updateConsigliati(null,true);
 
+    /*$('#partecipanti').mouseover(function() {
+        $('#elenco_part').append('<div>Handler for .mouseover() called.</div>').show();
+    });*/
 
     //inserisce un messaggio in bacheca
     $('#inserisciMessaggio').click(function(){

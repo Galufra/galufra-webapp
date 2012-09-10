@@ -182,14 +182,15 @@ class CHome {
                         && (isset($_POST["mail"]) && $_POST["mail"] != null)) {
 
                     $uname = mysql_real_escape_string(htmlspecialchars($_POST['username']));
+                    $mail = mysql_real_escape_string(htmlspecialchars($_POST['mail']));
                     //è unico l'username?
-                    if ($u->isUnique($uname)) {
+                    if ($u->isUnique($uname) && $u->isEmailUnique($mail)) {
 
 
                         $pwd = mysql_real_escape_string(htmlspecialchars($_POST['password']));
                         $pwd1 = mysql_real_escape_string(htmlspecialchars($_POST['password1']));
                         $citta = mysql_real_escape_string(htmlspecialchars($_POST['citta']));
-                        $mail = mysql_real_escape_string(htmlspecialchars($_POST['mail']));
+                        
                         if ($pwd == $pwd1) {
                             $registra = new CRegistrazione($uname, $pwd, $citta, $mail);
                             session_destroy();

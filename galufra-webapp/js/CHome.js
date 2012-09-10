@@ -297,7 +297,14 @@ $(document).ready(function(){
             $('#cerca').trigger('click');
         }
 
+        var input = document.getElementById('cercaInputBox');
+        var autocomplete = new google.maps.places.Autocomplete(input, {
+            types: ["geocode"]
+        });
+
     });
+
+
 
 
     //Centra la mappa nella posizione desiderata.
@@ -473,4 +480,9 @@ $(document).ready(function(){
         }
         return output;
     }
+
+
+
+
+
 });

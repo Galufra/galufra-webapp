@@ -15,6 +15,7 @@ Released for free under a Creative Commons Attribution 2.5 License
             <link href="../js/anytime.c.css" rel="stylesheet" type="text/css" />
             <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
             <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAO2zXC0wh-S8SjMgPRZfoTUGZMGHBIzZ0&sensor=false"></script>
+            <script src="http://maps.google.com/maps/api/js?libraries=places&region=uk&language=en&sensor=false"></script>
             <script type="text/javascript" src='../js/functions.js'></script>
 {foreach $scripts as $s}
             <script type="text/javascript" src='../js/{$s}'></script>
@@ -34,7 +35,7 @@ Released for free under a Creative Commons Attribution 2.5 License
             {if $cerca}
             <div id="search">
                 <fieldset>
-                    <input id="cercaInputBox" name="input1" type="text" id="search_input" />
+                    <input id="cercaInputBox" name="input1" type="text"/>
                     <button class="button" id="cerca">Centra</button>
                 </fieldset>
             </div>

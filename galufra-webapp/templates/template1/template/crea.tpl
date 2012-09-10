@@ -17,11 +17,6 @@
                  <td><input type='text' id='indirizzo' name='indirizzo' /></td>
             </tr>
             <tr>
-                <td><label>Descrizione:</label></td>
-                <td><textarea id='descrizione' rows=4
-                name='descrizione'></textarea></td>
-            </tr>
-            <tr>
                 <td><button id='submit' class = "button">crea</button></td>
             </tr>
         </table>

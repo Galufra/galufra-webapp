@@ -6,6 +6,21 @@ $(document).ready(function(){
     updateConsigliati(null,true);
     
     var coord;
+   
+    
+    $("#indirizzo").keypress(function (event){
+
+        var input = document.getElementById('indirizzo');
+        var autocomplete = new google.maps.places.Autocomplete(input, {
+            types: ["geocode"]
+        });
+
+        if(event.which == 13){
+            $('#submit').trigger('focus');
+        }
+        return true;
+        
+    });
 
     //si preoccupa della creazione dell'evento'
     $('#submit').click(function(){
@@ -77,7 +92,7 @@ $(document).ready(function(){
     // L'utente fornisce un indirizzo: visualizza la mappa e
     // posiziona un marker per permettere al gestore di controllare
     // la corretta "traduzione" dell'indirizzo da parte del server Google
-    $('#indirizzo').change(function(){
+    $('#indirizzo').focusout(function(){
         // Centra la mappa sull'indirizzo appena fornito
         geocoder = new google.maps.Geocoder();
         geocoder.geocode(
@@ -94,10 +109,17 @@ $(document).ready(function(){
                     google.maps.event.trigger(map, 'resize');
                     coord = results[0].geometry.location;
                     map.setCenter(coord);
+                    var infowindow = new google.maps.InfoWindow({
+                        'maxWidth': 400
+                    });
                     marker = new google.maps.Marker({
                         'position':coord,
                         'map':map
                     });
+                    infowindow.marker = marker;
+                    infowindow.setContent(inputDesc());
+                    infowindow.open(map,marker);
+                    
                 });
             }
             else {
@@ -109,5 +131,15 @@ $(document).ready(function(){
         }
         );
     });
+
+    function inputDesc(){
+        var output;
+        output = '<div class="infowindow">'+
+            '<h4>Descrizione dell\'evento:</h4>'+
+            '<textarea id="descrizione" rows=4'+
+            'name="descrizione"></textarea></div>';
+
+    return output;
+    }
 
 });

@@ -20,7 +20,7 @@
 <a href="#api" class="dropdown-toggle" data-toggle="dropdown">
                                     API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a>Packages</a></li>
-<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+<li><a href="../packages/Galufra.html"><i class="icon-folder-open"></i> Galufra</a></li>
 </ul>
 </li>
 <li class="dropdown" id="charts-menu">
@@ -31,7 +31,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">287</span></a></li>
+                <span class="label label-info">294</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
@@ -61,6 +61,8 @@
         </span><pre>close()</pre></a></li>
 <li class="method public inherited"><a href="#connect" title="connect :: "><span class="description">connect()
         </span><pre>connect()</pre></a></li>
+<li class="method public "><a href="#getPartecipanti" title="getPartecipanti :: Fornisce i partecipanti ad un evento."><span class="description">Fornisce i partecipanti ad un evento.</span><pre>getPartecipanti()</pre></a></li>
+<li class="method public "><a href="#isEmailUnique" title="isEmailUnique :: Indica se una data email è gia utilizzata oppure no."><span class="description">Indica se una data email è gia utilizzata oppure no.</span><pre>isEmailUnique()</pre></a></li>
 <li class="method public "><a href="#isUnique" title="isUnique :: Indica se un dato username è gia utilizzato oppure no."><span class="description">Indica se un dato username è gia utilizzato oppure no.</span><pre>isUnique()</pre></a></li>
 <li class="method public inherited"><a href="#makeQuery" title="makeQuery :: "><span class="description">makeQuery()
         </span><pre>makeQuery()</pre></a></li>
@@ -143,6 +145,41 @@
 <td>\FMysql::connect()</td>
 </tr>
 </table>
+</div></div>
+</div>
+<a name="getPartecipanti" id="getPartecipanti"></a><div class="element clickable method public getPartecipanti" data-toggle="collapse" data-target=".getPartecipanti .collapse">
+<h2>Fornisce i partecipanti ad un evento.</h2>
+<pre>getPartecipanti(int $id_evento) : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>Ritorna in caso di successo
+un array di oggetti EUtente caricati solo con username e id_utente</p></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$id_evento</h4>
+<code>int</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>array</code></div>
+</div></div>
+</div>
+<a name="isEmailUnique" id="isEmailUnique"></a><div class="element clickable method public isEmailUnique" data-toggle="collapse" data-target=".isEmailUnique .collapse">
+<h2>Indica se una data email è gia utilizzata oppure no.</h2>
+<pre>isEmailUnique(String $email) : Boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>access</th>
+<td>public</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$email</h4>
+<code>String</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>Boolean</code></div>
 </div></div>
 </div>
 <a name="isUnique" id="isUnique"></a><div class="element clickable method public isUnique" data-toggle="collapse" data-target=".isUnique .collapse">
@@ -298,7 +335,7 @@ l'autocompletamento.</p></p>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a9</a> and<br>
-            generated on 2012-09-07T18:08:09+02:00.<br></footer></div>
+            generated on 2012-09-11T16:15:49+02:00.<br></footer></div>
 </div>
 </body>
 </html>

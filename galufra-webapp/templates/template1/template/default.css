@@ -399,12 +399,12 @@ form#creaEvento input, textarea{
     color:#2582A4;
     background-color:#A4B74C;
 }
+
 .autocomplete {
     background-color: white;
 }
 
 .elenco {
-    display: inline-block;
+    display: inline-table;
     margin-left: 3em;
-
 }

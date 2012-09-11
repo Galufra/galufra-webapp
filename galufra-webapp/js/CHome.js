@@ -299,7 +299,7 @@ $(document).ready(function(){
 
         var input = document.getElementById('cercaInputBox');
         var autocomplete = new google.maps.places.Autocomplete(input, {
-            types: ["geocode"]
+            types: []
         });
 
     });

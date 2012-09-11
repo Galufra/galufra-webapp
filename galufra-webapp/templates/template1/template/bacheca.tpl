@@ -13,7 +13,11 @@ lon = {$evento->getLon()};
     </div>
     <h3>Data: {$data}</h3>
 
-    <h4 id='partecipanti'>Partecipanti: {$partecipanti}</h4>
+    <a href="#"><h4 id='partecipanti'>Partecipanti: {$partecipanti}</h4></a>
+
+    <div id="elenco_part" >
+        <a href="#" id="nascondi_elenco"><h4>nascondi</h4></a>
+    </div>
 
     <p id='descrizione'>{$evento->getDescrizione()}</p>
 

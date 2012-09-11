@@ -402,3 +402,9 @@ form#creaEvento input, textarea{
 .autocomplete {
     background-color: white;
 }
+
+.elenco {
+    display: inline-block;
+    margin-left: 3em;
+
+}

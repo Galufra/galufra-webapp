@@ -2,7 +2,8 @@ $(document).ready(function(){
     updatePreferiti();
     updatePersonali();
     updateBacheca(false);
-    
+    //nasconde la div che conterrà l'elenco partecipanti
+    $('#elenco_part').hide()
 
     var map = initializeMap();
     var coord = new google.maps.LatLng(
@@ -18,9 +19,32 @@ $(document).ready(function(){
     //parte di mappa che dovrebbe esserci
     updateConsigliati(null,true);
 
-    /*$('#partecipanti').mouseover(function() {
-        $('#elenco_part').append('<div>Handler for .mouseover() called.</div>').show();
-    });*/
+    //Stampa una lista di partecipanti all'evento'
+    $('#partecipanti').live("click",function() {
+        var Elenco = $('#elenco_part');
+        Elenco.find('.elenco').remove();
+        $.get("CBacheca.php",{
+            'action': "getPartecipanti"
+        }).success(function(data){
+            var response = jQuery.parseJSON(data);
+            if(response.count>0){
+                var utenti = response.utenti;
+                $.each(utenti, function(i){
+                    $('<div class="elenco">')
+                    .append($('<a href="CProfilo.php?name='+utenti[i].username+'">'+utenti[i].username+'</a>'))
+                    .appendTo(Elenco);
+                });
+                $('#elenco_part').show('slow');
+            }
+        });
+    });
+
+    //nasconde l'elenco dei partecipanti'
+    $('#nascondi_elenco').live("click",function(){
+
+       $('#elenco_part').hide('slow');
+
+    });
 
     //inserisce un messaggio in bacheca
     $('#inserisciMessaggio').click(function(){

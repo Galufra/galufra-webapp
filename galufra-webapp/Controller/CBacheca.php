@@ -90,6 +90,10 @@ class Cbacheca {
                 $this->deleteMessage();
                 break;
 
+            case ('getPartecipanti'):
+                $this->getPartecipanti();
+                break;
+
             case('eliminaEvento'):
                 $this->eliminaEvento();
                 break;
@@ -274,6 +278,32 @@ class Cbacheca {
             $response = array(
                 'message' => 'Non hai i permessi per questa azione'
             );
+
+        echo json_encode($response);
+    }
+
+    /**
+     * Fornisce i partecipanti ad un evento (l'id è preso dalla sessione).
+     * Utilizza FUtente::getPartecipanti($id)
+     *
+     * @access public
+     * @return Json
+     */
+    public function getPartecipanti(){
+        $response = array('utenti' => null, 'count' => 0);
+        if($this->evento && $this->utente){
+            $u = new FUtente();
+            $u->connect();
+            $result = $u->getPartecipanti($this->evento->getIdEvento());
+            if($result){
+                $response = array (
+                       'utenti' => $result,
+                       'count' => $this->numPartecipanti
+                        );
+            }
+        }
+
+        echo json_encode($response);
     }
 
 }

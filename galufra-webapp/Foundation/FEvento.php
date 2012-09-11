@@ -289,6 +289,7 @@ class FEvento extends FMysql {
         $this->makeQuery($query);
     }
 
+
 }
 
 ?>

@@ -123,6 +123,24 @@ class FUtente extends FMysql {
             array('username', 'LIKE', $val)
         ));
     }
+    /**
+     * Fornisce i partecipanti ad un evento. Ritorna in caso di successo
+     * un array di oggetti EUtente caricati solo con username e id_utente
+     * 
+     * @param int $id_evento
+     * @return array
+     */
+    public function getPartecipanti($id_evento) {
+        $query = "SELECT username,id_utente FROM $this->_table WHERE id_utente IN (
+            SELECT utente FROM preferisce WHERE evento = $id_evento)";
+        $return = $this->makeQuery($query);
+        if ($return[0]) {
+            $result = $this->getObjectArray();
+            return $result;
+        }
+        else
+            return false;
+    }
 
 }
 

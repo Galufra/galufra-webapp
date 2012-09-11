@@ -123,6 +123,7 @@ class FUtente extends FMysql {
             array('username', 'LIKE', $val)
         ));
     }
+
     /**
      * Fornisce i partecipanti ad un evento. Ritorna in caso di successo
      * un array di oggetti EUtente caricati solo con username e id_utente

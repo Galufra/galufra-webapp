@@ -178,7 +178,46 @@ $(document).ready(function(){
         return true;
     });
 
+    //controllo che la password sia maggiore di 6 caratteri
+    $('#password').focusout(function(){
+        var password = $('#password').val()
+        if(password.length < 6){
+            showMessage("La password è troppo piccola");
+            $('#password').css("color","red");
+            passwordValidate = false;
+        }else{
+            passwordValidate = true;
+        }
+        return true;
+
+    });
+
+    //riporto il colore del testo del campo password a nero
+    $('#password').focus(function(){
+        $('#password').css("color","black");
+        return true;
+    });
     
+    //controllo se le password immesse coincidono
+    $('#password1').focusout(function(){
+
+        if(!($('#password').val() == $('#password1').val())) {
+            showMessage("Le password non coincidono");
+            $('#password1').css("color","red");
+            password1Validate = false;
+        }else{
+            password1Validate = true;
+        }
+
+        return true;
+
+    });
+
+    //riporto il colore del testo del campo password1 a nero
+    $('#password1').focus(function(){
+        $('#password1').css("color","black");
+        return true;
+    });
 
     //controllo se l'email è valida e unica
     $('#email').focusout(function(){
@@ -227,9 +266,8 @@ $(document).ready(function(){
         return true
     });
 
-    //Viene fatto il controllo della registrazione
-    //utilizzando delle espressioni regolari per validare
-    //i campi. Se c'è qualcosa che non va la richiesta di registrazione
+    //Viene fatto il controllo della registrazione.
+    //Se c'è qualcosa che non va la richiesta di registrazione
     //viene bloccata
     $("#regbutton").click(function(data){
         var reg1=/\w/;
@@ -244,7 +282,9 @@ $(document).ready(function(){
             ((pass1 == '') || (reg1.test(pass1)==false))||
             ((citta == '') || (reg1.test(citta)==false))||
             (emailValidate == false) ||
-            (usernameValidate == false) )
+            (usernameValidate == false) ||
+            (passwordValidate == false) ||
+            (password1Validate == false))
             {
 
 

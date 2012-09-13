@@ -158,8 +158,7 @@ INSERT INTO `messaggio` (`id_mess`, `testo`, `data`, `evento`, `utente`) VALUES
 CREATE TABLE IF NOT EXISTS `preferisce` (
   `utente` int(11) NOT NULL,
   `evento` int(11) NOT NULL,
-  PRIMARY KEY (`utente`,`evento`),
-  KEY `locale` (`evento`)
+  PRIMARY KEY (`utente`,`evento`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --

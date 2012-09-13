@@ -2,6 +2,13 @@ $(document).ready(function(){
     
 
     var map = initializeMap();
+
+    if (!navigator.cookieEnabled) {
+        $('.colTwo').prepend($('<p>Devi abilitare i cookie per poter utilizzare'
+            +' correttamente l\'App</p>').css('color',"#2582A4"));
+
+    }
+    
     //questa variabile mi servirà per sapere cosa mostrare all'utente'
     var logged = false;
     /*
